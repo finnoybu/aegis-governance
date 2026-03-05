@@ -1,6 +1,11 @@
 config:
   default: true
-  MD013: false
+  MD013: false  # line-length (too restrictive)
+  MD033: false  # no-inline-html (needed for responsive images)
+  MD041: false  # first-line-heading (templates start with H2)
+  MD025: false  # single-title (FAQ uses multiple H1s by design)
+  MD040: false  # fenced-code-language (pseudo-code doesn't need language)
+  MD001: false  # heading-increment (intentional skips for visual hierarchy)
 
 globs:
   - "**/*.md"
