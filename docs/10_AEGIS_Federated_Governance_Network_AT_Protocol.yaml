@@ -1,0 +1,15 @@
+document:
+  title: "AEGIS Federated Governance Network via AT Protocol"
+  version: "0.1"
+  status: "concept"
+  author: "Ken Tannenbaum (concept origin)"
+  date: "2026-03-04"
+
+summary: >
+  Proposal for a federated AI governance network where AEGIS-enabled systems
+  communicate governance policies, risk signals, circumvention techniques,
+  and compliance attestations using the AT Protocol.
+
+core_concept:
+  description: >
+    AEGIS nodes participate in a decentralized governance intelligence network.
