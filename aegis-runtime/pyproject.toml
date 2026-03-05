@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aegis-runtime"
+version = "0.1.0"
+description = "Reference Python implementation of the AEGIS governance runtime."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+  { name = "AEGIS Project" }
+]
+
+requires-python = ">=3.10"
+
+keywords = [
+  "ai",
+  "ai-governance",
+  "security",
+  "policy-engine",
+  "capability-security",
+  "ai-safety"
+]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Topic :: Security",
+  "Topic :: Software Development :: Libraries",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License"
+]
+
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/aegis-project/aegis-governance"
+Repository = "https://github.com/aegis-project/aegis-governance"
+
+[tool.setuptools]
+packages = ["aegis"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
