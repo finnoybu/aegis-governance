@@ -13,8 +13,6 @@ updates:
     labels:
       - "dependencies"
       - "github-actions"
-    reviewers:
-      - "finnoybu"
     open-pull-requests-limit: 5
 
   # Python dependencies for aegis-runtime
@@ -30,6 +28,4 @@ updates:
     labels:
       - "dependencies"
       - "python"
-    reviewers:
-      - "finnoybu"
     open-pull-requests-limit: 5
