@@ -284,5 +284,5 @@ class TestAGPResponse:
             restored = AGPResponse.from_json(json_str)
             assert restored.decision == decision
             assert restored.decision.value == decision.value
-        assert resp.conditions == []
-        assert isinstance(resp.timestamp, datetime)
+            assert restored.conditions == []
+            assert isinstance(restored.timestamp, datetime)

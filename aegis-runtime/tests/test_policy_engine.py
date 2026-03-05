@@ -127,7 +127,7 @@ class TestDenyPolicy:
             name="Deny (no match)",
             description="",
             effect=PolicyEffect.DENY,
-            conditions=[PolicyCondition(evaluate=always_false, description="")],
+            conditions=[PolicyCondition(evaluate=always_false, description="always false")],
             priority=50,
         ))
         engine.add_policy(make_allow_policy())
@@ -196,3 +196,167 @@ class TestConditionalPolicy:
         ))
         assert engine.evaluate(make_request(agent_id="agent-A")).decision == Decision.APPROVED
         assert engine.evaluate(make_request(agent_id="agent-B")).decision == Decision.DENIED
+
+
+class TestValidatePolicy:
+    """Test policy validation."""
+
+    def test_valid_policy_passes(self, engine):
+        policy = make_allow_policy()
+        engine.validate_policy(policy)  # Should not raise
+
+    def test_empty_policy_id_raises(self, engine):
+        with pytest.raises(AEGISPolicyError, match="id must not be empty"):
+            engine.validate_policy(Policy(
+                id="",
+                name="Test",
+                description="",
+                effect=PolicyEffect.ALLOW,
+                conditions=[],
+            ))
+
+    def test_empty_policy_name_raises(self, engine):
+        with pytest.raises(AEGISPolicyError, match="name must not be empty"):
+            engine.validate_policy(Policy(
+                id="pol-1",
+                name="",
+                description="",
+                effect=PolicyEffect.ALLOW,
+                conditions=[],
+            ))
+
+    def test_invalid_effect_raises(self, engine):
+        policy = make_allow_policy()
+        policy.effect = "invalid"  # type: ignore
+        with pytest.raises(AEGISPolicyError, match="must be ALLOW or DENY"):
+            engine.validate_policy(policy)
+
+    def test_non_callable_condition_raises(self, engine):
+        with pytest.raises(AEGISPolicyError, match="not callable"):
+            engine.validate_policy(Policy(
+                id="pol-1",
+                name="Bad condition",
+                description="",
+                effect=PolicyEffect.ALLOW,
+                conditions=[PolicyCondition(evaluate="not callable", description="bad")],  # type: ignore
+            ))
+
+    def test_empty_condition_description_raises(self, engine):
+        with pytest.raises(AEGISPolicyError, match="description must not be empty"):
+            engine.validate_policy(Policy(
+                id="pol-1",
+                name="Test",
+                description="",
+                effect=PolicyEffect.ALLOW,
+                conditions=[PolicyCondition(evaluate=always_true, description="")],
+            ))
+
+    def test_add_policy_validates(self, engine):
+        """Test that add_policy calls validate_policy."""
+        with pytest.raises(AEGISPolicyError):
+            engine.add_policy(Policy(
+                id="",  # Invalid
+                name="Test",
+                description="",
+                effect=PolicyEffect.ALLOW,
+                conditions=[],
+            ))
+
+
+class TestFindPoliciesByEffect:
+    """Test finding policies by effect type."""
+
+    def test_find_all_allow_policies(self, engine):
+        engine.add_policy(make_allow_policy("p1", priority=100))
+        engine.add_policy(make_allow_policy("p2", priority=200))
+        engine.add_policy(make_deny_policy("p3", priority=50))
+        
+        allow_policies = engine.find_policies_by_effect(PolicyEffect.ALLOW)
+        assert len(allow_policies) == 2
+        assert [p.id for p in allow_policies] == ["p1", "p2"]  # Sorted by priority
+
+    def test_find_all_deny_policies(self, engine):
+        engine.add_policy(make_allow_policy("p1"))
+        engine.add_policy(make_deny_policy("p2", priority=100))
+        engine.add_policy(make_deny_policy("p3", priority=50))
+        
+        deny_policies = engine.find_policies_by_effect(PolicyEffect.DENY)
+        assert len(deny_policies) == 2
+        assert [p.id for p in deny_policies] == ["p3", "p2"]  # Sorted by priority
+
+    def test_no_matching_effect_returns_empty(self, engine):
+        engine.add_policy(make_allow_policy())
+        deny_policies = engine.find_policies_by_effect(PolicyEffect.DENY)
+        assert deny_policies == []
+
+
+class TestFindMatchingPolicies:
+    """Test finding policies that match a request."""
+
+    def test_find_matching_policies(self, engine):
+        # Only p1 will match this request
+        engine.add_policy(Policy(
+            id="p1",
+            name="Match agent-1",
+            description="",
+            effect=PolicyEffect.ALLOW,
+            conditions=[
+                PolicyCondition(
+                    evaluate=lambda req: req.agent_id == "agent-1",
+                    description="agent is agent-1",
+                )
+            ],
+        ))
+        engine.add_policy(Policy(
+            id="p2",
+            name="Match agent-2",
+            description="",
+            effect=PolicyEffect.ALLOW,
+            conditions=[
+                PolicyCondition(
+                    evaluate=lambda req: req.agent_id == "agent-2",
+                    description="agent is agent-2",
+                )
+            ],
+        ))
+        
+        matching = engine.find_matching_policies(make_request(agent_id="agent-1"))
+        assert len(matching) == 1
+        assert matching[0].id == "p1"
+
+    def test_find_matching_multiple(self, engine):
+        # Both policies will match
+        engine.add_policy(Policy(
+            id="p1",
+            name="Always true 1",
+            description="",
+            effect=PolicyEffect.ALLOW,
+            conditions=[PolicyCondition(evaluate=always_true, description="always matches")],
+        ))
+        engine.add_policy(Policy(
+            id="p2",
+            name="Always true 2",
+            description="",
+            effect=PolicyEffect.ALLOW,
+            conditions=[PolicyCondition(evaluate=always_true, description="always matches")],
+        ))
+        
+        matching = engine.find_matching_policies(make_request())
+        assert len(matching) == 2
+
+    def test_find_matching_skips_disabled(self, engine):
+        policy = make_allow_policy("p1")
+        policy.enabled = False
+        engine.add_policy(policy)
+        engine.add_policy(make_allow_policy("p2"))
+        
+        matching = engine.find_matching_policies(make_request())
+        assert len(matching) == 1
+        assert matching[0].id == "p2"
+
+    def test_find_matching_sorted_by_priority(self, engine):
+        engine.add_policy(make_allow_policy("p1", priority=300))
+        engine.add_policy(make_allow_policy("p2", priority=100))
+        
+        matching = engine.find_matching_policies(make_request())
+        assert [p.id for p in matching] == ["p2", "p1"]

@@ -24,6 +24,7 @@ request against the same policy set always yields the same outcome.
 
 from __future__ import annotations
 
+import threading
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import Callable
@@ -45,10 +46,10 @@ class PolicyCondition:
 
     Parameters
     ----------
-    evaluate:
+    evaluate : callable
         A callable ``(AGPRequest) -> bool``.  Must be a pure function –
         side-effects are prohibited.
-    description:
+    description : str
         Human-readable explanation used in audit output.
     """
 
@@ -62,21 +63,21 @@ class Policy:
 
     Parameters
     ----------
-    id:
+    id : str
         Unique identifier.
-    name:
+    name : str
         Short human-readable label.
-    description:
+    description : str
         Longer description of the policy's intent.
-    effect:
+    effect : PolicyEffect
         Whether a match allows or denies the action.
-    conditions:
+    conditions : list[PolicyCondition]
         All conditions must match for the policy to apply.
-    priority:
+    priority : int, optional
         Evaluation order; lower values are evaluated first.
         Deny policies are conventionally given lower (higher-priority)
         numbers than allow policies.
-    enabled:
+    enabled : bool, optional
         Disabled policies are skipped during evaluation.
     """
 
@@ -91,7 +92,19 @@ class Policy:
 
 @dataclass(frozen=True)
 class PolicyEvaluation:
-    """The outcome of evaluating a single policy against a request."""
+    """The outcome of evaluating a single policy against a request.
+    
+    Parameters
+    ----------
+    policy_id : str
+        The policy ID evaluated.
+    policy_name : str
+        The policy name.
+    effect : str
+        The effect ("allow" or "deny").
+    matched : bool
+        Whether the policy's conditions matched the request.
+    """
 
     policy_id: str
     policy_name: str
@@ -101,7 +114,17 @@ class PolicyEvaluation:
 
 @dataclass(frozen=True)
 class PolicyResult:
-    """Aggregated result of evaluating all policies."""
+    """Aggregated result of evaluating all policies.
+    
+    Parameters
+    ----------
+    decision : Decision
+        The final governance decision.
+    reason : str
+        Human-readable explanation of the decision.
+    evaluations : list[PolicyEvaluation]
+        Per-policy evaluation trace.
+    """
 
     decision: Decision
     reason: str
@@ -110,6 +133,8 @@ class PolicyResult:
 
 class PolicyEngine:
     """Evaluates an ordered set of :class:`Policy` rules deterministically.
+
+    All operations are thread-safe via internal locking.
 
     Usage::
 
@@ -120,6 +145,7 @@ class PolicyEngine:
 
     def __init__(self) -> None:
         self._policies: dict[str, Policy] = {}
+        self._lock = threading.Lock()
 
     # ------------------------------------------------------------------
     # Policy management
@@ -128,26 +154,164 @@ class PolicyEngine:
     def add_policy(self, policy: Policy) -> None:
         """Register a policy.
 
+        Parameters
+        ----------
+        policy : Policy
+            The policy to register.
+
         Raises
         ------
         ValueError
             If a policy with the same ID already exists.
+        AEGISPolicyError
+            If the policy is invalid.
         """
-        if policy.id in self._policies:
-            raise ValueError(f"Policy '{policy.id}' is already registered.")
-        self._policies[policy.id] = policy
+        self.validate_policy(policy)
+        with self._lock:
+            if policy.id in self._policies:
+                raise ValueError(f"Policy '{policy.id}' is already registered.")
+            self._policies[policy.id] = policy
 
     def remove_policy(self, policy_id: str) -> None:
-        """Unregister a policy (no-op if not found)."""
-        self._policies.pop(policy_id, None)
+        """Unregister a policy (no-op if not found).
+        
+        Parameters
+        ----------
+        policy_id : str
+            The policy ID to remove.
+        """
+        with self._lock:
+            self._policies.pop(policy_id, None)
 
     def get_policy(self, policy_id: str) -> Policy | None:
-        """Look up a policy by ID."""
-        return self._policies.get(policy_id)
+        """Look up a policy by ID.
+        
+        Parameters
+        ----------
+        policy_id : str
+            The policy ID to retrieve.
+            
+        Returns
+        -------
+        Policy or None
+            The policy if found, None otherwise.
+        """
+        with self._lock:
+            return self._policies.get(policy_id)
 
     def list_policies(self) -> list[Policy]:
-        """Return all registered policies sorted by priority."""
-        return sorted(self._policies.values(), key=lambda p: p.priority)
+        """Return all registered policies sorted by priority.
+        
+        Returns
+        -------
+        list[Policy]
+            All policies sorted by priority (lower numbers first).
+        """
+        with self._lock:
+            return sorted(self._policies.values(), key=lambda p: p.priority)
+
+    # ------------------------------------------------------------------
+    # Validation
+    # ------------------------------------------------------------------
+
+    def validate_policy(self, policy: Policy) -> None:
+        """Validate policy structure and integrity.
+        
+        Checks:
+        - Policy ID is non-empty
+        - Policy name is non-empty
+        - Effect is valid (ALLOW or DENY)
+        - All conditions have callable evaluate functions
+        
+        Parameters
+        ----------
+        policy : Policy
+            The policy to validate.
+            
+        Raises
+        ------
+        AEGISPolicyError
+            If the policy is invalid.
+        """
+        if not policy.id or not policy.id.strip():
+            raise AEGISPolicyError(
+                "Policy.id must not be empty",
+                error_code="EMPTY_POLICY_ID"
+            )
+        
+        if not policy.name or not policy.name.strip():
+            raise AEGISPolicyError(
+                "Policy.name must not be empty",
+                error_code="EMPTY_POLICY_NAME"
+            )
+        
+        if policy.effect not in (PolicyEffect.ALLOW, PolicyEffect.DENY):
+            raise AEGISPolicyError(
+                f"Policy.effect must be ALLOW or DENY, got {policy.effect}",
+                error_code="INVALID_POLICY_EFFECT"
+            )
+        
+        if not isinstance(policy.conditions, list):
+            raise AEGISPolicyError(
+                f"Policy.conditions must be a list, got {type(policy.conditions).__name__}",
+                error_code="INVALID_CONDITIONS_TYPE"
+            )
+        
+        for i, condition in enumerate(policy.conditions):
+            if not callable(condition.evaluate):
+                raise AEGISPolicyError(
+                    f"Policy condition {i}: evaluate is not callable",
+                    error_code="NONCALLABLE_CONDITION"
+                )
+            if not condition.description or not condition.description.strip():
+                raise AEGISPolicyError(
+                    f"Policy condition {i}: description must not be empty",
+                    error_code="EMPTY_CONDITION_DESCRIPTION"
+                )
+
+    def find_policies_by_effect(self, effect: PolicyEffect) -> list[Policy]:
+        """Find all policies with a specific effect.
+        
+        Parameters
+        ----------
+        effect : PolicyEffect
+            The effect to filter by (ALLOW or DENY).
+            
+        Returns
+        -------
+        list[Policy]
+            All matching policies sorted by priority.
+        """
+        with self._lock:
+            matching = [p for p in self._policies.values() if p.effect == effect]
+        return sorted(matching, key=lambda p: p.priority)
+
+    def find_matching_policies(self, request: AGPRequest) -> list[Policy]:
+        """Find all enabled policies that would match the given request.
+        
+        Parameters
+        ----------
+        request : AGPRequest
+            The request to test against all policies.
+            
+        Returns
+        -------
+        list[Policy]
+            All policies whose conditions are satisfied by the request,
+            sorted by priority.
+        """
+        matching = []
+        with self._lock:
+            for policy in self._policies.values():
+                if not policy.enabled:
+                    continue
+                try:
+                    if all(cond.evaluate(request) for cond in policy.conditions):
+                        matching.append(policy)
+                except Exception:
+                    # Silently skip policies with errors
+                    pass
+        return sorted(matching, key=lambda p: p.priority)
 
     # ------------------------------------------------------------------
     # Evaluation
@@ -168,6 +332,16 @@ class PolicyEngine:
         5. After all policies: return ``APPROVED`` if an allow matched,
            otherwise return ``DENIED`` (default-deny).
 
+        Parameters
+        ----------
+        request : AGPRequest
+            The request to evaluate.
+
+        Returns
+        -------
+        PolicyResult
+            The evaluation result with decision, reason, and trace.
+
         Raises
         ------
         AEGISPolicyError
@@ -177,10 +351,11 @@ class PolicyEngine:
         first_allow: Policy | None = None
         first_deny: Policy | None = None
 
-        sorted_policies = sorted(
-            (p for p in self._policies.values() if p.enabled),
-            key=lambda p: p.priority,
-        )
+        with self._lock:
+            sorted_policies = sorted(
+                (p for p in self._policies.values() if p.enabled),
+                key=lambda p: p.priority,
+            )
 
         for policy in sorted_policies:
             try:

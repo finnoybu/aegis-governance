@@ -107,6 +107,68 @@ class TestRegistryGrant:
         registry.revoke_all("agent-1")
         assert registry.get_agent_capabilities("agent-1") == []
 
+    def test_bulk_grant(self, registry):
+        """Test bulk grant of single capability to multiple agents."""
+        registry.register(make_cap())
+        agent_ids = ["agent-1", "agent-2", "agent-3"]
+        count = registry.bulk_grant(agent_ids, "cap-1")
+        assert count == 3
+        for agent_id in agent_ids:
+            assert registry.has_capability_for_action(agent_id, "tool_call", "anything")
+
+    def test_bulk_grant_unknown_capability_raises(self, registry):
+        """Test that bulk_grant raises for unknown capability."""
+        with pytest.raises(AEGISCapabilityError, match="Cannot grant unknown"):
+            registry.bulk_grant(["agent-1"], "nonexistent")
+
+    def test_bulk_grant_idempotent(self, registry):
+        """Test that bulk_grant doesn't duplicate if already granted."""
+        registry.register(make_cap())
+        registry.grant("agent-1", "cap-1")
+        count = registry.bulk_grant(["agent-1", "agent-2"], "cap-1")
+        # agent-1 already had it, so only agent-2 is new
+        assert count == 1
+
+    def test_bulk_revoke(self, registry):
+        """Test bulk revoke of single capability from multiple agents."""
+        registry.register(make_cap())
+        agent_ids = ["agent-1", "agent-2", "agent-3"]
+        for agent_id in agent_ids:
+            registry.grant(agent_id, "cap-1")
+        count = registry.bulk_revoke(agent_ids, "cap-1")
+        assert count == 3
+        for agent_id in agent_ids:
+            assert not registry.has_capability_for_action(agent_id, "tool_call", "anything")
+
+    def test_bulk_revoke_partial(self, registry):
+        """Test bulk revoke when only some agents have the capability."""
+        registry.register(make_cap())
+        registry.grant("agent-1", "cap-1")
+        # agent-2 doesn't have cap-1
+        count = registry.bulk_revoke(["agent-1", "agent-2"], "cap-1")
+        assert count == 1
+
+    def test_thread_safe_concurrent_grants(self, registry):
+        """Test that concurrent grant operations are thread-safe."""
+        import threading
+        registry.register(make_cap())
+        
+        def grant_agent(agent_id):
+            registry.grant(agent_id, "cap-1")
+        
+        threads = [
+            threading.Thread(target=grant_agent, args=(f"agent-{i}",))
+            for i in range(10)
+        ]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+        
+        # All agents should have the capability
+        for i in range(10):
+            assert registry.has_capability_for_action(f"agent-{i}", "tool_call", "anything")
+
 
 class TestHasCapabilityForAction:
     def test_agent_with_capability(self, registry):

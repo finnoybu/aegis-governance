@@ -212,7 +212,7 @@ class TestContextManager:
         with AEGISRuntime() as rt:
             assert rt is not None
             rt.policies.add_policy(Policy(
-                id="pol", name="", description="",
+                id="pol", name="Allow all", description="",
                 effect=PolicyEffect.ALLOW, conditions=[],
             ))
 
@@ -244,7 +244,7 @@ class TestContextManager:
         """Test that runtime still works if not used with context manager."""
         rt = AEGISRuntime()
         rt.policies.add_policy(Policy(
-            id="pol", name="", description="",
+            id="pol", name="Allow all", description="",
             effect=PolicyEffect.ALLOW, conditions=[],
         ))
         rt.shutdown()

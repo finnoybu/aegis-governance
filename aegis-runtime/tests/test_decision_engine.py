@@ -59,15 +59,23 @@ def setup_allow(registry: CapabilityRegistry, policies: PolicyEngine,
         action_types=["tool_call"],
         target_patterns=["*"],
     )
-    registry.register(cap)
+    # Only register if not already there
+    try:
+        registry.register(cap)
+    except ValueError:
+        pass  # Already registered
+    
     registry.grant(agent_id, "cap-1")
-    policies.add_policy(Policy(
-        id="pol-allow",
-        name="Allow all",
-        description="",
-        effect=PolicyEffect.ALLOW,
-        conditions=[],
-    ))
+    
+    # Only add policy if not already there
+    if "pol-allow" not in [p.id for p in policies.list_policies()]:
+        policies.add_policy(Policy(
+            id="pol-allow",
+            name="Allow all",
+            description="",
+            effect=PolicyEffect.ALLOW,
+            conditions=[],
+        ))
 
 
 # ---------------------------------------------------------------------------
@@ -153,3 +161,146 @@ class TestResponseFields:
         record = audit.get_record(response.audit_id)
         assert isinstance(record.policy_evaluations, list)
         assert len(record.policy_evaluations) >= 1
+
+
+class TestDecisionMetrics:
+    """Test decision metrics collection and reporting."""
+
+    def test_metrics_initial_state(self, engine):
+        """Fresh engine has zero metrics."""
+        metrics = engine.get_metrics()
+        assert metrics.total_decisions == 0
+        assert metrics.approved_count == 0
+        assert metrics.denied_count == 0
+        assert metrics.deferred_count == 0
+        assert metrics.capability_denials == 0
+        assert metrics.policy_denials == 0
+        assert metrics.total_latency_ms == 0.0
+        assert metrics.avg_latency_ms == 0.0
+
+    def test_metrics_count_approvals(self, engine, registry, policies):
+        """Metrics correctly count approved decisions."""
+        setup_allow(registry, policies, agent_id="a1")
+        setup_allow(registry, policies, agent_id="a2")
+        
+        engine.evaluate(make_request(agent_id="a1"))
+        engine.evaluate(make_request(agent_id="a2"))
+        
+        metrics = engine.get_metrics()
+        assert metrics.total_decisions == 2
+        assert metrics.approved_count == 2
+        assert metrics.denied_count == 0
+        assert metrics.denied_count == 0
+
+    def test_metrics_count_denials(self, engine):
+        """Metrics correctly count denied decisions."""
+        engine.evaluate(make_request(agent_id="a1"))
+        engine.evaluate(make_request(agent_id="a2"))
+        
+        metrics = engine.get_metrics()
+        assert metrics.total_decisions == 2
+        assert metrics.denied_count == 2
+        assert metrics.approved_count == 0
+
+    def test_metrics_capability_denials(self, engine):
+        """Metrics distinguish capability-stage denials."""
+        # No capability registered → capability denial
+        engine.evaluate(make_request())
+        
+        metrics = engine.get_metrics()
+        assert metrics.capability_denials >= 1
+        assert metrics.denied_count >= 1
+
+    def test_metrics_policy_denials(self, engine, registry, policies):
+        """Metrics distinguish policy-stage denials."""
+        # Grant capability but add deny policy → policy denial
+        cap = Capability(
+            id="cap-1",
+            name="Test",
+            description="",
+            action_types=["tool_call"],
+            target_patterns=["*"],
+        )
+        registry.register(cap)
+        registry.grant("agent-1", "cap-1")
+        
+        policies.add_policy(Policy(
+            id="pol-deny",
+            name="Deny all",
+            description="",
+            effect=PolicyEffect.DENY,
+            conditions=[],
+        ))
+        
+        engine.evaluate(make_request())
+        
+        metrics = engine.get_metrics()
+        assert metrics.policy_denials >= 1
+        assert metrics.denied_count >= 1
+
+    def test_metrics_latency_recorded(self, engine, registry, policies):
+        """Metrics record latency for decisions."""
+        setup_allow(registry, policies)
+        
+        engine.evaluate(make_request())
+        engine.evaluate(make_request())
+        
+        metrics = engine.get_metrics()
+        assert metrics.total_latency_ms > 0
+        assert metrics.avg_latency_ms > 0
+        assert metrics.avg_latency_ms <= metrics.total_latency_ms
+
+    def test_metrics_average_calculation(self, engine, registry, policies):
+        """Average latency is correctly calculated."""
+        setup_allow(registry, policies)
+        
+        for _ in range(5):
+            engine.evaluate(make_request())
+        
+        metrics = engine.get_metrics()
+        assert metrics.total_decisions == 5
+        # Average should be total divided by count
+        expected_avg = metrics.total_latency_ms / 5
+        assert abs(metrics.avg_latency_ms - expected_avg) < 0.01
+
+    def test_reset_metrics(self, engine, registry, policies):
+        """Metrics can be reset to zero."""
+        setup_allow(registry, policies)
+        
+        engine.evaluate(make_request())
+        engine.evaluate(make_request())
+        
+        metrics = engine.get_metrics()
+        assert metrics.total_decisions == 2
+        
+        engine.reset_metrics()
+        
+        metrics = engine.get_metrics()
+        assert metrics.total_decisions == 0
+        assert metrics.approved_count == 0
+        assert metrics.total_latency_ms == 0.0
+
+    def test_metrics_accumulate_across_decisions(self, engine, registry, policies):
+        """Metrics accumulate correctly across many decisions."""
+        # Grant capability and policy to multiple agents
+        for i in range(3):
+            setup_allow(registry, policies, agent_id=f"agent-{i}")
+        
+        # Make some approved decisions
+        for i in range(3):
+            engine.evaluate(make_request(agent_id=f"agent-{i}"))
+        
+        metrics_after_3 = engine.get_metrics()
+        assert metrics_after_3.total_decisions == 3
+        assert metrics_after_3.approved_count == 3
+        assert metrics_after_3.denied_count == 0
+        
+        # Make some denied decisions
+        engine.reset_metrics()
+        for i in range(2):
+            engine.evaluate(make_request(agent_id=f"unknown-{i}"))
+        
+        metrics_after_denials = engine.get_metrics()
+        assert metrics_after_denials.total_decisions == 2
+        assert metrics_after_denials.denied_count == 2
+        assert metrics_after_denials.approved_count == 0
