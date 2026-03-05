@@ -43,12 +43,11 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Compile JSON Schemas with AJV
         run: |
-          npx --yes ajv-cli@5.0.0 compile --spec=draft2020 \
-            -s schemas/common/*.schema.json \
-            -s schemas/agp/*.schema.json \
-            -s schemas/capability/*.schema.json \
-            -s schemas/governance/*.schema.json \
-            -s schemas/governance/events/*.schema.json
+          for schema in schemas/**/*.schema.json; do
+            echo "Compiling $schema"
+            npx --yes ajv-cli@5.0.0 compile --spec=draft2020 -s "$schema" \
+              -r 'schemas/common/*.schema.json' || exit 1
+          done
 
       - name: Validate example payloads with AJV
         run: |
