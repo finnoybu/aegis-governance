@@ -1,33 +1,35 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../docs/assets/AEGIS_wordmark_dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="../docs/assets/AEGIS_wordmark_light.svg">
-    <img src="../docs/assets/AEGIS_wordmark.svg" width="90" alt="AEGIS™ Governance Logo">
+    <source media="(prefers-color-scheme: dark)" srcset="../aegis-core/assets/AEGIS_wordmark_dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="../aegis-core/assets/AEGIS_wordmark_light.svg">
+    <img src="../aegis-core/assets/AEGIS_wordmark.svg" width="90" alt="AEGIS™ Governance Logo">
   </picture>
 </p>
 
-# AEGIS™ Technical Specifications
+# AEGIS™ RFC Index
+
+Architectural Enforcement & Governance of Intelligent Systems
+
+---
+
+## Overview
 
 This directory contains the **Request for Comments (RFC)** specifications that define the technical architecture of AEGIS™.
 
-> These documents specify the implementation requirements for AEGIS™-compliant governance systems.
+Each RFC specifies a distinct component of the AEGIS governance system. Together these documents define the implementation requirements for AEGIS-compliant governance runtimes and ecosystems.
+
+RFCs allow the architecture to evolve while preserving a clear historical record of design decisions.
 
 ---
 
-## RFC Series Overview
+## Current RFCs
 
-The AEGIS™ RFC series provides formal specifications for implementing governed AI systems. Each RFC addresses a specific layer of the AEGIS™ architecture and may be implemented independently or as part of a complete governance stack.
-
----
-
-## Specification Documents
-
-| RFC     | Title                                  | Purpose                                           |
-| ------- | -------------------------------------- | ------------------------------------------------- |
-| RFC-001 | AEGIS™ Governance Architecture         | Foundational architecture and design principles   |
-| RFC-002 | AEGIS™ Governance Runtime              | Runtime system specification and execution model  |
-| RFC-003 | Capability Registry & Policy Language  | Capability definitions and policy evaluation      |
-| RFC-004 | Governance Event Model                 | Event structure for federation and intelligence   |
+| RFC      | Title                                 | Purpose                                                  |
+| -------- | ------------------------------------- | -------------------------------------------------------- |
+| RFC-0001 | AEGIS Architecture                    | Defines the foundational architecture and system model   |
+| RFC-0002 | Governance Runtime                    | Specifies the runtime that enforces governance decisions |
+| RFC-0003 | Capability Registry & Policy Language | Defines capability schema and governance policies        |
+| RFC-0004 | Governance Event Model                | Defines event structures used in federation networks     |
 
 ---
 
@@ -35,175 +37,158 @@ The AEGIS™ RFC series provides formal specifications for implementing governed
 
 ### For Implementers
 
-1. **RFC-001** — Understanding the architectural model
-2. **RFC-002** — Implementing the governance runtime
-3. **RFC-003** — Defining capabilities and policies
-4. **RFC-004** — Integrating with the federation network (optional)
+1. **RFC-0001 — Architecture**
+2. **RFC-0002 — Governance Runtime**
+3. **RFC-0003 — Capability Registry**
+4. **RFC-0004 — Governance Event Model**
 
 ### For Security Architects
 
-1. **RFC-001** — Architecture and security properties
-2. **RFC-003** — Policy model and enforcement guarantees
-3. **RFC-002** — Runtime deployment considerations
+1. **RFC-0001 — Architecture**
+2. **RFC-0003 — Capability Registry**
+3. **RFC-0002 — Governance Runtime**
 
 ### For Governance Designers
 
-1. **RFC-001** — Governance model overview
-2. **RFC-003** — Policy language and capability registry
-3. **RFC-004** — Governance intelligence sharing
+1. **RFC-0001 — Architecture**
+2. **RFC-0003 — Capability Registry**
+3. **RFC-0004 — Governance Event Model**
 
 ---
 
-## Document Status
+## RFC Lifecycle
 
-All specifications are currently in **Draft** status.
+AEGIS™ uses a lightweight RFC process to evolve the architecture.
 
-Reference implementations are planned to validate these specifications.
+Typical lifecycle:
 
----
+1. **Proposal** — RFC submitted through a pull request
+2. **Discussion** — community review and architectural debate
+3. **Revision** — author updates the proposal
+4. **Acceptance** — maintainers merge the RFC
+5. **Implementation** — runtime and schemas updated accordingly
 
-## Specification Scope
-
-### RFC-001: Governance Architecture
-
-Defines the foundational architecture that separates AI reasoning from operational execution. Establishes:
-
-* architectural principles
-* core components
-* security properties
-* execution flow
-
-**Audience:** Architects, security engineers, policy designers
-
----
-
-### RFC-002: Governance Runtime
-
-Specifies the runtime system that enforces governance decisions. Includes:
-
-* component architecture
-* API specifications
-* policy evaluation model
-* audit requirements
-
-**Audience:** Platform engineers, implementers, operators
-
----
-
-### RFC-003: Capability Registry & Policy Language
-
-Defines how capabilities are modeled and how governance policies are expressed. Covers:
-
-* capability definition schema
-* policy language syntax
-* evaluation semantics
-* governance invariants
-
-**Audience:** Governance designers, policy authors, security teams
-
----
-
-### RFC-004: Governance Event Model
-
-Specifies the event structure for distributed governance intelligence. Describes:
-
-* event envelope format
-* event types
-* federation distribution
-* trust evaluation
-
-**Audience:** Federation architects, security intelligence teams
+Accepted RFCs become part of the official AEGIS specification.
 
 ---
 
 ## Relationship to Other Documentation
 
-The RFC specifications complement other AEGIS™ documentation:
+RFCs are part of the broader AEGIS documentation ecosystem.
 
-| Document Type       | Location        | Purpose                                      |
-| ------------------- | --------------- | -------------------------------------------- |
-| Architecture Papers | `/docs/`        | Conceptual overview and strategic context    |
-| Technical Specs     | `/rfc/`         | Implementation requirements (this directory) |
-| Protocol Definition | `/protocol/`    | AEGIS Governance Protocol (AGP) messaging    |
-| Federation Specs    | `/federation/`  | Governance Federation Network design         |
-
-**RFCs define "what" and "how" systems must behave to be AEGIS™-compliant.**
-
----
-
-## Design Principles
-
-All AEGIS™ specifications adhere to these principles:
-
-* **Deterministic Governance** — Enforcement through architecture, not behavior
-* **Capability-Based Authorization** — Explicit capability modeling
-* **Authority Attribution** — All actions linked to authenticated actors
-* **Default-Deny Model** — Actions denied unless explicitly permitted
-* **Complete Auditability** — All decisions produce verifiable records
+| Document               | Location                    | Purpose                            |
+| ---------------------- | --------------------------- | ---------------------------------- |
+| README                 | `/`                         | Project introduction               |
+| SPECIFICATION.md       | `/`                         | Specification overview             |
+| System Overview        | `/aegis-core/overview/`     | High-level architecture            |
+| Reference Architecture | `/aegis-core/architecture/` | Detailed system design             |
+| Threat Model           | `/aegis-core/threat-model/` | Security analysis                  |
+| Protocol               | `/aegis-core/protocol/`     | AGP protocol definition            |
+| Federation             | `/federation/`              | Governance federation architecture |
 
 ---
 
-## Contributing to Specifications
+## Specification Scope
 
-The AEGIS™ specification process is designed to evolve through community review and implementation feedback.
+### RFC-0001 — AEGIS Architecture
 
-Proposed changes to RFC specifications should:
+Defines the foundational architecture separating AI reasoning from operational execution.
 
-* maintain backward compatibility where possible
-* include clear motivation and use cases
-* reference implementation experience
-* address security implications
+Includes:
 
-See [CONTRIBUTING.md](../CONTRIBUTING.md) for full contribution guidelines.
+* architectural principles
+* system components
+* execution model
+* security guarantees
+
+---
+
+### RFC-0002 — Governance Runtime
+
+Defines the runtime responsible for enforcing governance decisions.
+
+Includes:
+
+* governance gateway
+* decision engine
+* capability registry integration
+* policy evaluation
+* audit logging
+
+---
+
+### RFC-0003 — Capability Registry & Policy Language
+
+Defines how capabilities are modeled and how governance policies are expressed.
+
+Includes:
+
+* capability schema
+* policy language syntax
+* evaluation semantics
+* governance invariants
+
+---
+
+### RFC-0004 — Governance Event Model
+
+Defines the event structures used by AEGIS federation networks.
+
+Includes:
+
+* event envelope format
+* governance signals
+* circumvention reports
+* federation distribution
+
+---
+
+## Versioning
+
+The RFC series evolves alongside the AEGIS specification.
+
+```
+v0.x  – early architecture development
+v1.0  – stable governance standard
+```
+
+Major architectural changes may introduce new RFC documents or revisions.
+
+---
+
+## Future RFCs
+
+Possible future specifications include:
+
+* RFC-0005 — Operational Considerations (monitoring, scaling, disaster recovery)
+* RFC-0006 — Federation Network Protocol
+* RFC-0007 — Hardware-Rooted Attestation
+* RFC-0008 — Multi-Organization Governance
 
 ---
 
 ## Implementation Status
 
-| Component               | Status         |
-| ----------------------- | -------------- |
-| Architecture Spec       | Draft Complete |
-| Runtime Spec            | Draft Complete |
-| Capability Registry     | Draft Complete |
-| Event Model             | Draft Complete |
-| Reference Runtime       | Planned        |
-| Policy Engine           | Planned        |
-| Federation Node         | Planned        |
-
----
-
-## Version History
-
-**Version 0.1** — Initial draft specifications
-
-* RFC-001: Governance Architecture
-* RFC-002: Governance Runtime Specification
-* RFC-003: Capability Registry & Policy Language
-* RFC-004: Governance Event Model
-
----
-
-## Future Specifications
-
-Planned future RFCs may include:
-
-* RFC-005 — Operational Considerations (monitoring, scaling, disaster recovery)
-* RFC-006 — Federation Network Protocol
-* RFC-007 — Hardware-Rooted Attestation
-* RFC-008 — Multi-Organization Governance
+| Component              | Status         |
+| ---------------------- | -------------- |
+| Architecture Spec      | Draft Complete |
+| Runtime Spec           | Draft Complete |
+| Capability Registry    | Draft Complete |
+| Governance Event Model | Draft Complete |
+| Reference Runtime      | Planned        |
+| Policy Engine          | Planned        |
+| Federation Node        | Planned        |
 
 ---
 
 ## Foundational Principle
 
-> **Capability without constraint is not intelligence™**
+> Capability without constraint is not intelligence™
 
-These specifications operationalize this principle through deterministic architectural governance.
+AEGIS™ operationalizes this principle through deterministic architectural governance.
 
 ---
 
 ## Trademark Notice
 
-AEGIS™ is a trademark of Ken Tannenbaum.
-
-Use of this mark in implementing systems must comply with the project's trademark policy. See [TRADEMARKS.md](../TRADEMARKS.md) for details.
+AEGIS™ is a trademark of Finnoybu IP LLC.
