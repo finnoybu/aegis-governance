@@ -48,9 +48,17 @@ jobs:
             echo "Compiling $schema"
             npx --yes ajv-cli@5.0.0 compile --spec=draft2020 -s "$schema" || exit 1
           done
-          
-          # Compile other schemas with common schemas as references
-          for dir in agp capability governance governance/events; do
+
+          # Compile governance schemas with common references
+          for schema in schemas/governance/*.schema.json; do
+            [ -f "$schema" ] || continue
+            echo "Compiling $schema"
+            npx --yes ajv-cli@5.0.0 compile --spec=draft2020 -s "$schema" \
+              -r 'schemas/common/*.schema.json' || exit 1
+          done
+
+          # Compile AGP and capability schemas with common references
+          for dir in agp capability; do
             if [ -d "schemas/$dir" ]; then
               for schema in schemas/$dir/*.schema.json; do
                 [ -f "$schema" ] || continue
@@ -60,6 +68,17 @@ jobs:
               done
             fi
           done
+
+          # Compile governance/events schemas with common + governance references
+          if [ -d "schemas/governance/events" ]; then
+            for schema in schemas/governance/events/*.schema.json; do
+              [ -f "$schema" ] || continue
+              echo "Compiling $schema"
+              npx --yes ajv-cli@5.0.0 compile --spec=draft2020 -s "$schema" \
+                -r 'schemas/common/*.schema.json' \
+                -r 'schemas/governance/*.schema.json' || exit 1
+            done
+          fi
 
       - name: Validate example payloads with AJV
         run: |
