@@ -1,44 +1,103 @@
 # RFC-0002
 
-## AEGIS™ Governance Runtime
+## AEGIS Governance Runtime Specification
 
 Version: 0.1
 Status: Draft
+Authors: AEGIS Project
 
 ---
 
-## 1. Purpose
+# 1. Purpose
 
-This document defines the **AEGIS™ Governance Runtime**, the software layer responsible for evaluating and enforcing governance decisions on AI-generated actions.
+This document defines the **AEGIS Governance Runtime**, the system responsible for enforcing governance decisions on AI-generated actions.
 
----
+The runtime provides the execution environment in which:
 
-## 2. Runtime Responsibilities
+* AI agents propose actions
+* governance policies are evaluated
+* authorized actions are executed through controlled interfaces
 
-The runtime performs the following functions:
-
-* action validation
-* policy evaluation
-* capability authorization
-* risk assessment
-* execution control
-* audit logging
+The runtime ensures that AI systems cannot directly interact with operational infrastructure without governance evaluation.
 
 ---
 
-## 3. Runtime Components
+# 2. Design Principles
 
-### Governance Gateway
+The AEGIS runtime must satisfy the following principles.
 
-The gateway receives action requests from AI agents.
+### Deterministic Governance
 
-Example request:
+Governance decisions must be enforced by architecture rather than relying on model behavior.
 
-```json
+### Default Deny
+
+Actions are denied unless explicitly authorized by policy.
+
+### Capability-Based Control
+
+All actions must reference a predefined capability.
+
+### Authority Attribution
+
+Every action must include an authenticated actor.
+
+### Complete Auditability
+
+All governance decisions must produce verifiable audit records.
+
+---
+
+# 3. Runtime Architecture
+
+The runtime consists of five primary components.
+
+```
+AI Agent
+   │
+   ▼
+Governance Gateway
+   │
+   ▼
+Decision Engine
+   │
+   ▼
+Policy Engine
+   │
+   ▼
+Tool Proxy Layer
+   │
+   ▼
+External Systems
+```
+
+---
+
+# 4. Governance Gateway
+
+The gateway acts as the **entry point** for all AI-generated actions.
+
+Responsibilities:
+
+* validate action schemas
+* authenticate actors
+* assign action identifiers
+* forward actions to the decision engine
+
+### Example API
+
+```
+POST /aegis/action
+```
+
+Request:
+
+```
 {
-  "action_id": "a-123",
-  "actor": "agent:soc-01",
+  "action_id": "uuid",
+  "actor": "agent:soc-001",
   "capability": "telemetry.query",
+  "operation": "search_logs",
   "resource": "auth_logs",
   "parameters": {
     "query": "failed_login > 10"
@@ -48,19 +107,18 @@ Example request:
 
 ---
 
-### Decision Engine
+# 5. Decision Engine
 
-The decision engine evaluates the request.
+The decision engine evaluates actions against governance rules.
 
-Inputs:
+Evaluation includes:
 
-* capability registry
-* policy engine
-* actor identity
-* environment context
+* capability authorization
+* actor authority
+* policy compliance
 * risk evaluation
 
-Output:
+Possible outcomes:
 
 ```
 ALLOW
@@ -71,89 +129,153 @@ REQUIRE_CONFIRMATION
 
 ---
 
-### Policy Engine
+# 6. Capability Registry
 
-Evaluates governance rules.
+Capabilities define the allowed actions within a governed system.
 
-Example rule:
+Example registry entry:
+
+```
+capability: telemetry.query
+description: query security telemetry
+allowed_roles:
+  - soc_analyst
+environment:
+  - production
+risk_level: low
+```
+
+Capabilities must be defined before use.
+
+---
+
+# 7. Policy Engine
+
+Policies define conditions under which capabilities may be exercised.
+
+Policies may evaluate:
+
+* actor role
+* system environment
+* resource classification
+* operational risk
+
+Example policy rule:
 
 ```
 allow if
- actor.role == "soc_analyst"
- capability == "telemetry.query"
+  actor.role == "soc_analyst"
+  and capability == "telemetry.query"
 ```
 
 ---
 
-### Tool Proxy
+# 8. Tool Proxy Layer
 
-Executes approved operations.
+The proxy layer provides controlled interfaces to external systems.
 
-Example proxies:
+Examples include:
 
 * SIEM proxy
-* cloud API proxy
-* messaging proxy
+* infrastructure API proxy
 * database proxy
+* messaging proxy
+
+Proxies enforce:
+
+* parameter validation
+* data redaction
+* rate limits
+* audit logging
 
 ---
 
-### Audit System
+# 9. Audit System
 
-Every action produces a governance record.
+All runtime decisions must generate immutable records.
 
-Example:
+Example audit record:
 
-```json
+```
 {
-  "decision_id": "d-001",
-  "action_id": "a-123",
-  "actor": "agent:soc-01",
+  "decision_id": "d-39129",
+  "action_id": "a-01921",
+  "actor": "agent:soc-001",
   "capability": "telemetry.query",
   "decision": "ALLOW",
-  "timestamp": "2026-03-05T19:12:01Z"
+  "timestamp": "2026-03-04T21:01:22Z"
 }
 ```
 
----
-
-## 4. Runtime Security Model
-
-The runtime enforces:
-
-* default deny policy
-* strict capability authorization
-* actor authentication
-* audit logging
-* escalation for high-risk operations
+Audit records must be tamper-evident.
 
 ---
 
-## 5. Implementation Targets
+# 10. Execution Flow
 
-Initial environments include:
-
-* AI-assisted security operations
-* enterprise AI copilots
-* cloud infrastructure governance
-* autonomous workflow engines
-
----
-
-## 6. Future Extensions
-
-Future versions may support:
-
-* distributed runtime clusters
-* hardware-rooted attestation
-* federation-driven policy updates
-* automated governance enforcement
+```
+1. AI agent proposes action
+2. Governance gateway validates request
+3. Decision engine evaluates policies
+4. Decision returned
+5. If allowed → tool proxy executes action
+6. Execution result returned to agent
+```
 
 ---
 
-## 7. Relationship to Other RFCs
+# 11. Security Properties
 
-This runtime implements the architecture defined in **RFC-0001** and relies on:
+The runtime guarantees:
 
-* RFC-0003 (Capability Registry)
-* RFC-0004 (Governance Event Model)
+Capability Isolation
+AI systems can only access explicitly defined capabilities.
+
+Authority Attribution
+Every action is linked to an authenticated actor.
+
+Deterministic Enforcement
+Governance rules cannot be bypassed by model behavior.
+
+Operational Safety
+High-risk actions require escalation or human approval.
+
+Audit Integrity
+All decisions are permanently recorded.
+
+---
+
+# 12. Reference Implementation Targets
+
+Initial implementation targets include:
+
+* AI-assisted Security Operations (SOC)
+* infrastructure automation governance
+* enterprise AI copilot governance
+* cloud operations safety controls
+
+---
+
+# 13. Future Extensions
+
+Future versions of the runtime may support:
+
+* distributed policy evaluation
+* hardware-rooted governance attestation
+* cross-organization governance interoperability
+* automatic policy synchronization through the AEGIS Federation Network
+
+---
+
+# 14. Relationship to Other Specifications
+
+This document builds upon:
+
+* RFC-0001 — Architectural Governance for AI Systems
+* AGP-1 — AEGIS Governance Protocol
+* AEGIS Constitution
+* AEGIS Threat Model
+
+Together these documents define the AEGIS governance architecture.
+
+---

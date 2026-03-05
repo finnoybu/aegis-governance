@@ -4,6 +4,7 @@
 
 Version: 0.1
 Status: Draft
+Authors: AEGIS Project
 
 ---
 

@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/AEGIS_logo_dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="docs/assets/AEGIS_logo_light.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/AEGIS_wordmark_dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/AEGIS_wordmark_light.svg">
     <img src="docs/assets/AEGIS_wordmark.svg" width="180" alt="AEGIS™ Governance Logo">
   </picture>
 </p>
