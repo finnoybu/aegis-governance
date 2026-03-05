@@ -6,6 +6,7 @@ config:
   MD025: false  # single-title (FAQ uses multiple H1s by design)
   MD040: false  # fenced-code-language (pseudo-code doesn't need language)
   MD001: false  # heading-increment (intentional skips for visual hierarchy)
+  MD036: false  # no-emphasis-as-heading (bold text is not always a heading)
 
 globs:
   - "**/*.md"
