@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="../docs/assets/AEGIS_wordmark_dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="../docs/assets/AEGIS_wordmark_light.svg">
-    <img src="../docs/assets/AEGIS_wordmark.svg" width="120" alt="AEGIS™ Governance Logo">
+    <img src="../docs/assets/AEGIS_wordmark.svg" width="90" alt="AEGIS™ Governance Logo">
   </picture>
 </p>
 
@@ -231,6 +231,7 @@ from aegis import (
 
 runtime = AEGISRuntime()
 
+# Register a capability
 runtime.capabilities.register(
     Capability(
         id="cap-read-docs",
@@ -241,8 +242,10 @@ runtime.capabilities.register(
     )
 )
 
+# Grant capability to agent
 runtime.capabilities.grant("agent-1", "cap-read-docs")
 
+# Add an allow policy
 runtime.policies.add_policy(
     Policy(
         id="allow-docs",
@@ -253,6 +256,7 @@ runtime.policies.add_policy(
     )
 )
 
+# Create governed tool proxy
 proxy = runtime.create_tool_proxy("agent-1", "session-1")
 
 proxy.register_tool(
@@ -276,6 +280,8 @@ Minimal runnable examples are included in the `examples/` directory.
 python examples/hello_aegis.py
 ```
 
+This initializes the runtime and demonstrates capability and policy configuration.
+
 ---
 
 # Running Tests
@@ -289,6 +295,8 @@ pytest
 ---
 
 # Development Setup
+
+Recommended environment:
 
 ```
 python -m venv .venv
@@ -314,6 +322,7 @@ aegis-runtime/
 ---
 
 # Design Principles
+AEGIS enforces several core principles.
 
 ## Deterministic Governance
 The same request against the same policies always produces the same decision.
@@ -333,6 +342,7 @@ Governance interactions are defined using structured protocol messages.
 ---
 
 # Relationship to the AEGIS Project
+This runtime is the **reference implementation** supporting the broader AEGIS ecosystem.
 
 ```
 AEGIS
@@ -341,6 +351,8 @@ AEGIS
 ├─ Federation Network
 └─ Reference Runtime
 ```
+
+The runtime demonstrates how AEGIS governance can be embedded into real AI systems.
 
 ---
 
