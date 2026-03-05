@@ -1,12 +1,21 @@
 """Tests for the GovernanceGateway."""
 
 import pytest
+from unittest.mock import Mock
 
 from aegis import AEGISRuntime
 from aegis.capability_registry import Capability
 from aegis.exceptions import AEGISValidationError
+from aegis.gateway import GovernanceGateway
 from aegis.policy_engine import Policy, PolicyEffect
-from aegis.protocol import AGPAction, AGPContext, AGPRequest, ActionType, Decision
+from aegis.protocol import (
+    AGPAction,
+    AGPContext,
+    AGPRequest,
+    AGPResponse,
+    ActionType,
+    Decision,
+)
 
 
 @pytest.fixture()
@@ -52,6 +61,10 @@ class TestValidation:
         req = make_request(agent_id="")
         with pytest.raises(AEGISValidationError, match="agent_id.*empty"):
             runtime.gateway.submit(req)
+
+    def test_none_request_raises(self, runtime):
+        with pytest.raises(AEGISValidationError, match="must not be None"):
+            runtime.gateway.submit(None)
 
     def test_blank_agent_id_raises(self, runtime):
         req = make_request(agent_id="   ")
@@ -107,6 +120,20 @@ class TestValidation:
         action = AGPAction(type=None, target="my_tool")
         req = make_request(action=action)
         with pytest.raises(AEGISValidationError, match="action.type"):
+            runtime.gateway.submit(req)
+
+    def test_invalid_action_type_value_raises(self, runtime):
+        # Non-enum action type should be rejected by gateway validation.
+        action = AGPAction(type="tool_call", target="my_tool")
+        req = make_request(action=action)
+        with pytest.raises(AEGISValidationError, match="valid ActionType"):
+            runtime.gateway.submit(req)
+
+    def test_invalid_action_type_numeric_raises(self, runtime):
+        # Numeric value is malformed and must fail semantic validation.
+        action = AGPAction(type=123, target="my_tool")
+        req = make_request(action=action)
+        with pytest.raises(AEGISValidationError, match="valid ActionType"):
             runtime.gateway.submit(req)
 
     def test_empty_target_raises(self, runtime):
@@ -226,3 +253,32 @@ class TestSubmit:
         req = make_request(agent_id="unknown-agent")
         response = runtime.gateway.submit(req)
         assert response.decision == Decision.DENIED
+
+
+class TestRouting:
+    def test_valid_request_is_routed_to_decision_engine(self):
+        request = make_request()
+        expected = AGPResponse(
+            request_id=request.request_id,
+            decision=Decision.APPROVED,
+            reason="ok",
+            audit_id="audit-1",
+        )
+        engine = Mock()
+        engine.evaluate.return_value = expected
+        gateway = GovernanceGateway(engine)
+
+        response = gateway.submit(request)
+
+        engine.evaluate.assert_called_once_with(request)
+        assert response == expected
+
+    def test_invalid_request_is_not_routed(self):
+        request = make_request(agent_id="")
+        engine = Mock()
+        gateway = GovernanceGateway(engine)
+
+        with pytest.raises(AEGISValidationError):
+            gateway.submit(request)
+
+        engine.evaluate.assert_not_called()
