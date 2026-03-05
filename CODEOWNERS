@@ -1,0 +1,27 @@
+# AEGIS™ Governance Code Owners
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything in the repository
+* @finnoybu
+
+# RFC specifications (require careful review for breaking changes)
+/rfc/ @finnoybu
+
+# Protocol and schema definitions (governance-critical)
+/protocol/ @finnoybu
+/schemas/ @finnoybu
+
+# Federation network specifications
+/federation/ @finnoybu
+
+# Reference runtime implementation
+/aegis-runtime/ @finnoybu
+
+# GitHub workflows and CI configuration
+/.github/workflows/ @finnoybu
+
+# Root governance files
+/CODE_OF_CONDUCT.md @finnoybu
+/CONTRIBUTING.md @finnoybu
+/SECURITY.md @finnoybu
+/TRADEMARKS.md @finnoybu
