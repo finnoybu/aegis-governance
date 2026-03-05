@@ -1,5 +1,9 @@
 # End-to-End Request Flow
 
+Author: Ken Tannenbaum  
+Project: AEGIS  
+Version: 0.2
+
 ## Complete Walkthrough: AI Agent Reading Production Database
 
 This document traces a capability request through all AEGIS components

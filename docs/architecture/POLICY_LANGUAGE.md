@@ -1,11 +1,13 @@
 # AEGIS Policy Language
 
-Version: 0.1
+Author: Ken Tannenbaum  
+Project: AEGIS  
+Version: 0.2
 
 ## Overview
 
 Policies are expressed in a structured YAML‑based DSL that defines
-autorization rules for capability requests.
+authorization rules for capability requests.
 
 ## Policy Structure
 

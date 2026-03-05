@@ -2,64 +2,95 @@
 
 ## Reference Monitor Model
 
-Author: Ken Tannenbaum Project: AEGIS Version: 0.1
+Author: Ken Tannenbaum  
+Project: AEGIS  
+Version: 0.2
 
-## Overview
+## Purpose
 
-AEGIS implements a modern interpretation of the **reference monitor
-model** from classical computer security architecture.
+This document defines AEGIS as a modern reference monitor for AI-generated
+actions, applying classical monitor properties to policy and risk-governed
+capability control.
 
-A reference monitor is defined by three properties:
+## Classical Properties (Normative)
 
-1.  **Complete Mediation** -- every request to a protected resource must
-    pass through the monitor.
-2.  **Tamperproof** -- the monitor itself cannot be bypassed or modified
-    by untrusted actors.
-3.  **Verifiable** -- the monitor must be small enough and structured
-    enough to be testable and auditable.
+AEGIS MUST satisfy these properties:
 
-AEGIS extends this concept by applying governance and reasoning to
-capability evaluation.
+1. Complete mediation: every protected action request passes governance.
+2. Tamper resistance: monitor state and decision path cannot be altered by
+   untrusted actors.
+3. Verifiability: monitor behavior is deterministic and testable.
 
-## Classical Security Model
+If any property fails, the system is not operating as a valid reference monitor.
 
-Traditional reference monitor flow:
+## AEGIS Monitor Placement
 
-User / Process → Kernel Security Layer → Resource
+```
+Agent/Application -> AEGIS Governance Monitor -> Tool Proxy -> OS Controls
+```
 
-Examples include:
+Monitor boundary sits between action proposal and execution.
 
--   Mandatory Access Control systems
--   Security kernels
--   Hardware security monitors
+## Monitored Objects
 
-## AEGIS Extension
+- Capability requests.
+- Policy artifacts.
+- Capability grants.
+- Risk inputs and score outputs.
+- Execution grants and constraint envelopes.
+- Audit records.
 
-AEGIS inserts a governance engine capable of evaluating:
+## Policy Decision Model
 
--   intent
--   capability scope
--   policy constraints
--   environmental risk
+The monitor returns one of four outcomes:
 
-Architecture:
+- `ALLOW`
+- `CONSTRAIN`
+- `ESCALATE`
+- `DENY`
 
-Agent / Application ↓ AEGIS Governance Engine ↓ OS Kernel Security
-Controls ↓ System Resources
+Decision outcomes are deterministic functions of request, policy version,
+capability grants, and contextual risk inputs.
 
-## Governance Enforcement
+## Tamper Resistance Strategy
 
-The AEGIS reference monitor enforces:
+Required controls:
 
--   policy validation
--   risk scoring
--   capability limitation
--   audit logging
+- Signed policy bundles and integrity verification.
+- Restricted write access to capability registry.
+- Proxy-enforced execution path (no direct backend access).
+- Immutable audit storage with integrity checks.
 
-## Significance
+## Verifiability Strategy
 
-This model ensures that:
+Required checks:
 
--   intelligent systems cannot bypass governance
--   all actions are observable
--   system authority remains bounded
+- Deterministic replay of golden decision set.
+- Policy precedence conformance tests.
+- Boundary bypass simulation tests.
+- Fault-injection tests proving fail-closed behavior.
+
+## Relationship to Kernel Security
+
+AEGIS does not replace kernel controls. It complements them:
+
+- AEGIS decides whether and how actions are allowed.
+- Kernel enforces low-level process and resource controls.
+
+This separation preserves system stability while adding governance semantics.
+
+## Monitor Invariants
+
+1. No direct execute path around governance.
+2. No unsigned policy may affect decisions.
+3. No execution without prior audit-linked decision.
+4. No invalid request may produce allow.
+
+## Security Benefits
+
+Using a reference monitor model in AEGIS provides:
+
+- Bounded authority for AI agents.
+- Strong accountability and forensics.
+- Consistent enforcement under operational stress.
+- Clear assurance story for auditors and operators.

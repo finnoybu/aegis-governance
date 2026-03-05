@@ -1,5 +1,9 @@
 # Policy Matching and Debugging Guide
 
+Author: Ken Tannenbaum  
+Project: AEGIS  
+Version: 0.2
+
 ## Policy Matching Algorithm
 
 When a capability request arrives, PolicyEngine finds matching policies using the following sequence:

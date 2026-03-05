@@ -1,51 +1,96 @@
 # AEGIS Risk Scoring Model
 
-Author: Ken Tannenbaum Project: AEGIS Version: 0.1
+Author: Ken Tannenbaum  
+Project: AEGIS  
+Version: 0.2
 
-## Overview
+## Purpose
 
-The risk scoring model provides a structured method for evaluating the
-potential impact of capability requests.
+This model defines how risk is represented conceptually and mapped to governance
+outcomes. Numerical implementation details are specified in:
 
-Risk evaluation allows the governance engine to make context-aware
-decisions.
+- `docs/architecture/RISK_SCORING_ALGORITHM.md`
 
-## Risk Inputs
+## Risk Model Dimensions
 
-Risk evaluation considers:
+Risk is determined by five dimensions:
 
--   actor trust level
--   requested capability type
--   resource sensitivity
--   environmental conditions
--   historical system behavior
+1. Actor trust posture.
+2. Capability intrinsic risk.
+3. Resource sensitivity.
+4. Environment modifier.
+5. Behavioral history modifier.
 
-## Example Risk Levels
+These dimensions provide contextual risk beyond static permissions.
 
-Low Risk
+## Risk Bands
 
-Routine operations with minimal impact.
+| Band | Score Range | Meaning | Default Outcome |
+|------|-------------|---------|-----------------|
+| Low | 0-30 | Routine, bounded operation | ALLOW |
+| Medium | 31-60 | Elevated but manageable risk | CONSTRAIN |
+| High | 61-80 | Significant risk requiring oversight | ESCALATE |
+| Critical | 81-100 | Unacceptable risk | DENY |
 
-Moderate Risk
+## Conceptual Risk Factors
 
-Actions affecting system state but within defined policy.
+### Actor Trust
 
-High Risk
+- Reflects actor maturity, identity confidence, and prior behavior.
 
-Actions that may significantly alter system integrity.
+### Capability Risk
 
-Critical Risk
+- Reflects inherent potential impact of requested operation.
 
-Actions that could compromise governance or system security.
+### Resource Sensitivity
 
-## Governance Response
+- Reflects classification and criticality of target resource.
 
-Risk level influences the final decision:
+### Environment Modifier
 
-Low → allow
+- Reflects deployment context (production, off-hours, incident state).
 
-Moderate → allow or constrain
+### History Modifier
 
-High → constrain or escalate
+- Reflects trend-based behavior and prior violations.
 
-Critical → deny
+## Risk-to-Governance Mapping
+
+Risk is advisory to policy, but binding to outcome thresholds.
+
+- Policies can lower or raise effective risk within bounded limits.
+- Risk cannot override explicit deny policy.
+- Critical risk cannot be silently downgraded to allow.
+
+## Model Invariants
+
+1. Risk score must remain in bounded range [0, 100].
+2. Same risk inputs must produce same score.
+3. Missing high-impact factors cannot default to low risk.
+4. High and critical bands must produce non-allow outcomes.
+
+## Operational Uses
+
+Risk outputs are used for:
+
+- Real-time decision classification.
+- Escalation routing.
+- Adaptive constraints (rate, timeout, scope).
+- Trend analytics and post-incident tuning.
+
+## Calibration and Drift Control
+
+Model maintenance requirements:
+
+- Periodic calibration against incident outcomes.
+- Drift detection for sudden score distribution shifts.
+- Bias review across actor classes and environments.
+
+## Verification Criteria
+
+The risk model is considered healthy when:
+
+- Threshold transition tests pass at all boundaries.
+- Risk distribution aligns with expected operational profile.
+- High-risk events correlate with stricter governance outcomes.
+- No critical-risk request is executed without escalation override.

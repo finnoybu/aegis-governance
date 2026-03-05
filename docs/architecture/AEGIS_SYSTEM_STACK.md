@@ -2,52 +2,92 @@
 
 ## System Stack
 
-Author: Ken Tannenbaum Project: AEGIS Version: 0.1
+Author: Ken Tannenbaum  
+Project: AEGIS  
+Version: 0.2
 
-## Overview
+## Purpose
 
-The AEGIS architecture is designed as a layered governance system that
-mediates access to system capability.
+This stack model defines layer boundaries, responsibilities, and control points
+for governed capability execution.
 
-## Stack Model
+## Layered Stack
 
-Human / External System ↓ Application Layer ↓ Agent / AI Layer ↓ AEGIS
-Governance Engine ↓ Operating System Kernel ↓ Hardware
+```
+L0  External Input (human/API/scheduler)
+L1  Application Layer
+L2  Agent/AI Reasoning Layer
+L3  AEGIS Governance Layer
+L4  Tool Proxy Execution Layer
+L5  Operating System / Platform Layer
+L6  Hardware / Infrastructure Layer
+```
 
 ## Layer Responsibilities
 
-### Application Layer
+### L0 External Input
 
-User-facing software systems.
+- Submit intents/tasks.
+- No direct execution rights.
 
-### Agent Layer
+### L1 Application Layer
 
-AI agents that interpret tasks and generate actions.
+- Orchestrates workflows and user-facing behavior.
+- Converts external intents into agent tasks.
 
-### AEGIS Governance Engine
+### L2 Agent/AI Layer
 
-Central policy enforcement and decision system.
+- Produces candidate actions (proposals only).
+- Cannot authorize or execute privileged capability directly.
 
-Responsibilities:
+### L3 AEGIS Governance Layer
 
--   policy evaluation
--   capability authorization
--   risk scoring
--   action logging
+- Validates request schema and identity.
+- Evaluates policy and risk.
+- Produces deterministic decision outcome.
+- Emits immutable audit records.
 
-### Operating System Kernel
+### L4 Tool Proxy Layer
 
-Handles:
+- Executes only governance-approved actions.
+- Enforces runtime constraints (timeout, rate, scope, resource).
+- Records execution telemetry and violations.
 
--   process scheduling
--   memory management
--   device control
+### L5 OS/Platform Layer
 
-### Hardware
+- Process, memory, filesystem, and network primitives.
+- Enforced by least-privilege runtime profile.
 
-Physical execution layer.
+### L6 Hardware/Infrastructure Layer
 
-## Design Goal
+- Physical compute, storage, and network resources.
 
-The stack ensures that **all intelligent capability is governed before
-execution occurs.**
+## Inter-Layer Control Gates
+
+| Gate | Transition | Required Control |
+|------|------------|------------------|
+| G1 | L2 -> L3 | Schema + identity validation |
+| G2 | L3 -> L4 | Signed decision grant + constraints |
+| G3 | L4 -> L5 | Runtime policy enforcement |
+| G4 | L5 -> L6 | Platform-native security controls |
+
+## Forbidden Paths
+
+These paths are explicitly prohibited:
+
+- L2 -> L5 direct execution.
+- L1/L2 direct write access to policy store.
+- L0 direct access to capability registry internals.
+
+Violations MUST be denied and audited.
+
+## Operational Metrics by Layer
+
+- L3: decision latency, deny rate, escalation rate, replay parity.
+- L4: constraint violation count, execution success rate.
+- L5: privileged call count, sandbox escape attempts.
+
+## Design Outcome
+
+The stack ensures intelligence can propose, but only governance can authorize,
+and only constrained execution paths can invoke capability.

@@ -1,6 +1,8 @@
 # Risk Scoring Algorithm
 
-Version: 0.1
+Author: Ken Tannenbaum  
+Project: AEGIS  
+Version: 0.2
 
 ## Overview
 

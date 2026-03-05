@@ -1,5 +1,9 @@
 # Governance Engine Components
 
+Author: Ken Tannenbaum  
+Project: AEGIS  
+Version: 0.2
+
 ## Core Components
 
 ### 1. CapabilityRegistry
