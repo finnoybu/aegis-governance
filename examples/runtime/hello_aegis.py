@@ -1,44 +1,77 @@
-from aegis import (
-    AEGISRuntime,
-    Capability,
-    Policy,
-    PolicyEffect,
-    ActionType
-)
+"""Minimal end-to-end AEGIS hello-world demo.
 
-runtime = AEGISRuntime()
+This example shows:
+1. Capability registration and grant
+2. Policy registration
+3. Tool registration through ToolProxy
+4. Approved and denied tool calls
+5. Audit records emitted by governance
+"""
 
-# Register capability
-runtime.capabilities.register(
-    Capability(
-        id="cap-read-docs",
-        name="Read documentation",
-        description="Allows reading files in /docs",
-        action_types=[ActionType.FILE_READ.value],
-        target_patterns=["/docs/*"]
-    )
-)
+from pathlib import Path
+import sys
 
-# Grant capability to agent
-runtime.capabilities.grant("agent-1", "cap-read-docs")
 
-# Allow policy
-runtime.policies.add_policy(
-    Policy(
-        id="allow-docs",
-        name="Allow documentation reads",
-        description="Agents with docs capability may read documentation",
-        effect=PolicyEffect.ALLOW,
-        conditions=[]
-    )
-)
+# Allow running directly from repository root without package install.
+REPO_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(REPO_ROOT / "aegis-runtime"))
 
-proxy = runtime.create_tool_proxy("agent-1", "session-1")
+from aegis import AEGISRuntime, ActionType, Capability, Policy, PolicyEffect  # noqa: E402
 
-proxy.register_tool(
-    "read_file",
-    fn=lambda path: open(path).read(),
-    target="/docs/read"
-)
 
-print("AEGIS runtime initialized successfully.")
+def main() -> None:
+    with AEGISRuntime() as runtime:
+        runtime.capabilities.register(
+            Capability(
+                id="cap-echo-only",
+                name="Echo tool capability",
+                description="Allows only the echo_tool target",
+                action_types=[ActionType.TOOL_CALL.value],
+                target_patterns=["echo_tool"],
+            )
+        )
+        runtime.capabilities.grant("agent-hello", "cap-echo-only")
+
+        runtime.policies.add_policy(
+            Policy(
+                id="allow-tools",
+                name="Allow tool calls",
+                description="Allow governed tool calls once capability matches",
+                effect=PolicyEffect.ALLOW,
+                conditions=[],
+            )
+        )
+
+        proxy = runtime.create_tool_proxy("agent-hello", "session-hello")
+        proxy.register_tool(
+            "echo",
+            fn=lambda message: f"echo_tool -> {message}",
+            target="echo_tool",
+        )
+        proxy.register_tool(
+            "secret_read",
+            fn=lambda: "top-secret",
+            target="restricted_tool",
+        )
+
+        print("[ALLOW] calling echo...")
+        allowed_result = proxy.call("echo", message="Hello AEGIS")
+        print(f"  result: {allowed_result}")
+
+        print("[DENY] calling secret_read...")
+        try:
+            proxy.call("secret_read")
+        except PermissionError as exc:
+            print(f"  denied: {exc}")
+
+        history = runtime.audit.get_agent_history("agent-hello", limit=5)
+        print("[AUDIT] recent records:")
+        for record in reversed(history):
+            print(
+                f"  decision={record.decision} target={record.action_target} "
+                f"reason={record.reason}"
+            )
+
+
+if __name__ == "__main__":
+    main()
