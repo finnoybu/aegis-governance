@@ -16,6 +16,11 @@ Participants are expected to:
 - Focus on constructive technical dialogue
 - Provide helpful feedback and thoughtful critiques
 - Respect differing viewpoints and experiences
+- Acknowledge the contributions of others
+- Provide references or reasoning when proposing technical changes
+- Suggest alternatives when identifying issues with designs
+- Ask clarifying questions before making assumptions
+- Help newcomers understand the architecture and specifications
 
 ---
 
@@ -51,9 +56,9 @@ This Code of Conduct applies to:
 
 ## Reporting
 
-If you experience or witness behavior that violates this Code of Conduct, please report it to the project maintainers.
+To report Code of Conduct violations, please contact the project maintainer through GitHub.
 
-Reports will be reviewed and addressed promptly and confidentially.
+Reports will be handled confidentially and addressed promptly.
 
 ---
 

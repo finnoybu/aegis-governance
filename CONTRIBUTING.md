@@ -19,6 +19,77 @@ You can contribute in several ways:
 
 ---
 
+## Getting Started
+
+New to AEGIS™? Here are some areas where contributions are welcome:
+
+### Open Design Discussions
+
+We're actively designing core components. Check GitHub Issues for discussions on:
+
+- **AEGIS Runtime API** — Design the governance runtime API specification
+- **Capability Registry Schema** — Standardize capability definition formats
+- **Governance Policy Language** — Design the policy expression language
+- **AGP Protocol Message Schemas** — Define protocol message formats
+- **Reference Runtime Architecture** — Design the reference implementation
+
+### Good First Issues
+
+Look for issues labeled `good-first-issue` for approachable contribution opportunities.
+
+---
+
+## Branch Naming Convention
+
+Use descriptive branch names with the following prefixes:
+
+- `rfc/` — RFC specification changes (e.g., `rfc/capability-registry-updates`)
+- `docs/` — Documentation updates (e.g., `docs/threat-model-clarifications`)
+- `spec/` — Protocol or schema specifications (e.g., `spec/agp-message-format`)
+- `fix/` — Bug fixes or corrections (e.g., `fix/typo-in-rfc-002`)
+- `feat/` — New features or components (e.g., `feat/add-risk-evaluation-model`)
+
+Examples:
+```
+rfc/add-hardware-attestation
+docs/update-federation-architecture
+spec/define-audit-event-schema
+```
+
+---
+
+## Commit Message Format
+
+Use **Conventional Commits** format for clear, actionable commit history:
+
+```
+<type>(<scope>): <description>
+
+[optional body]
+
+[optional footer]
+```
+
+**Types:**
+- `feat:` — New feature or specification
+- `fix:` — Bug fix or correction
+- `docs:` — Documentation changes
+- `refactor:` — Code/spec restructuring
+- `test:` — Adding/updating tests
+- `chore:` — Maintenance tasks
+
+**Scope examples:** `rfc-002`, `threat-model`, `agp`, `federation`
+
+**Examples:**
+```
+feat(rfc-003): add capability inheritance model
+docs(readme): update architecture diagram
+fix(rfc-001): correct execution flow description
+refactor(threat-model): reorganize attack categories
+```
+
+---
+
 ## RFC Process
 
 Major architectural or protocol changes should be proposed through the **RFC process**.
