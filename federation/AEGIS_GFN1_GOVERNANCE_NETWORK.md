@@ -1,10 +1,13 @@
-# AEGIS Governance Federation Network (GFN)
+# GFN Governance Intelligence & Federated Architecture
+
+**Document**: AEGIS_GFN1_GOVERNANCE_NETWORK.md
+**Version**: 1.0 (Normative)
+**Part of**: AEGIS Governance Federation Network
+**Last Updated**: March 5, 2026
+
+---
 
 ## A Federated Governance Intelligence Layer for AI Systems
-
-**Version:** 0.1 (Concept Draft)  
-**Date:** 2026-03-04  
-**Author:** Ken Tannenbaum  
 
 ---
 

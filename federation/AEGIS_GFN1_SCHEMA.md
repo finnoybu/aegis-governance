@@ -1,9 +1,13 @@
-# AEGIS AT-Protocol Governance Schemas
+# GFN Event Schemas & Data Definitions
 
-**Version:** 0.1 (Draft)  
-**Date:** 2026-03-04  
+**Document**: AEGIS_GFN1_SCHEMA.md
+**Version**: 1.0 (Normative)
+**Part of**: AEGIS Governance Federation Network
+**Last Updated**: March 5, 2026
 
-This document defines **canonical event schemas** for the AEGIS Governance Federation Network (GFN).  
+---
+
+This document defines **canonical event schemas** for the AEGIS Governance Federation Network (GFN).
 Schemas are expressed in a **JSON Schema–like** form, with normative requirements stated using **MUST / SHOULD / MAY**.
 
 ---

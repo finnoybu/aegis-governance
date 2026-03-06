@@ -1,7 +1,11 @@
-# AEGIS Governance Feed Taxonomy
+# GFN Governance Feed Taxonomy & Semantics
 
-**Version:** 0.1 (Draft)  
-**Date:** 2026-03-04  
+**Document**: AEGIS_GFN1_GOVERNANCE_FEEDS.md
+**Version**: 1.0 (Normative)
+**Part of**: AEGIS Governance Federation Network
+**Last Updated**: March 5, 2026
+
+---
 
 This document defines the **canonical feed namespace** for the AEGIS Governance Federation Network (GFN), along with subscription guidance and intended semantics.
 

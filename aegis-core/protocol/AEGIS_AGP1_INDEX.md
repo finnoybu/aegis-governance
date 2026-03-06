@@ -1,9 +1,9 @@
-# AEGIS Governance Protocol (AGP-1) - Complete Specification Suite
+# AGP-1 Complete Specification Suite & Index
 
-**Version:** 1.0 (Normative)  
-**Status:** Normative, Publication-Ready  
-**Last Updated:** March 5, 2026  
-**Authors:** AEGIS Project  
+**Document**: AEGIS_AGP1_INDEX.md
+**Version**: 1.0 (Normative)
+**Part of**: AEGIS Governance Protocol
+**Last Updated**: March 5, 2026
 
 ---
 
