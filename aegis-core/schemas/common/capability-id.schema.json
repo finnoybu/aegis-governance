@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aegis.dev/schemas/common/capability-id.schema.json",
+  "$id": "https://aegis-initiative.com/schemas/common/capability-id.schema.json",
   "title": "Capability ID",
   "type": "string",
   "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$",

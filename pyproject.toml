@@ -5,13 +5,13 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "aegis-governance"
 version = "0.1.0"
-description = "AEGIS – Architectural Enforcement & Governance of Intelligent Systems"
+description = "AEGIS - Architectural Enforcement & Governance of Intelligent Systems"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { file = "LICENSE" }
 keywords = ["governance", "ai", "policy", "security", "audit"]
 authors = [
-    { name = "Kenneth Tannenbaum", email = "kenneth.tannenbaum@gmail.com" },
+    { name = "Kenneth Tannenbaum", email = "finnoybu@users.noreply.github.com" },
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",

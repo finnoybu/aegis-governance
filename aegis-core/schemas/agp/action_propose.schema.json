@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aegis.dev/schemas/agp/action_propose.schema.json",
+  "$id": "https://aegis-initiative.com/schemas/agp/action_propose.schema.json",
   "title": "AGP ACTION_PROPOSE",
   "type": "object",
   "required": ["message_type", "action_id", "timestamp", "actor", "capability", "resource", "parameters"],
@@ -16,10 +16,10 @@
       "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
     },
     "actor": {
-      "$ref": "https://aegis.dev/schemas/common/actor.schema.json"
+      "$ref": "https://aegis-initiative.com/schemas/common/actor.schema.json"
     },
     "capability": {
-      "$ref": "https://aegis.dev/schemas/common/capability-id.schema.json"
+      "$ref": "https://aegis-initiative.com/schemas/common/capability-id.schema.json"
     },
     "resource": {
       "type": "string",

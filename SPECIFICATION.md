@@ -130,7 +130,7 @@ Together, these components define the full AEGIS™ governance architecture.
 **Best for:** Contributors, researchers, enthusiasts
 
 1. Check [Contributing Guidelines](CONTRIBUTING.md) — How to contribute
-2. Join [GitHub Discussions](https://github.com/aegis-initiative/aegis-governance/discussions) — Community conversation
+2. Join [GitHub Discussions](https://github.com/finnoybu/aegis-governance/discussions) — Community conversation
 3. Review [RFC Process](rfc/README.md) — How to propose changes
 4. Start with an issue or discussion in your area of interest
 
@@ -312,9 +312,9 @@ AEGIS is an open, community-driven project. We welcome contributions from resear
 
 | Resource | Purpose |
 |---|---|
-| [GitHub Repository](https://github.com/aegis-initiative/aegis-governance) | Source code and documentation |
-| [GitHub Discussions](https://github.com/aegis-initiative/aegis-governance/discussions) | Community conversation (5 categories: General, Ideas, Q&A, Announcements, Legal & Licensing) |
-| [GitHub Issues](https://github.com/aegis-initiative/aegis-governance/issues) | Bug reports and feature requests |
+| [GitHub Repository](https://github.com/finnoybu/aegis-governance) | Source code and documentation |
+| [GitHub Discussions](https://github.com/finnoybu/aegis-governance/discussions) | Community conversation (5 categories: General, Ideas, Q&A, Announcements, Legal & Licensing) |
+| [GitHub Issues](https://github.com/finnoybu/aegis-governance/issues) | Bug reports and feature requests |
 | [RFC Process](rfc/README.md) | How to propose architectural changes |
 | [Contributing Guide](CONTRIBUTING.md) | Guidelines for contributions |
 | [Code of Conduct](CODE_OF_CONDUCT.md) | Community expectations |
@@ -326,7 +326,7 @@ AEGIS is an open, community-driven project. We welcome contributions from resear
 - 💡 **Propose Changes:** Submit an RFC for architectural modifications
 - 💻 **Write Code:** Contribute to reference runtime, integrations, or examples
 - 📚 **Improve Docs:** Fix typos, clarify explanations, add examples
-- 🔍 **Security:** Report vulnerabilities to <security@aegis-initiative.org> (private)
+- 🔍 **Security:** Report vulnerabilities via [GitHub Security Advisories](https://github.com/finnoybu/aegis-governance/security/advisories/new) (private)
 
 **Community Governance:**
 

@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aegis.dev/schemas/governance/events/risk_signal.schema.json",
+  "$id": "https://aegis-initiative.com/schemas/governance/events/risk_signal.schema.json",
   "title": "Risk Signal Event",
   "allOf": [
     {
-      "$ref": "https://aegis.dev/schemas/governance/governance_event_envelope.schema.json"
+      "$ref": "https://aegis-initiative.com/schemas/governance/governance_event_envelope.schema.json"
     },
     {
       "type": "object",

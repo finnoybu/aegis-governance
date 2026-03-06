@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aegis.dev/schemas/capability/capability.schema.json",
+  "$id": "https://aegis-initiative.com/schemas/capability/capability.schema.json",
   "title": "AEGIS Capability Definition",
   "type": "object",
   "required": ["capability", "description", "allowed_roles", "environment", "risk_level"],
   "additionalProperties": false,
   "properties": {
     "capability": {
-      "$ref": "https://aegis.dev/schemas/common/capability-id.schema.json"
+      "$ref": "https://aegis-initiative.com/schemas/common/capability-id.schema.json"
     },
     "description": {
       "type": "string",
@@ -27,7 +27,7 @@
       }
     },
     "risk_level": {
-      "$ref": "https://aegis.dev/schemas/common/risk-level.schema.json"
+      "$ref": "https://aegis-initiative.com/schemas/common/risk-level.schema.json"
     },
     "constraints": {
       "type": "object"

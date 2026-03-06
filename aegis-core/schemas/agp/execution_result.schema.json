@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aegis.dev/schemas/agp/execution_result.schema.json",
+  "$id": "https://aegis-initiative.com/schemas/agp/execution_result.schema.json",
   "title": "AGP EXECUTION_RESULT",
   "type": "object",
   "required": ["message_type", "action_id", "status", "timestamp"],

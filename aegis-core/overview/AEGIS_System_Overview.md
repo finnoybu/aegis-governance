@@ -486,7 +486,7 @@ Ready to explore AEGIS governance? Follow this learning path:
 
 ## Step 8: Engage with the Community
 
-- **Join:** [GitHub Discussions](https://github.com/aegis-initiative/aegis-governance/discussions)
+- **Join:** [GitHub Discussions](https://github.com/finnoybu/aegis-governance/discussions)
 - **Contribute:** Share use cases, policy templates, integration examples
 - **Propose:** RFCs for architectural improvements
 - **Participate:** Threat intelligence sharing, federation network
@@ -501,7 +501,7 @@ Ready to explore AEGIS governance? Follow this learning path:
 | Understand principles | [Constitution](../constitution/AEGIS_Constitution.md) |
 | Assess security | [Threat Model](../threat-model/AEGIS_Threat_Model.md) |
 | Plan adoption | [FAQ - Adoption Model](../faq/AEGIS_FAQ.md#aegis-adoption-model) |
-| Join the community | [GitHub Discussions](https://github.com/aegis-initiative/aegis-governance/discussions) |
+| Join the community | [GitHub Discussions](https://github.com/finnoybu/aegis-governance/discussions) |
 
 ---
 

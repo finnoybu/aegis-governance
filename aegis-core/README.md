@@ -211,4 +211,3 @@ See [../TRADEMARKS.md](../TRADEMARKS.md) for trademark usage guidelines.
 
 - **GitHub Discussions**: [aegis-governance/discussions](https://github.com/finnoybu/aegis-governance/discussions)
 - **GitHub Issues**: [aegis-governance/issues](https://github.com/finnoybu/aegis-governance/issues)
-- **Email**: <ken@aegis-initiative.org>

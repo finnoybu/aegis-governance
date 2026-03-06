@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aegis.dev/schemas/agp/decision_response.schema.json",
+  "$id": "https://aegis-initiative.com/schemas/agp/decision_response.schema.json",
   "title": "AGP DECISION_RESPONSE",
   "type": "object",
   "required": ["message_type", "action_id", "decision", "timestamp"],
@@ -12,7 +12,7 @@
       "pattern": "^a-[a-zA-Z0-9_-]+$"
     },
     "decision": {
-      "$ref": "https://aegis.dev/schemas/common/decision.schema.json"
+      "$ref": "https://aegis-initiative.com/schemas/common/decision.schema.json"
     },
     "reason": {
       "type": "string"

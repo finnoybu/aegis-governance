@@ -393,7 +393,7 @@ This work belongs to everyone committed to building safer AI systems:
 ### Getting Started
 
 1. **Read the documentation:** Start with the System Overview and Constitution
-2. **Join the Discussion:** Engage on GitHub Discussions (github.com/aegis-initiative)
+2. **Join the Discussion:** Engage on GitHub Discussions (github.com/finnoybu/aegis-governance/discussions)
 3. **Review the FAQ:** Understand the AEGIS Adoption Model and integration patterns
 4. **Propose an RFC:** If you have architectural improvements, submit an RFC
 5. **Build an Integration:** Create an AEGIS adapter for your favorite AI framework

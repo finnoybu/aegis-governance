@@ -9,7 +9,7 @@ description = "Reference Python implementation of the AEGIS governance runtime."
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [
-  { name = "AEGIS Project" }
+  { name = "Kenneth Tannenbaum", email = "finnoybu@users.noreply.github.com" }
 ]
 
 requires-python = ">=3.10"
@@ -38,8 +38,11 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/aegis-project/aegis-governance"
-Repository = "https://github.com/aegis-project/aegis-governance"
+Homepage = "https://github.com/finnoybu/aegis-governance"
+Repository = "https://github.com/finnoybu/aegis-governance"
+Documentation = "https://github.com/finnoybu/aegis-governance/blob/main/SPECIFICATION.md"
+Discussions = "https://github.com/finnoybu/aegis-governance/discussions"
+Issues = "https://github.com/finnoybu/aegis-governance/issues"
 
 [tool.setuptools]
 packages = ["aegis"]

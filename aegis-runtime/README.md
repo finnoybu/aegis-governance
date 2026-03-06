@@ -201,11 +201,11 @@ All governance interactions are represented using these protocol objects.
 ---
 
 # Installation
-
 Clone the repository and install the runtime locally.
 
 ```
 git clone https://github.com/aegis-project/aegis-governance.git
+```
 cd aegis-governance/aegis-runtime
 pip install -e .
 ```

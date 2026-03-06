@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aegis.dev/schemas/common/actor.schema.json",
+  "$id": "https://aegis-initiative.com/schemas/common/actor.schema.json",
   "title": "Actor",
   "type": "object",
   "required": ["id", "type"],
