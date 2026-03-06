@@ -34,7 +34,6 @@ AEGIS™ addresses this gap by introducing a **governance runtime** that evaluat
 **AI systems may propose actions.
 AEGIS™ evaluates those actions.
 
-
 Only approved actions are allowed to execute.**
 
 # Core Concepts
