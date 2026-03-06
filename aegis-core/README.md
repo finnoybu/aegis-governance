@@ -201,7 +201,7 @@ See [../LICENSE](../LICENSE) for full license text.
 
 ## Trademark Notice
 
-AEGIS™ and **"Capability without constraint is not intelligence™"** are trademarks of Kenneth Tannenbaum.
+AEGIS™ and **"Capability without constraint is not intelligence™"** are trademarks of Finnoybu IP LLC.
 
 See [../TRADEMARKS.md](../TRADEMARKS.md) for trademark usage guidelines.
 

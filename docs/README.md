@@ -43,21 +43,25 @@ This directory contains **supporting documentation**, **architectural design art
 Detailed architectural design documents describing AEGIS components, models, and algorithms.
 
 #### Core Architecture
+
 - [**AEGIS_ARCHITECTURE_OVERVIEW.md**](architecture/AEGIS_ARCHITECTURE_OVERVIEW.md) — High-level system architecture
 - [**SYSTEM_PRINCIPLES.md**](architecture/SYSTEM_PRINCIPLES.md) — Foundational design principles
 - [**AEGIS_SYSTEM_STACK.md**](architecture/AEGIS_SYSTEM_STACK.md) — Technology stack overview
 
 #### Governance Engine
+
 - [**GOVERNANCE_ENGINE_SPEC.md**](architecture/GOVERNANCE_ENGINE_SPEC.md) — Engine specification
 - [**GOVERNANCE_ENGINE_COMPONENTS.md**](architecture/GOVERNANCE_ENGINE_COMPONENTS.md) — Component breakdown
 - [**DECISION_ALGORITHM.md**](architecture/DECISION_ALGORITHM.md) — Decision-making logic
 
 #### Security & Trust
+
 - [**REFERENCE_MONITOR_MODEL.md**](architecture/REFERENCE_MONITOR_MODEL.md) — Security foundation
 - [**SECURITY_ASSUMPTIONS.md**](architecture/SECURITY_ASSUMPTIONS.md) — Threat model assumptions
 - [**TRUST_BOUNDARIES.md**](architecture/TRUST_BOUNDARIES.md) — Security boundary analysis
 
 #### Capability System
+
 - [**CAPABILITY_MODEL.md**](architecture/CAPABILITY_MODEL.md) — Capability-based authorization
 - [**CAPABILITY_SCHEMA.md**](architecture/CAPABILITY_SCHEMA.md) — Schema definitions
 - [**GOVERNED_CAPABILITY_FLOW.md**](architecture/GOVERNED_CAPABILITY_FLOW.md) — Request lifecycle
@@ -141,9 +145,9 @@ See [`../CONTRIBUTING.md`](../CONTRIBUTING.md) for guidelines.
 
 ## License & Trademark
 
-- **Copyright**: © 2025 Kenneth Tannenbaum. All rights reserved.
+- **Copyright**: © 2025 Finnoybu IP LLC. All rights reserved.
 - **License**: See [`../LICENSE`](../LICENSE)
-- **Trademark**: AEGIS™ is a trademark of Kenneth Tannenbaum. See [`../TRADEMARKS.md`](../TRADEMARKS.md)
+- **Trademark**: AEGIS™ is a trademark of Finnoybu IP LLC. See [`../TRADEMARKS.md`](../TRADEMARKS.md)
 
 ---
 

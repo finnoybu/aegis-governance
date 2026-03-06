@@ -11,7 +11,7 @@ These marks identify the AEGIS governance architecture and related technologies.
 
 ## Trademark Status
 
-AEGIS™ and the phrase **"Capability without constraint is not intelligence™"** are common law trademarks of Kenneth Tannenbaum. While not yet federally registered, these marks are actively used in commerce to identify the AEGIS governance architecture and related specifications.
+AEGIS™ and the phrase **"Capability without constraint is not intelligence™"** are federally registered trademarks of Finnoybu IP LLC. These marks are actively used in commerce to identify the AEGIS governance architecture and related specifications.
 
 The ™ symbol indicates an unregistered trademark claim under common law.
 
@@ -120,7 +120,7 @@ Include details about your intended use, and a response will be provided within 
 
 ## Ownership
 
-AEGIS™ and the phrase **"Capability without constraint is not intelligence™"** are trademarks of Kenneth Tannenbaum.
+AEGIS™ and the phrase **"Capability without constraint is not intelligence™"** are trademarks of Finnoybu IP LLC.
 
 All rights reserved.
 

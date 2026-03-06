@@ -289,7 +289,7 @@ Recommended workflows:
 Documents reference:
 
 AEGIS™ and “Capability without constraint is not intelligence™”  
-are trademarks of Kenneth Tannenbaum.
+are trademarks of Finnoybu IP LLC.
 
 Planned website footer:
 

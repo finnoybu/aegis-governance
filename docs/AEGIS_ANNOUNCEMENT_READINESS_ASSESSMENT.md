@@ -340,7 +340,7 @@ Present:
 
 ### ✅ 15. Trademark Attribution — COMPLETE
 
-**Status**: All references updated to Kenneth Tannenbaum
+**Status**: All trademark references updated to Finnoybu IP LLC
 
 Updated files (24 files):
 - ✓ TRADEMARKS.md (2 references)
@@ -350,10 +350,10 @@ Updated files (24 files):
 - ✓ docs/AEGIS_ANNOUNCEMENT_READINESS_CHECKLIST.md
 
 **Notes**: 
-- All "Ken Tannenbaum" references changed to "Kenneth Tannenbaum"
+- All trademark references updated to Finnoybu IP LLC
 - Comprehensive global update completed
-- Trademark policy clearly states Kenneth Tannenbaum as owner
-- Ready for IP transfer to IP Vault when desired
+- Trademark policy clearly states Finnoybu IP LLC as owner
+- Both AEGIS™ and "Capability without constraint is not intelligence™" federally registered
 
 ---
 
@@ -447,4 +447,4 @@ The one remaining gap (roadmap issues) is an administrative detail that is bette
 
 **Report Generated**: March 5, 2026
 **Assessed By**: GitHub Copilot
-**Repository**: https://github.com/finnoybu/aegis-governance
+**Repository**: [https://github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)
