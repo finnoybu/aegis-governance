@@ -1,5 +1,4 @@
 <p align="center">
-  <picture>
     <source media="(prefers-color-scheme: dark)" srcset="../aegis-core/assets/AEGIS_wordmark_dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="../aegis-core/assets/AEGIS_wordmark_light.svg">
     <img src="../aegis-core/assets/AEGIS_wordmark.svg" width="180" alt="AEGIS™ Governance Logo">
@@ -12,7 +11,7 @@
 ![Status](https://img.shields.io/badge/status-alpha-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-**AEGIS — Architectural Enforcement & Governance of Intelligent Systems**
+```
 
 The AEGIS Runtime is the **reference Python implementation** of the AEGIS governance architecture.
 It provides a deterministic enforcement layer that evaluates and governs AI-initiated actions **before they interact with infrastructure**.
@@ -27,12 +26,12 @@ AEGIS enforces governance decisions **before execution**, ensuring AI systems op
 
 AEGIS sits between AI systems and the external world, enforcing governance decisions before actions are executed.
 
-```
 AI Agent
    │
    ▼
 AEGIS Runtime
    │
+ 
    ├ GovernanceGateway
    ├ DecisionEngine
    ├ CapabilityRegistry
@@ -200,14 +199,34 @@ All governance interactions are represented using these protocol objects.
 
 ---
 
+`git clone https://github.com/finnoybu/aegis-governance.git`
+
+```
+cd aegis-governance/aegis-runtime
+pip install -e .
+```
+
+After installation, the runtime can be imported as:
+
 # Installation
 Clone the repository and install the runtime locally.
 
 ```
-git clone https://github.com/finnoybu/aegis-governance.git
-```
+`git clone https://github.com/finnoybu/aegis-governance.git`
 cd aegis-governance/aegis-runtime
 pip install -e .
+```
+
+After installation, the runtime can be imported as:
+
+```python
+from aegis import AEGISRuntime
+```
+
+`git clone https://github.com/finnoybu/aegis-governance.git`
+*** End Patch
+pip install -e .
+
 ```
 
 After installation, the runtime can be imported as:

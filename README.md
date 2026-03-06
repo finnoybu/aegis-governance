@@ -15,7 +15,7 @@
 
 ### Announcement
 
-EGIS™ has been **[publicly released](docs/2026-03-05-ANNOUNCEMENT.md)** as an open governance architecture for intelligent systems.  
+AEGIS™ has been **[publicly released](docs/2026-03-05-ANNOUNCEMENT.md)** as an open governance architecture for intelligent systems.  
 
 ---
 
@@ -33,12 +33,11 @@ AEGIS™ addresses this gap by introducing a **governance runtime** that evaluat
 
 **AI systems may propose actions.
 AEGIS™ evaluates those actions.
+
+
 Only approved actions are allowed to execute.**
 
----
-
 # Core Concepts
-
 AEGIS™ introduces a governance architecture built on several core components.
 
 ### Governance Runtime
