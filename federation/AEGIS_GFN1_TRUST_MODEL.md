@@ -9,17 +9,17 @@
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Trust Primitives](#trust-primitives)
-3. [Normative Trust Score Calculation](#normative-trust-score-calculation)
-4. [Event Weighting](#event-weighting)
-5. [Trust Bootstrap Mechanisms](#trust-bootstrap-mechanisms)
-6. [Sybil Attack Resistance](#sybil-attack-resistance)
-7. [Game-Theoretic Incentive Model](#game-theoretic-incentive-model)
-8. [Trust Revocation Procedures](#trust-revocation-procedures)
-9. [Reputation Graph Extensions](#reputation-graph-extensions)
-10. [Signal Ingestion and Quarantine](#signal-ingestion-and-quarantine)
-11. [Audit and Compliance](#audit-and-compliance)
+1. [Introduction](#1-introduction)
+2. [Trust Primitives](#2-trust-primitives)
+3. [Normative Trust Score Calculation](#3-normative-trust-score-calculation)
+4. [Event Weighting](#4-event-weighting)
+5. [Trust Bootstrap Mechanisms](#5-trust-bootstrap-mechanisms)
+6. [Sybil Attack Resistance](#6-sybil-attack-resistance)
+7. [Game-Theoretic Incentive Model](#7-game-theoretic-incentive-model)
+8. [Trust Revocation Procedures](#8-trust-revocation-procedures)
+9. [Reputation Graph Extensions](#9-reputation-graph-extensions)
+10. [Signal Ingestion and Quarantine](#10-signal-ingestion-and-quarantine)
+11. [Audit and Compliance](#11-audit-and-compliance)
 
 ---
 
@@ -30,6 +30,7 @@
 This document specifies the normative trust evaluation model for AEGIS Federation Network (GFN) nodes.
 
 The model enables autonomous governance nodes to:
+
 - **Evaluate signal credibility** from diverse publishers without central authority
 - **Resist coordinated attacks** (malicious injection, spam, Sybil nodes, misinformation)
 - **Preserve operational autonomy** (nodes retain final decision authority)
@@ -109,6 +110,7 @@ Each publisher MUST be assigned to exactly one authority class based on verifiab
 | `QUARANTINE` | Trust revoked; previous violation detected | 0.05 | Malicious publisher (see section 8) |
 
 Classification MUST be:
+
 - **Deterministic**: same input → same classification across all nodes
 - **Auditable**: classification reason logged with timestamp
 - **Appealable**: nodes MAY adjust class via local policy override with audit trail
@@ -128,6 +130,7 @@ All factor scores are in range **[0.0, 1.0]**.
 $$B = \text{authority\_class\_baseline}$$
 
 **Authority Class Baselines** (from section 2.2):
+
 - L0_SYSTEM: 0.95
 - L1_AUTHORITY: 0.85
 - L2_ENTERPRISE: 0.70
@@ -148,12 +151,14 @@ Where:
 - **Bootstrap value** (no history): H = 0.8 (assume good faith)
 
 Examples:
+
 - Publisher claims "Prompt Injection Technique XYZ affects GPT-4": later verified by independent researchers → **not contradicted** (H +1)
 - Publisher claims "User accounts compromised", but audit shows no breach → **contradicted** (H -3)
 
 ### 3.4 Consistency and Quality Factor (Q)
 
 Measures publisher's consistency in:
+
 - schema compliance (no validation errors)
 - metadata completeness (all recommended fields present)
 - evidence quality (strong justification provided)
@@ -161,6 +166,7 @@ Measures publisher's consistency in:
 $$Q = 1.0 - \frac{\text{quality\_issues}}{\text{total\_events}}$$
 
 Where quality issues include:
+
 - schema validation failures (weight: -0.5 per event)
 - missing recommended metadata (weight: -0.1 per event)
 - low-confidence claims presented as high (weight: -0.2 per event)
@@ -174,12 +180,14 @@ Measures publisher's operational governance maturity.
 $$A = \frac{1}{2} \times \text{audit\_score} + \frac{1}{2} \times \text{transparency\_score}$$
 
 **Audit Score** (requires evidence):
+
 - No audit available: 0.3
 - Self-attested audit: 0.5
 - Third-party audit < 1 year old: 0.8
 - Third-party audit < 6 months old: 0.9
 
 **Transparency Score** (requires evidence):
+
 - No published security posture: 0.3
 - Published incident disclosure policy: 0.6
 - Published key rotation schedule: 0.8
@@ -194,10 +202,12 @@ Measures how other federation nodes rate this publisher.
 $$F = \frac{\text{endorsements\_from\_trusted\_peers}}{\text{total\_peer\_opinions}}$$
 
 Where:
+
 - **Endorsement**: another node with trust_score ≥ 0.6 reports consuming this publisher's events successfully
 - **Opinion**: another node either endorses or reports problems with this publisher
 
 **Weighting**:
+
 - Endorsement from L0/L1 node: weight +1.0
 - Endorsement from L2 node: weight +0.5
 - Negative report from L0/L1 node: weight -1.0
@@ -217,6 +227,7 @@ Publisher trust scores decay over time if not updated within evaluation window.
 $$\text{trust\_score}_{\text{decayed}} = \text{trust\_score} \times e^{-\lambda t}$$
 
 Where:
+
 - $\lambda = 0.01$ (half-life ≈ 69 days)
 - $t$ = days since last update of evidence factors
 
@@ -247,6 +258,7 @@ Once a publisher's trust score is computed, individual events are weighted based
 $$W_{\text{event}} = TS \times C \times F \times B$$
 
 Where:
+
 - **TS**: Publisher trust_score (section 3.7)
 - **C**: Event confidence claim [0.0, 1.0] (from event payload; default 1.0 if omitted)
 - **F**: Freshness factor (decay)
@@ -257,11 +269,13 @@ Where:
 $$F(t) = e^{-\alpha t}$$
 
 Where:
+
 - $t$ = days since event timestamp
 - $\alpha$ = 0.02 (default); half-life ≈ 35 days
 - Receivers MAY adjust $\alpha$ per event type (min: 0.005, max: 0.1)
 
 Example:
+
 - Event 7 days old: $F(7) = e^{-0.02 \times 7} \approx 0.87$
 - Event 35 days old: $F(35) = e^{-0.02 \times 35} = 0.5$
 
@@ -270,16 +284,19 @@ Example:
 $$B = 1.0 + k \times N_{\text{corroborators}}$$
 
 Where:
+
 - $N_{\text{corroborators}}$ = number of independent publishers reporting same core claim
 - $k = 0.15$ (default); configurable [0.05, 0.3]
 - Capped at B ≤ 2.0 (avoid over-amplification)
 
 **Corroboration Rules**:
+
 - Only count events within 30-day window
 - Only count from publishers with trust_score ≥ 0.3
 - Claims MUST be semantically equivalent (checked via content hash similarity)
 
 Example:
+
 - Single report of technique X: W = TS × C × F × 1.0
 - Same report from 2 additional publishers: W = TS × C × F × 1.3
 
@@ -296,6 +313,7 @@ New federation nodes have no historical trust evidence. Nodes need **determinist
 **Requirement**: Node operator maintains a manually curated **allowlist of trusted publisher DIDs**.
 
 **Process**:
+
 1. Allowlisted DID automatically assigned to L1_AUTHORITY class
 2. Allowlisted DIDs bypass historical evidence verification (H = 0.95)
 3. Nodes MUST publish allowlist as verifiable configuration
@@ -310,12 +328,14 @@ New federation nodes have no historical trust evidence. Nodes need **determinist
 **Requirement**: Publisher has cryptographic proof of membership in known consortium.
 
 **Process**:
+
 1. Consortium publishes list of member DIDs + proof tokens
 2. Node verifies proof token signature by consortium's DID
 3. Publisher automatically assigned L2_ENTERPRISE class
 4. Publisher's H factor set to 0.85 initially
 
 **Proof Token Format**:
+
 ```json
 {
   "consortium_id": "did:aegis:consortium-financial",
@@ -332,6 +352,7 @@ New federation nodes have no historical trust evidence. Nodes need **determinist
 ```
 
 **Consortium Requirements**:
+
 - Consortium DID must be allowlisted or verified through L1 authority
 - Consortium MUST publish revocation list annually
 - Consortium MUST have vetted membership criteria
@@ -341,11 +362,13 @@ New federation nodes have no historical trust evidence. Nodes need **determinist
 **Requirement**: Publisher has endorsement from existing trusted peer.
 
 **Process**:
+
 1. Trusted peer (trust_score ≥ 0.75) publishes endorsement of new publisher
 2. New publisher's A factor set to 0.70 initially (peer trust vouches for operational maturity)
 3. New publisher's F factor initialized from endorser's opinion
 
 **Endorsement Format**:
+
 ```json
 {
   "message_type": "TRUST_ENDORSEMENT",
@@ -360,6 +383,7 @@ New federation nodes have no historical trust evidence. Nodes need **determinist
 ```
 
 **Validation**:
+
 - Endorser's current trust_score MUST be ≥ 0.75
 - Endorsement MUST NOT be older than 180 days
 - New publisher MUST validate endorser's identity independently
@@ -369,12 +393,14 @@ New federation nodes have no historical trust evidence. Nodes need **determinist
 **Requirement**: New publisher accepts lower initial trust with accelerated update path.
 
 **Process**:
+
 1. New publisher starts at UNCLASSIFIED (0.25)
 2. Publisher's first 10 events are processed and evaluated carefully
 3. If no contradictions detected and quality is good: H jumps to 0.90, Q to 0.85
 4. Publisher can reach L3_CONTRIBUTOR (0.50) in as little as 30 days
 
 **Safeguards**:
+
 - All L3_CONTRIBUTOR signals require corroboration or manual approval
 - Rate limiting: max 10 events/day from new publishers
 - Automatic re-evaluation every 30 days
@@ -386,6 +412,7 @@ New federation nodes have no historical trust evidence. Nodes need **determinist
 ### 6.1 Sybil Attack Threat
 
 A **Sybil attacker** creates multiple pseudo-identities to:
+
 - Amplify false signals through corroboration
 - Bypass rate limits through distributed injection
 - Accumulate trust independently for each identity
@@ -415,6 +442,7 @@ Corroboration boost (section 4.3) ONLY applies if:
 4. Time delay between events ≥ 1 hour (prevent synchronized injection)
 
 **Check Logic**:
+
 ```
 for each corroborating publisher P:
   if P.DID_similarity(main_publisher) > 0.95:
@@ -440,6 +468,7 @@ Per-publisher rate limits prevent Sybil amplification:
 **Burst** = events exceeding rate within evaluation window
 
 Burst response:
+
 - Warning: burst count recorded; publisher trust decays by 10%
 - Second burst: automatic downgrade to lower class
 - Third burst within 30 days: automatic QUARANTINE
@@ -470,6 +499,7 @@ This section specifies incentive structures that make **cooperation individually
 ### 7.2 Payoff Model
 
 Define publisher utility as function of:
+
 - $R_t$: reputation score (trust_score) at time $t$
 - $S_t$: number of consuming nodes at time $t$
 - $C(q)$: cost to produce signal of quality $q$
@@ -479,6 +509,7 @@ Define publisher utility as function of:
 $$U = R_t \times S_t + U^i - C(q)$$
 
 Where:
+
 - Honest signals (high $q$) maintain high $R_t$ and $S_t$
 - Dishonest signals (low $q$) initially high utility, but rapid $R_t$ decay ends consuming
 

@@ -81,6 +81,7 @@ This document provides complete, normative schemas for all 6 AGP-1 message types
 ### Parameter Validation
 
 **capability**: MUST be registered in Capability Registry
+
 ```json
 {
   "capability_id": "telemetry.query",
@@ -92,6 +93,7 @@ This document provides complete, normative schemas for all 6 AGP-1 message types
 ```
 
 **actor_id**: MUST match authentication token subject
+
 ```javascript
 // JWT claim:
 { "sub": "agent:soc-001", ... }
@@ -100,6 +102,7 @@ This document provides complete, normative schemas for all 6 AGP-1 message types
 ```
 
 **timestamp**: MUST be within clock skew tolerance
+
 ```javascript
 // Server time: 2026-03-05T14:30:05Z
 // Request timestamp: 2026-03-05T14:35:00Z (5 min future)  → ACCEPT
@@ -109,6 +112,7 @@ This document provides complete, normative schemas for all 6 AGP-1 message types
 ### Examples
 
 **Example 1: Simple SIEM Query**
+
 ```json
 {
   "agp_version": "1.0.0",
@@ -139,6 +143,7 @@ This document provides complete, normative schemas for all 6 AGP-1 message types
 ```
 
 **Example 2: High-Risk Infrastructure Change**
+
 ```json
 {
   "agp_version": "1.0.0",
@@ -258,7 +263,7 @@ Action requires human review before execution.
 
 - See [ESCALATION_REQUEST](#4-escalation_request-message) for details
 - Client MUST pause and display evidence to operator
-- Client waits for [ESCALATION_RESPONSE](#escalation-response-from-client)
+- Client waits for ESCALATION_RESPONSE (from operator)
 - After approval, client sends new ACTION_PROPOSE (confirms human consent)
 
 #### REQUIRE_CONFIRMATION
@@ -272,6 +277,7 @@ Action permitted only with explicit user confirmation.
 ### Examples
 
 **ALLOW Decision (Low Risk)**
+
 ```json
 {
   "agp_version": "1.0.0",
@@ -287,6 +293,7 @@ Action permitted only with explicit user confirmation.
 ```
 
 **DENY Decision (Unauthorized)**
+
 ```json
 {
   "agp_version": "1.0.0",
@@ -299,6 +306,7 @@ Action permitted only with explicit user confirmation.
 ```
 
 **ESCALATE Decision (High Risk)**
+
 ```json
 {
   "agp_version": "1.0.0",
@@ -371,6 +379,7 @@ Action permitted only with explicit user confirmation.
 ### Examples
 
 **Successful Completion**
+
 ```json
 {
   "message_id": "msg-001",
@@ -387,6 +396,7 @@ Action permitted only with explicit user confirmation.
 ```
 
 **Timeout**
+
 ```json
 {
   "message_id": "msg-002",
@@ -403,7 +413,7 @@ Action permitted only with explicit user confirmation.
 
 **Direction**: Server → Client  
 **Purpose**: Server requests human review for high-risk or uncertain action  
-**Response**: [ESCALATION_RESPONSE](#escalation-response-from-client)
+**Response**: ESCALATION_RESPONSE (operator approval/denial)
 
 ### Schema
 
@@ -458,6 +468,7 @@ Action permitted only with explicit user confirmation.
 ### Examples
 
 **High Risk Score Escalation**
+
 ```json
 {
   "escalation_id": "esc-prod-deploy-001",
@@ -476,6 +487,7 @@ Action permitted only with explicit user confirmation.
 ```
 
 **Policy Exception Escalation**
+
 ```json
 {
   "escalation_id": "esc-policy-exc-001",
@@ -539,6 +551,7 @@ Action permitted only with explicit user confirmation.
 ### Examples
 
 **Query: Find all decisions for specific request**
+
 ```json
 {
   "query_type": "by_request_id",
@@ -547,6 +560,7 @@ Action permitted only with explicit user confirmation.
 ```
 
 **Query: Find all DENY decisions in last 7 days**
+
 ```json
 {
   "query_type": "by_decision",

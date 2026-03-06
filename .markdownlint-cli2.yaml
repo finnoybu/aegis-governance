@@ -7,6 +7,9 @@ config:
   MD040: false  # fenced-code-language (pseudo-code doesn't need language)
   MD001: false  # heading-increment (intentional skips for visual hierarchy)
   MD036: false  # no-emphasis-as-heading (bold text is not always a heading)
+  MD060: false  # table-column-style (allow flexible table formatting)
+  MD024: false  # no-duplicate-heading (acceptable for different sections)
+  MD051: false  # link-fragments (has issues with numbered section headings)
 
 globs:
   - "**/*.md"

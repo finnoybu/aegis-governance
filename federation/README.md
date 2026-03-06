@@ -54,11 +54,11 @@ This folder contains the normative documentation for AEGIS federation:
 
 | Document | Status | Purpose |
 |----------|--------|---------|
-| [AEGIS_GFN1_GOVERNANCE_NETWORK.md](#) | Normative | Federation protocol specification; decentralized pub-sub topology |
-| [AEGIS_GFN1_SCHEMA.md](#) | Normative | ATProto-based schema definitions for governance events |
-| [AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md](#) | Normative | Node deployment, service mesh, federation endpoints architecture |
-| [AEGIS_GFN1_GOVERNANCE_FEEDS.md](#) | Normative | Feed types, subscription, replay, and versioning semantics |
-| [AEGIS_GFN1_TRUST_MODEL.md](#) | Normative | Trust evaluation, identity binding, signature verification, and DID resolution |
+| [AEGIS_GFN1_GOVERNANCE_NETWORK.md](./AEGIS_GFN1_GOVERNANCE_NETWORK.md) | Normative | Federation protocol specification; decentralized pub-sub topology |
+| [AEGIS_GFN1_SCHEMA.md](./AEGIS_GFN1_SCHEMA.md) | Normative | ATProto-based schema definitions for governance events |
+| [AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md](./AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md) | Normative | Node deployment, service mesh, federation endpoints architecture |
+| [AEGIS_GFN1_GOVERNANCE_FEEDS.md](./AEGIS_GFN1_GOVERNANCE_FEEDS.md) | Normative | Feed types, subscription, replay, and versioning semantics |
+| [AEGIS_GFN1_TRUST_MODEL.md](./AEGIS_GFN1_TRUST_MODEL.md) | Normative | Trust evaluation, identity binding, signature verification, and DID resolution |
 
 ---
 
@@ -84,6 +84,7 @@ did:aegis:soc-team-alpha
 ```
 
 DIDs include cryptographic keys for:
+
 - message signing and verification
 - trust anchor binding
 - key rotation and lifecycle
@@ -95,6 +96,7 @@ Receiving nodes evaluate incoming events using multi-factor trust scoring:
 $$\text{trust\_score} = 0.25 \times \text{identity\_confidence} + 0.20 \times \text{signature\_confidence} + 0.25 \times \text{historical\_accuracy} + 0.15 \times \text{audit\_posture} + 0.15 \times \text{federation\_reputation}$$
 
 **Application**:
+
 - `trust_score >= 0.8`: auto-ingest into policy engine
 - `0.5 <= trust_score < 0.8`: require operator confirmation
 - `< 0.5`: quarantine for review
@@ -110,6 +112,7 @@ Policy Update Event (seq=1042, policy_feed)
 ```
 
 Consumers detect gaps and request backfill. Signature-based replay protection prevents:
+
 - stale event replay
 - out-of-order injection
 - timestamp manipulation
@@ -164,6 +167,7 @@ Consumers detect gaps and request backfill. Signature-based replay protection pr
 ### 1. Operational Autonomy
 
 Each AEGIS node operates independently:
+
 - makes its own capability, policy, and risk decisions
 - never delegates authority to federated peers
 - retains full override and shutdown capability
@@ -177,6 +181,7 @@ Nodes may publish to federation without subscribing to peers.
 Trust relationships are **directional** and **multi-weighted**.
 
 Example:
+
 - Node A trusts Node B's risk signals (high confidence)
 - Node A trusts Node C's policy guidance (medium confidence)
 - Node A does not trust Node D's circumvention reports (unverified)
@@ -184,6 +189,7 @@ Example:
 ### 3. Event Immutability
 
 All federation events are:
+
 - cryptographically signed by publisher
 - timestamped and sequenced
 - persisted in append-only logs
@@ -192,6 +198,7 @@ All federation events are:
 ### 4. Deterministic Validation
 
 Event acceptance is deterministic:
+
 - same event + same receiver policy = same outcome
 - no hidden state or timing-dependent decisions
 - all trust factors are auditable
