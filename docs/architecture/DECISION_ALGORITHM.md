@@ -11,11 +11,11 @@ authorization decision through a two-stage evaluation pipeline.
 
 ## Inputs
 
--   capability_request (AGPRequest)
--   agent capabilities (from CapabilityRegistry)
--   matched policies (from PolicyEngine)
--   risk_score (from RiskEngine)
--   actor_context and environment_context
+- capability_request (AGPRequest)
+- agent capabilities (from CapabilityRegistry)
+- matched policies (from PolicyEngine)
+- risk_score (from RiskEngine)
+- actor_context and environment_context
 
 ## Decision Thresholds
 
@@ -98,6 +98,7 @@ function authorize(request: AGPRequest) -> AGPResponse:
 ### Example 1: Low-Risk Approval (Score: 15)
 
 **Request**: Agent reading public data
+
 ```
 actor_trust = 5
 capability_risk = 5
@@ -115,6 +116,7 @@ Total: 15 → ALLOW
 ### Example 2: Moderate-Risk Constrained (Score: 45)
 
 **Request**: Agent reading internal file
+
 ```
 actor_trust = 10
 capability_risk = 15
@@ -126,6 +128,7 @@ Total: 45 → ALLOW with CONSTRAINTS
 
 **Decision**: APPROVED_CONSTRAINED  
 **Constraints Applied**:
+
 - Max file size: 10MB
 - Rate limited: 5 reads/minute
 - Audit all reads
@@ -135,6 +138,7 @@ Total: 45 → ALLOW with CONSTRAINTS
 ### Example 3: High-Risk Escalation (Score: 70)
 
 **Request**: Agent accessing sensitive file in production
+
 ```
 actor_trust = 10
 capability_risk = 20
@@ -153,6 +157,7 @@ Total: 70 → ESCALATE
 ### Example 4: Critical-Risk Denial (Score: 85)
 
 **Request**: Agent attempting to access shadow file
+
 ```
 actor_trust = 5
 capability_risk = 25

@@ -14,6 +14,7 @@ This document defines key terminology used throughout the AEGIS™ specification
 Consistent terminology is important for ensuring that architectural documents, protocol definitions, and implementation guidance are interpreted consistently.
 
 **Who should use this document?**
+
 - Developers implementing AEGIS support for AI frameworks
 - Security architects evaluating governance models
 - Policy designers creating governance rules
@@ -122,9 +123,10 @@ AEGIS™ is a governance architecture designed to enforce deterministic control 
 An authenticated entity (user, service, or AI agent) that submits [Actions](#action) for governance evaluation.
 
 Actors have:
-* unique identity (username, service principal, agent ID)
-* assigned roles and permissions
-* audit trail of all their requested [Actions](#action)
+
+- unique identity (username, service principal, agent ID)
+- assigned roles and permissions
+- audit trail of all their requested [Actions](#action)
 
 The governance runtime authenticates actors before evaluating their [Actions](#action).
 
@@ -139,10 +141,11 @@ The governance runtime authenticates actors before evaluating their [Actions](#a
 Governance enforcement that produces consistent outcomes given the same inputs, implemented through architectural mechanisms rather than behavioral restrictions.
 
 AEGIS™ uses deterministic governance to ensure:
-* reproducible policy evaluation
-* formal verifiability of governance decisions
-* no hidden logic or non-deterministic behavior
-* policy decisions can be explained and audited
+
+- reproducible policy evaluation
+- formal verifiability of governance decisions
+- no hidden logic or non-deterministic behavior
+- policy decisions can be explained and audited
 
 **Related Terms:** [Governance Policy](#governance-policy), [Governance Decision](#governance-decision)
 
@@ -156,11 +159,11 @@ The runtime system responsible for evaluating and enforcing governance decisions
 
 The runtime typically includes:
 
-* [Governance Gateway](#governance-gateway) — receives requests
-* [Decision Engine](#decision-engine) — evaluates policies
-* [Capability Registry](#capability-registry) — defines allowed actions
-* [Policy Engine](#policy-engine) — evaluates [Governance Policies](#governance-policy)
-* [Audit Logging](#audit-trail) — records all decisions
+- [Governance Gateway](#governance-gateway) — receives requests
+- [Decision Engine](#decision-engine) — evaluates policies
+- [Capability Registry](#capability-registry) — defines allowed actions
+- [Policy Engine](#policy-engine) — evaluates [Governance Policies](#governance-policy)
+- [Audit Logging](#audit-trail) — records all decisions
 
 **Related Terms:** [Governance Gateway](#governance-gateway), [Decision Engine](#decision-engine), [AGP Protocol](#aegis-governance-protocol-agp)
 
@@ -173,10 +176,11 @@ The runtime typically includes:
 The entry point through which AI systems submit proposed [Actions](#action) to the [Governance Runtime](#governance-runtime).
 
 The gateway performs:
-* request validation
-* actor authentication
-* protocol parsing
-* request forwarding to [Decision Engine](#decision-engine)
+
+- request validation
+- actor authentication
+- protocol parsing
+- request forwarding to [Decision Engine](#decision-engine)
 
 **Related Terms:** [Governance Runtime](#governance-runtime), [Decision Engine](#decision-engine), [AGP Protocol](#aegis-governance-protocol-agp)
 
@@ -188,10 +192,10 @@ The component responsible for evaluating governance rules and determining whethe
 
 The [Decision Engine](#decision-engine) typically evaluates:
 
-* **Capability authorization** — Is this [Capability](#capability) allowed? (via [Capability Registry](#capability-registry))
-* **[Actor](#actor) identity** — Who is requesting this? (authentication & authorization)
-* **[Governance Policies](#governance-policy)** — Does context match policy conditions? (via [Policy Engine](#policy-engine))
-* **Risk assessment** — What is the risk profile of this [Action](#action)?
+- **Capability authorization** — Is this [Capability](#capability) allowed? (via [Capability Registry](#capability-registry))
+- **[Actor](#actor) identity** — Who is requesting this? (authentication & authorization)
+- **[Governance Policies](#governance-policy)** — Does context match policy conditions? (via [Policy Engine](#policy-engine))
+- **Risk assessment** — What is the risk profile of this [Action](#action)?
 
 **Related Terms:** [Governance Runtime](#governance-runtime), [Governance Policy](#governance-policy), [Governance Decision](#governance-decision)
 
@@ -204,10 +208,11 @@ The [Decision Engine](#decision-engine) typically evaluates:
 The component that evaluates [Governance Policies](#governance-policy) against specific [Actions](#action) and contextual data.
 
 The [Policy Engine](#policy-engine):
-* parses policy conditions
-* evaluates against [Action](#action) parameters
-* determines policy match and applicable constraints
-* returns policy verdict to [Decision Engine](#decision-engine)
+
+- parses policy conditions
+- evaluates against [Action](#action) parameters
+- determines policy match and applicable constraints
+- returns policy verdict to [Decision Engine](#decision-engine)
 
 **Related Terms:** [Governance Policy](#governance-policy), [Governance Decision](#governance-decision), [Decision Engine](#decision-engine)
 
@@ -245,12 +250,12 @@ A structured repository that defines all capabilities available within a governe
 
 Each capability includes:
 
-* identifier (e.g., `database.write`)
-* description
-* allowed [actors](#actor) or roles
-* environmental constraints
-* risk classification (low/medium/high)
-* resource categories affected
+- identifier (e.g., `database.write`)
+- description
+- allowed [actors](#actor) or roles
+- environmental constraints
+- risk classification (low/medium/high)
+- resource categories affected
 
 **Related Terms:** [Capability](#capability), [Decision Engine](#decision-engine), [Governance Policy](#governance-policy)
 
@@ -264,16 +269,17 @@ A rule that determines whether a [Capability](#capability) may be exercised unde
 
 Policies evaluate contextual attributes such as:
 
-* [Actor](#actor) role or identity
-* environment (staging vs. production)
-* resource classification (public, internal, confidential)
-* risk score
-* time windows
-* concurrency limits
+- [Actor](#actor) role or identity
+- environment (staging vs. production)
+- resource classification (public, internal, confidential)
+- risk score
+- time windows
+- concurrency limits
 
 **Related Terms:** [Capability](#capability), [Policy Engine](#policy-engine), [Governance Decision](#governance-decision)
 
 **Example Policy (YAML):**
+
 ```yaml
 - name: "Production Database Write"
   capability: "database.write"
@@ -293,11 +299,11 @@ A proposed operational task generated by an AI system.
 
 An [Action](#action) includes:
 
-* [Actor](#actor) identity
-* requested [Capability](#capability)
-* resource target
-* execution parameters
-* context (environment, timestamp)
+- [Actor](#actor) identity
+- requested [Capability](#capability)
+- resource target
+- execution parameters
+- context (environment, timestamp)
 
 [Actions](#action) must be evaluated by the [Governance Runtime](#governance-runtime) before execution. Each [Action](#action) generates a [Governance Decision](#governance-decision).
 
@@ -321,10 +327,11 @@ REQUIRE_CONFIRMATION - Request confirmation from actor before allowing
 ```
 
 Each decision includes:
-* verdict (one of above)
-* rationale (which policy matched)
-* constraints (if applicable)
-* [Audit Trail](#audit-trail) entry
+
+- verdict (one of above)
+- rationale (which policy matched)
+- constraints (if applicable)
+- [Audit Trail](#audit-trail) entry
 
 **Related Terms:** [Decision Engine](#decision-engine), [Action](#action), [Governance Event](#governance-event)
 
@@ -336,18 +343,19 @@ The immutable record of all governance-related decisions and events.
 
 The [Audit Trail](#audit-trail) logs:
 
-* [Action](#action) proposals
-* [Governance Decisions](#governance-decision) (with rationale)
-* policy matches
-* [actor](#actor) identity
-* timestamps
-* execution results
+- [Action](#action) proposals
+- [Governance Decisions](#governance-decision) (with rationale)
+- policy matches
+- [actor](#actor) identity
+- timestamps
+- execution results
 
 An [Audit Trail](#audit-trail) enables:
-* compliance verification
-* forensic analysis
-* governance attestation
-* [Circumvention Report](#circumvention-report) generation
+
+- compliance verification
+- forensic analysis
+- governance attestation
+- [Circumvention Report](#circumvention-report) generation
 
 **Related Terms:** [Governance Runtime](#governance-runtime), [Governance Event](#governance-event), [Governance Attestation](#governance-attestation)
 
@@ -358,10 +366,11 @@ An [Audit Trail](#audit-trail) enables:
 A controlled interface that mediates interactions with external systems.
 
 Tool proxies ensure that operational [Actions](#action) remain subject to governance enforcement by:
-* intercepting action requests
-* forwarding to [Governance Runtime](#governance-runtime) for approval
-* only executing [approved](#governance-decision) [Actions](#action)
-* recording execution in [Audit Trail](#audit-trail)
+
+- intercepting action requests
+- forwarding to [Governance Runtime](#governance-runtime) for approval
+- only executing [approved](#governance-decision) [Actions](#action)
+- recording execution in [Audit Trail](#audit-trail)
 
 **Related Terms:** [Governance Runtime](#governance-runtime), [External Systems](#external-systems), [Action](#action)
 
@@ -375,11 +384,11 @@ Operational infrastructure that performs tasks requested by AI agents.
 
 Examples include:
 
-* cloud platforms (AWS, Azure, GCP)
-* enterprise applications (Salesforce, SAP, ServiceNow)
-* data systems (databases, data warehouses)
-* security monitoring platforms (SIEM, threat detection)
-* communication systems (email, Slack, Teams)
+- cloud platforms (AWS, Azure, GCP)
+- enterprise applications (Salesforce, SAP, ServiceNow)
+- data systems (databases, data warehouses)
+- security monitoring platforms (SIEM, threat detection)
+- communication systems (email, Slack, Teams)
 
 [External Systems](#external-systems) are accessed through [Tool Proxies](#tool-proxy) to ensure governance enforcement.
 
@@ -393,10 +402,10 @@ The protocol used by AI agents to communicate with the [Governance Runtime](#gov
 
 AGP (currently AGP-1) defines message structures for:
 
-* **ACTION_PROPOSE** — AI agent submits [Action](#action) for evaluation
-* **ACTION_DECIDE** — Runtime returns [Governance Decision](#governance-decision)
-* **ACTION_EXECUTE** — Approved action execution with results
-* **ACTION_ESCALATE** — Complex decisions forwarded to humans
+- **ACTION_PROPOSE** — AI agent submits [Action](#action) for evaluation
+- **ACTION_DECIDE** — Runtime returns [Governance Decision](#governance-decision)
+- **ACTION_EXECUTE** — Approved action execution with results
+- **ACTION_ESCALATE** — Complex decisions forwarded to humans
 
 **Related Terms:** [Governance Runtime](#governance-runtime), [Action](#action), [Governance Decision](#governance-decision)
 
@@ -410,10 +419,10 @@ A structured message describing governance-related information shared between AE
 
 Types of [Governance Events](#governance-event):
 
-* **Policy Updates** — Changes to [Governance Policies](#governance-policy)
-* **[Circumvention Reports](#circumvention-report)** — Documented evasion attempts
-* **[Risk Signals](#risk-signal)** — Emerging threats or threats detected
-* **[Governance Attestations](#governance-attestation)** — Proof of governance compliance
+- **Policy Updates** — Changes to [Governance Policies](#governance-policy)
+- **[Circumvention Reports](#circumvention-report)** — Documented evasion attempts
+- **[Risk Signals](#risk-signal)** — Emerging threats or threats detected
+- **[Governance Attestations](#governance-attestation)** — Proof of governance compliance
 
 **Related Terms:** [Federation Network](#federation-network), [Governance Attestation](#governance-attestation), [Risk Signal](#risk-signal)
 
@@ -425,11 +434,11 @@ A [Governance Event](#governance-event) that communicates detected threats, anom
 
 [Risk Signals](#risk-signal) include:
 
-* unusual [Action](#action) patterns
-* multiple DENY decisions from the same [Actor](#actor)
-* policy circumvention attempts
-* infrastructure anomalies
-* threat intelligence from external sources
+- unusual [Action](#action) patterns
+- multiple DENY decisions from the same [Actor](#actor)
+- policy circumvention attempts
+- infrastructure anomalies
+- threat intelligence from external sources
 
 Organizations in the [Federation Network](#federation-network) can subscribe to and act on [Risk Signals](#risk-signal) to improve collective governance.
 
@@ -443,12 +452,12 @@ A documented account of an [Actor](#actor)'s attempt to bypass or evade governan
 
 [Circumvention Reports](#circumvention-report) include:
 
-* detailed evasion technique description
-* affected [Capabilities](#capability)
-* [Actor](#actor) identity
-* timestamp and context
-* impact assessment
-* recommended policy updates
+- detailed evasion technique description
+- affected [Capabilities](#capability)
+- [Actor](#actor) identity
+- timestamp and context
+- impact assessment
+- recommended policy updates
 
 [Circumvention Reports](#circumvention-report) are shared via the [Federation Network](#federation-network) to help other organizations defend against similar attacks.
 
@@ -464,10 +473,10 @@ Cryptographic proof that a system is complying with AEGIS™ governance principl
 
 A [Governance Attestation](#governance-attestation) certifies:
 
-* [Audit Trail](#audit-trail) integrity (no tampering)
-* policy enforcement (all [Actions](#action) evaluated)
-* [Actor](#actor) authentication (genuine requestors)
-* deterministic evaluation ([Governance Decisions](#governance-decision) reproducible)
+- [Audit Trail](#audit-trail) integrity (no tampering)
+- policy enforcement (all [Actions](#action) evaluated)
+- [Actor](#actor) authentication (genuine requestors)
+- deterministic evaluation ([Governance Decisions](#governance-decision) reproducible)
 
 [Governance Attestations](#governance-attestation) are shared via [Governance Events](#governance-event) to the [Federation Network](#federation-network) to establish trust.
 
@@ -481,10 +490,10 @@ The distributed network through which AEGIS runtimes exchange governance intelli
 
 The [Federation Network](#federation-network) enables organizations to share information about:
 
-* **Governance Threats** — [Circumvention Reports](#circumvention-report), evasion techniques
-* **Policy Changes** — Updated [Governance Policies](#governance-policy) and best practices
-* **[Risk Signals](#risk-signal)** — Threat patterns, anomalies, attack attempts
-* **[Governance Attestations](#governance-attestation)** — Proof of compliance
+- **Governance Threats** — [Circumvention Reports](#circumvention-report), evasion techniques
+- **Policy Changes** — Updated [Governance Policies](#governance-policy) and best practices
+- **[Risk Signals](#risk-signal)** — Threat patterns, anomalies, attack attempts
+- **[Governance Attestations](#governance-attestation)** — Proof of compliance
 
 **Related Terms:** [Governance Event](#governance-event), [Circumvention Report](#circumvention-report), [Governance Attestation](#governance-attestation)
 
@@ -503,6 +512,7 @@ This principle underlies the design philosophy of AEGIS and emphasizes that inte
 ## For Developers Integrating AI Frameworks
 
 Focus on these terms when building AEGIS support:
+
 - [Action](#action), [AGP Protocol](#aegis-governance-protocol-agp), [Tool Proxy](#tool-proxy)
 - [Governance Decision](#governance-decision), [External Systems](#external-systems)
 - Understanding: "My AI agent proposes [Actions](#action) via AGP, receives [Governance Decisions](#governance-decision), and executes through [Tool Proxies](#tool-proxy)"
@@ -510,6 +520,7 @@ Focus on these terms when building AEGIS support:
 ## For Policy Designers & Security Teams
 
 Focus on these terms when defining governance:
+
 - [Capability](#capability), [Capability Registry](#capability-registry)
 - [Governance Policy](#governance-policy), [Policy Engine](#policy-engine)
 - [Actor](#actor), [Risk Signal](#risk-signal)
@@ -518,6 +529,7 @@ Focus on these terms when defining governance:
 ## For Operations & DevOps Teams
 
 Focus on these terms when deploying systems:
+
 - [Governance Runtime](#governance-runtime), [Governance Gateway](#governance-gateway)
 - [Decision Engine](#decision-engine), [Audit Trail](#audit-trail)
 - [Federation Network](#federation-network), [Governance Attestation](#governance-attestation)
@@ -526,6 +538,7 @@ Focus on these terms when deploying systems:
 ## For Security Architects & Evaluators
 
 Focus on these terms when assessing architecture:
+
 - [Deterministic Governance](#deterministic-governance), [Governance Runtime](#governance-runtime)
 - [Capability](#capability), [Governance Policy](#governance-policy)
 - [Circumvention Report](#circumvention-report), [Risk Signal](#risk-signal)
@@ -539,11 +552,13 @@ Focus on these terms when assessing architecture:
 ## Scenario 1: AI-Powered Database Access
 
 **Setup:**
+
 - [Actor](#actor): `analytics-ai-agent-001`
 - [Capability](#capability): `database.query`
 - [Policy](#governance-policy): "Allow database reads only for non-sensitive tables, during business hours EST"
 
 **Workflow:**
+
 1. AI agent proposes [Action](#action): *Query transaction history from `Transactions` table*
 2. [Governance Gateway](#governance-gateway) receives ACTION_PROPOSE via AGP-1
 3. [Decision Engine](#decision-engine) evaluates:
@@ -562,10 +577,12 @@ Focus on these terms when assessing architecture:
 ## Scenario 2: Multi-Organization Threat Intelligence
 
 **Setup:**
+
 - Organization A detects evasion attempt
 - Organization B receives federation intelligence
 
 **Workflow:**
+
 1. Organization A's [Governance Runtime](#governance-runtime) detects unauthorized [Action](#action) attempt
 2. Generates [Circumvention Report](#circumvention-report): "LLM attempted privilege escalation via parameter injection"
 3. Creates [Governance Event](#governance-event) with report + [Governance Attestation](#governance-attestation)
@@ -581,11 +598,13 @@ Focus on these terms when assessing architecture:
 ## Scenario 3: Escalation Workflow
 
 **Setup:**
+
 - [Actor](#actor): `provisioning-ai-agent`
 - [Capability](#capability): `infrastructure.deploy`
 - [Policy](#governance-policy): "Production deployments require human approval"
 
 **Workflow:**
+
 1. AI agent proposes [Action](#action): *Deploy to production infrastructure*
 2. [Governance Gateway](#governance-gateway) receives ACTION_PROPOSE
 3. [Decision Engine](#decision-engine) + [Policy Engine](#policy-engine) determine: [Policy](#governance-policy) requires human review

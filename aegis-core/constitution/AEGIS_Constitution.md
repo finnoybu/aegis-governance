@@ -37,6 +37,7 @@ The AEGIS™ runtime must enforce a **default-deny capability model**. All AEGIS
 All actions executed through AEGIS™ must be attributable to a verified actor.
 
 Actors may include:
+
 - Human users
 - Service identities
 - AI agents operating under delegated authority
@@ -68,6 +69,7 @@ All operational actions must pass through the AEGIS™ governance runtime prior 
 Actions capable of causing significant operational impact must require elevated governance review.
 
 Examples include:
+
 - Infrastructure modification
 - Identity management operations
 - Data deletion
@@ -79,6 +81,7 @@ Autonomous systems should assist humans, not replace human judgment for irrevers
 
 **Implementation Requirement:**  
 The policy engine must classify actions based on operational impact. Actions categorized as `DESTRUCTIVE` or high-risk must trigger an `ESCALATE` or `REQUIRE_CONFIRMATION` decision, ensuring human oversight before execution. The governance runtime must support escalation mechanisms including:
+
 - Human approval
 - Multi-party authorization
 - Policy-based restrictions
@@ -121,6 +124,7 @@ Without comprehensive audit trails, accountability is unverifiable. Auditability
 
 **Implementation Requirement:**  
 AEGIS™ runtimes must maintain append-only audit logs capturing:
+
 - Action identifiers
 - Actor identities
 - Proposed action details

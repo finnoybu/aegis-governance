@@ -58,6 +58,7 @@ compute
 ## Common Capability Types
 
 ### Filesystem Operations
+
 ```json
 {
   "actor_id": "agent_456",
@@ -69,6 +70,7 @@ compute
 ```
 
 ### Network Operations
+
 ```json
 {
   "actor_id": "agent_789",
@@ -79,6 +81,7 @@ compute
 ```
 
 ### Data Access
+
 ```json
 {
   "actor_id": "agent_101",
@@ -90,6 +93,7 @@ compute
 ```
 
 ### API Calls
+
 ```json
 {
   "actor_id": "agent_202",
@@ -100,6 +104,7 @@ compute
 ```
 
 ### Process Management
+
 ```json
 {
   "actor_id": "agent_303",

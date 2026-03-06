@@ -450,19 +450,22 @@ Because AEGIS™ operates outside the model itself, it can govern agents built w
 **Framework compatibility:**
 
 **LangChain / LangGraph:**
-- Wrap AEGIS around LangChain tools
-- Governance evaluation occurs before tool execution
-- Compatible with chain-of-thought and agent patterns
+
+* Wrap AEGIS around LangChain tools
+* Governance evaluation occurs before tool execution
+* Compatible with chain-of-thought and agent patterns
 
 **AutoGPT / CrewAI / Agency Swarm:**
-- Integrate at the agent executor layer
-- AEGIS becomes the enforcement boundary
-- Autonomous agents operate within governed capabilities
+
+* Integrate at the agent executor layer
+* AEGIS becomes the enforcement boundary
+* Autonomous agents operate within governed capabilities
 
 **Custom Agent Frameworks:**
-- Implement AGP protocol for your agent
-- Use AEGIS governance gateway as execution proxy
-- Maintain existing reasoning/planning logic
+
+* Implement AGP protocol for your agent
+* Use AEGIS governance gateway as execution proxy
+* Maintain existing reasoning/planning logic
 
 AEGIS™ is compatible with most agent frameworks because they typically follow a similar pattern:
 
@@ -500,9 +503,10 @@ Tool proxy executes action
 This means AEGIS™ can work with models from multiple providers without modification.
 
 **OpenAI Assistants API / Anthropic Claude:**
-- AEGIS evaluates tool calls before execution
-- Model reasoning unaffected, execution governed
-- Works with function calling and structured outputs
+
+* AEGIS evaluates tool calls before execution
+* Model reasoning unaffected, execution governed
+* Works with function calling and structured outputs
 
 The key principle: **AEGIS governs execution, not reasoning**. Your AI system continues to think freely, but actions are evaluated before execution.
 
@@ -513,29 +517,33 @@ The key principle: **AEGIS governs execution, not reasoning**. Your AI system co
 The governance runtime adds a **policy evaluation step** before execution.
 
 **Typical overhead includes:**
-- Action validation
-- Policy evaluation
-- Capability checks
-- Audit logging
+
+* Action validation
+* Policy evaluation
+* Capability checks
+* Audit logging
 
 For most deployments this introduces **milliseconds of additional latency**, similar to an API gateway or authorization layer.
 
 Because AEGIS™ governs actions rather than every model token, the overhead is generally negligible compared to model inference time.
 
 **Typical overhead per action:** ~5-15ms total
-- Policy evaluation: 1-5ms (in-memory rule engine)
-- Capability lookup: <1ms (indexed registry)
-- Audit logging: 2-10ms (SQLite append-only)
+
+* Policy evaluation: 1-5ms (in-memory rule engine)
+* Capability lookup: <1ms (indexed registry)
+* Audit logging: 2-10ms (SQLite append-only)
 
 **Optimization strategies:**
-- Capability caching reduces repeated lookups
-- Policy engine uses deterministic evaluation
-- Audit writes are async (non-blocking)
-- No network calls for local governance
+
+* Capability caching reduces repeated lookups
+* Policy engine uses deterministic evaluation
+* Audit writes are async (non-blocking)
+* No network calls for local governance
 
 **When overhead matters:**
-- High-frequency trading systems (microsecond latency)
-- Real-time control systems (hard deadlines)
+
+* High-frequency trading systems (microsecond latency)
+* Real-time control systems (hard deadlines)
 
 **Trade-off:** Governance enforcement is worth the small latency cost for operational safety.
 
@@ -545,11 +553,11 @@ Because AEGIS™ governs actions rather than every model token, the overhead is 
 
 A minimal deployment requires:
 
-- An AEGIS governance gateway
-- A decision engine
-- A capability registry
-- A policy engine
-- An audit log
+* An AEGIS governance gateway
+* A decision engine
+* A capability registry
+* A policy engine
+* An audit log
 
 In practice this can run as a small service alongside existing infrastructure.
 
@@ -568,23 +576,26 @@ External APIs / Infrastructure
 AEGIS™ can operate as a **standalone microservice** or be embedded into existing AI orchestration layers.
 
 **Minimal deployment components:**
-- Python 3.11+ runtime
-- 50-100MB memory for governance engine
-- SQLite for audit logs (or PostgreSQL for scale)
-- Local filesystem for policies and capabilities
+
+* Python 3.11+ runtime
+* 50-100MB memory for governance engine
+* SQLite for audit logs (or PostgreSQL for scale)
+* Local filesystem for policies and capabilities
 
 **No external dependencies required** for basic governance.
 
 **Optional components:**
-- Federation node (if participating in GFN)
-- Centralized policy server (for enterprise deployments)
-- External audit system integration (SIEM, logging)
+
+* Federation node (if participating in GFN)
+* Centralized policy server (for enterprise deployments)
+* External audit system integration (SIEM, logging)
 
 **Deployment options:**
-- **Embedded** in your application process
-- **Sidecar** container in Kubernetes
-- **Gateway** service for multi-agent systems
-- **Edge deployment** for autonomous systems
+
+* **Embedded** in your application process
+* **Sidecar** container in Kubernetes
+* **Gateway** service for multi-agent systems
+* **Edge deployment** for autonomous systems
 
 **Resource footprint:** Comparable to adding authentication/authorization libraries to your application.
 
@@ -611,14 +622,16 @@ Is this AI-generated action allowed in this context?
 This distinction becomes critical when autonomous systems are capable of executing operational workflows.
 
 **Traditional access control:**
-- Identity-based (users, roles, service accounts)
-- Permission checks at resource boundaries
-- Static authorization policies
+
+* Identity-based (users, roles, service accounts)
+* Permission checks at resource boundaries
+* Static authorization policies
 
 **AEGIS™ governance:**
-- Action-based (what the AI is trying to do)
-- Contextual evaluation (risk, history, environment)
-- Dynamic policy enforcement with escalation
+
+* Action-based (what the AI is trying to do)
+* Contextual evaluation (risk, history, environment)
+* Dynamic policy enforcement with escalation
 
 AEGIS™ complements traditional access control by adding a **governance layer specifically designed for AI agency**.
 

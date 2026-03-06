@@ -25,13 +25,13 @@ Any transition across trust levels requires explicit validation and audit.
 
 ```
 Z0 External Input
-	-> Z1 Application/Agent
-	-> [Boundary B1: Governance Admission]
-	-> Z2 Governance Engine
-	-> [Boundary B2: Execution Authorization]
-	-> Z3 Tool Proxy
-	-> [Boundary B3: System Capability Invocation]
-	-> Z4 OS/Infrastructure
+ -> Z1 Application/Agent
+ -> [Boundary B1: Governance Admission]
+ -> Z2 Governance Engine
+ -> [Boundary B2: Execution Authorization]
+ -> Z3 Tool Proxy
+ -> [Boundary B3: System Capability Invocation]
+ -> Z4 OS/Infrastructure
 ```
 
 ## Boundary Contracts

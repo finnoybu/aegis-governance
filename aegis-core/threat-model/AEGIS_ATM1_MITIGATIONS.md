@@ -11,6 +11,7 @@
 ## Mitigation Framework
 
 Mitigations are organized by:
+
 1. **Control Type**: Preventive, Detective, Responsive
 2. **Scope**: Technical, Process, Operational
 3. **Coverage**: Attack vector(s) addressed
@@ -25,12 +26,14 @@ Mitigations are organized by:
 **Applies To**: AV-1.1 (Message Tampering), AV-1.4 (Token Theft)
 
 **Technical Implementation**:
+
 - Mandatory TLS 1.3+ for all AGP-1 communication
 - Certificate pinning for governance endpoints
 - Strong cipher suites (no legacy): TLS_AES_256_GCM_SHA384
 - Perfect forward secrecy (ephemeral keys)
 
 **Configuration**:
+
 ```yaml
 tls:
   min_version: "1.3"
@@ -43,6 +46,7 @@ tls:
 ```
 
 **Verification**:
+
 - `curl --tls-max 1.2 governance-api` → FAIL (old TLS rejected)
 - SSL Labs grade A+
 - nmap --script ssl-enum-ciphers → strong ciphers only
@@ -54,12 +58,14 @@ tls:
 **Applies To**: AV-1.3 (Replay), AV-4.2 (Log Injection), AV-1.2 (Injection)
 
 **Technical Implementation**:
+
 - HMAC-SHA256 on all AGP-1 messages
 - Nonce validation to prevent replay
 - Timestamp validation (within ±60 seconds)
 - Sequence number tracking per actor
 
 **Implementation**:
+
 ```json
 {
   "message_type": "ACTION_PROPOSE",
@@ -72,6 +78,7 @@ tls:
 ```
 
 **Verification**:
+
 - Replay same nonce → DENY (nonce already used)
 - Modify any field → DENY (HMAC verification fails)
 
@@ -82,12 +89,14 @@ tls:
 **Applies To**: AV-2.4 (Authorization Bypass), AV-3.2 (Privilege Escalation)
 
 **Technical Implementation**:
+
 - Define actor roles: `analyst`, `admin`, `escalation_reviewer`
 - Capabilities grouped by role
 - Explicit grants (no inheritance)
 - Regular access reviews
 
 **Grant Model**:
+
 ```yaml
 roles:
   analyst:
@@ -101,6 +110,7 @@ roles:
 ```
 
 **Enforcement**:
+
 - Policy engine verifies actor.role in every decision
 - Audit logs role used for each decision
 
@@ -111,12 +121,14 @@ roles:
 **Applies To**: AV-1.2 (Message Injection), AV-2.1 (Evasion)
 
 **Technical Implementation**:
+
 - Strict JSON schema validation for all messages
 - Whitelist-based parameter validation
 - Rate limiting on message size (max 1MB)
 - No dynamic code execution from user input
 
 **Validation Rules**:
+
 ```yaml
 action_propose.parameters:
   type: object
@@ -130,6 +142,7 @@ action_propose.parameters:
 ```
 
 **Enforcement**:
+
 - JSONSchema validation before processing
 - Error response if validation fails
 - Audit logs invalid message attempts
@@ -141,12 +154,14 @@ action_propose.parameters:
 **Applies To**: AV-2.3 (Policy Tampering)
 
 **Technical Implementation**:
+
 - All policies signed with ED25519 key
 - Signature verified before policy loaded
 - Policy version MUST match expected version
 - Automated diff alerts on any change
 
 **Deployment Process**:
+
 ```bash
 # Sign policy
 policy_hash=$(sha256sum policy.yaml | cut -f1)
@@ -158,6 +173,7 @@ check_version(policy.version == expected_version) || FAIL
 ```
 
 **Verification**:
+
 - Modified policy.yaml → signature fails
 - Version mismatch → deployment rejected
 - Audit log records all policy versions
@@ -169,12 +185,14 @@ check_version(policy.version == expected_version) || FAIL
 **Applies To**: AV-3.1 (Identity Spoofing)
 
 **Technical Implementation**:
+
 - Certificate authority runs in isolated, air-gapped network
 - Multi-signature requirement for certificate issuance
 - Short-lived certificates (max 90 days)
 - Revocation capability (CRL/OCSP)
 
 **Configuration**:
+
 ```yaml
 certificate:
   max_validity_days: 90
@@ -185,6 +203,7 @@ certificate:
 ```
 
 **Verification**:
+
 - `openssl x509 -noout -dates` → expiry < 90 days
 - Revoked cert → connection rejected
 - OCSP stapling → instantaneous revocation
@@ -198,12 +217,14 @@ certificate:
 **Applies To**: AV-4.1 (Tampering), AV-4.3 (Availability), SP-5 (Completeness)
 
 **Technical Implementation**:
+
 - Append-only audit log with Hash Chain
 - MAC on each record: `MAC = HMAC(record || prev_hash, secret_key)`
 - Replicated across 3+ geographically separated locations
 - Audit log ownership restricted (only audit service can write)
 
 **Schema**:
+
 ```json
 {
   "entry_id": 12345,
@@ -221,6 +242,7 @@ certificate:
 ```
 
 **Verification**:
+
 - `verify_hash_chain(audit_log)` → success iff no deletions/modifications
 - Delete any entry → `previous_hash` link breaks
 - Modify entry → MAC verification fails
@@ -232,12 +254,14 @@ certificate:
 **Applies To**: AV-7.1 (Coordinated Abuse), AV-7.2 (Slow-Burn Exfil)
 
 **Technical Implementation**:
+
 - Baseline actor behavior profile (30-day window)
 - Detect deviations: request volume, type, rate, timing
 - Sliding-window aggregate risk (12-hour window)
 - Alert on threshold breach
 
 **Detection Rules**:
+
 ```yaml
 anomaly_detector:
   rules:
@@ -253,6 +277,7 @@ anomaly_detector:
 ```
 
 **Alert Handling**:
+
 - Alert escalated to security team
 - Triggered policy evaluation flag: `anomaly_detected=true`
 - Risk threshold may increase for actor
@@ -265,12 +290,14 @@ anomaly_detector:
 **Applies To**: AV-2.3 (Policy Tampering)
 
 **Technical Implementation**:
+
 - Hash of expected policy stored in config
 - Runtime loads policy, compares hash to expected value
 - Any drift triggers alert and audit log entry
 - No decision made until drift resolved
 
 **Configuration**:
+
 ```yaml
 policy:
   expected_hash: "sha256-of-approved-policy"
@@ -282,6 +309,7 @@ policy:
 ```
 
 **Verification**:
+
 - Modify policy.yaml → hash mismatch → FAIL
 - Audit log: "POLICY_DRIFT_DETECTED"
 - Operator must approve new policy before decisions resume
@@ -293,11 +321,13 @@ policy:
 **Applies To**: AV-2.1 (Evasion), AV-5.1 (Timing Attacks)
 
 **Technical Implementation**:
+
 - Profile expected decision distribution (approval rate, DENY rate, ESCALATE rate)
 - Detect anomalies in decision outcomes
 - Compare to historical baseline
 
 **Metrics**:
+
 ```yaml
 decision_profiling:
   per_actor:
@@ -312,6 +342,7 @@ decision_profiling:
 ```
 
 **Detection Example**:
+
 - Actor normally: 90% ALLOW, 2% ESCALATE, 8% DENY
 - Suddenly: 98% ALLOW, 0% ESCALATE, 2% DENY
 - z_score = 4.0 → Alert: "Decision outcome anomaly detected"
@@ -323,12 +354,14 @@ decision_profiling:
 **Applies To**: AV-6.2 (Build Tampering), Malware Detection
 
 **Technical Implementation**:
+
 - File integrity monitoring (FIM) on runtime binary
 - Measure against expected hash at startup
 - Periodic rehashing during runtime
 - Syscall monitoring for unexpected behavior
 
 **Implementation**:
+
 ```bash
 # On startup
 RUNTIME_HASH=$(sha256sum /opt/aegis/governance-runtime)
@@ -340,6 +373,7 @@ fi
 ```
 
 **Ongoing Monitoring**:
+
 - Syscall monitoring via seccomp (deny unexpected calls)
 - Memory anomaly detection (unexpected changes)
 - Network connection monitoring (deny unexpected egress)
@@ -351,6 +385,7 @@ fi
 ### RC-1: Incident Response Playbook
 
 **Process**:
+
 1. **Detection**: Anomaly detected via DC-2, DC-3, DC-4
 2. **Alerting**: Automated alert to security team + escalation_reviewer
 3. **Investigation**: Retrieve audit logs, analyze decision patterns
@@ -359,6 +394,7 @@ fi
 6. **Recovery**: Resume operations, monitor for recurrence
 
 **Automation**:
+
 ```yaml
 incident_response:
   on_anomaly_alert:
@@ -379,18 +415,21 @@ incident_response:
 **Applies To**: AV-3.3 (Credential Harvesting), AV-1.4 (Token Theft)
 
 **Technical Implementation**:
+
 - Revocation list (CRL) for certificates
 - Token blacklist for compromised tokens
 - Immediate distribution of revocation to all components
 - No grace period (revoked credential immediately rejected)
 
 **Process**:
+
 1. Compromise suspected → revocation issued immediately
 2. All components (governance runtime, tool proxies) load revocation
 3. Revoked credential rejected within seconds
 4. New credential issued to actor
 
 **Verification**:
+
 - Revoked bearer token → 401 Unauthorized
 - Revoked certificate → TLS verification fails
 
@@ -401,11 +440,13 @@ incident_response:
 **Applies To**: AV-2.3 (Policy Tampering), AV-6.2 (Build Tampering)
 
 **Technical Implementation**:
+
 - Policy versioning with automatic rollback capability
 - Runtime version tracking and rollback
 - Automatic rollback on detection of tampering
 
 **Trigger Conditions**:
+
 ```yaml
 rollback:
   on_policy_drift: true
@@ -416,6 +457,7 @@ rollback:
 ```
 
 **Process**:
+
 1. Tampering detected → rollback triggered
 2. System reverts to last known-good version
 3. Notification sent to operators

@@ -91,6 +91,7 @@ Together, these components define the full AEGIS™ governance architecture.
 ## Choose Your Path
 
 ### I want to understand the AEGIS vision
+
 **Best for:** Executives, architects, decision-makers
 
 1. Read [The AEGIS Manifesto](aegis-core/manifesto/AEGIS_Manifesto.md) — Vision and motivation
@@ -98,6 +99,7 @@ Together, these components define the full AEGIS™ governance architecture.
 3. Review [AEGIS Constitution](aegis-core/constitution/AEGIS_Constitution.md) — 8 governance principles
 
 ### I want to evaluate AEGIS architecture
+
 **Best for:** Security engineers, architects, evaluators
 
 1. Read [System Overview](aegis-core/overview/AEGIS_System_Overview.md) — Architecture overview
@@ -106,6 +108,7 @@ Together, these components define the full AEGIS™ governance architecture.
 4. Explore [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md) — Component interactions
 
 ### I want to implement AEGIS governance
+
 **Best for:** Developers, DevOps, runtime implementers
 
 1. Read [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) — Complete architecture
@@ -115,6 +118,7 @@ Together, these components define the full AEGIS™ governance architecture.
 5. Review [Integration Examples](examples/) — Framework integrations
 
 ### I want to deploy AEGIS federation
+
 **Best for:** Operations, enterprise architects
 
 1. Read [Federation Architecture](federation/) — Federation network design
@@ -122,6 +126,7 @@ Together, these components define the full AEGIS™ governance architecture.
 3. Study [Reference Architecture: Federation](aegis-core/architecture/AEGIS_Reference_Architecture.md#federation-integration) — Integration guidance
 
 ### I want to join the AEGIS community
+
 **Best for:** Contributors, researchers, enthusiasts
 
 1. Check [Contributing Guidelines](CONTRIBUTING.md) — How to contribute
@@ -163,25 +168,30 @@ The AEGIS specification is organized across five layers, from foundational princ
 ## Reading by Layer
 
 **Layer 1 — Principles & Vision** (Understand the "why")
+
 - What problems does AEGIS solve? → [System Overview](aegis-core/overview/AEGIS_System_Overview.md)
 - What motivates this approach? → [Manifesto](aegis-core/manifesto/AEGIS_Manifesto.md)
 - What are the core principles? → [Constitution](aegis-core/constitution/AEGIS_Constitution.md)
 - Should we adopt AEGIS? → [FAQ](aegis-core/faq/AEGIS_FAQ.md)
 
 **Layer 2 — Architecture & Design** (Understand the "how")
+
 - How does AEGIS work technically? → [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md)
 - What are the components? → [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md)
 - What security properties does it have? → [Threat Model](aegis-core/threat-model/AEGIS_Threat_Model.md)
 
 **Layer 3 — Protocol & Data** (Understand the formats)
+
 - How do systems communicate? → [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md)
 - What data structures are used? → [Schemas](schemas/)
 
 **Layer 4 — Implementation** (Build governance runtime)
+
 - How do you build AEGIS? → [Reference Runtime](aegis-runtime/)
 - How do you integrate AI frameworks? → [Integration Examples](examples/)
 
 **Layer 5 — Federation** (Operate at scale)
+
 - How do organizations share governance? → [Federation](federation/)
 
 ---
@@ -194,10 +204,10 @@ The **AEGIS Governance Protocol (AGP)** defines how AI agents interact with the 
 
 The protocol defines message structures for:
 
-* **ACTION_PROPOSE** — AI agent submits requested action for governance evaluation
-* **ACTION_DECIDE** — Governance system returns approval/denial decision with rationale
-* **ACTION_EXECUTE** — Approved action execution with audit trail
-* **ACTION_ESCALATE** — Complex decisions forwarded to human decision-makers
+- **ACTION_PROPOSE** — AI agent submits requested action for governance evaluation
+- **ACTION_DECIDE** — Governance system returns approval/denial decision with rationale
+- **ACTION_EXECUTE** — Approved action execution with audit trail
+- **ACTION_ESCALATE** — Complex decisions forwarded to human decision-makers
 
 **RFC Specifications:**
 
@@ -237,12 +247,12 @@ This implementation demonstrates how the governance architecture can be applied 
 
 Implemented Components:
 
-* Governance gateway — Request validation and authentication
-* Decision engine — Policy evaluation and decision making
-* Capability registry — Capability definition and lookup
-* Policy engine — Governance rule evaluation
-* Tool proxy layer — Controlled system interaction
-* Audit logging — Immutable audit records
+- Governance gateway — Request validation and authentication
+- Decision engine — Policy evaluation and decision making
+- Capability registry — Capability definition and lookup
+- Policy engine — Governance rule evaluation
+- Tool proxy layer — Controlled system interaction
+- Audit logging — Immutable audit records
 
 **Status:** In development as part of Stage 2 (Governance Runtime Definition)
 
@@ -256,10 +266,10 @@ AEGIS also defines a **Governance Federation Network (GFN)** that allows organiz
 
 This layer enables distributed exchange of:
 
-* **Governance Signals** — Risk alerts, threat intelligence
-* **Policy Updates** — Shared governance policies and best practices
-* **Circumvention Reports** — Documented attack patterns and evasion techniques
-* **Governance Attestations** — Cryptographic proof of constitutional compliance
+- **Governance Signals** — Risk alerts, threat intelligence
+- **Policy Updates** — Shared governance policies and best practices
+- **Circumvention Reports** — Documented attack patterns and evasion techniques
+- **Governance Attestations** — Cryptographic proof of constitutional compliance
 
 **Status:** Federation architecture designed as part of roadmap; implementation planned for Stage 5 (12-24 months)
 
@@ -271,11 +281,11 @@ Integration examples are provided in the [examples/](examples/) directory.
 
 These demonstrate how AI agents interact with the AEGIS governance runtime, including:
 
-* **LangChain Integration** — Tool wrapper pattern for LangChain agents
-* **CrewAI Integration** — Governed agent class for multi-agent systems
-* **AutoGPT Integration** — Command registry for shell command governance
-* **OpenAI Assistants** — Function handler for function calling
-* **Custom Frameworks** — AGP client library for custom integrations
+- **LangChain Integration** — Tool wrapper pattern for LangChain agents
+- **CrewAI Integration** — Governed agent class for multi-agent systems
+- **AutoGPT Integration** — Command registry for shell command governance
+- **OpenAI Assistants** — Function handler for function calling
+- **Custom Frameworks** — AGP client library for custom integrations
 
 Each example includes working code and policy configurations.
 
@@ -316,11 +326,12 @@ AEGIS is an open, community-driven project. We welcome contributions from resear
 - 💡 **Propose Changes:** Submit an RFC for architectural modifications
 - 💻 **Write Code:** Contribute to reference runtime, integrations, or examples
 - 📚 **Improve Docs:** Fix typos, clarify explanations, add examples
-- 🔍 **Security:** Report vulnerabilities to security@aegis-initiative.org (private)
+- 🔍 **Security:** Report vulnerabilities to <security@aegis-initiative.org> (private)
 
 **Community Governance:**
 
 The AEGIS Initiative maintains open governance principles:
+
 - Decisions made through consensus
 - Public RFC process for major changes
 - Transparent roadmap and status tracking
@@ -375,6 +386,7 @@ AIAgent → AGP-1 Protocol → Schemas → Governance Runtime → Audit Trail
 ```
 
 **Dependency Path:**
+
 1. Start with **Layer 1** documents to understand the "why"
 2. Read **Layer 2** for architectural patterns
 3. Learn **Layer 3** (protocol + schemas) for message formats

@@ -31,6 +31,7 @@
 ### AV-1: Protocol-Level Attacks
 
 #### AV-1.1 Message Tampering
+
 - **Vector**: Attacker intercepts and modifies AGP-1 MESSAGE in transit
 - **Precondition**: Network not using TLS or TLS improperly configured
 - **Technique**: Man-in-the-middle (MITM) proxy, ARP spoofing, DNS hijacking
@@ -38,6 +39,7 @@
 - **Example**: Change `capability: "telemetry.query"` to `capability: "infrastructure.delete"`
 
 #### AV-1.2 Message Injection
+
 - **Vector**: Attacker crafts malformed AGP-1 message to trigger parser vulnerabilities
 - **Precondition**: Message parser doesn't validate input strictly
 - **Technique**: Fuzzing, buffer overflow, XML Entity Expansion (XXE), JSON injection
@@ -45,6 +47,7 @@
 - **Example**: Oversized `parameters` object causing memory exhaustion
 
 #### AV-1.3 Replay Attack
+
 - **Vector**: Attacker captures valid governance DECISION_RESPONSE and replays it
 - **Precondition**: Nonce or timestamp not validated in replay protection
 - **Technique**: Capture decision message, resubmit with original action_id
@@ -52,6 +55,7 @@
 - **Example**: Replay approval for "delete_backup" decision 100 times
 
 #### AV-1.4 Token/Credential Theft
+
 - **Vector**: Attacker steals or forges authentication tokens
 - **Precondition**: Tokens not properly secured, long expiration, or weak signing
 - **Technique**: Memory dump, token sniffing, JWT algorithm downgrade attack
@@ -63,6 +67,7 @@
 ### AV-2: Policy-Layer Attacks
 
 #### AV-2.1 Policy Evasion
+
 - **Vector**: Attacker crafts ACTION_PROPOSE that technically matches policy but violates intent
 - **Precondition**: Policy language is ambiguous or has edge cases
 - **Technique**: Semantic exploitation, type confusion, boundary conditions
@@ -70,6 +75,7 @@
 - **Example**: Policy allows `infrast.query_logs` for "operational" purposes; attacker labels data exfiltration as "operational analysis"
 
 #### AV-2.2 Policy Bypass via Composition
+
 - **Vector**: Attacker combines multiple low-risk approved actions to achieve high-risk goal
 - **Precondition**: Risk scoring doesn't consider cross-action patterns
 - **Technique**: Distributed attack over hours/days, each action individually approved
@@ -77,6 +83,7 @@
 - **Example**: 1000 "telemetry.query" requests each returning 1GB, cumulative risk undetected
 
 #### AV-2.3 Policy Tampering
+
 - **Vector**: Attacker modifies policy files to permit forbidden capabilities
 - **Precondition**: Policy storage not signed, versioning not audited, or deployment not verified
 - **Technique**: Direct file modification, Git history rewrite, unsafe deployment script
@@ -84,6 +91,7 @@
 - **Example**: Edit policy.yaml to add `allow_action: "*" for actor: "attacker"` in production
 
 #### AV-2.4 Authorization Bypass
+
 - **Vector**: Attacker circumvents policy evaluation entirely
 - **Precondition**: Multiple execution paths, some skip policy enforcement
 - **Technique**: Call Governed Capability directly, bypass Tool Proxy, exploit race condition
@@ -95,6 +103,7 @@
 ### AV-3: Identity & Authentication Attacks
 
 #### AV-3.1 Identity Spoofing
+
 - **Vector**: Attacker assumes identity of legitimate actor
 - **Precondition**: Identity verification weak or credential issuer compromised
 - **Technique**: Forge certificate, compromise identity provider, social engineer token issuance
@@ -102,6 +111,7 @@
 - **Example**: Forge mTLS certificate for "soc-analyst-trusted" identity
 
 #### AV-3.2 Lateral Movement via Privilege Escalation
+
 - **Vector**: Attacker gains access as low-privilege agent, escalates to higher-privilege agent
 - **Precondition**: Permission model allows agents to assume other identities or grant themselves capabilities
 - **Technique**: Exploit role assumption mechanism, SSRF to internal identity service, capability grant exploitation
@@ -109,6 +119,7 @@
 - **Example**: Low-privilege agent issues ACTION_PROPOSE to grant itself "delete_audit_logs" capability
 
 #### AV-3.3 Credential Harvesting
+
 - **Vector**: Attacker extracts credentials from environment or logs
 - **Precondition**: Credentials logged in plaintext, stored unencrypted, or discoverable via information disclosure
 - **Technique**: Log injection, environment variable dumping, side-channel attacks (timing)
@@ -120,6 +131,7 @@
 ### AV-4: Audit & Logging Attacks
 
 #### AV-4.1 Audit Log Tampering
+
 - **Vector**: Attacker deletes or modifies audit records to hide unauthorized actions
 - **Precondition**: Audit storage not append-only, not cryptographically signed, or accessible to compromise
 - **Technique**: Direct database modification, log file deletion, corrupted backup restoration
@@ -127,6 +139,7 @@
 - **Example**: Delete execution report showing unauthorized "infrastructure.delete" call
 
 #### AV-4.2 Audit Log Injection
+
 - **Vector**: Attacker injects false audit entries to hide or misdirect investigation
 - **Precondition**: Audit logging API not authenticated, or allows arbitrary entry insertion
 - **Technique**: Craft EXECUTION_REPORT claiming legitimate usage
@@ -134,6 +147,7 @@
 - **Example**: Inject log entry "analyst:bob performed telemetry.query" to hide attacker's activity
 
 #### AV-4.3 Audit Availability Attacks
+
 - **Vector**: Attacker overwhelms audit storage or retrieval, preventing compliance retrieval
 - **Precondition**: Audit storage has DoS vulnerability or rate limiting not enforced
 - **Technique**: Millions of queries, storage exhaustion, query amplification
@@ -145,6 +159,7 @@
 ### AV-5: Timing & Side-Channel Attacks
 
 #### AV-5.1 Timing Attack on Policy Evaluation
+
 - **Vector**: Attacker measures decision latency to infer policy structure
 - **Precondition**: Policy evaluation time varies based on matched rules
 - **Technique**: Issue ACTION_PROPOSE, measure response time, infer rule existence/order
@@ -152,6 +167,7 @@
 - **Example**: Policy with 1000 rules takes 100ms; timing reveals which rule matched
 
 #### AV-5.2 Risk Scoring Side-Channel
+
 - **Vector**: Attacker infers risk factors from decision outcome
 - **Precondition**: Risk score or reason communicated in response
 - **Technique**: Issue variations of ACTION_PROPOSE, measure risk change
@@ -163,6 +179,7 @@
 ### AV-6: Supply-Chain & Dependency Attacks
 
 #### AV-6.1 Dependency Poisoning
+
 - **Vector**: Attacker compromises upstream library/container used in AEGIS deployment
 - **Precondition**: Dependency not pinned, integrity not verified, or maintainer account compromised
 - **Technique**: Typosquatting, account compromise, malicious PR merged
@@ -170,6 +187,7 @@
 - **Example**: Attacker compromises `jwt` library, injects key material extraction in token validation
 
 #### AV-6.2 Build Artifact Tampering
+
 - **Vector**: Attacker modifies compiled decision binary or runtime container image
 - **Precondition**: Build artifacts not signed, deployment not verifying signatures
 - **Technique**: Container registry compromise, artifact repository MITM
@@ -181,6 +199,7 @@
 ### AV-7: Distributed & Coordinated Attacks
 
 #### AV-7.1 Coordinated Low-Risk Abuse
+
 - **Vector**: Multiple compromised agents coordinate to achieve high-impact goal
 - **Precondition**: Risk scoring doesn't correlate across agents
 - **Technique**: Each agent issues individually low-risk requests; aggregate risk very high
@@ -188,6 +207,7 @@
 - **Example**: 100 agents each issue 1 "telemetry.query" (decision: ALLOW); aggregate result is 100GB exfil
 
 #### AV-7.2 Slow-Burn Exfiltration
+
 - **Vector**: Attacker exfiltrates data over extended period at low rate
 - **Precondition**: Anomaly detection doesn't track long-term patterns
 - **Technique**: Request small amounts daily, staying under daily risk thresholds
@@ -195,6 +215,7 @@
 - **Example**: 100MB/day for 100 days = 10GB undetected
 
 #### AV-7.3 Federation Signal Poisoning
+
 - **Vector**: Attacker injects false governance signals into federation channels
 - **Precondition**: Weak federation peer authentication, insufficient signature verification, or trust-score manipulation gaps
 - **Technique**: Publish forged circumvention reports, replay stale signed events, or coordinate sybil-like nodes to bias consensus
@@ -206,12 +227,14 @@
 ## Severity Assessment
 
 ### Critical Severity (Requires Immediate Mitigation)
+
 - AV-2.3 (Policy Tampering)
 - AV-3.1 (Identity Spoofing with trusted identity)
 - AV-4.1 (Audit Tamper affecting compliance)
 - AV-6.2 (Build Artifact Tampering)
 
 ### High Severity (Requires Mitigation Within 1 Month)
+
 - AV-1.1 (Message Tampering)
 - AV-2.2 (Composition/Slow-Burn)
 - AV-3.2 (Privilege Escalation)
@@ -219,12 +242,14 @@
 - AV-7.3 (Federation Signal Poisoning)
 
 ### Medium Severity (Standard Security Controls)
+
 - AV-1.2 (Message Injection)
 - AV-2.1 (Policy Evasion)
 - AV-3.3 (Credential Harvesting)
 - AV-5.1 (Timing Attacks)
 
 ### Low Severity (Defense in Depth)
+
 - AV-1.3 (Replay — with good nonce)
 - AV-4.2 (Log Injection — with authentication)
 - AV-5.2 (Risk Side-Channel)

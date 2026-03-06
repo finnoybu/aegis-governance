@@ -52,6 +52,7 @@ Query Capability Registry for capability definition:
 ```
 
 If capability not found:
+
 ```
 return DECISION_RESPONSE(
   decision=DENY,
@@ -359,6 +360,7 @@ When policy returns ALLOW, constraints are extracted and enforced:
 ```
 
 Client MUST enforce these constraints during execution:
+
 - **max_results**: Limit query results to 500 rows
 - **timeout_seconds**: Kill action if > 15 seconds
 - **requires_encryption**: Use TLS/encryption

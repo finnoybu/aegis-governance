@@ -138,7 +138,7 @@ Controls:
 Scenario:
 
 - Multiple agents execute individually low-risk actions that combine into
-	high-impact behavior.
+ high-impact behavior.
 
 Impact:
 

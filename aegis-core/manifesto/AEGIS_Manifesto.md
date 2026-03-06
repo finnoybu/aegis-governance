@@ -249,29 +249,33 @@ Imagine a world where AI systems safely operate at scale because **governance is
 In this future:
 
 **For Organizations:**
-- AI agents autonomously manage infrastructure within explicit boundaries
-- Security teams trust AI copilots with operational access because actions are governed
-- Compliance teams can audit AI decisions with immutable records
-- Enterprises confidently deploy agentic systems knowing destructive actions require human oversight
+
+* AI agents autonomously manage infrastructure within explicit boundaries
+* Security teams trust AI copilots with operational access because actions are governed
+* Compliance teams can audit AI decisions with immutable records
+* Enterprises confidently deploy agentic systems knowing destructive actions require human oversight
 
 **For Developers:**
-- AI framework developers integrate governance from day one
-- Development teams build capability registries as naturally as they define APIs
-- Policy-as-code becomes standard practice for AI systems
-- Testing includes governance policy validation, not just functional correctness
+
+* AI framework developers integrate governance from day one
+* Development teams build capability registries as naturally as they define APIs
+* Policy-as-code becomes standard practice for AI systems
+* Testing includes governance policy validation, not just functional correctness
 
 **For Society:**
-- AI systems operate transparently with clear accountability
-- Governance failures can be traced, analyzed, and prevented
-- Organizations share threat intelligence to collectively improve AI safety
-- Standards emerge that enable interoperable governance across platforms
+
+* AI systems operate transparently with clear accountability
+* Governance failures can be traced, analyzed, and prevented
+* Organizations share threat intelligence to collectively improve AI safety
+* Standards emerge that enable interoperable governance across platforms
 
 **The Technical Reality:**
-- Every AI action flows through governance evaluation
-- Capability boundaries are architecturally enforced
-- Risk-based policies adapt to context automatically
-- Federation networks enable collective defense against novel threats
-- Governance overhead is measured in milliseconds, not seconds
+
+* Every AI action flows through governance evaluation
+* Capability boundaries are architecturally enforced
+* Risk-based policies adapt to context automatically
+* Federation networks enable collective defense against novel threats
+* Governance overhead is measured in milliseconds, not seconds
 
 This is not a distant dream—it is an achievable engineering reality.
 
@@ -348,38 +352,43 @@ AEGIS represents one attempt to define how such systems might be built.
 This work belongs to everyone committed to building safer AI systems:
 
 **For Researchers & Engineers:**
-- Review the architecture and propose improvements via RFC
-- Implement AEGIS integrations with AI frameworks
-- Contribute to reference runtime development
-- Test governance policies in real-world scenarios
-- Share threat intelligence and attack patterns
+
+* Review the architecture and propose improvements via RFC
+* Implement AEGIS integrations with AI frameworks
+* Contribute to reference runtime development
+* Test governance policies in real-world scenarios
+* Share threat intelligence and attack patterns
 
 **For Organizations:**
-- Deploy AEGIS in pilot programs and share learnings
-- Contribute capability definitions and policy templates
-- Participate in the AEGIS Governance Federation Network
-- Sponsor development of critical specifications
-- Provide case studies demonstrating governance value
+
+* Deploy AEGIS in pilot programs and share learnings
+* Contribute capability definitions and policy templates
+* Participate in the AEGIS Governance Federation Network
+* Sponsor development of critical specifications
+* Provide case studies demonstrating governance value
 
 **For Security Professionals:**
-- Conduct threat modeling and penetration testing
-- Identify governance evasion techniques
-- Contribute to the threat model documentation
-- Validate constitutional compliance mechanisms
-- Share incident reports (sanitized) to improve collective defense
+
+* Conduct threat modeling and penetration testing
+* Identify governance evasion techniques
+* Contribute to the threat model documentation
+* Validate constitutional compliance mechanisms
+* Share incident reports (sanitized) to improve collective defense
 
 **For Policy & Compliance Teams:**
-- Map AEGIS capabilities to regulatory requirements
-- Develop compliance templates and audit frameworks
-- Provide guidance on legal and regulatory implications
-- Contribute to governance best practices documentation
+
+* Map AEGIS capabilities to regulatory requirements
+* Develop compliance templates and audit frameworks
+* Provide guidance on legal and regulatory implications
+* Contribute to governance best practices documentation
 
 **For Educators & Advocates:**
-- Teach courses on AI governance architecture
-- Present AEGIS at conferences and workshops
-- Write about the importance of governed AI systems
-- Connect organizations that could benefit from AEGIS
-- Translate documentation to make AEGIS globally accessible
+
+* Teach courses on AI governance architecture
+* Present AEGIS at conferences and workshops
+* Write about the importance of governed AI systems
+* Connect organizations that could benefit from AEGIS
+* Translate documentation to make AEGIS globally accessible
 
 ### Getting Started
 

@@ -11,6 +11,7 @@ When a capability request arrives, PolicyEngine finds matching policies using th
 ### Step 1: Candidate Selection
 
 Iterate through all enabled policies:
+
 - Filter out disabled policies
 - Filter out policies with non-callable conditions
 - Result: A candidate set of policies
@@ -42,6 +43,7 @@ return matching_policies[0]  # First match wins
 ### Step 4: Effect Selection
 
 The first matching policy's effect is used:
+
 - DENY → immediately reject (no other policies evaluated)
 - ALLOW → immediately approve (constrain per policy)
 - CONSTRAIN → apply constraints from matching policy
@@ -64,27 +66,34 @@ for policy in sorted_policies:
 ## Pattern Matching Details
 
 ### Exact Match
+
 ```yaml
 - type: resource_exact
   value: /etc/passwd
 ```
+
 Matches only: `/etc/passwd`
 
 ### Prefix Match
+
 ```yaml
 - type: resource_prefix
   value: /data/public
 ```
+
 Matches:
+
 - `/data/public`
 - `/data/public/file.txt`
 - `/data/public/subdir/other.txt`
 
 Does NOT match:
+
 - `/data/publicly_available` (not a directory boundary)
 - `/data/publicity` (different path)
 
 Implement as:
+
 ```python
 resource.startswith(prefix) and (
     len(resource) == len(prefix) or
@@ -93,12 +102,14 @@ resource.startswith(prefix) and (
 ```
 
 ### Regex Match
+
 ```yaml
 - type: resource_regex
   value: "^/var/log/.*\\.log$"
 ```
 
 Uses Python `re.match()`:
+
 - `^` = start of string
 - `$` = end of string
 - `.` = any character (use `\\.` for literal dot)
@@ -106,6 +117,7 @@ Uses Python `re.match()`:
 - `+` = one or more
 
 Test patterns:
+
 ```python
 import re
 pattern = re.compile("^/var/log/.*\\.log$")
@@ -115,22 +127,26 @@ assert not pattern.match("/var/log/app.txt")
 ```
 
 ### Capability Hierarchy Match
+
 ```yaml
 - type: capability
   value: filesystem
 ```
 
 Matches:
+
 - `filesystem` (exact)
 - `filesystem.read`
 - `filesystem.write`
 - `filesystem.read.metadata`
 
 Does NOT match:
+
 - `filesystem_manager` (different name)
 - `file` (different path)
 
 Implement as:
+
 ```python
 cap_requested.startswith(cap_policy) and (
     len(cap_requested) == len(cap_policy) or
@@ -143,6 +159,7 @@ cap_requested.startswith(cap_policy) and (
 If a request was denied unexpectedly, follow this checklist:
 
 ### 1. Verify Capability Grant
+
 ```python
 # Check if agent has this capability
 registry.has_capability(agent_id, capability)
@@ -151,6 +168,7 @@ registry.has_capability(agent_id, capability)
 If False → DENIED_CAPABILITY_CHECK
 
 ### 2. Check Policy Matches
+
 ```python
 # List all enabled policies
 matching = [
@@ -160,11 +178,13 @@ matching = [
 ```
 
 Inspection points:
+
 - Are policies enabled?
 - Do conditions match?
 - Is priority correct?
 
 ### 3. Examine Risk Score
+
 ```python
 # Get breakdown
 actor_risk = risk_engine.get_actor_risk(agent_id)
@@ -179,6 +199,7 @@ total_risk = sum([actor_risk, cap_risk, resource_sens, env_mod, hist_mod])
 Is total_risk > 80? → DENIED_RISK
 
 ### 4. Review Decision Log
+
 ```python
 # Get audit record
 audit = audit_system.get_record(audit_id)
@@ -197,17 +218,21 @@ print(f"Timestamp: {audit.timestamp}")
 **Symptom**: Expected policy not in matched set
 
 **Investigation**:
+
 1. Is policy **enabled**? Check `enabled: true`
 2. Do **all conditions** match?
+
    ```python
    policy = get_policy_by_id("foo")
    for cond in policy.conditions:
        result = cond.evaluate(request)
        print(f"{cond.type} = {result}")
    ```
+
 3. Is **priority** high enough? Compare with other matches
 
 **Example Fix**:
+
 ```yaml
 # BEFORE (priority 1 = too low)
 policy_id: my_policy
@@ -229,6 +254,7 @@ conditions:
 **Symptom**: Request scored 75 when expecting 30
 
 **Investigation**:
+
 ```python
 breakdown = risk_engine.explain_score(request)
 print(breakdown)
@@ -243,6 +269,7 @@ print(breakdown)
 ```
 
 **Common causes**:
+
 - Environment flag set to production (+10 to +15)
 - History modifier from recent violations (+5 to +15)
 - Resource sensitivity overestimated
@@ -253,12 +280,16 @@ print(breakdown)
 **Symptom**: Request returns DENY with reason "No policies matched"
 
 **Investigation**:
+
 1. Does ANY policy target this capability?
+
    ```python
    policies_by_cap = policy_engine.find_policies_by_capability(request.capability)
    ```
+
 2. If empty → No policies defined for this capability → Default-deny
 3. If non-empty → Check conditions:
+
    ```python
    for p in policies_by_cap:
        matches = policy_matches(p, request)
@@ -275,11 +306,13 @@ print(breakdown)
 ### Policy Evaluation Latency
 
 Expected timings:
+
 - Simple conditions (exact, prefix, actor_id): < 1ms per policy
 - Regex conditions: 1–5ms (depends on pattern complexity)
 - Full decision (capability check + policy eval + risk + decision): 5–20ms
 
 **Optimization**:
+
 1. Sort policies by specificity (most specific first)
 2. Use prefix matches instead of regex where possible
 3. Cache compiled regex patterns

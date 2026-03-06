@@ -18,6 +18,7 @@ The AEGIS Trust Model establishes a **capability-based reputation system** for a
 4. **Federation participation** (whether signals from this actor are trusted)
 
 Trust is **not global**. Each node maintains its own assessment of actors, informed by:
+
 - Local historical performance
 - Federation attestations
 - Cryptographic proof of identity
@@ -57,6 +58,7 @@ For LLMs:
 ```
 
 **Examples**:
+
 - Actor claims "user:alice" with self-signed cert → 0.3
 - Actor claims "user:alice@domain.com" with domain-verified TLS → 0.6
 - Actor claims "llm:gpt4" signed by OpenAI with federation proof → 0.8
@@ -82,6 +84,7 @@ Penalty adjustments:
 ```
 
 **Examples**:
+
 - 95 successes, 5 failures / 100 → reliability = 0.95 → trust = 0.95
 - 80 successes, 20 failures / 100 → reliability = 0.80 → trust = 0.80
 - 90 successes, 10 failures / 100, but 2 were data-loss failures → trust = 0.90 - 0.60 = 0.30
@@ -111,6 +114,7 @@ trust_federation = weighted_agreement
 ```
 
 **Examples**:
+
 - 5 federation nodes report trust >= 0.8 → agreement = 1.0
 - 3 report trust >= 0.8, 2 report trust < 0.5 → agreement = 0.6
 - Reporting from only 1 node (not well-known) → reduced weight
@@ -130,6 +134,7 @@ proof_score ∈ {
 ```
 
 **Examples**:
+
 - HTTPS TLS certificate from known CA → 0.5
 - Request signed with ED25519 key (verified in trust model) → 0.8
 - Request signed + multi-signature attestation + proof-of-freshness → 1.0
@@ -148,6 +153,7 @@ trust\_score = clamp(trust\_score, 0.0, 1.0)
 ```
 
 **Concrete Example**:
+
 ```
 Actor: user:alice@corp.com
 
@@ -182,6 +188,7 @@ trust_score = 0.30×0.8 + 0.40×0.95 + 0.20×0.85 + 0.10×0.8
 Trust scores are not static. They are recalculated based on recent activity:
 
 ### Update Frequency
+
 - **Real-time**: Immediately after critical events (policy violations, major failures)
 - **Hourly**: Batch recalculation of reliability and federation scores
 - **Daily**: Full trust score recalculation for all active actors
@@ -204,7 +211,8 @@ def trust_score_with_age_adjustment(actor_id):
 # adjusted_trust = 0.9 × e^(-0.0038 × 90) = 0.9 × 0.69 = 0.62
 ```
 
-**Rationale**: 
+**Rationale**:
+
 - Recent behavior is more predictive
 - Incentivizes continued good behavior
 - Allows low-trust actors to rehabilitate
@@ -300,6 +308,7 @@ Federation nodes can explicitly attest to trust via signed certificates:
 ```
 
 A node receiving this certificate can:
+
 1. Verify issuer's signature (using issuer's public key)
 2. Verify subject identity (cryptographically)
 3. Adopt trust score if issuer is trusted
@@ -321,6 +330,7 @@ IMMEDIATE_REVOCATION_TRIGGERS:
 ```
 
 Upon revocation:
+
 1. All pending requests with this actor → DENY
 2. Trust score → 0.0
 3. Audit log entry → TRUST_REVOKED

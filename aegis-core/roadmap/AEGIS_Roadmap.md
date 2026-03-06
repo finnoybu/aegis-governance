@@ -32,6 +32,7 @@ Each stage builds on the previous stage and introduces additional capabilities.
 ## Stage 1 Progress
 
 ✅ **Completed:**
+
 - Core constitutional principles (8 articles)
 - Comprehensive FAQ (22 questions + adoption model)
 - Threat model (STRIDE-based, 187 lines)
@@ -42,6 +43,7 @@ Each stage builds on the previous stage and introduces additional capabilities.
 - Trademark and governance policies
 
 🔄 **In Progress:**
+
 - AGP Protocol specification expansion (currently 24 lines, target: 10-20 pages)
 - RFC-0001 through RFC-0004 detailed specifications
 - Governance event schema examples
@@ -49,6 +51,7 @@ Each stage builds on the previous stage and introduces additional capabilities.
 - Deployment and operations documentation
 
 🔜 **Planned:**
+
 - v0.1 public announcement
 - Community contribution guidelines finalization
 - Initial governance structure definition
@@ -58,6 +61,7 @@ Each stage builds on the previous stage and introduces additional capabilities.
 Target completion: **Q2 2026** (pending specification expansion)
 
 Criteria for Stage 1 → Stage 2 transition:
+
 - [ ] All RFC specifications published with sufficient detail
 - [ ] AGP Protocol fully documented (10+ pages)
 - [ ] 8 governance event examples completed
@@ -76,33 +80,33 @@ Publish the foundational architecture and governance model for AEGIS™.
 
 ## Deliverables
 
-* Manifesto
-* System Overview
-* Constitution
-* Threat Model
-* RFC-0001 Architecture
-* RFC-0002 Governance Runtime
-* RFC-0003 Capability Registry
-* RFC-0004 Governance Event Model
-* AGP-1 Governance Protocol
-* Initial repository structure
-* Documentation and branding assets
+- Manifesto
+- System Overview
+- Constitution
+- Threat Model
+- RFC-0001 Architecture
+- RFC-0002 Governance Runtime
+- RFC-0003 Capability Registry
+- RFC-0004 Governance Event Model
+- AGP-1 Governance Protocol
+- Initial repository structure
+- Documentation and branding assets
 
 ## Success Criteria
 
-* Repository publicly available ✅
-* Core RFC specifications published (in progress)
-* Initial issue roadmap created ✅
-* Community able to review and discuss architecture ✅
-* GitHub Discussions enabled with 5 categories ✅
-* All CI/CD workflows passing ✅
+- Repository publicly available ✅
+- Core RFC specifications published (in progress)
+- Initial issue roadmap created ✅
+- Community able to review and discuss architecture ✅
+- GitHub Discussions enabled with 5 categories ✅
+- All CI/CD workflows passing ✅
 
 ## Success Metrics
 
-* **Documentation:** 8 core documents published (Constitution, FAQ, Threat Model, etc.)
-* **Community:** 10+ contributors engaged in GitHub Discussions
-* **Quality:** >95% documentation completeness score
-* **Visibility:** Public announcement reaching 1,000+ relevant stakeholders
+- **Documentation:** 8 core documents published (Constitution, FAQ, Threat Model, etc.)
+- **Community:** 10+ contributors engaged in GitHub Discussions
+- **Quality:** >95% documentation completeness score
+- **Visibility:** Public announcement reaching 1,000+ relevant stakeholders
 
 ## Dependencies
 
@@ -125,12 +129,12 @@ None.
 
 ## Community Milestones
 
-* ✅ Repository structure established
-* ✅ GitHub Discussions enabled (Legal & Licensing category active)
-* ✅ Trademark policy published
-* 🔜 Public v0.1 announcement
-* 🔜 First community RFC proposal
-* 🔜 Contributor onboarding documentation
+- ✅ Repository structure established
+- ✅ GitHub Discussions enabled (Legal & Licensing category active)
+- ✅ Trademark policy published
+- 🔜 Public v0.1 announcement
+- 🔜 First community RFC proposal
+- 🔜 Contributor onboarding documentation
 
 ## Checkpoint
 
@@ -146,34 +150,34 @@ Define the operational architecture required to implement AEGIS™ governance en
 
 ## Deliverables
 
-* Runtime architecture document
-* Governance gateway API specification
-* Capability registry schema
-* Policy language specification
-* AGP protocol message schemas
-* Reference deployment model
+- Runtime architecture document
+- Governance gateway API specification
+- Capability registry schema
+- Policy language specification
+- AGP protocol message schemas
+- Reference deployment model
 
 ## Success Criteria
 
-* Runtime architecture clearly documented
-* Governance decision pipeline defined
-* Capability and policy models finalized
-* AGP message schemas defined
-* Policy language specification published
-* Deployment topology models documented
+- Runtime architecture clearly documented
+- Governance decision pipeline defined
+- Capability and policy models finalized
+- AGP message schemas defined
+- Policy language specification published
+- Deployment topology models documented
 
 ## Success Metrics
 
-* **Specifications:** 4 RFC documents completed (Runtime, Capability Registry, Policy Engine, Event Model)
-* **Schemas:** 12+ schema examples (4 governance events, 4 common schemas, 4 capability definitions)
-* **Architecture:** 3 deployment topologies defined (single-node, distributed, high-availability)
-* **Performance:** Target latency defined (5-15ms governance overhead)
+- **Specifications:** 4 RFC documents completed (Runtime, Capability Registry, Policy Engine, Event Model)
+- **Schemas:** 12+ schema examples (4 governance events, 4 common schemas, 4 capability definitions)
+- **Architecture:** 3 deployment topologies defined (single-node, distributed, high-availability)
+- **Performance:** Target latency defined (5-15ms governance overhead)
 
 ## Dependencies
 
-* Completion of Stage 1 RFC architecture specifications
-* Community feedback on constitutional principles
-* Initial threat model validation
+- Completion of Stage 1 RFC architecture specifications
+- Community feedback on constitutional principles
+- Initial threat model validation
 
 ## Estimated Timeline
 
@@ -193,10 +197,10 @@ Define the operational architecture required to implement AEGIS™ governance en
 
 ## Community Milestones
 
-* Policy language RFCs open for community input
-* Agent framework maintainer engagement
-* First community-contributed schema examples
-* Technical working group formation
+- Policy language RFCs open for community input
+- Agent framework maintainer engagement
+- First community-contributed schema examples
+- Technical working group formation
 
 ## Checkpoint
 
@@ -212,38 +216,38 @@ Develop the first working reference implementation of the AEGIS™ governance ru
 
 ## Deliverables
 
-* Governance gateway service
-* Decision engine
-* Capability registry implementation
-* Policy engine
-* Tool proxy layer
-* Audit logging system
-* Example integrations with AI agents
+- Governance gateway service
+- Decision engine
+- Capability registry implementation
+- Policy engine
+- Tool proxy layer
+- Audit logging system
+- Example integrations with AI agents
 
 ## Success Criteria
 
-* AI agents can submit action requests via AGP
-* Governance runtime evaluates actions
-* Approved actions execute through tool proxies
-* Audit records generated for all decisions
-* End-to-end examples with 3+ agent frameworks
-* Performance benchmarks published
+- AI agents can submit action requests via AGP
+- Governance runtime evaluates actions
+- Approved actions execute through tool proxies
+- Audit records generated for all decisions
+- End-to-end examples with 3+ agent frameworks
+- Performance benchmarks published
 
 ## Success Metrics
 
-* **Implementation:** Reference runtime operational (all 6 core components)
-* **Integrations:** Working examples with 3+ agent frameworks (LangChain, CrewAI, AutoGPT)
-* **Performance:** <15ms governance latency for 95th percentile
-* **Testing:** 80%+ test coverage
-* **Documentation:** Complete deployment guide with examples
-* **Community:** 3+ external test deployments
+- **Implementation:** Reference runtime operational (all 6 core components)
+- **Integrations:** Working examples with 3+ agent frameworks (LangChain, CrewAI, AutoGPT)
+- **Performance:** <15ms governance latency for 95th percentile
+- **Testing:** 80%+ test coverage
+- **Documentation:** Complete deployment guide with examples
+- **Community:** 3+ external test deployments
 
 ## Dependencies
 
-* Completion of runtime architecture specification (Stage 2)
-* Finalized capability and policy schemas
-* AGP protocol message schemas
-* Development resources committed
+- Completion of runtime architecture specification (Stage 2)
+- Finalized capability and policy schemas
+- AGP protocol message schemas
+- Development resources committed
 
 ## Estimated Timeline
 
@@ -264,11 +268,11 @@ Develop the first working reference implementation of the AEGIS™ governance ru
 
 ## Community Milestones
 
-* First community-contributed integration (agent framework)
-* Reference implementation code repository established
-* Developer onboarding documentation published
-* First security audit completed
-* Beta testing program with 5+ organizations
+- First community-contributed integration (agent framework)
+- Reference implementation code repository established
+- Developer onboarding documentation published
+- First security audit completed
+- Beta testing program with 5+ organizations
 
 ## Checkpoint
 
@@ -284,34 +288,34 @@ Encourage adoption of the AEGIS Governance Protocol across AI frameworks and inf
 
 ## Deliverables
 
-* AGP protocol documentation
-* SDKs or adapters for common agent frameworks
-* integration examples
-* governance policy templates
+- AGP protocol documentation
+- SDKs or adapters for common agent frameworks
+- integration examples
+- governance policy templates
 
 ## Success Criteria
 
-* AGP integrations demonstrated with agent frameworks
-* Interoperability between multiple AI systems
-* Community contributions to runtime implementations
-* Published SDKs for 3+ languages
-* Governance policy template library established
+- AGP integrations demonstrated with agent frameworks
+- Interoperability between multiple AI systems
+- Community contributions to runtime implementations
+- Published SDKs for 3+ languages
+- Governance policy template library established
 
 ## Success Metrics
 
-* **Adoption:** 10+ production deployments
-* **Integrations:** AGP support in 5+ agent frameworks
-* **SDKs:** Client libraries for Python, JavaScript, Go, Java
-* **Community:** 50+ active contributors
-* **Documentation:** 20+ integration examples
-* **Standards:** AGP considered for formal standardization (IETF, IEEE)
+- **Adoption:** 10+ production deployments
+- **Integrations:** AGP support in 5+ agent frameworks
+- **SDKs:** Client libraries for Python, JavaScript, Go, Java
+- **Community:** 50+ active contributors
+- **Documentation:** 20+ integration examples
+- **Standards:** AGP considered for formal standardization (IETF, IEEE)
 
 ## Dependencies
 
-* Stable reference runtime implementation (Stage 3)
-* Stable AGP protocol schema
-* Comprehensive integration documentation
-* SDK development resources
+- Stable reference runtime implementation (Stage 3)
+- Stable AGP protocol schema
+- Comprehensive integration documentation
+- SDK development resources
 
 ## Estimated Timeline
 
@@ -332,12 +336,12 @@ Encourage adoption of the AEGIS Governance Protocol across AI frameworks and inf
 
 ## Community Milestones
 
-* First third-party AGP implementation
-* Policy template library reaches 25+ templates
-* Conference presentations at 3+ industry events
-* Enterprise pilot program launched
-* First AGP certification program
-* Community governance structure formalized (AEGIS Initiative)
+- First third-party AGP implementation
+- Policy template library reaches 25+ templates
+- Conference presentations at 3+ industry events
+- Enterprise pilot program launched
+- First AGP certification program
+- Community governance structure formalized (AEGIS Initiative)
 
 ## Checkpoint
 
@@ -353,36 +357,36 @@ Deploy the AEGIS Governance Federation Network (GFN) to enable distributed gover
 
 ## Deliverables
 
-* federation node architecture
-* governance event schemas
-* governance feeds
-* trust model
-* federation protocol implementation
+- federation node architecture
+- governance event schemas
+- governance feeds
+- trust model
+- federation protocol implementation
 
 ## Success Criteria
 
-* Multiple organizations operating federation nodes
-* Governance signals shared across nodes
-* Coordinated response to emerging governance threats
-* Trust model validated in production
-* Privacy-preserving intelligence sharing demonstrated
+- Multiple organizations operating federation nodes
+- Governance signals shared across nodes
+- Coordinated response to emerging governance threats
+- Trust model validated in production
+- Privacy-preserving intelligence sharing demonstrated
 
 ## Success Metrics
 
-* **Federation Nodes:** 10+ independent nodes operational
-* **Organizations:** 20+ organizations participating
-* **Signal Volume:** 1M+ governance events processed monthly
-* **Threat Detection:** Demonstrated detection of novel attack patterns
-* **Privacy:** Zero-knowledge signal sharing protocols validated
-* **Response Time:** <1 hour for critical threat dissemination
+- **Federation Nodes:** 10+ independent nodes operational
+- **Organizations:** 20+ organizations participating
+- **Signal Volume:** 1M+ governance events processed monthly
+- **Threat Detection:** Demonstrated detection of novel attack patterns
+- **Privacy:** Zero-knowledge signal sharing protocols validated
+- **Response Time:** <1 hour for critical threat dissemination
 
 ## Dependencies
 
-* Governance event model (RFC-0004) finalized
-* Mature runtime implementations (Stage 3 complete)
-* Production deployments (Stage 4 adoption)
-* Trust model and cryptographic protocols defined
-* Privacy-preserving signal sharing architecture
+- Governance event model (RFC-0004) finalized
+- Mature runtime implementations (Stage 3 complete)
+- Production deployments (Stage 4 adoption)
+- Trust model and cryptographic protocols defined
+- Privacy-preserving signal sharing architecture
 
 ## Estimated Timeline
 
@@ -403,13 +407,13 @@ Deploy the AEGIS Governance Federation Network (GFN) to enable distributed gover
 
 ## Community Milestones
 
-* Federation governance charter published
-* First multi-organization federation pilot
-* Privacy-preserving protocol whitepaper
-* Threat intelligence sharing demonstrated
-* Federation node certification program
-* 100+ organizations in AEGIS Federation Consortium
-* First demonstrated cross-organization threat mitigation
+- Federation governance charter published
+- First multi-organization federation pilot
+- Privacy-preserving protocol whitepaper
+- Threat intelligence sharing demonstrated
+- Federation node certification program
+- 100+ organizations in AEGIS Federation Consortium
+- First demonstrated cross-organization threat mitigation
 
 ## Checkpoint
 

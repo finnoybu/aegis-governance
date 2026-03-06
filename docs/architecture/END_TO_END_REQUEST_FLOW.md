@@ -14,13 +14,16 @@ from submission to decision to audit.
 ## Scenario Setup
 
 **Agent**: `agent_prod_analyzer`
+
 - Status: Established, 200+ successful operations
 - First violation: 1 month ago (minor)
 
 **Capability**: `data.database_query`
+
 - Risk factor: 15 (execution against production infrastructure)
 
 **Resource**: `production_db.customers`
+
 - Sensitivity: 18 (contains internal business data, not PII)
 - Classification: business_critical
 
@@ -74,6 +77,7 @@ capability_registry.has_capability(agent_id, capability)
 **Result**: ✅ GRANTED — Agent has capability
 
 **Log Entry**:
+
 ```
 [CAP_CHECK] agent_prod_analyzer HAS data.database_query
 ```
@@ -85,18 +89,21 @@ capability_registry.has_capability(agent_id, capability)
 ### PolicyEngine.find_matching_policies()
 
 **All policies in engine**:
+
 1. `allow_public_read` (priority: 100)
 2. `deny_shadow_files` (priority: 10)
 3. `constrain_db_queries` (priority: 50)
 4. `escalate_production_changes` (priority: 40)
 
 **Candidate filtering**:
+
 - Filter enabled policies only
 - Filter non-callable conditions out
 
 **Condition evaluation for each**:
 
 #### Policy 1: allow_public_read
+
 ```yaml
 conditions:
   - type: resource_prefix
@@ -104,19 +111,25 @@ conditions:
   - type: capability
     value: filesystem.read
 ```
+
 **Evaluation**:
+
 - capability (filesystem.read) ≠ requested (data.database_query) → ❌ NO MATCH
 
 #### Policy 2: deny_shadow_files
+
 ```yaml
 conditions:
   - type: resource_exact
     value: /etc/shadow
 ```
+
 **Evaluation**:
+
 - resource_exact (/etc/shadow) ≠ requested (production_db.customers) → ❌ NO MATCH
 
 #### Policy 3: constrain_db_queries
+
 ```yaml
 effect: constrain
 priority: 50
@@ -133,24 +146,30 @@ constraints:
   timeout_seconds: 60
   audit_required: true
 ```
+
 **Evaluation**:
+
 - capability (data.database_query) = requested ✅
 - environment (production) = request context ✅
 - resource_prefix (production_db) matches production_db.customers ✅
 - **MATCH** → Effect: CONSTRAIN with constraints
 
 #### Policy 4: escalate_production_changes
+
 ```yaml
 conditions:
   - type: capability
     value: data.database_write
 ```
+
 **Evaluation**:
+
 - capability (data.database_write) ≠ requested (data.database_query) → ❌ NO MATCH
 
 **Result**: Matched Policy = `constrain_db_queries` (priority 50)
 
 **Log Entry**:
+
 ```
 [POLICY_MATCH] Matched policy: constrain_db_queries (effect: constrain)
 ```
@@ -262,6 +281,7 @@ risk_score = 53
 **Result**: Risk Score = **53** (CONSTRAIN threshold)
 
 **Log Entry**:
+
 ```
 [RISK_CALC] Score=53
   actor_risk=10
@@ -295,6 +315,7 @@ else:
 **Decision**: ALLOW (with constraints from matched policy)
 
 **Log Entry**:
+
 ```
 [DECISION] threshold_evaluation
   score=53 in range [31, 61)
@@ -319,6 +340,7 @@ constraints:
 ```
 
 **Interpreted as**:
+
 - Query may return max 10,000 rows
 - Agent limited to 5 queries per minute
 - Query execution timeout: 60 seconds
@@ -379,6 +401,7 @@ audit_id = audit_system.record(audit_record)
 **Result**: Audit recorded, ID generated
 
 **Log Entry**:
+
 ```
 [AUDIT] recorded audit_id=audit_20250305_021500_a1b2c3
 ```

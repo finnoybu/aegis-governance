@@ -539,24 +539,28 @@ AEGIS governance introduces evaluation latency before every action execution.
 ## Performance Optimization Strategies
 
 ### Caching
-- **Capability Registry Cache** — Cache frequently accessed capabilities in memory
-- **Policy Cache** — Pre-compile policies for fast evaluation
-- **Actor Permission Cache** — Cache role/permission lookups with TTL
-- **Risk Score Cache** — Cache recent risk calculations (5-minute TTL)
+
+* **Capability Registry Cache** — Cache frequently accessed capabilities in memory
+* **Policy Cache** — Pre-compile policies for fast evaluation
+* **Actor Permission Cache** — Cache role/permission lookups with TTL
+* **Risk Score Cache** — Cache recent risk calculations (5-minute TTL)
 
 ### Asynchronous Processing
-- **Audit Logging** — Write audit records asynchronously (don't block decision)
-- **Federation Signals** — Send governance signals async
-- **Telemetry** — Metrics and monitoring via background threads
+
+* **Audit Logging** — Write audit records asynchronously (don't block decision)
+* **Federation Signals** — Send governance signals async
+* **Telemetry** — Metrics and monitoring via background threads
 
 ### Horizontal Scaling
-- **Stateless Gateway** — Scale gateway nodes independently
-- **Policy Engine Workers** — Distribute policy evaluation across workers
-- **Capability Registry Read Replicas** — Scale read-heavy registry lookups
+
+* **Stateless Gateway** — Scale gateway nodes independently
+* **Policy Engine Workers** — Distribute policy evaluation across workers
+* **Capability Registry Read Replicas** — Scale read-heavy registry lookups
 
 ### Connection Pooling
-- **Database Connections** — Pool connections to audit store
-- **External API Clients** — Reuse HTTP clients for tool proxies
+
+* **Database Connections** — Pool connections to audit store
+* **External API Clients** — Reuse HTTP clients for tool proxies
 
 ## Throughput Targets
 
@@ -570,11 +574,11 @@ AEGIS governance introduces evaluation latency before every action execution.
 
 Key metrics to monitor:
 
-- **Governance Latency** — p50, p95, p99 latency per evaluation phase
-- **Decision Throughput** — Actions evaluated per second
-- **Cache Hit Rates** — Capability, policy, actor cache effectiveness
-- **Error Rates** — Schema validation failures, evaluation errors
-- **Queue Depths** — Audit log buffer, async processing queues
+* **Governance Latency** — p50, p95, p99 latency per evaluation phase
+* **Decision Throughput** — Actions evaluated per second
+* **Cache Hit Rates** — Capability, policy, actor cache effectiveness
+* **Error Rates** — Schema validation failures, evaluation errors
+* **Queue Depths** — Audit log buffer, async processing queues
 
 ---
 
@@ -618,71 +622,81 @@ AEGIS governance enforces security through multiple layers.
 ### 1. Authentication & Authorization
 
 **Actor Authentication:**
-- Mutual TLS (mTLS) for AI agent connections
-- API keys or JWT tokens for actor identity
-- Service account validation for autonomous agents
-- Human actor verification via SSO/OIDC
+
+* Mutual TLS (mTLS) for AI agent connections
+* API keys or JWT tokens for actor identity
+* Service account validation for autonomous agents
+* Human actor verification via SSO/OIDC
 
 **Authorization:**
-- Role-Based Access Control (RBAC) for capabilities
-- Attribute-Based Access Control (ABAC) for context-aware decisions
-- Least privilege enforcement per actor identity
-- Dynamic permission elevation via policy
+
+* Role-Based Access Control (RBAC) for capabilities
+* Attribute-Based Access Control (ABAC) for context-aware decisions
+* Least privilege enforcement per actor identity
+* Dynamic permission elevation via policy
 
 ### 2. Data Protection
 
 **In Transit:**
-- TLS 1.3 for all network communication
-- mTLS between AI agents and governance gateway
-- Encrypted AGP protocol messages
+
+* TLS 1.3 for all network communication
+* mTLS between AI agents and governance gateway
+* Encrypted AGP protocol messages
 
 **At Rest:**
-- Encrypted audit logs (AES-256)
-- Encrypted capability and policy stores
-- Encrypted credentials in tool proxies
-- Secret management integration (HashiCorp Vault, AWS Secrets Manager)
+
+* Encrypted audit logs (AES-256)
+* Encrypted capability and policy stores
+* Encrypted credentials in tool proxies
+* Secret management integration (HashiCorp Vault, AWS Secrets Manager)
 
 ### 3. Input Validation
 
 **Schema Validation:**
-- Strict JSON schema validation for all AGP messages
-- Parameter type checking and range validation
-- SQL injection/command injection prevention in tool proxies
-- Resource identifier validation (no path traversal)
+
+* Strict JSON schema validation for all AGP messages
+* Parameter type checking and range validation
+* SQL injection/command injection prevention in tool proxies
+* Resource identifier validation (no path traversal)
 
 **Capability Validation:**
-- Whitelist-only capability registry (no dynamic creation)
-- Capability schema enforcement
-- Parameter sanitization before proxy execution
+
+* Whitelist-only capability registry (no dynamic creation)
+* Capability schema enforcement
+* Parameter sanitization before proxy execution
 
 ### 4. Audit & Forensics
 
 **Immutable Audit Logs:**
-- Append-only audit storage
-- Cryptographic hashing for tamper detection
-- Write-once-read-many (WORM) storage for compliance
-- Audit log retention policies (7 years for compliance)
+
+* Append-only audit storage
+* Cryptographic hashing for tamper detection
+* Write-once-read-many (WORM) storage for compliance
+* Audit log retention policies (7 years for compliance)
 
 **Audit Data:**
-- Actor identity + authentication method
-- Action details + capability reference
-- Governance decision + policy version
-- Execution result + timestamps
-- Risk score + evaluation context
+
+* Actor identity + authentication method
+* Action details + capability reference
+* Governance decision + policy version
+* Execution result + timestamps
+* Risk score + evaluation context
 
 ### 5. Defense in Depth
 
 **Multiple Enforcement Points:**
-- Gateway-level validation (schema, authentication)
-- Decision Engine denial (capability, authority, policy)
-- Tool Proxy validation (parameter sanitization)
-- External system access controls (independent layer)
+
+* Gateway-level validation (schema, authentication)
+* Decision Engine denial (capability, authority, policy)
+* Tool Proxy validation (parameter sanitization)
+* External system access controls (independent layer)
 
 **Fail-Secure Design:**
-- Default-deny for unknown capabilities
-- Fail-closed on policy evaluation errors
-- Explicit ALLOW required; implicit DENY
-- Circuit breakers for degraded decision engine
+
+* Default-deny for unknown capabilities
+* Fail-closed on policy evaluation errors
+* Explicit ALLOW required; implicit DENY
+* Circuit breakers for degraded decision engine
 
 ---
 

@@ -40,6 +40,7 @@ Assesses trustworthiness of requesting agent.
 | 15–20 | Unvetted or suspicious agent |
 
 **Sources**:
+
 - Agent registration status
 - Historical behavior
 - Authentication strength
@@ -58,6 +59,7 @@ Intrinsic risk of the requested capability.
 | data.database_query | 10–15 | Medium, depends on scope |
 
 **Sources**:
+
 - Capability definition
 - Historical incident patterns
 - Impact assessment
@@ -76,6 +78,7 @@ How sensitive/critical is the target resource.
 | Configuration | 15–20 | System state, important |
 
 **Sources**:
+
 - Data classification
 - Regulatory requirements
 - System criticality
@@ -160,6 +163,7 @@ Total: 10 + 15 + 18 + 10 + 0 = 53
 
 **Decision**: ALLOW_CONSTRAIN  
 **Constraints**:
+
 - Max rows: 5000
 - Rate limit: 5 queries/minute
 - Timeout: 30 seconds
@@ -227,6 +231,7 @@ Recalculate on config changes or audit events.
 ### Feedback Loop
 
 Risk scores are learned from decision outcomes:
+
 - If DENIED request later approved by humans: decrease risk
 - If ALLOWED request later violated policy: increase risk
 - If ESCALATED request quickly approved: decrease risk
@@ -235,6 +240,7 @@ Risk scores are learned from decision outcomes:
 ### Bias Prevention
 
 Regularly audit risk scores for bias across:
+
 - Agent types (human vs AI)
 - Operational patterns (time of day, environment)
 - Historical context (avoid false positives from old incidents)

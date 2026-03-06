@@ -86,8 +86,8 @@ The gateway is the **single validated entry point** for governance requests.
 
 Responsibilities:
 
-* request validation
-* routing to the decision engine
+- request validation
+- routing to the decision engine
 
 ---
 
@@ -115,10 +115,10 @@ Implements **capability-based security**.
 
 Capabilities define:
 
-* allowed action types
-* permitted target patterns
-* optional expiration
-* metadata annotations
+- allowed action types
+- permitted target patterns
+- optional expiration
+- metadata annotations
 
 Agents must possess a capability before attempting an action.
 
@@ -130,9 +130,9 @@ Provides deterministic policy evaluation.
 
 Policies contain:
 
-* priority ordering
-* allow / deny effect
-* pure condition predicates
+- priority ordering
+- allow / deny effect
+- pure condition predicates
 
 Evaluation rules:
 
@@ -163,21 +163,21 @@ Every governance decision is recorded in an **append-only audit log**.
 
 Audit records include:
 
-* request ID
-* agent ID
-* action type
-* target
-* parameters
-* governance decision
-* policy evaluation trace
-* session ID
-* timestamp
+- request ID
+- agent ID
+- action type
+- target
+- parameters
+- governance decision
+- policy evaluation trace
+- session ID
+- timestamp
 
 This enables:
 
-* compliance reporting
-* forensic review
-* deterministic traceability
+- compliance reporting
+- forensic review
+- deterministic traceability
 
 ---
 
@@ -322,26 +322,33 @@ aegis-runtime/
 ---
 
 # Design Principles
+
 AEGIS enforces several core principles.
 
 ## Deterministic Governance
+
 The same request against the same policies always produces the same decision.
 
 ## Defense in Depth
+
 Enforcement layers include capability checks, policy evaluation, and audit recording.
 
 ## Default-Deny Security
+
 Actions are denied unless explicitly allowed.
 
 ## Immutable Audit Trail
+
 All governance decisions are permanently recorded.
 
 ## Protocol-First Architecture
+
 Governance interactions are defined using structured protocol messages.
 
 ---
 
 # Relationship to the AEGIS Project
+
 This runtime is the **reference implementation** supporting the broader AEGIS ecosystem.
 
 ```
@@ -362,10 +369,10 @@ Early reference implementation.
 
 Future extensions may include:
 
-* risk scoring
-* federated governance signals
-* distributed policy synchronization
-* additional runtime implementations (Rust / Go)
+- risk scoring
+- federated governance signals
+- distributed policy synchronization
+- additional runtime implementations (Rust / Go)
 
 ---
 

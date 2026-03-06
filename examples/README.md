@@ -10,7 +10,6 @@
 
 This directory contains example integrations demonstrating how AI systems interact with the AEGIS™ governance runtime.
 
-
 | Folder | Purpose |
 | --- | --- |
 | `runtime/` | examples using the reference runtime |

@@ -98,6 +98,7 @@ graph TB
 **Purpose**: Bi-directional event transport for federation communication
 
 **Responsibilities**:
+
 - Publish signed AEGIS events to configured feeds via AT Protocol
 - Subscribe to governance feeds from policy authorities and peer nodes
 - Verify event signatures and validate schemas before propagation to downstream components
@@ -105,6 +106,7 @@ graph TB
 - Handle feed subscription lifecycle, reconnection, and backpressure management
 
 **Technical Requirements**:
+
 - Support AT Protocol SDK (minimum v2.0)
 - Maintain persistent subscriptions with automatic reconnection (exponential backoff: 1s → 30s)
 - Verify all signatures against DID document published keys
@@ -113,6 +115,7 @@ graph TB
 - Support proxy/firewall traversal (HTTP/1.1 and HTTP/2)
 
 **Data Model**:
+
 ```json
 {
   "gateway_config": {
@@ -149,6 +152,7 @@ graph TB
 **Purpose**: Evaluate local actions against federation-informed governance policies
 
 **Responsibilities**:
+
 - Load and maintain policy rule sets from local configuration and federation feeds
 - Evaluate proposed actions against policies, returning ALLOW/DENY/REQUIRES_REVIEW decisions
 - Integrate federation signals (via Trust Evaluator) into decision reasoning
@@ -156,6 +160,7 @@ graph TB
 - Support policy versioning, rollback, and hot-reload without service interruption
 
 **Technical Requirements**:
+
 - Implement deterministic policy evaluation with guaranteed latency SLAs (p99 < 50ms for simple policies)
 - Support policy language: AEGIS Policy DSL (EBNF defined in RFC-0003)
 - Maintain policy state machine preventing conflicting concurrent updates
@@ -163,6 +168,7 @@ graph TB
 - Support debug/trace mode for policy diagnostics
 
 **Decision Output**:
+
 ```json
 {
   "decision_id": "dec_abc123def456",
@@ -191,6 +197,7 @@ graph TB
 **Purpose**: Compute contextual risk scores for actions by integrating local telemetry and federation signals
 
 **Responsibilities**:
+
 - Compute risk scores for proposed actions (0.0 = safe, 1.0 = critical risk)
 - Consume federation risk signals to adjust baseline risk priors
 - Track risk signal recency and weight newer signals more heavily
@@ -198,6 +205,7 @@ graph TB
 - Publish aggregate risk telemetry to risk-signal feed (privacy-redacted)
 
 **Technical Requirements**:
+
 - Implement risk scoring algorithm with bounded computation time (p99 < 100ms)
 - Support configurable risk factors and weighting (default: 5 primary factors)
 - Cache risk signals with automatic eviction (LRU, max 100K signals)
@@ -205,6 +213,7 @@ graph TB
 - Implement anomaly detection to flag statistically unusual risk patterns
 
 **Risk Score Breakdown**:
+
 ```json
 {
   "action_id": "act_xyz789",
@@ -239,6 +248,7 @@ graph TB
 **Purpose**: Assign credibility weights to external federation signals based on publisher reputation
 
 **Responsibilities**:
+
 - Maintain trust scores for known publisher DIDs using 5-factor model from AEGIS_GFN1_TRUST_MODEL.md
 - Apply trust weights to ingested events (multiply signal strength by publisher trust score)
 - Detect compromised publishers via contradictory signals and revocation notices
@@ -246,6 +256,7 @@ graph TB
 - Publish local trust evaluation results for federation transparency
 
 **Technical Requirements**:
+
 - Implement trust score calculation (formula: 0.30×B + 0.25×H + 0.20×Q + 0.15×A + 0.10×F)
 - Support trust score caching with refresh intervals (default: 1 hour)
 - Detect trust score degradation patterns (3+ contradictions trigger quarantine)
@@ -253,6 +264,7 @@ graph TB
 - Maintain trust graph showing publisher relationships and corroboration
 
 **Publisher Rating Output**:
+
 ```json
 {
   "publisher_did": "did:aegis:main:publisher-node-42",
@@ -294,6 +306,7 @@ graph TB
 **Purpose**: Secure storage for evidence supporting attestations, incidents, and policy decisions
 
 **Responsibilities**:
+
 - Store evidence artifacts (logs, captures, attestations) with access controls
 - Generate signed URIs for authorized evidence retrieval
 - Enforce retention policies (default: 90 days for incidents, configurable per evidence class)
@@ -301,6 +314,7 @@ graph TB
 - Provide evidence integrity verification (hash chain, cryptographic proofs)
 
 **Technical Requirements**:
+
 - Encrypt all evidence at rest (AES-256, with key rotation every 90 days)
 - Support at least 1TB of evidence storage (configurable per deployment)
 - Implement access control: evidence only accessible to authorized roles after approval
@@ -308,6 +322,7 @@ graph TB
 - Support evidence classification: PUBLIC, INTERNAL, RESTRICTED, CLASSIFIED
 
 **Evidence Metadata**:
+
 ```json
 {
   "evidence_id": "ev_def789abc",
@@ -334,6 +349,7 @@ graph TB
 **Purpose**: Immutable logging and operational visibility for all node activities
 
 **Responsibilities**:
+
 - Log all published/ingested events with verification results
 - Record all policy/risk/trust decisions with supporting context
 - Maintain hash chain (cryptographic chain of evidence) for audit trail integrity
@@ -341,6 +357,7 @@ graph TB
 - Support audit log querying and forensics
 
 **Technical Requirements**:
+
 - Implement append-only event log (cannot be modified, only appended)
 - Support at least 10 years of log retention (compressible, default: 5 years online)
 - Create integrity proofs (signed hash digests every 24 hours)
@@ -348,6 +365,7 @@ graph TB
 - Support log rotation and archival to cold storage
 
 **Audit Log Entry Schema**:
+
 ```json
 {
   "sequence_number": 1000000,
@@ -397,6 +415,7 @@ graph TB
 **Endpoint**: `POST /api/v1/events/publish`
 
 **Request**:
+
 ```json
 {
   "envelope": {
@@ -424,6 +443,7 @@ graph TB
 ```
 
 **Response** (success):
+
 ```json
 {
   "status": "accepted",
@@ -434,6 +454,7 @@ graph TB
 ```
 
 **HTTP Status Codes**:
+
 - `202 Accepted`: Event accepted for publication
 - `400 Bad Request`: Invalid schema or envelope structure
 - `401 Unauthorized`: Signature verification failed
@@ -447,11 +468,13 @@ graph TB
 **Endpoint**: `GET /api/v1/feeds/{feed_name}/stream`
 
 **Query Parameters**:
+
 - `since`: Unix timestamp or event_id to start streaming from
 - `buffer_mode`: "fifo" or "lifo" (default: "fifo")
 - `verify_signatures`: boolean (default: true)
 
 **Response** (WebSocket or Server-Sent Events):
+
 ```json
 {
   "type": "event",
@@ -484,6 +507,7 @@ graph TB
 **Endpoint**: `POST /api/v1/decisions/evaluate`
 
 **Request**:
+
 ```json
 {
   "action_id": "act_xyz789",
@@ -501,6 +525,7 @@ graph TB
 ```
 
 **Response**:
+
 ```json
 {
   "decision_id": "dec_abc123",
@@ -519,6 +544,7 @@ graph TB
 ```
 
 **HTTP Status Codes**:
+
 - `200 OK`: Decision made successfully
 - `400 Bad Request`: Invalid request context
 - `503 Service Unavailable`: Policy engine unavailable
@@ -530,6 +556,7 @@ graph TB
 **Endpoint**: `GET /api/v1/trust/publisher/{did}`
 
 **Response**:
+
 ```json
 {
   "publisher_did": "did:aegis:main:publisher-42",
@@ -555,12 +582,14 @@ graph TB
 **Endpoint**: `GET /api/v1/audit/logs`
 
 **Query Parameters**:
+
 - `start_time`: ISO 8601 timestamp
 - `end_time`: ISO 8601 timestamp
 - `event_type`: filter by type (DECISION_MADE, EVENT_INGESTED, POLICY_UPDATED, etc.)
 - `limit`: max results (default: 1000, max: 10000)
 
 **Response**:
+
 ```json
 {
   "total_results": 10000,
@@ -592,6 +621,7 @@ This section defines three canonical deployment topologies with architecture dia
 **Use Case**: Organization operating in restricted federation (e.g., consortium, vetted partners only)
 
 **Topology**:
+
 ```mermaid
 graph LR
     subgraph "Enterprise Network"
@@ -620,6 +650,7 @@ graph LR
 ```
 
 **Deployment Specification**:
+
 - **Compute**: 2 vCPU minimum, 4 vCPU recommended (1 for federation I/O, 1 for policy engine, 1 headroom)
 - **Memory**: 4GB minimum (2GB JVM heap recommended), 8GB recommended
 - **Storage**: 100GB SSD for evidence store (configurable), 10GB for audit logs (rotated)
@@ -627,6 +658,7 @@ graph LR
 - **Scaling**: Horizontal scaling not required for private nodes (single instance sufficient for <10,000 decisions/hour)
 
 **Configuration Example**:
+
 ```yaml
 node_type: PRIVATE
 federation_mode: RESTRICTED
@@ -656,6 +688,7 @@ audit_log:
 **Use Case**: Public infrastructure or standards organization publishing broad governance signals
 
 **Topology**:
+
 ```mermaid
 graph TB
     subgraph "Load Balancing"
@@ -700,6 +733,7 @@ graph TB
 ```
 
 **Deployment Specification**:
+
 - **Compute**: 3+ vCPU per instance, 5+ instances minimum for HA (15+ vCPU total)
 - **Memory**: 8GB per instance minimum, 16GB recommended (2GB per vCPU)
 - **Storage**: 500GB+ distributed evidence store, audit log sharded across nodes
@@ -708,6 +742,7 @@ graph TB
 - **Load Balancing**: DNS-based federation discovery + TCP sticky sessions for subscription streams
 
 **Configuration Example**:
+
 ```yaml
 node_type: PUBLIC
 federation_mode: OPEN
@@ -741,6 +776,7 @@ compute:
 **Use Case**: Trusted organization publishing normative policies and security attestations
 
 **Topology**:
+
 ```mermaid
 graph TB
     subgraph "Secure Operations"
@@ -776,6 +812,7 @@ graph TB
 ```
 
 **Deployment Specification**:
+
 - **Compute**: 4+ vCPU per instance, geo-redundant deployment (2+ regions)
 - **Memory**: 16GB+ (policy evaluation requires large in-memory caches)
 - **Storage**: 1TB+ immutable policy history, air-gapped audit log backup
@@ -785,6 +822,7 @@ graph TB
 - **Approval Workflows**: All policy changes require multi-sig approval (2 of 3 authorities minimum)
 
 **Configuration Example**:
+
 ```yaml
 node_type: POLICY_AUTHORITY
 federation_mode: RESTRICTED_PUBLISH
@@ -820,22 +858,26 @@ monitoring:
 ### 6.1 Throughput Targets
 
 **Decision Latency (p99)**:
+
 - Simple policy evaluation: < 50 ms
 - Medium policy evaluation (5-10 federation signals): < 100 ms
 - Complex policy evaluation (20+ signals + trust recalc): < 500 ms
 - Decision with evidence storage: < 200 ms
 
 **Event Processing Throughput**:
+
 - Minimum: 100 decisions/second
 - Recommended: 1,000+ decisions/second
 - Max tested: 10,000 decisions/second (with 5-instance cluster)
 
 **Federation Event Publishing**:
+
 - Minimum: 10 events/second
 - Recommended: 100+ events/second
 - Max throughput: 1,000 events/second (public node with buffering)
 
 **Subscription Streaming**:
+
 - Per-subscriber throughput: 100-1,000 events/second
 - Concurrent subscribers: 100+ concurrent streams (public node)
 - Replay from history: < 10 Mbps sustained
@@ -856,24 +898,28 @@ monitoring:
 ### 6.3 Auto-Scaling Policies
 
 **Horizontal Scaling Triggers** (Public Nodes):
+
 - CPU utilization > 70% for 5 minutes → scale up 1 instance
 - CPU utilization < 30% for 15 minutes → scale down 1 instance
 - Event queue depth > 100,000 → scale up immediately
 - P99 decision latency > 500ms → scale up immediately
 
 **Vertical Scaling Triggers**:
+
 - Memory utilization > 85% → increase instance memory (T-minus 24 hours maintenance window)
 - Storage capacity > 80% → expand storage or rotate audit logs to cold storage
 
 ### 6.4 Rate Limiting & Backpressure
 
 **Default Rate Limits** (per client IP):
+
 - Decision requests: 1,000/minute
 - Event publishing: 100/minute
 - Feed subscriptions: 10 concurrent
 - Audit log queries: 60/minute
 
 **Backpressure Handling**:
+
 - Queue depth > 80% capacity → reject new PUBLIC subscribers, accept PRIVATE
 - Disk free < 5% → enter read-only mode, stop accepting events
 - Memory pressure > 90% → evict trust score cache, drop non-critical metrics
@@ -913,6 +959,7 @@ graph LR
 ```
 
 **Failover Procedure**:
+
 1. Active node misses 3 consecutive health probes (30 seconds total)
 2. Standby node detects failure, triggers failover
 3. Standby promotes to ACTIVE, acquires VIP
@@ -966,12 +1013,14 @@ graph TB
 ```
 
 **Consistency Model**:
+
 - Policy decisions: Consistent read from local Policy Engine (consistency: eventual, ~100ms)
 - Federation events: Consistent from distributed cache (consistency: strong, replicated 3x)
 - Audit logs: Append-only write through DB (consistency: strong)
 - Trust scores: Eventually consistent; distributed TTL cache (consistency: eventual, ~1min)
 
 **Node Failure Response**:
+
 1. Other nodes detect failure via health check (3 failures = 30s to detection)
 2. Etcd removes failed node from leader election
 3. Load balancer stops sending traffic to failed node (health probe interval)
@@ -986,12 +1035,14 @@ graph TB
 ### 7.2 Backup & Recovery Procedures
 
 **Backup Schedule**:
+
 - Audit logs: Continuous replication + daily incremental backup (cold storage)
 - Evidence store: Weekly full backup + daily incremental
 - Policy engine state: Hourly snapshots (stored in version control / etcd)
 - Trust cache: Not backed up (can be recreated from federation signals)
 
 **Backup Retention**:
+
 - Recent backups: 30 days (hot/warm storage)
 - Long-term backups: 7 years (cold storage, regulatory compliance)
 - Off-site replication: Daily for Authorities, Weekly for Public nodes
@@ -999,6 +1050,7 @@ graph TB
 **Recovery Procedures**:
 
 **Scenario A: Single instance failure**
+
 1. Stop failed instance
 2. Standby instance takes over (automatic, < 1 minute)
 3. Replace failed instance hardware
@@ -1006,6 +1058,7 @@ graph TB
 5. Rejoin cluster
 
 **Scenario B: Total node loss (all replicas corrupted)**
+
 1. Identify last known good backup (from audit log hash chain)
 2. Restore evidence store from backup
 3. Restore audit logs from backup
@@ -1014,6 +1067,7 @@ graph TB
 6. Publish recovery event to federation for transparency
 
 **Scenario C: Data center failure**
+
 1. Activate geo-redundant replica in secondary region
 2. Update DNS to point to secondary
 3. Restore from backup (ETA: 30-60 minutes)
@@ -1021,6 +1075,7 @@ graph TB
 5. Wait for quorum confirmation from federation peers
 
 **Estimated Recovery Times**:
+
 - Instance restart: 2-5 minutes
 - Single instance recovery: 10-30 minutes
 - Full data center recovery: 30-60 minutes
@@ -1039,12 +1094,14 @@ graph TB
 ### 7.4 Network Resilience
 
 **Federation Feed Connection Resilience**:
+
 - Maintain 3+ connections to Policy Authority (round-robin failover)
 - Exponential backoff on reconnection (1s → 30s → 300s)
 - In-memory queue of recent events (10K depth) during outages
 - Automatic catch-up from federation peers (up to 24 hours back)
 
 **Publication Retry Logic**:
+
 - Transient errors (timeout, 5xx): Retry with exponential backoff (1s → 30s)
 - Permanent errors (4xx, schema invalid): Drop to dead-letter queue, alert operator
 - Max retry attempts: 5, then manual intervention required
@@ -1080,48 +1137,56 @@ AEGIS nodes SHOULD:
 ### 9.1 Pre-Deployment Checklist
 
 **Identity & Key Management**:
+
 - [ ] DID provisioned and registered with federation authority
 - [ ] Signing keys generated and stored (HSM or secure vault)
 - [ ] Key rotation schedule defined
 - [ ] Break-glass recovery procedure documented
 
 **Federation Configuration**:
+
 - [ ] Federation feeds identified and subscribed
 - [ ] Publication feeds configured and tested
 - [ ] Event signing verified (manual validation of first 10 events)
 - [ ] Backpressure / retry logic tested
 
 **Policy Engine**:
+
 - [ ] Policy rules loaded and syntax-validated
 - [ ] Sample decisions tested against known inputs
 - [ ] Trust weighting configured (bootstrap authorities identified)
 - [ ] Policy update workflow documented
 
 **Observability & Audit**:
+
 - [ ] Audit log storage configured and tested (write 1000 events, verify integrity)
 - [ ] Evidence store access controls enforced
 - [ ] Metrics collection enabled (Prometheus scrape endpoint working)
 - [ ] Logging aggregation configured (if using centralized logging)
 
 **Storage & Backup**:
+
 - [ ] Evidence store disk capacity verified (min 100 GB for private, 500 GB for public)
 - [ ] Audit log retention policy configured
 - [ ] Backup procedure tested (restore from backup and verify integrity)
 - [ ] Off-site replication configured
 
 **Network & HA**:
+
 - [ ] Network connectivity to federation peers verified (ping, TLS handshake)
 - [ ] Failover VIP configured and tested (if multi-instance)
 - [ ] Health check endpoints responding
 - [ ] Load balancer rules verified
 
 **Security**:
+
 - [ ] TLS certificates valid and not expiring < 30 days
 - [ ] RBAC rules tested (verify authorization enforced)
 - [ ] Rate limits configured
 - [ ] Network segmentation verified (evidence store isolated)
 
 **Documentation**:
+
 - [ ] Runbook for incident response created
 - [ ] Escalation contacts defined
 - [ ] Configuration documented (for disaster recovery)
@@ -1294,4 +1359,3 @@ Detailed configuration schema document available in accompanying `AEGIS_NODE_CON
 - [AEGIS_Governance_Event_Model.md](../rfc/RFC-0004-Governance-Event-Model.md) - Event envelope schemas
 - [AEGIS_Governance_Protocol_AGP1.md](../aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) - Wire protocol specification
 - [AEGIS_Constitution.md](../docs/05_AEGIS_Constitution.md) - Governance principles
-

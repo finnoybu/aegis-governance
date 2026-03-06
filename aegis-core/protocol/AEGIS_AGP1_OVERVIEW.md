@@ -10,10 +10,12 @@
 ## Purpose
 
 The AEGIS Governance Protocol (AGP-1) defines the **request-response contract** between:
+
 - **Clients**: AI-based systems, autonomous agents, copilots, orchestration platforms
 - **Servers**: AEGIS governance runtimes, policy enforcement engines, decision systems
 
 Every operational action proposal passes through this protocol, receiving a deterministic decision:
+
 - **ALLOW**: Action permitted (possibly with constraints)
 - **DENY**: Action forbidden  
 - **ESCALATE**: Requires human review
@@ -28,11 +30,13 @@ Every operational action proposal passes through this protocol, receiving a dete
 **Principle**: Identical requests + identical policies = identical decision
 
 This ensures:
+
 - Predictable behavior for compliance and auditors
 - Reproducibility for incident forensics
 - No hidden or inconsistent decision paths
 
 **Implementation**:
+
 - Policy language is unambiguous (context-free grammar)
 - Risk scoring uses deterministic algorithms (no randomness)
 - Decision logic is explicit (not learned models)
@@ -43,11 +47,13 @@ This ensures:
 **Principle**: Absence of explicit authorization yields denial
 
 This ensures:
+
 - Accidental misconfiguration doesn't grant access
 - Unknown actions are blocked (fail-closed)
 - Security posture improves over time (additive rules only)
 
 **Implementation**:
+
 - Capability MUST be explicitly registered
 - Actor MUST have explicit grant for capability
 - Policy MUST explicitly match to permit
@@ -58,11 +64,13 @@ This ensures:
 **Principle**: Every request includes authenticated actor identity
 
 This enables:
+
 - Clear accountability for all actions
 - Audit trail linking decisions to actors
 - Tracing of coordinated or anomalous behavior
 
 **Implementation**:
+
 - All messages include `actor_id` and authentication credentials
 - Actor_id MUST match authentication token subject
 - Actor type indicates human, AI system, or automation
@@ -73,11 +81,13 @@ This enables:
 **Principle**: Every decision is persisted permanently and cannot be modified
 
 This ensures:
+
 - Compliance with regulatory requirements (SOX, HIPAA, etc.)
 - Evidence for incident investigation
 - Detection of tampering or unauthorized changes
 
 **Implementation**:
+
 - All decisions written to append-only log
 - Hash chain prevents modification of older entries
 - Audit log backed up to immutable storage
@@ -88,11 +98,13 @@ This ensures:
 **Principle**: All subsystem failures result in denial or escalation, never implicit allow
 
 This prevents:
+
 - Outages from accidentally granting access
 - Misconfiguration from going undetected
 - Degraded systems from making dangerous decisions
 
 **Implementation**:
+
 - Missing capabilities treated as denial (not found = not granted)
 - Unavailable policy engines escalate (don't allow)
 - Timeout triggers denial (rather than retry-until-success)
@@ -230,6 +242,7 @@ Decisions exist on a spectrum from high-confidence to low-confidence:
 ### Why Non-Interactive Messages?
 
 AGP-1 uses **asynchronous, non-interactive** request-response pattern:
+
 - ✅ Scales better (client waits for response, no long-lived connections)
 - ✅ Cleaner error handling (each message includes all context)
 - ✅ Works across trust boundaries (complete message = attestable decision)
@@ -238,6 +251,7 @@ AGP-1 uses **asynchronous, non-interactive** request-response pattern:
 ### Why Deterministic Evaluation?
 
 AGP-1 requires **deterministic policies**, not learned models:
+
 - ✅ Auditable: can reproduce decision for compliance
 - ✅ Debuggable: can trace exact path through policy
 - ✅ Predictable: no surprises or inconsistencies
@@ -248,6 +262,7 @@ ML models can inform *risk scoring* but not final decision.
 ### Why Risk Scoring?
 
 AGP-1 combines **policy evaluation + risk scoring**:
+
 - Policy answers: "Is this capability granted?"
 - Risk answers: "Is this action safe right now?"
 
@@ -256,6 +271,7 @@ Both must pass for ALLOW decision.
 ### Why Human Escalation?
 
 AGP-1 includes **escalation for human review** because:
+
 - ✅ Handles novel situations beyond policies
 - ✅ Provides oversight for high-stakes decisions
 - ✅ Builds operator confidence in system
@@ -266,6 +282,7 @@ AGP-1 includes **escalation for human review** because:
 ## Limitations & Out of Scope
 
 AGP-1 does **NOT** address:
+
 - End-to-end encryption for message payload (handled by TLS)
 - Fine-grained field-level access control (handled by policies)
 - Distributed consensus across multiple nodes (future: AGP-2)
@@ -276,6 +293,7 @@ AGP-1 does **NOT** address:
 ## Next Steps
 
 Continue reading:
+
 1. **[AEGIS_AGP1_MESSAGES.md](./AEGIS_AGP1_MESSAGES.md)** - Exact message schemas and field specifications
 2. **[AEGIS_AGP1_AUTHENTICATION.md](./AEGIS_AGP1_AUTHENTICATION.md)** - How to authenticate as a client
 3. **[AGP1_Flows.md](./AGP1_Flows.md)** - Visual protocol flows and state machines

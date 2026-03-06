@@ -55,6 +55,7 @@ risk_modifier: -10
 ## Condition Types
 
 ### Capability Match
+
 ```yaml
 - type: capability
   value: filesystem.read
@@ -63,6 +64,7 @@ risk_modifier: -10
 ```
 
 ### Resource Patterns
+
 ```yaml
 - type: resource_prefix
   value: /data/public
@@ -78,6 +80,7 @@ risk_modifier: -10
 ```
 
 ### Actor Conditions
+
 ```yaml
 - type: actor_id
   value: agent_123
@@ -94,6 +97,7 @@ risk_modifier: -10
 ```
 
 ### Environment Conditions
+
 ```yaml
 - type: environment
   value: production

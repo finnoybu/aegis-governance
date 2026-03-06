@@ -354,6 +354,7 @@ See [Added] section above for complete v0.1.0 details.
 # Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
+
 - Contributing code
 - Proposing architecture changes via RFC
 - Improving documentation

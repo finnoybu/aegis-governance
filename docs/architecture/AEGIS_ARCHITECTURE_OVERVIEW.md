@@ -31,9 +31,9 @@ Core maxim:
 
 ```
 External Input -> Application/Agent Layer -> Governance Gateway
-						 -> Decision Engine (Policy + Risk + Capability)
-						 -> Tool Proxy Layer -> OS/Platform -> Infrastructure
-																	 -> Audit System
+       -> Decision Engine (Policy + Risk + Capability)
+       -> Tool Proxy Layer -> OS/Platform -> Infrastructure
+                  -> Audit System
 ```
 
 ## Core Components
@@ -66,9 +66,9 @@ AEGIS enforces three non-negotiable controls:
 - Governance boundary separates proposal from execution authority.
 - Policy authenticity, identity attribution, and audit immutability are required.
 - Security controls are mapped in:
-	- `docs/architecture/THREAT_MODEL.md`
-	- `docs/architecture/SECURITY_ASSUMPTIONS.md`
-	- `docs/architecture/TRUST_BOUNDARIES.md`
+  - `docs/architecture/THREAT_MODEL.md`
+  - `docs/architecture/SECURITY_ASSUMPTIONS.md`
+  - `docs/architecture/TRUST_BOUNDARIES.md`
 
 ## Implementation References
 

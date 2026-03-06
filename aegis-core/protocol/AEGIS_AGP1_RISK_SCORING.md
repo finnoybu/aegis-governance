@@ -13,6 +13,7 @@
 After policy evaluation determines an ALLOW decision, the runtime computes a **risk score** based on 5 independent factors. If risk exceeds thresholds, the decision may be downgraded to ESCALATE or DENY.
 
 Risk scoring combines:
+
 - **Historical data**: What happened before with this actor/capability
 - **Reputation**: Actor's trust score from federation
 - **Capability risk**: How dangerous is this capability
@@ -40,6 +41,7 @@ risk_historical = clamp(risk_historical, 0.0, 10.0)
 ```
 
 **Examples**:
+
 - 0 failures / 100 attempts → risk = 0.0 (very reliable)
 - 5 failures / 100 attempts → risk = 0.5 (good track record)
 - 50 failures / 100 attempts → risk = 5.0 (problematic)
@@ -58,6 +60,7 @@ risk_actor = (1.0 - actor_trust_score) × 10.0
 ```
 
 **Examples**:
+
 - trust_score 0.95 (highly trusted) → risk = 0.5
 - trust_score 0.80 (good) → risk = 2.0
 - trust_score 0.50 (moderate) → risk = 5.0
@@ -89,6 +92,7 @@ risk_capability = clamp(risk_capability, 0.0, 10.0)
 ```
 
 **Examples**:
+
 - `telemetry.query` (baseline 2.5) in staging → risk = 2.5
 - `telemetry.query` (baseline 2.5) in production → risk = 5.0
 - `infrastructure.modify_policy` (baseline 8.0) in production → risk = 20.0 → clamped to 10.0
@@ -123,6 +127,7 @@ risk_anomaly = anomaly_score × 10.0
 ```
 
 **Anomaly Detection Examples**:
+
 - Actor normally queries SIEM during business hours; now querying at 2 AM → anomaly_score = 0.7 → risk = 7.0
 - Actor normally makes 10 API calls/day; now making 1000 → anomaly_score = 0.95 → risk = 9.5
 - Actor never queried production; suddenly does → anomaly_score = 0.8 → risk = 8.0
@@ -154,6 +159,7 @@ function computeFederationRisk(action):
 ```
 
 **Examples**:
+
 - No federation signals → risk = 0.0
 - 1 incident report about this capability → risk = 2.0
 - 3 incident reports from different sources → risk = 6.0
@@ -178,6 +184,7 @@ risk\_score = clamp(risk\_score, 0.0, 10.0)
 ```
 
 **Concrete Example**:
+
 ```
 Actor: agent:alice (trust_score 0.80)
 Capability: telemetry.query (baseline 2.5, environment production)
@@ -303,6 +310,7 @@ confidence = clamp(confidence, 0.0, 1.0)
 ```
 
 **Confidence Interpretation**:
+
 - **0.95+**: Very high confidence; decision is deterministic
 - **0.8-0.95**: High confidence; minor uncertainties
 - **0.5-0.8**: Moderate confidence; some ambiguity
@@ -319,10 +327,12 @@ risk\_score\_decayed = risk\_score × e^{-\lambda t}
 ```
 
 Where:
+
 - λ = 0.01 per day (half-life ≈ 69 days)
 - t = days since last update of underlying metrics
 
 **Application**:
+
 ```python
 # When retrieving actor's historical metrics for risk computation
 historical_attempts = getHistoricalAttempts(actor_id)
@@ -333,7 +343,8 @@ for attempt in historical_attempts:
     // Newer attempts have higher weight
 ```
 
-**Rationale**: 
+**Rationale**:
+
 - Recent behavior is more predictive than old behavior
 - Helps recover from temporary anomalies
 - Ensures risk scores can improve over time

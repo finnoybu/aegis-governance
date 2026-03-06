@@ -84,12 +84,14 @@ AEGIS provides governance for AI systems across multiple domains:
 **Scenario:** Security Operations Center deploys AI agents to analyze threats and respond to incidents.
 
 **Without AEGIS:**
+
 - AI might block legitimate traffic, causing outages
 - Responses lack audit trails for compliance
 - No mechanism to prevent privilege escalation
 - Human analysts can't effectively oversee autonomous actions
 
 **With AEGIS:**
+
 - Threat analysis actions (read-only) are auto-approved
 - Response actions (blocking IPs, isolating hosts) require human confirmation
 - All decisions logged with actor attribution and risk scores
@@ -97,6 +99,7 @@ AEGIS provides governance for AI systems across multiple domains:
 - Destructive actions (deleting logs, modifying firewall rules) require multi-party approval
 
 **Governance Policies:**
+
 ```yaml
 capability: security.block_ip
 when:
@@ -113,12 +116,14 @@ escalation_timeout: 300s  # 5-minute review window
 **Scenario:** Development teams use AI assistants to manage Kubernetes clusters, databases, and cloud resources.
 
 **Without AEGIS:**
+
 - AI might scale down production databases during high traffic
 - Resource deletions could occur without awareness of dependencies
 - No differentiation between staging and production environments
 - Cost overruns from uncontrolled resource provisioning
 
 **With AEGIS:**
+
 - Read operations (logs, metrics, status) allowed automatically
 - Staging environment changes approved with basic policy checks
 - Production changes require human approval + change ticket reference
@@ -126,6 +131,7 @@ escalation_timeout: 300s  # 5-minute review window
 - Cost-sensitive operations (large instance types) have budget policy gates
 
 **Governance Policies:**
+
 ```yaml
 capability: infrastructure.delete_resource
 when:
@@ -142,12 +148,14 @@ message: "Production critical resources cannot be deleted via AI"
 **Scenario:** Investment firm deploys AI agents to analyze markets and execute trades.
 
 **Without AEGIS:**
+
 - AI could execute trades exceeding risk limits
 - No mechanism to enforce trading windows or blackout periods
 - Insider trading detection relies on post-execution monitoring
 - Compliance violations discovered after regulatory damage
 
 **With AEGIS:**
+
 - Market analysis queries approved automatically
 - Trade execution under $10K allowed with basic checks
 - Trades above threshold require compliance officer approval
@@ -156,6 +164,7 @@ message: "Production critical resources cannot be deleted via AI"
 - All trading decisions audited with immutable records
 
 **Governance Policies:**
+
 ```yaml
 capability: trading.execute_order
 when:
@@ -173,12 +182,14 @@ audit_level: maximum
 **Scenario:** Hospital system deploys AI to assist clinicians with patient data, diagnostics, and treatment recommendations.
 
 **Without AEGIS:**
+
 - PHI (Protected Health Information) might be exposed inappropriately
 - AI could modify patient records without proper authorization
 - Medication recommendations lack audit trails
 - HIPAA compliance difficult to demonstrate
 
 **With AEGIS:**
+
 - Patient data queries require role-based authorization (doctor, nurse, admin)
 - PHI access logged with patient ID, actor, and justification
 - Record modifications require human confirmation + digital signature
@@ -187,6 +198,7 @@ audit_level: maximum
 - Audit logs satisfy HIPAA technical safeguards requirements
 
 **Governance Policies:**
+
 ```yaml
 capability: patient_data.query
 when:
@@ -206,12 +218,14 @@ conditions:
 **Scenario:** Software company uses AI to review, test, and deploy code changes.
 
 **Without AEGIS:**
+
 - AI might deploy untested code to production
 - Rollbacks could happen without understanding dependencies
 - Configuration changes lack change management tracking
 - Deployment failures cause extended outages
 
 **With AEGIS:**
+
 - Code review and testing suggestions allowed automatically
 - Deployment to staging auto-approved after tests pass
 - Production deployment requires human approval + change ticket
@@ -220,6 +234,7 @@ conditions:
 - All deployments tracked with commit hash, author, approver
 
 **Governance Policies:**
+
 ```yaml
 capability: deployment.promote_to_production
 when:
@@ -250,6 +265,7 @@ Use this decision matrix to evaluate if AEGIS governance is appropriate for your
 | Are you deploying autonomous or semi-autonomous agents? | ✅ |
 
 **Scoring:**
+
 - **8-10 Yes:** AEGIS governance is highly recommended
 - **5-7 Yes:** AEGIS provides significant value; consider phased adoption
 - **2-4 Yes:** Evaluate specific use cases; may benefit from targeted governance
@@ -263,10 +279,10 @@ This document provides a **high-level introduction** to the AEGIS architecture.
 
 It is intended for:
 
-* engineers evaluating governance architectures for AI systems
-* security professionals analyzing AI operational risks
-* researchers studying AI governance and safety
-* developers exploring potential implementations
+- engineers evaluating governance architectures for AI systems
+- security professionals analyzing AI operational risks
+- researchers studying AI governance and safety
+- developers exploring potential implementations
 
 Readers seeking deeper technical detail should consult the architecture and specification documents referenced below.
 
@@ -290,9 +306,9 @@ All actions must reference capabilities defined in a **capability registry**.
 
 Capabilities describe the operations that AI systems are permitted to perform, such as:
 
-* querying telemetry data
-* sending notifications
-* modifying infrastructure resources
+- querying telemetry data
+- sending notifications
+- modifying infrastructure resources
 
 This prevents AI systems from executing undefined or unexpected operations.
 
@@ -304,10 +320,10 @@ Governance policies define the conditions under which capabilities may be exerci
 
 Policies evaluate contextual information such as:
 
-* actor identity
-* environment (e.g., production vs staging)
-* operational risk
-* resource classification
+- actor identity
+- environment (e.g., production vs staging)
+- operational risk
+- resource classification
 
 Policies produce deterministic outcomes such as:
 
@@ -367,10 +383,10 @@ The gateway receives action proposals from AI systems and forwards them to the d
 
 The decision engine determines whether actions are permitted based on:
 
-* capability authorization
-* actor identity
-* governance policies
-* risk evaluation
+- capability authorization
+- actor identity
+- governance policies
+- risk evaluation
 
 ---
 
@@ -388,11 +404,11 @@ AEGIS also introduces the **AEGIS Governance Federation Network (GFN)**, which e
 
 Federated nodes can exchange signals such as:
 
-* policy updates
-* governance circumvention techniques
-* risk alerts
-* governance attestations
-* incident disclosures
+- policy updates
+- governance circumvention techniques
+- risk alerts
+- governance attestations
+- incident disclosures
 
 This model allows organizations to collectively improve governance defenses against emerging threats.
 

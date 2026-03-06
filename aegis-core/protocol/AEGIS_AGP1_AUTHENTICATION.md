@@ -76,6 +76,7 @@ Server MUST validate:
 ### Example
 
 **HTTP Request**:
+
 ```
 POST /aegis/v1/governance/propose HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS12MSJ9.eyJpc3MiOiJodHRwczovL2F1dGguZXhhbXBsZS5jb20iLCJzdWIiOiJhZ2VudDpzb2MtMDAxIiwic2NvcGUiOiJnb3Zlcm5hbmNlOnByb3Bvc2VfYWN0aW9uIiwiZXhwIjoxNzA5NjI4MDAwfQ.SIGNATURE
@@ -147,6 +148,7 @@ scopes = actor_info.default_scopes
 ### Example
 
 **TLS Handshake**:
+
 ```
 Client presents certificate:
   CN=agent-soc-001, OU=AI-Systems, O=MyOrg

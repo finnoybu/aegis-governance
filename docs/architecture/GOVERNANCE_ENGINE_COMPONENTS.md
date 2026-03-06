@@ -11,6 +11,7 @@ Version: 0.2
 **Purpose**: Maintains all valid capability definitions and agent grants.
 
 **Key Methods**:
+
 ```python
 register(capability: Capability) -> None
   # Raises: CapabilityError if already registered
@@ -38,6 +39,7 @@ has_capability(agent_id: str, cap_id: str) -> bool
 **Purpose**: Policy evaluation and matching against requests.
 
 **Key Methods**:
+
 ```python
 add_policy(policy: Policy) -> None
   # Raises: PolicyError if invalid
@@ -61,6 +63,7 @@ validate_policy(policy: Policy) -> bool
 **Thread-Safety**: Protected by RWLock
 
 **Error Codes**:
+
 - EMPTY_POLICY_ID
 - EMPTY_POLICY_NAME
 - INVALID_POLICY_EFFECT
@@ -74,6 +77,7 @@ validate_policy(policy: Policy) -> bool
 **Purpose**: Calculate contextual risk scores for decisions.
 
 **Key Methods**:
+
 ```python
 calculate_risk(request: AGPRequest, context: dict) -> float
   # Returns: Risk score 0-100
@@ -98,6 +102,7 @@ get_resource_sensitivity(resource: str) -> float
 **Purpose**: Orchestrate policy and risk evaluation → authorization decision.
 
 **Key Methods**:
+
 ```python
 authorize(request: AGPRequest) -> AGPResponse
   # Returns: Decision with reason, audit_id
@@ -127,6 +132,7 @@ reset_metrics() -> None
 **Purpose**: Immutable record of all requests and decisions.
 
 **Key Methods**:
+
 ```python
 record(decision: AGPResponse) -> str  # audit_id
   # Returns: Unique audit record ID
@@ -213,6 +219,7 @@ except DecisionError as e:
 ## Integration Points
 
 Components are wired in DecisionEngine constructor:
+
 ```python
 engine = DecisionEngine(
     capability_registry=registry,

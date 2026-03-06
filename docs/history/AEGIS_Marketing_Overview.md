@@ -7,6 +7,7 @@ AEGIS introduces a new paradigm: governed AI.
 Rather than relying solely on training alignment or content moderation, AEGIS embeds governance directly into the runtime architecture of intelligent systems. Every action an AI proposes is evaluated before execution—verifying capability permissions, authority boundaries, operational risk, and system constraints.
 
 Key capabilities include:
+
 - Capability Control
 - Deterministic Enforcement
 - Bounded Agency

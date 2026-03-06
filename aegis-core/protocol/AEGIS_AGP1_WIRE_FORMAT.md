@@ -52,6 +52,7 @@ User-Agent: <client-identifier>
 ### Request/Response Patterns
 
 **Synchronous (default)**:
+
 ```
 Client sends ACTION_PROPOSE
   ↓ (waits)
@@ -63,6 +64,7 @@ Client takes action
 Timeout: 30 seconds (configurable per deployment)
 
 **Asynchronous (for long-running)**:
+
 ```
 Client sends ACTION_PROPOSE
 Server responds: 202 Accepted with decision_url
@@ -185,6 +187,7 @@ Content-Length: 1234
 ### GZIP Compression
 
 For payloads > 4KB:
+
 ```
 Content-Encoding: gzip
 Content-Type: application/json; charset=utf-8
@@ -193,6 +196,7 @@ Content-Type: application/json; charset=utf-8
 ### Protobuf
 
 For high-throughput deployments:
+
 ```
 Content-Type: application/protobuf
 X-Proto-Version: 3
@@ -275,6 +279,7 @@ Perfect Forward Secrecy: required
 ### Certificate Validation
 
 For mTLS:
+
 ```
 Server certificate:
   - Must be valid and not expired

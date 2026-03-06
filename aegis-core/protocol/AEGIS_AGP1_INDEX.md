@@ -21,6 +21,7 @@ The **AEGIS Governance Protocol (AGP-1)** is the normative wire protocol for det
 - **Deployment guidance** for single-instance and distributed deployments
 
 **Key Properties**:
+
 - ✅ Deterministic: identical requests + policies = identical decisions
 - ✅ Default-deny: absence of approval yields denial
 - ✅ Fully auditable: every decision is immutable and attributable
@@ -71,14 +72,14 @@ This specification suite consists of **9 modular documents** organized by domain
 
 ### Decision Logic (Critical for evaluation)
 
-6. **[AEGIS_AGP1_POLICY_EVALUATION.md](./AEGIS_AGP1_POLICY_EVALUATION.md)** - Capability registry and policy evaluation
+1. **[AEGIS_AGP1_POLICY_EVALUATION.md](./AEGIS_AGP1_POLICY_EVALUATION.md)** - Capability registry and policy evaluation
    - Integration with RFC-0003 Capability Registry
    - Policy language specification with examples
    - Capability inheritance and composition
    - Conflict resolution (precedence rules)
    - Deterministic evaluation algorithm
 
-7. **[AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md)** - Risk assessment and decision logic
+2. **[AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md)** - Risk assessment and decision logic
    - 5-factor risk scoring model with weights
    - Historical attempt rate calculations
    - Actor reputation/trust integration
@@ -90,14 +91,14 @@ This specification suite consists of **9 modular documents** organized by domain
 
 ### Operational Specifications
 
-8. **[AEGIS_AGP1_ERROR_HANDLING.md](./AEGIS_AGP1_ERROR_HANDLING.md)** - Error handling and recovery
+1. **[AEGIS_AGP1_ERROR_HANDLING.md](./AEGIS_AGP1_ERROR_HANDLING.md)** - Error handling and recovery
    - Error response envelope format
    - 15 error codes with HTTP mappings
    - Retryable vs. non-retryable errors
    - Exponential backoff strategies
    - Timeout and deadline handling
 
-9. **[AEGIS_AGP1_DEPLOYMENT.md](./AEGIS_AGP1_DEPLOYMENT.md)** - Deployment, configuration, and operations
+2. **[AEGIS_AGP1_DEPLOYMENT.md](./AEGIS_AGP1_DEPLOYMENT.md)** - Deployment, configuration, and operations
    - Deployment topologies (single-instance, HA, authority nodes)
    - Performance requirements and SLOs
    - Kubernetes and Docker examples
@@ -166,17 +167,20 @@ This protocol specification is tightly integrated with:
 ## Security Model
 
 **Authentication**: Every message MUST include credentials
+
 - Bearer token (JWT with actor_id, scope, expiry)
 - mTLS certificate (CN, OU, organizational info)
 - API key (deprecated; sunset plan before AGP-2)
 
 **Authorization**: Actor MUST have appropriate scope for operation
+
 - `governance:propose_action` - submit ACTION_PROPOSE
 - `governance:query_audit` - retrieve audit records
 - `governance:escalate_decision` - respond to escalations
 - `governance:health_check` - protocol health queries
 
 **Audit**: Every decision is immutable and fully attributed
+
 - Decision recorded with actor_id, timestamp, policies evaluated
 - Risk factors and federation signals logged
 - Execution outcomes tracked for compliance
@@ -188,6 +192,7 @@ This protocol specification is tightly integrated with:
 ### Server Conformance
 
 A server implementation MUST:
+
 - ✅ Implement all 6 message types
 - ✅ Validate all required fields per schema
 - ✅ Evaluate policies deterministically
@@ -201,6 +206,7 @@ A server implementation MUST:
 ### Client Conformance
 
 A client implementation MUST:
+
 - ✅ Provide authentication credentials
 - ✅ Include request_id and timestamp
 - ✅ Handle DECISION_RESPONSE with all outcomes
@@ -228,17 +234,20 @@ A client implementation MUST:
 ## Related Documents
 
 ### AEGIS Core Specifications
+
 - [RFC-0001: AEGIS Architecture](../../rfc/RFC-0001-AEGIS-Architecture.md)
 - [RFC-0002: Governance Runtime](../../rfc/RFC-0002-Governance-Runtime.md)
 - [RFC-0003: Capability Registry](../../rfc/RFC-0003-Capability-Registry.md)
 - [RFC-0004: Governance Event Model](../../rfc/RFC-0004-Governance-Event-Model.md)
 
 ### Federation Specifications
+
 - [AEGIS Node Reference Architecture](../../federation/AEGIS_NODE_REFERENCE_ARCHITECTURE.md)
 - [AEGIS Trust Model](../../federation/AEGIS_TRUST_MODEL.md)
 - [Federation README with Reading Order](../../federation/README.md)
 
 ### Supporting Documents
+
 - [AEGIS Constitution](../../docs/05_AEGIS_Constitution.md) - Governance principles
 - [AEGIS Threat Model](../../docs/06_AEGIS_Threat_Model.md) - Security analysis
 
