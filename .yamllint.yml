@@ -3,9 +3,19 @@ extends: default
 ignore: |
   .git/
   archive/
+  .venv/
 
 rules:
   line-length:
     max: 140
     level: warning
   comments-indentation: disable
+  document-start: disable
+  new-lines: disable
+  truthy:
+    allowed-values: ['true', 'false', 'on', 'off', 'yes', 'no']
+    check-keys: false
+  comments:
+    min-spaces-from-content: 1
+  empty-lines:
+    max: 2
