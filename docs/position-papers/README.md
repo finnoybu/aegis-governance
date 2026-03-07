@@ -26,6 +26,34 @@ position-papers/
 
 Each organization folder contains dated submissions following the format `YYYY-MM-topic-description.md`.
 
+## Header Format
+
+Position papers should use a consistent header format that balances internal documentation standards with external submission requirements:
+
+```markdown
+# Document Title
+**Subtitle or Context**
+
+**Document**: YYYY-MM-topic-description.md  
+**Version**: 0.1.0 (Draft)  
+**Part of**: AEGIS™ Position Papers  
+**Date**: Month DD, YYYY  
+**Submitted to**: [Organization Name / Framework / Docket]  
+**Status**: Draft | Submitted | Acknowledged | Published  
+**Docket Number**: [If applicable]  
+**Steward**: Finnoybu IP LLC | AEGIS™ Initiative  
+
+**Repository**: [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)  
+**Constitution**: [aegissystems.app](https://aegissystems.app)
+
+> *Capability without constraint is not intelligence™*
+
+---
+```
+
+**Required fields**: Document, Version, Part of, Date, Submitted to, Status, Steward  
+**Optional fields**: Docket Number (for formal submissions), subtitle, tagline
+
 ## Current Organizations
 
 ### NIST (National Institute of Standards and Technology)

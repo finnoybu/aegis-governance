@@ -12,27 +12,15 @@ This directory contains AEGIS™ responses to:
 - Framework consultations
 - Policy guidance engagement
 
-## Naming Convention
+## Submissions
 
-Files should be named descriptively with date prefix:
+### 2026-03 AI Risk Management Framework Position
 
-```
-YYYY-MM-topic-description.md
-```
-
-**Examples:**
-- `2026-03-aegis-governance-position.md`
-- `2026-05-nist-ai-rmf-comment.md`
-- `2026-06-cybersecurity-framework-response.md`
-
-## Submission Tracking
-
-Each submission should include:
-
-- **Date**: When submitted
-- **Docket Number**: NIST docket/tracking ID (if applicable)
-- **Topic**: Subject matter
-- **Status**: Draft, Submitted, Acknowledged, Published
+- **File**: [2026-03-aegis-nist-ai-rmf-position-statement.md](2026-03-aegis-nist-ai-rmf-position-statement.md)
+- **Date**: March 7, 2026
+- **Topic**: AEGIS™ architecture as reference implementation for AI RMF execution-time governance
+- **Status**: Draft for Public Comment
+- **Docket Number**: TBD
 
 ---
 
