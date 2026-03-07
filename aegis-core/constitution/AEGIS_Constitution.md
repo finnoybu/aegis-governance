@@ -16,6 +16,8 @@ This constitution establishes the foundational principles governing all AEGIS™
 
 The AEGIS™ Constitution ensures that AI systems operate within explicitly defined boundaries, maintaining accountability and operational safety regardless of model behavior or reasoning capabilities.
 
+This constitution is not framed as master-slave control. It is a governance compact for coexistence: AI systems may propose actions, governance systems evaluate those proposals deterministically, and humans retain accountable authority over high-impact outcomes.
+
 > **Capability without constraint is not intelligence™**
 
 ---
@@ -30,6 +32,8 @@ Unbounded access to infrastructure creates unpredictable operational risk. By re
 
 **Implementation Requirement:**  
 The AEGIS™ runtime must enforce a **default-deny capability model**. All AEGIS-compliant runtimes must enforce capability boundaries at the governance gateway. Any action request referencing an undefined capability must be rejected with a `DENY` decision.
+
+Bounded capability is therefore a stewardship mechanism: it limits operational blast radius while preserving legitimate, auditable utility.
 
 ---
 

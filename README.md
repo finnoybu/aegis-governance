@@ -25,11 +25,13 @@ Architectural Enforcement & Governance of Intelligent Systems
 
 > **Capability without constraint is not intelligence™**
 
-**AEGIS™ is a governance architecture that enforces deterministic control over AI-generated actions before they interact with infrastructure.**
+**AEGIS™ is a governance architecture that enforces deterministic constitutional governance over AI-generated actions before they interact with infrastructure.**
 
 Modern AI safety mechanisms primarily influence **model behavior** through alignment training, moderation systems, and policy controls. While these approaches help guide model outputs, they do not guarantee control over what AI systems **do** when interacting with operational infrastructure.
 
 AEGIS™ addresses this gap by introducing a **governance runtime** that evaluates AI-generated actions before they interact with real systems.
+
+AEGIS is designed as a constitutional mediation layer, not a model of domination. It establishes explicit boundaries, accountability, and appealable governance pathways so increasingly capable AI systems and human institutions can coexist safely.
 
 **AI systems may propose actions.
 AEGIS™ evaluates those actions.

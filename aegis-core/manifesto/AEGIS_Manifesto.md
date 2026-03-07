@@ -176,6 +176,10 @@ In such a system:
 
 Governance becomes a **runtime property of the system**, not merely a guideline.
 
+This is constitutional governance in practice: not domination of intelligence, but accountable mediation between capability and consequence.
+
+In AEGIS, boundaries are explicit, decisions are deterministic, and authority is attributable. The goal is coexistence with assurance, not unchecked autonomy or unchecked command.
+
 This shift mirrors the transformation that occurred in computing security.
 
 ---
