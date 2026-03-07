@@ -251,17 +251,16 @@ challenge is building the runtime systems capable of enforcing them.
 
 ## References
 
-1.  NIST. Artificial Intelligence Risk Management Framework (AI RMF
-    1.0).
-2.  European Commission. Artificial Intelligence Act.
-3.  OECD. OECD Principles on Artificial Intelligence.
-4.  Stanford Institute for Human-Centered Artificial Intelligence.
-    Bommasani et al. On the Opportunities and Risks of Foundation
-    Models.
-5.  Google DeepMind. Research on autonomous agents and tool use.
-6.  NIST Special Publication 800-162. Guide to Attribute Based Access
-    Control.
-7.  Center for Security and Emerging Technology. Brundage et al. The
-    Malicious Use of Artificial Intelligence.
+1. NIST. Artificial Intelligence Risk Management Framework (AI RMF 1.0).
+2. European Commission. Artificial Intelligence Act.
+3. OECD. OECD Principles on Artificial Intelligence.
+4. Stanford Institute for Human-Centered Artificial Intelligence.
+   Bommasani et al. On the Opportunities and Risks of Foundation
+   Models.
+5. Google DeepMind. Research on autonomous agents and tool use.
+6. NIST Special Publication 800-162. Guide to Attribute Based Access
+   Control.
+7. Center for Security and Emerging Technology. Brundage et al. The
+   Malicious Use of Artificial Intelligence.
 
-Reference Architecture: https://github.com/finnoybu/aegis-governance
+Reference Architecture: <https://github.com/finnoybu/aegis-governance>
