@@ -123,11 +123,11 @@ The **AEGIS Governance Federation Network (GFN)** enables organizations to share
 
 Participating nodes may publish signals such as:
 
-* governance policy updates
-* AI safety circumvention techniques
-* risk alerts
-* governance attestations
-* incident disclosures
+- governance policy updates
+- AI safety circumvention techniques
+- risk alerts
+- governance attestations
+- incident disclosures
 
 The federation layer is designed to operate using decentralized technologies such as the **AT Protocol**, enabling distributed identity, event replication, and governance signal exchange.
 
@@ -164,11 +164,11 @@ examples/          # Integration examples
 
 Initial implementation environments include:
 
-* AI-assisted security operations (SOC)
-* cloud infrastructure governance
-* enterprise AI copilots
-* autonomous workflow systems
-* operational AI agents
+- AI-assisted security operations (SOC)
+- cloud infrastructure governance
+- enterprise AI copilots
+- autonomous workflow systems
+- operational AI agents
 
 AEGIS™ enables these systems to **analyze, recommend, and automate safely without directly executing destructive operations**.
 
@@ -180,13 +180,13 @@ AEGIS™ v0.1 architecture specifications are complete; reference runtime implem
 
 The project includes:
 
-* ✅ Complete governance architecture specification
-* ✅ AGP-1 protocol definitions (normative)
-* ✅ ATM-1 threat model and security analysis
-* ✅ Federation network design (GFN-1)
-* ✅ JSON schemas for protocol validation
-* 🔄 Python reference runtime (aegis-runtime/)
-* 🔄 Integration examples and patterns
+- ✅ Complete governance architecture specification
+- ✅ AGP-1 protocol definitions (normative)
+- ✅ ATM-1 threat model and security analysis
+- ✅ Federation network design (GFN-1)
+- ✅ JSON schemas for protocol validation
+- 🔄 Python reference runtime (aegis-runtime/)
+- 🔄 Integration examples and patterns
 
 ---
 
