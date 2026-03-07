@@ -3,7 +3,7 @@
 **Document**: copilot-instructions.md\
 **Version**: 2.0.0 (Operational)\
 **Part of**: AEGIS Development Tooling\
-**Last Updated**: March 6, 2026
+**Last Updated**: March 7, 2026
 
 ---
 
@@ -176,6 +176,59 @@ When implementing new governance features:
 - Add caching without explicit TTL and invalidation strategy
 - Implement authorization without capability checks
 - Skip input validation in governance logic
+
+---
+
+## Branch & Commit Conventions
+
+When creating branches or commits, follow the standards defined in [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+### Branch Naming
+
+Use descriptive prefixes:
+
+- `chore/` — Maintenance tasks and housekeeping
+- `ci/` — CI/CD workflow changes
+- `deps/` — Dependency updates
+- `docs/` — Documentation updates
+- `feat/` — New features or components
+- `fix/` — Bug fixes or corrections
+- `rfc/` — RFC specification changes
+- `spec/` — Protocol or schema specifications
+
+**Examples:**
+
+```
+rfc/add-hardware-attestation
+docs/update-federation-architecture
+spec/define-audit-event-schema
+chore/clean-up-stale-branches
+```
+
+### Commit Messages
+
+Use **Conventional Commits** format: `<type>(<scope>): <description>`
+
+**Types:** `feat`, `fix`, `docs`, `refactor`, `test`, `chore`
+
+**Common Scopes:**
+
+- `agp` — AEGIS Governance Protocol
+- `atm` — AEGIS Threat Model
+- `gfn` — Governance Federation Network
+- `runtime` — Reference runtime implementation
+- `deps` — Dependencies
+- `rfc-NNN` — Specific RFC document
+- `ci` — CI/CD configuration
+
+**Examples:**
+
+```
+feat(agp): add message retry mechanism
+docs(threat-model): clarify escalation paths
+fix(runtime): correct capability lookup order
+chore(deps): bump pydantic to 2.6.0
+```
 
 ---
 
