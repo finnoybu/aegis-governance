@@ -203,10 +203,10 @@ AEGIS™ was developed through active human-AI collaboration, with strategic dir
 - AEGIS™ Governance Repository — [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)
 - AEGIS™ Constitution — [aegissystems.app](https://aegissystems.app)
 - AEGIS™ Manifesto — [aegis-core/manifesto](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/manifesto/AEGIS_Manifesto.md)
-- AGP-1 Protocol Specification — [aegis-core/protocol](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md)
-- ATM-1 Threat Model — [aegis-core/threat-model](https://github.com/finnoybu/aegis-governance/tree/main/aegis-core/threat-model)
+- AGP-1 Protocol Specification — [aegis-core/protocol](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/protocol/AEGIS_AGP1_INDEX.md)
+- ATM-1 Threat Model — [aegis-core/threat-model](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/threat-model/AEGIS_ATM1_INDEX.md)
 - RFC-0001 Architecture Specification — [rfc/RFC-0001](https://github.com/finnoybu/aegis-governance/blob/main/rfc/RFC-0001-AEGIS-Architecture.md)
-- AEGIS™ Announcement (March 2026) — [docs/announcement](https://github.com/finnoybu/aegis-governance/blob/main/docs/2026-03-05-ANNOUNCEMENT.md)
+- AEGIS™ Announcement (March 2026) — [docs/announcements](https://github.com/finnoybu/aegis-governance/blob/main/docs/announcements/2026-03-05-launch/ANNOUNCEMENT.md)
 
 ---
 
