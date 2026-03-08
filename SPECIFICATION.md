@@ -80,7 +80,7 @@ Together, these components define the full AEGIS™ governance architecture.
 |---|---|---|---|
 | Understand AEGIS concept | [Manifesto](aegis-core/manifesto/AEGIS_Manifesto.md) | [System Overview](aegis-core/overview/AEGIS_System_Overview.md) | [FAQ](aegis-core/faq/AEGIS_FAQ.md) |
 | Evaluate governance model | [System Overview](aegis-core/overview/AEGIS_System_Overview.md) | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | [Threat Model](aegis-core/threat-model/AEGIS_Threat_Model.md) |
-| Design implementation | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) | [Schemas](schemas/) |
+| Design implementation | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) | [Schemas](aegis-core/schemas/) |
 | Build governance runtime | [Reference Runtime](aegis-runtime/) | [RFC-0002 (TBD)](rfc/RFC-0002.md) | [Integration Examples](examples/) |
 | Deploy federation | [Federation Architecture](federation/) | [RFC-0004 (TBD)](rfc/RFC-0004.md) | [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md) |
 
@@ -150,11 +150,11 @@ The AEGIS specification is organized across five layers, from foundational princ
 | Ecosystem Map | Component interactions, data flows, deployment topologies | [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md) | 2 | ✅ v0.1 |
 | Threat Model | Security analysis, attack vectors, risk mitigation | [Threat Model](aegis-core/threat-model/AEGIS_Threat_Model.md) | 2 | ✅ v0.1 |
 | AGP-1 Protocol | Message structures for AI-governance runtime interaction | [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) | 3 | ✅ v0.1 |
-| AGP Schemas | Protocol message schemas and validation rules | [Schemas: AGP](schemas/agp/) | 3 | ✅ v0.1 |
-| Capability Schemas | Capability registry definitions and structures | [Schemas: Capability](schemas/capability/) | 3 | ✅ v0.1 |
-| Governance Schemas | Governance event structures and event model | [Schemas: Governance](schemas/governance/) | 3 | ✅ v0.1 |
-| Common Schemas | Shared data models across all schemas | [Schemas: Common](schemas/common/) | 3 | ✅ v0.1 |
-| Schema Examples | Example payloads demonstrating schema usage | [Schema Examples](schemas/examples/) | 3 | ✅ v0.1 |
+| AGP Schemas | Protocol message schemas and validation rules | [Schemas: AGP](aegis-core/schemas/agp/) | 3 | ✅ v0.1 |
+| Capability Schemas | Capability registry definitions and structures | [Schemas: Capability](aegis-core/schemas/capability/) | 3 | ✅ v0.1 |
+| Governance Schemas | Governance event structures and event model | [Schemas: Governance](aegis-core/schemas/governance/) | 3 | ✅ v0.1 |
+| Common Schemas | Shared data models across all schemas | [Schemas: Common](aegis-core/schemas/common/) | 3 | ✅ v0.1 |
+| Schema Examples | Example payloads demonstrating schema usage | [Schema Examples](aegis-core/schemas/examples/) | 3 | ✅ v0.1 |
 | Reference Runtime | Working implementation of governance runtime components | [AEGIS Runtime](aegis-runtime/) | 4 | 🔄 In Progress |
 | Integration Examples | Pattern implementations for LangChain, CrewAI, AutoGPT, OpenAI | [Examples](examples/) | 4 | ✅ v0.1 |
 | Federation Architecture | Multi-org governance intelligence sharing and policy federation | [Federation](federation/) | 5 | ✅ v0.1 |
@@ -183,7 +183,7 @@ The AEGIS specification is organized across five layers, from foundational princ
 **Layer 3 — Protocol & Data** (Understand the formats)
 
 - How do systems communicate? → [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md)
-- What data structures are used? → [Schemas](schemas/)
+- What data structures are used? → [Schemas](aegis-core/schemas/)
 
 **Layer 4 — Implementation** (Build governance runtime)
 
@@ -222,18 +222,18 @@ The protocol defines message structures for:
 
 # Schema Definitions
 
-Machine-readable schemas for protocol messages and governance structures are located in the [schemas directory](schemas/).
+Machine-readable schemas for protocol messages and governance structures are located in the [schemas directory](aegis-core/schemas/).
 
 Key schema groups include:
 
 | Schema Group | Purpose | Location |
 |---|---|---|
-| AGP | protocol message schemas | [schemas/agp/](schemas/agp/) |
-| Capability | capability registry definitions | [schemas/capability/](schemas/capability/) |
-| Governance | governance event structures | [schemas/governance/](schemas/governance/) |
-| Common | shared data models | [schemas/common/](schemas/common/) |
+| AGP | protocol message schemas | [aegis-core/schemas/agp/](aegis-core/schemas/agp/) |
+| Capability | capability registry definitions | [aegis-core/schemas/capability/](aegis-core/schemas/capability/) |
+| Governance | governance event structures | [aegis-core/schemas/governance/](aegis-core/schemas/governance/) |
+| Common | shared data models | [aegis-core/schemas/common/](aegis-core/schemas/common/) |
 
-**Example Payloads:** [Schema Examples](schemas/examples/) demonstrate how the schemas are used in practice.
+**Example Payloads:** [Schema Examples](aegis-core/schemas/examples/) demonstrate how the schemas are used in practice.
 
 ---
 
