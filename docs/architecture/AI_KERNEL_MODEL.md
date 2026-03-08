@@ -18,7 +18,7 @@ deterministic governance between intelligence and infrastructure.
 
 Core design statement:
 
-> Capability without constraint is not intelligence.
+> Capability without constraint is not intelligence™
 
 ## 2. Architectural Positioning
 

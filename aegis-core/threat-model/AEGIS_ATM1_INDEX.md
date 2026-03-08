@@ -258,4 +258,4 @@ Planned extensions:
 
 ## Foundational Principle
 
-> Capability without constraint is not intelligence (TM)
+> Capability without constraint is not intelligence™

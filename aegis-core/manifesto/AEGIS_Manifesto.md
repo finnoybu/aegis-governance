@@ -299,7 +299,7 @@ AEGIS provides the architectural foundation to make this vision real.
 
 The guiding principle of AEGIS is simple:
 
-> **Capability without constraint is not intelligence.**
+> **Capability without constraint is not intelligence™**
 
 Intelligence is not defined by power alone.
 

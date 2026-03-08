@@ -25,7 +25,7 @@ Operating principle:
 
 Core maxim:
 
-> Capability without constraint is not intelligence.
+> Capability without constraint is not intelligence™
 
 ## Architecture Goals
 

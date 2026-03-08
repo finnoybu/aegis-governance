@@ -14,4 +14,4 @@ Key capabilities include:
 - Operational Risk Evaluation
 - Full Auditability
 
-Capability without constraint is not intelligence.
+Capability without constraint is not intelligence™

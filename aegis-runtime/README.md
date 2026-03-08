@@ -16,7 +16,7 @@
 The AEGIS™ Runtime is the **reference Python implementation** of the AEGIS governance architecture.
 It provides a deterministic enforcement layer that evaluates and governs AI-initiated actions **before they interact with infrastructure**.
 
-> **Capability without constraint is not intelligence.**
+> **Capability without constraint is not intelligence™**
 
 AEGIS enforces governance decisions **before execution**, ensuring AI systems operate within explicit capability and policy boundaries.
 

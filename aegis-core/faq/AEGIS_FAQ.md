@@ -344,7 +344,7 @@ Just as TLS secures communication and OAuth governs identity, AEGIS aims to prov
 
 The foundational maxim of the project is:
 
-> **Capability without constraint is not intelligence.**
+> **Capability without constraint is not intelligence™**
 
 The future of artificial intelligence will not only depend on what systems can do, but also on how responsibly those capabilities are governed.
 
