@@ -23,49 +23,101 @@ Together, these components define the full AEGIS™ governance architecture.
 
 ## Specification Architecture Layers
 
+### Versioning & Updates
+Changes in one layer may require updates in dependent layers. Protocol changes (Layer 3) require runtime updates (Layer 4) and federation schema updates (Layer 5). All changes are tracked via RFCs and semantic versioning.
+
+### Document Status Table
+| Document | Location | Last Updated |
+|---|---|---|
+| Manifesto | aegis-core/manifesto/AEGIS_Manifesto.md | 2026-03-06 |
+| Constitution | aegis-core/constitution/AEGIS_Constitution.md | 2026-03-06 |
+| System Overview | aegis-core/overview/AEGIS_System_Overview.md | 2026-03-06 |
+| Reference Architecture | aegis-core/architecture/AEGIS_Reference_Architecture.md | 2026-03-06 |
+| Threat Model | aegis-core/threat-model/AEGIS_Threat_Model.md | 2026-03-06 |
+| AGP-1 Protocol | aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md | 2026-03-06 |
+| Federation | federation/ | 2026-03-06 |
+| RFC Directory | rfc/ | 2026-03-06 |
+
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│ Layer 5: Federated Governance Network (GFN)                     │
-│   • Multi-org threat intelligence sharing                       │
-│   • Governance signal distribution and policy federation        │
-│   • Circumvention detection and attestation                     │
-└─────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ Layer 5: Federated Governance Network (GFN)                                   │
+│   • Multi-org threat intelligence sharing                                     │
+│   • Governance signal distribution and policy federation                      │
+│   • Circumvention detection and attestation                                   │
+│   • Federation Example: Policy update event shared between two nodes.         │
+│     See federation/ for schema and workflow.                                  │
+│   • Success Criteria:                                                         │
+│     Federation events are exchanged and validated between nodes.              │
+│   • Compliance Requirements:                                                  │
+│     Federation must use canonical event schema and trust evaluation.          │
+└───────────────────────────────────────────────────────────────────────────────┘
          △
          │ depends on
          ▽
-┌─────────────────────────────────────────────────────────────────┐
-│ Layer 4: Governance Runtime & Implementation                    │
-│   • Reference runtime components and patterns                   │
-│   • Governance gateway, decision engine, policy engine          │
-│   • Integration examples for LangChain, CrewAI, AutoGPT        │
-└─────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ Layer 4: Governance Runtime & Implementation                                  │
+│   • Reference runtime components and patterns                                 │
+│   • Governance gateway, decision engine, policy engine                        │
+│   • Integration examples for LangChain, CrewAI, AutoGPT                       │
+│   • Implementation Example:                                                   │
+│     See aegis-runtime/ for a working Python reference implementation.         │
+│     Example: LangChain agent integration.                                     │
+│   • Success Criteria:                                                         │
+│     All runtime components are deployed as described                          │
+│     Integration examples run successfully.                                    │
+│   • Compliance Requirements:                                                  │
+│     Runtime must enforce protocol and policy evaluation as specified.         │
+└───────────────────────────────────────────────────────────────────────────────┘
          △
          │ depends on
          ▼
-┌─────────────────────────────────────────────────────────────────┐
-│ Layer 3: Protocol & Schema Definitions (AGP + Schemas)         │
-│   • AGP-1 governance protocol specification                     │
-│   • Machine-readable schemas for all message types              │
-│   • Example payloads and validation rules                       │
-└─────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ Layer 3: Protocol & Schema Definitions (AGP + Schemas)                        │
+│   • AGP-1 governance protocol specification                                   │
+│   • Machine-readable schemas for all message types                            │
+│   • Example payloads and validation rules                                     │
+│   • Implementation Example:                                                   │
+│     See aegis-core/protocol/AEGIS_AGP1_MESSAGES.md for message schema.        │
+│     Example: ACTION_PROPOSE and ACTION_RESULT payloads.                       │
+│   • Success Criteria:                                                         │
+│     All agent messages conform to AGP-1 schema; validation rules are enforced.│
+│   • Compliance Requirements:                                                  │
+│     Protocol and schemas must be versioned and validated.                     │
+└───────────────────────────────────────────────────────────────────────────────┘
          △
          │ depends on
          ▼
-┌─────────────────────────────────────────────────────────────────┐
-│ Layer 2: Governance Architecture & Design                       │
-│   • Reference architecture patterns and deployment modes        │
-│   • Ecosystem map and component interactions                    │
-│   • Security architecture and threat model                      │
-└─────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ Layer 2: Governance Architecture & Design                                     │
+│   • Reference architecture patterns and deployment modes                      │
+│   • Ecosystem map and component interactions                                  │
+│   • Security architecture and threat model                                    │
+│   • Implementation Example:                                                   │
+│     See aegis-core/architecture/AEGIS_Reference_Architecture.md for design.   │
+│     Example: Deployment pattern for runtime and federation.                   │
+│   • Success Criteria:                                                         │
+│     All components are deployed as described; threat model is documented;     │
+│     reference architecture matches implementation.                            │
+│   • Compliance Requirements:                                                  │
+│     Architecture must be documented and threat model reviewed.                │
+└───────────────────────────────────────────────────────────────────────────────┘
          △
          │ depends on
          ▼
-┌─────────────────────────────────────────────────────────────────┐
-│ Layer 1: Vision, Principles & Constitution                      │
-│   • AEGIS Manifesto and system overview                         │
-│   • AEGIS Constitution and governance principles (8 articles)   │
-│   • FAQ and adoption model for different maturity levels        │
-└─────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ Layer 1: Vision, Principles & Constitution                                    │
+│   • AEGIS Manifesto and system overview                                       │
+│   • AEGIS Constitution and governance principles (8 articles)                 │
+│   • FAQ and adoption model for different maturity levels                      │
+│   • Implementation Example:                                                   │
+│     See aegis-core/manifesto/AEGIS_Manifesto.md and constitution.             │
+│     Example: Principle enforcement in runtime policy engine.                  │
+│   • Success Criteria:                                                         │
+│     Principles are documented;                                                |
+      constitution is referenced in all governance layers.                      │
+│   • Compliance Requirements:                                                  │
+│     All governance must reference principles and constitution.                │
+└───────────────────────────────────────────────────────────────────────────────┘
 ```
 
 **Build Sequentially**: Each layer depends on understanding previous layers. Start at Layer 1 for vision, advance to Layer 5 for federation.
