@@ -1,10 +1,6 @@
 # RFC-0001: AEGIS™ Governance Architecture
 
-<<<<<<< HEAD
-**RFC**: RFC-0001
-=======
 **RFC:** RFC-0001
->>>>>>> 2688e6fe05468913facf85b8feea6cc3edc36d24
 **Status:** Draft  
 **Version:** 0.2  
 **Created:** 2026-03-05  
@@ -13,7 +9,8 @@
 **Repository:** aegis-governance  
 **Target milestone:** v1.0  
 **Supersedes:** None  
-**Superseded by:** None  
+**Superseded by:** None
+
 ---
 
 ## Summary
