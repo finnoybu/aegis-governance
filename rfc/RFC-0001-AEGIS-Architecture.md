@@ -1,54 +1,51 @@
-# RFC-0001
+# RFC-0001: AEGIS™ Governance Architecture
 
-## AEGIS™ Governance Architecture
-
-**RFC**: RFC-0001  
-**Version**: 0.2  
-**Status**: Draft  
-**Authors**: AEGIS™ Initiative  
-**Created**: March 5, 2026  
-**Last Updated**: March 6, 2026
-
----
-
-## 1. Abstract
-
-This document defines the reference architecture for AEGIS™ (Architectural
-Enforcement and Governance of Intelligent Systems).
-
-AEGIS introduces a deterministic governance control plane between AI-generated
-intent and infrastructure execution. The architecture ensures that no action is
-executed without explicit evaluation against capability, policy, authority, and
-risk constraints.
+**Status:** Draft  
+**Version:** 0.2  
+**Created:** 2026-03-05  
+**Updated:** 2026-03-06  
+**Author:** AEGIS™ Initiative, Finnoybu IP LLC  
+**Repository:** aegis-governance  
+**Target milestone:** v1.0  
+**Supersedes:** None  
+**Superseded by:** None  
 
 ---
 
-## 2. Problem Statement
+## Summary
 
-Model alignment and content moderation influence outputs but do not guarantee
-control over operational side effects.
-
-AEGIS addresses this gap by enforcing:
-
-- complete mediation of action execution
-- default-deny authorization
-- deterministic decision logic
-- immutable audit evidence
+This RFC defines the reference architecture for AEGIS™ (Architectural Enforcement and Governance of Intelligent Systems). AEGIS introduces a deterministic governance control plane between AI-generated intent and infrastructure execution, ensuring no action executes without explicit evaluation against capability, policy, authority, and risk constraints.
 
 ---
 
-## 3. Architectural Principles
+## Motivation
 
-1. Deterministic Governance: same inputs and policy version produce same outcome.
-2. Capability-First Authorization: every action maps to a predefined capability.
-3. Explicit Authority Attribution: every request is bound to an authenticated actor.
-4. Default Deny: absence of explicit authorization yields denial.
-5. Complete Auditability: every decision is recorded and replay-verifiable.
-6. Fail-Closed Safety: subsystem uncertainty cannot result in implicit allow.
+Model alignment and content moderation influence outputs but do not guarantee control over operational side effects. When AI systems can take real actions — executing shell commands, modifying infrastructure, sending messages, querying data — policy documents and alignment techniques are insufficient. They describe what should happen. They do not prevent what should not.
+
+AEGIS addresses this gap by enforcing complete mediation at the execution boundary: every action is evaluated before it reaches external systems, and every decision is recorded immutably.
 
 ---
 
-## 4. System Context
+## Guide-Level Explanation
+
+Think of AEGIS as a security guard stationed between an AI agent and everything the agent can touch. When an AI wants to take an action, it submits a proposal. The security guard checks three things: is this agent allowed to do this, does it need human approval, and could this cause irreversible harm? If any check fails, the action never executes.
+
+The guard also keeps a notebook. Every proposal, every decision, every reason — written down in a form that cannot be altered after the fact. If something goes wrong, the notebook is the authoritative record.
+
+---
+
+## Reference-Level Explanation
+
+### 1. Architectural Principles
+
+1. **Deterministic Governance:** same inputs and policy version produce same outcome.
+2. **Capability-First Authorization:** every action maps to a predefined capability.
+3. **Explicit Authority Attribution:** every request is bound to an authenticated actor.
+4. **Default Deny:** absence of explicit authorization yields denial.
+5. **Complete Auditability:** every decision is recorded and replay-verifiable.
+6. **Fail-Closed Safety:** subsystem uncertainty cannot result in implicit allow.
+
+### 2. System Context
 
 ```mermaid
 flowchart TD
@@ -62,71 +59,21 @@ flowchart TD
     E --> F[External Systems]
 ```
 
----
+### 3. Component Responsibilities
 
-## 5. Component Interaction Specification
+**Governance Gateway:** validate request schema and semantic constraints; validate actor identity binding; reject malformed requests; route valid requests to Decision Engine.
 
-### 5.1 Governance Gateway
+**Decision Engine:** perform capability check; evaluate policy precedence; evaluate contextual risk thresholds; produce one deterministic outcome (ALLOW, DENY, ESCALATE, REQUIRE_CONFIRMATION).
 
-Responsibilities:
+**Capability Registry:** maintain canonical capability definitions and actor-capability grants; support revocation and expiration semantics.
 
-- validate request schema and semantic constraints
-- validate actor identity binding and request metadata
-- reject malformed requests before decision evaluation
-- route valid requests to Decision Engine
+**Policy Engine:** evaluate policy conditions against request context; apply deterministic precedence rules; emit policy trace for auditability.
 
-### 5.2 Decision Engine
+**Tool Proxy Layer:** execute only authorized decisions; enforce runtime constraints; prevent direct infrastructure bypass; record execution telemetry.
 
-Responsibilities:
+**Audit System:** append immutable decision records; support retrieval by request/actor/session; provide evidence for replay and compliance.
 
-- perform capability check
-- evaluate policy precedence
-- evaluate contextual risk thresholds
-- produce one deterministic outcome
-
-Outcomes:
-
-- `ALLOW`
-- `DENY`
-- `ESCALATE`
-- `REQUIRE_CONFIRMATION`
-
-### 5.3 Capability Registry
-
-Responsibilities:
-
-- maintain canonical capability definitions
-- maintain actor-capability grants
-- support revocation and expiration semantics
-
-### 5.4 Policy Engine
-
-Responsibilities:
-
-- evaluate policy conditions against request context
-- apply deterministic precedence rules
-- emit policy trace for auditability
-
-### 5.5 Tool Proxy Layer
-
-Responsibilities:
-
-- execute only authorized decisions
-- enforce runtime constraints
-- prevent direct infrastructure bypass
-- record execution telemetry
-
-### 5.6 Audit System
-
-Responsibilities:
-
-- append immutable decision records
-- support retrieval by request/actor/session
-- provide evidence for replay and compliance
-
----
-
-## 6. Request Lifecycle Sequence
+### 4. Request Lifecycle Sequence
 
 ```mermaid
 sequenceDiagram
@@ -161,37 +108,20 @@ sequenceDiagram
     end
 ```
 
----
+### 5. Security Properties and Guarantees
 
-## 7. Security Properties and Guarantees
+| Guarantee | Description |
+|---|---|
+| Capability Isolation | No request executes unless actor capability grant covers action and target |
+| Attribution | Every decision includes actor, request ID, and timestamp |
+| Non-Bypass | External interfaces are only reachable through Tool Proxy under valid governance decision |
+| Audit Integrity | Every evaluated request produces an immutable audit record regardless of outcome |
+| Determinism | Policy and risk evaluation are deterministic given identical inputs and versions |
 
-### 7.1 Capability Isolation Guarantee
-
-No request executes unless actor capability grant covers action and target.
-
-### 7.2 Attribution Guarantee
-
-Every decision and execution path includes actor, request ID, and timestamp.
-
-### 7.3 Non-Bypass Guarantee
-
-External execution interfaces are only reachable through Tool Proxy under a
-valid governance decision.
-
-### 7.4 Audit Integrity Guarantee
-
-Every evaluated request produces an immutable audit record regardless of outcome.
-
-### 7.5 Determinism Guarantee
-
-Policy and risk evaluation are deterministic given identical inputs and versions.
-
----
-
-## 8. Failure Mode Analysis
+### 6. Failure Mode Analysis
 
 | Failure Mode | Expected Behavior | Security Posture |
-|-------------|-------------------|------------------|
+|---|---|---|
 | Malformed request | Reject at Gateway | Fail closed |
 | Capability registry unavailable | Deny/Escalate | Fail closed |
 | Policy engine exception | Escalate or Deny | Fail closed |
@@ -201,32 +131,67 @@ Policy and risk evaluation are deterministic given identical inputs and versions
 
 ---
 
-## 9. Related Work
+## Drawbacks
 
-AEGIS builds on and extends concepts from:
-
-- Reference Monitor model (Anderson, 1972)
-- Security kernels and mandatory access control
-- Policy-as-code systems (e.g., Open Policy Agent)
-- Capability-based security models
-- Zero-trust architecture patterns
-
-AEGIS contribution is applying these controls to AI-proposed operational actions
-with deterministic, auditable governance.
+- Adds latency to every AI action. The governance evaluation path introduces overhead. RFC-0002 specifies SLO targets to bound this.
+- Requires capability definitions to exist before agents can operate. Cold-start and onboarding complexity is non-trivial.
+- Default-deny posture will produce friction during initial deployment until registries are tuned to the operational environment.
+- Audit log growth is unbounded over time and requires operational management.
 
 ---
 
-## 10. Relationship to Other Specifications
+## Alternatives Considered
 
-- RFC-0002: Governance Runtime API and deployment behavior
-- RFC-0003: Capability Registry and Policy Language specification
-- RFC-0004: Governance Event Model for federation and interoperability
-- AGP-1: Governance protocol envelope and transport semantics
+**Model-level alignment only:** Relies on the model to self-enforce constraints. Insufficient because model behavior is non-deterministic and cannot provide audit evidence of what was allowed or denied.
+
+**Network-level controls only:** Firewalls and API gateways can restrict what systems an agent can reach but cannot evaluate the semantic intent of a request before it is made.
+
+**Human-in-the-loop for all actions:** Provides strong safety guarantees but eliminates the operational value of AI agents at scale. AEGIS reserves human escalation for genuinely ambiguous or high-risk decisions.
+
+**Policy-as-code without runtime enforcement:** Tools like OPA can evaluate policy but require integration with an execution boundary. AEGIS provides that boundary as a first-class architectural component.
 
 ---
 
-## 11. Conclusion
+## Compatibility
 
-AEGIS architecture formalizes a control plane where intelligence may propose
-actions, but only governance authorizes execution. This separation of reasoning
-and execution is the core safety property enabling trustworthy AI operations.
+This is the foundational architecture RFC. All other RFCs are downstream of it. No prior AEGIS deployments exist at the time of this draft.
+
+---
+
+## Implementation Notes
+
+RFC-0002 specifies the runtime API. RFC-0003 specifies the capability registry and policy language. Implementers should read in order: RFC-0001, RFC-0002, RFC-0003, RFC-0004.
+
+The aegis-runtime repository provides a minimal Python reference implementation of RDP-03 (embedded lightweight pattern, per RFC-0005).
+
+---
+
+## Open Questions
+
+- [ ] Should the Risk Engine be a separate RFC or remain within RFC-0001?
+- [ ] Should AEGIS define a formal conformance test suite for architecture compliance?
+
+---
+
+## Success Criteria
+
+- A compliant runtime can be built from this RFC and RFC-0002 alone
+- Every action that reaches an external system can be traced to an audit record
+- No action executes when the governance path is unavailable
+
+---
+
+## References
+
+- RFC-0002 — Governance Runtime
+- RFC-0003 — Capability Registry and Policy Language
+- RFC-0004 — Governance Event Model
+- AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
+- ATM-1 Threat Model — `aegis-core/threat-model/AEGIS_ATM1_INDEX.md`
+- Anderson, J.P. (1972) — Computer Security Technology Planning Study (Reference Monitor model)
+- Open Policy Agent — policy-as-code reference
+
+---
+
+*"Capability without constraint is not intelligence™"*  
+*Finnoybu IP LLC — AEGIS™ Initiative*

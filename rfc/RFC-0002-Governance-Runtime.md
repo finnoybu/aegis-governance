@@ -1,37 +1,48 @@
-# RFC-0002
+# RFC-0002: AEGIS™ Governance Runtime Specification
 
-## AEGIS™ Governance Runtime Specification
-
-**RFC**: RFC-0002  
-**Version**: 0.2  
-**Status**: Draft  
-**Authors**: AEGIS™ Initiative  
-**Created**: March 5, 2026  
-**Last Updated**: March 6, 2026
-
----
-
-# 1. Purpose
-
-This document specifies the runtime APIs, state model, error behavior,
-deployment topology, and performance expectations for the AEGIS™ Governance
-Runtime.
+**Status:** Draft  
+**Version:** 0.2  
+**Created:** 2026-03-05  
+**Updated:** 2026-03-06  
+**Author:** AEGIS™ Initiative, Finnoybu IP LLC  
+**Repository:** aegis-governance  
+**Target milestone:** v1.0  
+**Supersedes:** None  
+**Superseded by:** None  
 
 ---
 
-# 2. Runtime Responsibilities
+## Summary
 
-The runtime is responsible for:
-
-- accepting action proposals from AI agents
-- validating request schema and semantics
-- evaluating capability, policy, and risk controls
-- enforcing controlled execution via tool proxy
-- emitting immutable audit evidence
+This RFC specifies the runtime APIs, state model, error behavior, deployment topology, and performance expectations for the AEGIS™ Governance Runtime: the component responsible for accepting action proposals, evaluating them against governance controls, and enforcing decisions at the execution boundary.
 
 ---
 
-# 3. Runtime Architecture
+## Motivation
+
+RFC-0001 defines what the governance architecture must do. This RFC defines how it behaves at runtime. Without a concrete API surface, state model, and error specification, implementations cannot be validated for compliance and behavior under failure conditions cannot be reasoned about.
+
+---
+
+## Guide-Level Explanation
+
+The Governance Runtime is the operational heart of AEGIS. It is the process that receives action proposals from AI agents, runs them through the decision pipeline, and either permits execution, blocks it, or escalates it for human review.
+
+From an operator's perspective: you deploy the runtime alongside your AI systems, configure it with a capability registry and policy set, and it becomes the mandatory checkpoint for all agent actions. Nothing reaches your infrastructure without passing through it.
+
+---
+
+## Reference-Level Explanation
+
+### 1. Runtime Responsibilities
+
+- Accept action proposals from AI agents
+- Validate request schema and semantics
+- Evaluate capability, policy, and risk controls
+- Enforce controlled execution via tool proxy
+- Emit immutable audit evidence
+
+### 2. Runtime Architecture
 
 ```mermaid
 flowchart TD
@@ -45,18 +56,11 @@ flowchart TD
     H --> I[External Systems]
 ```
 
----
+### 3. API Surface
 
-# 4. API Surface
+**Submit Action — POST /aegis/actions**
 
-## 4.1 Submit Action
-
-Endpoint:
-
-- `POST /aegis/actions`
-
-Request schema:
-
+Request:
 ```json
 {
   "request_id": "uuid-v4",
@@ -77,44 +81,27 @@ Request schema:
 }
 ```
 
-Response schema:
-
+Response:
 ```json
 {
   "request_id": "uuid-v4",
   "decision": "ALLOW",
-  "reason": "Approved by policy 'soc_query_allow'",
+  "reason": "Approved by policy soc_query_allow",
   "audit_id": "audit-6f4f",
-  "conditions": [
-    "max_results=500",
-    "timeout_ms=10000"
-  ],
+  "conditions": ["max_results=500", "timeout_ms=10000"],
   "timestamp": "2026-03-05T12:00:00Z"
 }
 ```
 
-## 4.2 Retrieve Audit Record
+**Retrieve Audit Record — GET /aegis/audit/{audit_id}**
 
-Endpoint:
+Returns immutable decision and evaluation trace.
 
-- `GET /aegis/audit/{audit_id}`
+**Health — GET /healthz | GET /readyz**
 
-Response includes immutable decision and evaluation trace.
+Readiness fails if policy, capability, or audit stores are unavailable.
 
-## 4.3 Health and Readiness
-
-Endpoints:
-
-- `GET /healthz`
-- `GET /readyz`
-
-Readiness fails if policy/capability/audit stores are unavailable.
-
----
-
-# 5. Error Handling Specification
-
-## 5.1 Error Envelope
+### 4. Error Handling
 
 ```json
 {
@@ -126,27 +113,15 @@ Readiness fails if policy/capability/audit stores are unavailable.
 }
 ```
 
-## 5.2 Standard Error Codes
-
 | Code | HTTP | Retryable | Source |
-|------|------|-----------|--------|
+|---|---|---|---|
 | INVALID_REQUEST | 400 | No | Gateway validation |
-| INVALID_ACTION_TYPE | 400 | No | Gateway validation |
 | UNAUTHORIZED_CAPABILITY | 403 | No | Capability check |
 | POLICY_EVALUATION_ERROR | 500 | Maybe | Policy engine |
 | AUDIT_PERSIST_ERROR | 503 | Yes | Audit system |
 | UPSTREAM_TIMEOUT | 504 | Yes | Tool proxy |
 
-## 5.3 Failure Behavior
-
-- validation failures: reject immediately
-- policy/capability uncertainty: fail closed
-- audit write failure: block high-risk execution
-- tool proxy timeout: return controlled error with audit record
-
----
-
-# 6. Runtime State Model
+### 5. Runtime State Model
 
 ```mermaid
 stateDiagram-v2
@@ -167,32 +142,18 @@ stateDiagram-v2
     Rejected --> [*]
 ```
 
----
+### 6. Performance Requirements
 
-# 7. Performance and Scalability Requirements
+| Metric | Target |
+|---|---|
+| p50 decision latency | <= 20ms |
+| p95 decision latency | <= 75ms |
+| p99 decision latency | <= 150ms |
+| Audit write success | >= 99.99% |
+| Single-node throughput | 500 actions/sec |
+| Horizontal target | 10k actions/sec |
 
-## 7.1 SLO Targets
-
-- p50 decision latency <= 20 ms
-- p95 decision latency <= 75 ms
-- p99 decision latency <= 150 ms
-- audit write success >= 99.99%
-
-## 7.2 Throughput Targets
-
-- single-node baseline: 500 evaluated actions/sec
-- horizontal target: linear scaling to 10k actions/sec across cluster
-
-## 7.3 Scalability Controls
-
-- stateless gateway pods behind load balancer
-- replicated policy/capability caches
-- append-only audit store with partitioning
-- bounded execution worker pools
-
----
-
-# 8. Deployment Architecture
+### 7. Deployment Architecture
 
 ```mermaid
 flowchart LR
@@ -207,44 +168,72 @@ flowchart LR
     TP --> EXT[External Systems]
 ```
 
-Deployment requirements:
+Requirements: least-privilege service identities, mTLS between components, isolated execution network for proxy workers, immutable config snapshots per runtime version.
 
-- least-privilege service identities
-- mTLS between runtime components
-- isolated execution network for proxy workers
-- immutable config snapshots per runtime version
+### 8. Failure Behavior
 
----
-
-# 9. Security and Recovery Requirements
-
-- all decisions must be auditable
-- no execution path may bypass gateway + decision engine
-- runtime restart must not lose committed audit records
-- degraded mode must fail closed
-
-Recovery behavior:
-
-- transient audit store outage: retry with bounded backoff
-- persistent audit outage: deny high-risk requests and alert
-- policy store unavailability: deny or escalate only
+- Validation failures: reject immediately
+- Policy or capability uncertainty: fail closed
+- Audit write failure: block high-risk execution, retry with bounded backoff
+- Persistent audit outage: deny high-risk requests and alert
+- Tool proxy timeout: return controlled error with audit record
 
 ---
 
-# 10. Reference Implementation Targets
+## Drawbacks
 
-- AI-assisted SOC operations
-- cloud automation governance
-- enterprise copilot runtime control
-- regulated data access workflows
+- The runtime is a single mandatory checkpoint and therefore a potential single point of failure. High-availability deployment is required for production use.
+- p99 latency target of 150ms may be unacceptable for latency-sensitive real-time applications. Those use cases require careful registry and policy design to minimize evaluation overhead.
+- Stateless gateway design requires that all governance state live in external stores, adding operational complexity.
+
+---
+
+## Alternatives Considered
+
+**Inline evaluation in the agent process:** Eliminates network overhead but allows the agent to bypass governance by modifying its own evaluation logic. Violates the non-bypass guarantee.
+
+**Asynchronous post-execution audit:** Reduces latency but provides no enforcement. Governance that operates after execution is documentation, not control.
+
+**Single-tier runtime without proxy workers:** Simpler to deploy but conflates the governance decision path with the execution path, complicating isolation guarantees.
 
 ---
 
-# 11. Relationship to Other Specifications
+## Compatibility
 
-- RFC-0001: architecture and security guarantees
-- RFC-0003: capability and policy semantics
-- RFC-0004: governance event federation model
-- AGP-1: transport and protocol envelope
+Downstream of RFC-0001. No breaking changes to RFC-0001 architecture. All RFC-0001 security guarantees are preserved by this specification.
 
 ---
+
+## Implementation Notes
+
+Implementers should begin with the API surface and state model. The aegis-runtime repository provides a minimal Python reference implementation. Performance targets are aspirational for v0.x and binding at v1.0.
+
+---
+
+## Open Questions
+
+- [ ] Should the runtime expose a streaming API for long-running agent sessions?
+- [ ] Should audit record retrieval support batch queries?
+
+---
+
+## Success Criteria
+
+- A compliant implementation satisfies all API contracts defined in Section 3
+- All failure modes in Section 8 produce the specified behavior under test
+- p99 latency target is met under the throughput targets in Section 6
+
+---
+
+## References
+
+- RFC-0001 — AEGIS Architecture
+- RFC-0003 — Capability Registry and Policy Language
+- RFC-0004 — Governance Event Model
+- AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
+- aegis-runtime — `github.com/finnoybu/aegis-runtime`
+
+---
+
+*"Capability without constraint is not intelligence™"*  
+*Finnoybu IP LLC — AEGIS™ Initiative*
