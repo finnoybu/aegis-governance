@@ -114,7 +114,7 @@ Changes in one layer may require updates in dependent layers. Protocol changes (
 │     Example: Principle enforcement in runtime policy engine.                  │
 │   • Success Criteria:                                                         │
 │     Principles are documented;                                                |
-      constitution is referenced in all governance layers.                      │
+|      constitution is referenced in all governance layers.                     │
 │   • Compliance Requirements:                                                  │
 │     All governance must reference principles and constitution.                │
 └───────────────────────────────────────────────────────────────────────────────┘
