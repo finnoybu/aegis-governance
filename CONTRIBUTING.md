@@ -70,7 +70,7 @@ Stability: frozen
 
 #### RFCs
 - **RFC**: RFC number (e.g., RFC-0004)
-- **Status**: Draft, Candidate, Accepted, Rejected, Deprecated, etc.
+- **Status**: Placeholder, Draft, Proposed, Accepted, Implemented, Superseded
 - **Version**: Semantic version (e.g., 0.2)
 - **Created**: YYYY-MM-DD
 - **Updated**: YYYY-MM-DD
