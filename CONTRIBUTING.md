@@ -64,13 +64,10 @@ Last Updated: 2024-03-15
 Author(s): AEGIS Core Team
 Stability: frozen
 
-<<<<<<< HEAD
-=======
 ---
 
 ```
 
->>>>>>> 2688e6fe05468913facf85b8feea6cc3edc36d24
 #### RFCs
 - **RFC**: RFC number (e.g., RFC-0004)
 - **Status**: Placeholder, Draft, Proposed, Accepted, Implemented, Superseded
