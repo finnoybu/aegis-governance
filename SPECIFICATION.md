@@ -27,6 +27,7 @@ Together, these components define the full AEGIS™ governance architecture.
 Changes in one layer may require updates in dependent layers. Protocol changes (Layer 3) require runtime updates (Layer 4) and federation schema updates (Layer 5). All changes are tracked via RFCs and semantic versioning.
 
 ### Document Status Table
+
 | Document | Location | Last Updated |
 |---|---|---|
 | Manifesto | aegis-core/manifesto/AEGIS_Manifesto.md | 2026-03-06 |
