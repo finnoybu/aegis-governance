@@ -57,6 +57,7 @@ flowchart TD
     H --> I[External Systems]
 
   ```
+
 ### 3. API Surface
 
 **Submit Action — POST /aegis/actions**

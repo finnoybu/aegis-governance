@@ -64,7 +64,6 @@ Stability: frozen
 ---
 ```
 
-
 #### RFCs
 - **RFC**: RFC number (e.g., RFC-0004)
 - **Status**: Draft, Candidate, Accepted, Rejected, Deprecated, etc.
