@@ -53,6 +53,7 @@ Document headers follow consistent conventions based on document type. Proper he
 - **Stability** (optional): `experimental` | `stable` | `frozen`
 
 Example:
+
 ```markdown
 ---
 Version: 1.0.0
@@ -70,6 +71,7 @@ Stability: frozen
 - **Supersedes** (optional): Previous RFC numbers this replaces
 
 Example:
+
 ```markdown
 ---
 RFC: RFC-003
@@ -85,6 +87,7 @@ Supersedes: RFC-001
 - **Audience** (optional): `internal` | `external` | `developers` | `operators`
 
 Example:
+
 ```markdown
 ---
 Version: 2.1.0
