@@ -55,6 +55,7 @@ Document headers follow consistent conventions based on document type. Proper he
 Example:
 
 ```markdown
+
 ---
 
 Version: 1.0.0
@@ -66,6 +67,7 @@ Stability: frozen
 ---
 
 ```
+
 #### RFCs
 - **RFC**: RFC number (e.g., RFC-0004)
 - **Status**: Draft, Candidate, Accepted, Rejected, Deprecated, etc.
@@ -100,9 +102,11 @@ Example:
 
 ```markdown
 ---
+
 Version: 2.1.0
 Last Updated: 2024-03-20
 Audience: developers
+
 ---
 ```
 
