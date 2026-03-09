@@ -1,30 +1,42 @@
-# RFC-0003
+# RFC-0003: AEGIS™ Capability Registry and Policy Language
 
-## AEGIS™ Capability Registry and Policy Language Specification
-
-**RFC**: RFC-0003  
-**Version**: 0.2  
-**Status**: Draft  
-**Authors**: AEGIS™ Initiative  
-**Created**: March 5, 2026  
-**Last Updated**: March 6, 2026
-
----
-
-# 1. Purpose
-
-This document specifies:
-
-- capability schema, inheritance, and validation rules
-- formal policy language syntax and semantics
-- deterministic policy evaluation algorithm
-- complex policy composition examples
+**Status:** Draft  
+**Version:** 0.2  
+**Created:** 2026-03-05  
+**Updated:** 2026-03-06  
+**Author:** AEGIS™ Initiative, Finnoybu IP LLC  
+**Repository:** aegis-governance  
+**Target milestone:** v1.0  
+**Supersedes:** None  
+**Superseded by:** None  
 
 ---
 
-# 2. Capability Definition Model
+## Summary
 
-Canonical capability fields:
+This RFC specifies the capability schema, inheritance model, policy language syntax, and deterministic evaluation algorithm that together define what an AI agent is permitted to do within an AEGIS-governed environment.
+
+---
+
+## Motivation
+
+The governance runtime (RFC-0002) enforces decisions. This RFC defines the vocabulary and logic those decisions are based on. Without a formal capability model and policy language, governance is arbitrary. With it, governance is deterministic, auditable, and reproducible.
+
+---
+
+## Guide-Level Explanation
+
+A capability is a named, versioned declaration of something an agent is allowed to attempt. Before an agent can take an action, that action must map to a registered capability the agent has been granted.
+
+A policy is a rule that says: when these conditions are true, make this decision. Policies are evaluated in priority order. The first matching deny wins. If nothing matches, the default is deny.
+
+Together, the capability registry and policy engine answer one question: should this agent be allowed to do this thing right now?
+
+---
+
+## Reference-Level Explanation
+
+### 1. Capability Definition Schema
 
 ```yaml
 id: telemetry.query
@@ -40,61 +52,35 @@ deprecated: false
 version: 1
 ```
 
----
+### 2. Capability Inheritance Model
 
-# 3. Capability Inheritance Model
+Capability IDs form a dotted hierarchy: `telemetry.*` (parent), `telemetry.query` (child), `telemetry.query.raw` (grandchild).
 
-## 3.1 Hierarchy
+Inheritance rules:
+- Child inherits parent constraints unless explicitly overridden
+- Child may narrow permissions but may not broaden parent-denied scope
+- Deny constraints on parent are immutable to descendants
+- Multiple inheritance is not allowed in v1
 
-Capability IDs form a dotted hierarchy:
+Conflict resolution: stricter constraint wins; deny beats allow; environment intersection is applied.
 
-- `telemetry.*` (parent)
-- `telemetry.query` (child)
-- `telemetry.query.raw` (grandchild)
-
-## 3.2 Inheritance Rules
-
-1. child inherits parent constraints unless explicitly overridden
-2. child may narrow permissions but may not broaden parent-denied scope
-3. deny constraints on parent are immutable to descendants
-4. multiple inheritance is not allowed in v1
-
-## 3.3 Conflict Resolution
-
-If inherited values conflict:
-
-- stricter constraint wins
-- deny beats allow
-- environment intersection is applied
-
----
-
-# 4. Capability Validation Rules
+### 3. Capability Validation Rules
 
 A capability definition is valid only if:
-
 1. `id` matches regex `^[a-z][a-z0-9_.-]*$`
 2. `risk_level` is one of `low|medium|high|critical`
-3. all `allowed_roles` are known roles
-4. parent exists (unless root capability)
-5. no inheritance cycle exists
-6. constraints keys are from approved vocabulary
+3. All `allowed_roles` are known roles
+4. Parent exists (unless root capability)
+5. No inheritance cycle exists
+6. Constraint keys are from approved vocabulary
 
 Invalid definitions MUST be rejected at registration time.
 
----
+### 4. Policy Language
 
-# 5. Policy Language
+Policy outcomes: `ALLOW`, `DENY`, `ESCALATE`, `REQUIRE_CONFIRMATION`
 
-## 5.1 Policy Outcomes
-
-- `ALLOW`
-- `DENY`
-- `ESCALATE`
-- `REQUIRE_CONFIRMATION`
-
-## 5.2 Policy Structure
-
+Policy structure:
 ```yaml
 policy_id: telemetry_query_allowed
 priority: 100
@@ -109,9 +95,7 @@ then:
     max_results: 500
 ```
 
----
-
-# 6. Formal Policy Syntax (EBNF)
+### 5. Formal Policy Syntax (EBNF)
 
 ```text
 policy      = header, when_clause, then_clause ;
@@ -122,15 +106,10 @@ condition   = field, operator, value ;
 field       = IDENT, { ".", IDENT } ;
 operator    = "==" | "!=" | ">" | ">=" | "<" | "<=" | "in" | "matches" ;
 then_clause = "then" ":", "decision" ":" DECISION, [constraints_clause] ;
-constraints_clause = "constraints" ":", map ;
 DECISION    = "ALLOW" | "DENY" | "ESCALATE" | "REQUIRE_CONFIRMATION" ;
 ```
 
----
-
-# 7. Policy Evaluation Algorithm
-
-Deterministic algorithm:
+### 6. Policy Evaluation Algorithm
 
 ```text
 1. Load enabled policies.
@@ -138,19 +117,16 @@ Deterministic algorithm:
 3. Evaluate policy conditions in order.
 4. If a matching DENY is found, return DENY immediately.
 5. Track first matching non-deny decision by priority.
-6. Apply risk overrides (if configured) without violating deny precedence.
+6. Apply risk overrides without violating deny precedence.
 7. If no match, return DENY (default deny).
 8. Emit evaluation trace for audit.
 ```
 
-Complexity target: O(P * C), where P is policies, C is conditions per policy.
+Complexity target: O(P * C), where P is policies and C is conditions per policy.
 
----
+### 7. Complex Policy Examples
 
-# 8. Complex Policy Examples
-
-## 8.1 Role + Environment + Risk Gate
-
+Role + environment + risk gate:
 ```yaml
 policy_id: infra_deploy_prod_guard
 priority: 10
@@ -164,21 +140,7 @@ then:
   decision: REQUIRE_CONFIRMATION
 ```
 
-## 8.2 Conditional Escalation with Regex
-
-```yaml
-policy_id: identity_disable_sensitive
-priority: 20
-enabled: true
-when:
-  capability: identity.disable_account
-  target matches: "^exec_.*"
-then:
-  decision: ESCALATE
-```
-
-## 8.3 Hard Deny Invariant
-
+Hard deny invariant:
 ```yaml
 policy_id: deny_unknown_capability
 priority: 0
@@ -189,35 +151,66 @@ then:
   decision: DENY
 ```
 
----
+### 8. Policy Versioning
 
-# 9. Policy Versioning and Reproducibility
-
-Policy sets MUST include:
-
-- `policy_set_id`
-- semantic version (`major.minor.patch`)
-- immutable hash
-- activation timestamp
-
-Decision replay MUST reference policy-set version and hash.
+Policy sets MUST include: `policy_set_id`, semantic version, immutable hash, activation timestamp. Decision replay MUST reference policy-set version and hash.
 
 ---
 
-# 10. Security Guarantees
+## Drawbacks
 
-- explicit capability transparency
-- deterministic policy behavior
-- deny precedence over permissive rules
-- auditable evaluation traces
+- The capability hierarchy model adds complexity for organizations with flat authorization models. The inheritance rules must be understood before the registry can be correctly populated.
+- Regex-based pattern matching in policy conditions is expressive but can produce unexpected matches. Implementers must validate patterns before activation.
+- Policy evaluation is O(P * C). Large policy sets with many conditions will increase decision latency.
+
+---
+
+## Alternatives Considered
+
+**Flat capability list without inheritance:** Simpler but requires every capability to be fully specified independently, producing large registries and making bulk policy changes difficult.
+
+**Natural language policy definitions:** More accessible but non-deterministic. Governance that cannot be reproduced exactly given the same inputs is not governance.
+
+**RBAC only:** Role-based access control is familiar but does not capture contextual conditions (environment, risk score, time window) that are essential for AI agent governance.
 
 ---
 
-# 11. Relationship to Other Specifications
+## Compatibility
 
-- RFC-0001: architecture and trust boundaries
-- RFC-0002: runtime API and deployment behavior
-- RFC-0004: governance event representation
-- AGP-1: request/response protocol envelope
+Downstream of RFC-0001 and RFC-0002. The policy language defined here is the authoritative input to the Policy Engine specified in RFC-0002.
 
 ---
+
+## Implementation Notes
+
+The `deny_unknown_capability` hard deny invariant (Section 7) must be the first policy evaluated in any compliant implementation. The aegis-runtime repository provides reference implementations of the registry loader and evaluator.
+
+---
+
+## Open Questions
+
+- [ ] Should the policy language support time-window conditions (e.g., deny outside business hours)?
+- [ ] Should capability deprecation produce ESCALATE or DENY by default?
+
+---
+
+## Success Criteria
+
+- Any valid capability definition passes validation without modification
+- Any invalid capability definition is rejected at registration time with a specific error
+- Policy evaluation is deterministic: the same request, policy set, and registry always produce the same decision
+- Evaluation trace is sufficient to reconstruct the decision from the audit record alone
+
+---
+
+## References
+
+- RFC-0001 — AEGIS Architecture
+- RFC-0002 — Governance Runtime
+- RFC-0004 — Governance Event Model
+- AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
+
+---
+
+*"Capability without constraint is not intelligence™"*  
+*Finnoybu IP LLC — AEGIS™ Initiative*

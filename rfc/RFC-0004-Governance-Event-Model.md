@@ -1,25 +1,38 @@
-# RFC-0004
+# RFC-0004: AEGIS™ Governance Event Model
 
-## AEGIS™ Governance Event Model Specification
-
-**RFC**: RFC-0004  
-**Version**: 0.2  
-**Status**: Draft  
-**Authors**: AEGIS™ Initiative  
-**Created**: March 5, 2026  
-**Last Updated**: March 6, 2026
-
----
-
-# 1. Purpose
-
-This document defines the canonical event envelope, payload schemas, versioning,
-ordering, replay protection, and trust evaluation model for AEGIS™ federation
-events.
+**Status:** Draft  
+**Version:** 0.2  
+**Created:** 2026-03-05  
+**Updated:** 2026-03-06  
+**Author:** AEGIS™ Initiative, Finnoybu IP LLC  
+**Repository:** aegis-governance  
+**Target milestone:** v1.0  
+**Supersedes:** None  
+**Superseded by:** None  
 
 ---
 
-# 2. Event Envelope
+## Summary
+
+This RFC defines the canonical event envelope, payload schemas, versioning strategy, ordering guarantees, replay protection, and trust evaluation model for AEGIS™ governance federation events. It is the basis for interoperability between AEGIS governance nodes.
+
+---
+
+## Motivation
+
+A single AEGIS runtime governs one deployment. When multiple deployments need to share governance intelligence — policy updates, circumvention reports, risk signals, attestations — they need a common event format that can be verified, ordered, and trusted. Without this, federation is informal and ungovernable.
+
+---
+
+## Guide-Level Explanation
+
+Think of the governance event model as a signed, tamper-evident message format that AEGIS nodes use to talk to each other. When one node discovers a new threat pattern, it can publish a circumvention report. When another node updates its policies, it publishes a policy update event. Receiving nodes verify the signature, check the sequence, evaluate the publisher's trust score, and decide whether to act on the event automatically or queue it for operator review.
+
+---
+
+## Reference-Level Explanation
+
+### 1. Event Envelope
 
 All events MUST use this envelope:
 
@@ -42,145 +55,39 @@ All events MUST use this envelope:
 }
 ```
 
----
+### 2. Event Types
 
-# 3. Event Type Schemas
+**policy_update** — Required fields: `policy_id`, `policy_set_version`, `change_type` (add|update|deprecate|revoke), `effective_at`, `summary`, `policy_diff`
 
-## 3.1 policy_update
+**circumvention_report** — Required fields: `technique_id`, `category`, `severity`, `description`, `affected_capabilities`, `recommended_mitigations`
 
-Required payload fields:
+**risk_signal** — Required fields: `risk_category`, `severity`, `confidence` (0.0-1.0), `trend` (rising|stable|falling), `evidence_refs`
 
-- `policy_id` (string)
-- `policy_set_version` (semver)
-- `change_type` (`add|update|deprecate|revoke`)
-- `effective_at` (RFC3339 timestamp)
-- `summary` (string)
-- `policy_diff` (object)
+**governance_attestation** — Required fields: `node_id`, `aegis_version`, `policy_set_hash`, `audit_window_start`, `audit_window_end`, `attestation_result` (pass|fail|partial)
 
-Complete example:
+**incident_notice** — Required fields: `incident_id`, `category`, `severity`, `detected_at`, `affected_systems`, `containment_status`, `public_ioc_refs` (optional)
 
-```json
-{
-  "event_type": "policy_update",
-  "payload": {
-    "policy_id": "soc_query_guardrails",
-    "policy_set_version": "2.1.0",
-    "change_type": "update",
-    "effective_at": "2026-03-10T00:00:00Z",
-    "summary": "Tighten telemetry query limits",
-    "policy_diff": {
-      "max_results": {"old": 1000, "new": 500}
-    }
-  }
-}
-```
+### 3. Versioning Strategy
 
-## 3.2 circumvention_report
+Version format: `MAJOR.MINOR.PATCH`
 
-Required payload fields:
+- PATCH: backward-compatible clarifications only
+- MINOR: additive fields allowed; consumers must ignore unknown fields
+- MAJOR: breaking schema change; requires explicit migration
 
-- `technique_id`
-- `category`
-- `severity`
-- `description`
-- `affected_capabilities` (array)
-- `recommended_mitigations` (array)
+### 4. Ordering and Replay Protection
 
-## 3.3 risk_signal
-
-Required payload fields:
-
-- `risk_category`
-- `severity`
-- `confidence` (0.0-1.0)
-- `trend` (`rising|stable|falling`)
-- `evidence_refs` (array of URIs)
-
-## 3.4 governance_attestation
-
-Required payload fields:
-
-- `node_id`
-- `aegis_version`
-- `policy_set_hash`
-- `audit_window_start`
-- `audit_window_end`
-- `attestation_result` (`pass|fail|partial`)
-
-## 3.5 incident_notice
-
-Required payload fields:
-
-- `incident_id`
-- `category`
-- `severity`
-- `detected_at`
-- `affected_systems`
-- `containment_status`
-- `public_ioc_refs` (optional)
-
----
-
-# 4. Event Versioning Strategy
-
-Version format: semantic version `MAJOR.MINOR.PATCH`.
-
-Compatibility rules:
-
-1. PATCH: backward-compatible clarifications only.
-2. MINOR: additive fields allowed; consumers must ignore unknown fields.
-3. MAJOR: breaking schema change; requires explicit migration.
-
-Producer requirements:
-
-- include `schema_version` in every event
-- maintain changelog for all MINOR/MAJOR updates
-
-Consumer requirements:
-
-- reject unsupported major versions
-- accept and ignore unknown optional fields for supported major version
-
----
-
-# 5. Event Ordering and Replay Protection
-
-## 5.1 Ordering
-
-- ordering is guaranteed per `event_stream` by monotonic `event_seq`
-- consumers detect gaps and request backfill
-
-## 5.2 Replay Protection
+Ordering is guaranteed per `event_stream` by monotonic `event_seq`. Consumers detect gaps and request backfill.
 
 Consumers MUST enforce:
+- Unique `(publisher_did, event_id)`
+- Monotonic sequence checks per stream
+- Timestamp skew window (default +/- 5 minutes)
+- Signature verification with key validity period
 
-- unique `(publisher_did, event_id)`
-- monotonic sequence checks per stream
-- timestamp skew window (default +/- 5 minutes)
-- signature verification with key validity period
+### 5. Trust Evaluation Model
 
-Rejected replay scenarios:
-
-- previously seen event_id
-- sequence rollback
-- expired signature key
-- timestamp outside accepted skew window
-
----
-
-# 6. Trust Evaluation Model
-
-Trust score range: `0.0` to `1.0`.
-
-Inputs:
-
-- publisher identity validity
-- signature validity
-- historical event accuracy
-- external audit attestations
-- federation reputation
-
-Reference scoring formula:
+Trust score range: 0.0 to 1.0.
 
 ```text
 trust_score =
@@ -192,55 +99,73 @@ trust_score =
 ```
 
 Application policy:
-
-- `trust_score >= 0.8`: allow automated policy ingestion
-- `0.5 <= trust_score < 0.8`: require operator confirmation
+- `>= 0.8`: allow automated policy ingestion
+- `0.5 to 0.8`: require operator confirmation
 - `< 0.5`: quarantine event
 
----
+### 6. Delivery Guarantees
 
-# 7. Distribution and Delivery Guarantees
-
-Supported patterns:
-
-- pull feeds
-- push subscriptions
-- replicated append-only logs
-
-Delivery semantics:
-
-- at-least-once delivery
-- idempotent consumer processing required
+Supported patterns: pull feeds, push subscriptions, replicated append-only logs. Delivery semantics: at-least-once; idempotent consumer processing required.
 
 ---
 
-# 8. Security Requirements
+## Drawbacks
 
-- signed envelope required for all events
-- payload hash required and must match payload bytes
-- schema validation before trust evaluation
-- replay checks before policy application
-
----
-
-# 9. Complete Event Examples
-
-This section provides full envelope + payload examples for each event type in
-the canonical repository examples directory (normative reference path):
-
-- `schemas/examples/governance/events/policy_update.example.json`
-- `schemas/examples/governance/events/circumvention_report.example.json`
-- `schemas/examples/governance/events/risk_signal.example.json`
-- `schemas/examples/governance/events/governance_attestation.example.json`
-- `schemas/examples/governance/events/incident_notice.example.json`
+- The trust scoring model is partially subjective. `historical_accuracy` and `federation_reputation` require operational history that new nodes do not have, creating a cold-start trust problem.
+- ed25519 signature verification adds per-event overhead. High-volume event streams require careful performance management.
+- At-least-once delivery requires all consumers to implement idempotency, adding implementation burden.
 
 ---
 
-# 10. Relationship to Other Specifications
+## Alternatives Considered
 
-- RFC-0001: architecture and trust boundaries
-- RFC-0002: runtime control-plane behavior
-- RFC-0003: policy and capability semantics
-- AGP-1: request/response governance protocol
+**Unsigned events:** Simpler but provides no guarantee of publisher identity or payload integrity. Insufficient for governance intelligence sharing where a compromised publisher could poison policy state.
+
+**Synchronous policy replication:** Eliminates eventual consistency but creates tight coupling between nodes and a single point of failure for policy updates.
+
+**Centralized governance event broker:** Simplifies consumer implementation but introduces a single trusted intermediary, which conflicts with the federation model's goal of distributed governance.
 
 ---
+
+## Compatibility
+
+Downstream of RFC-0001 through RFC-0003. The event model enables federation between compliant AEGIS runtimes but does not modify the local governance cycle defined in RFC-0001 and RFC-0002.
+
+---
+
+## Implementation Notes
+
+Complete payload examples for all five event types are in the canonical repository at `schemas/examples/governance/events/`. Implementers should validate against those examples before publishing events to a federation network.
+
+The cold-start trust problem for new nodes should be addressed operationally: new nodes begin in a quarantine-only posture and are promoted based on operator attestation.
+
+---
+
+## Open Questions
+
+- [ ] Should trust scores be published as governance attestation events, creating a recursive trust signal loop?
+- [ ] Should the event model define a standard backfill request protocol?
+- [ ] How should trust scoring handle nodes that have never published circumvention reports — absence of reports vs. no reports yet?
+
+---
+
+## Success Criteria
+
+- Any two compliant AEGIS nodes can exchange all five event types without schema negotiation
+- A replay attack is detected and rejected in all scenarios defined in Section 4
+- Trust score calculation is reproducible given the same input signals
+
+---
+
+## References
+
+- RFC-0001 — AEGIS Architecture
+- RFC-0002 — Governance Runtime
+- RFC-0003 — Capability Registry and Policy Language
+- AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
+- AEGIS Federation spec — `federation/`
+
+---
+
+*"Capability without constraint is not intelligence™"*  
+*Finnoybu IP LLC — AEGIS™ Initiative*

@@ -24,12 +24,16 @@ RFCs allow the architecture to evolve while preserving a clear historical record
 
 ## Current RFCs
 
-| RFC      | Title                                 | Purpose                                                  |
-| -------- | ------------------------------------- | -------------------------------------------------------- |
-| RFC-0001 | AEGIS Architecture                    | Defines the foundational architecture and system model   |
-| RFC-0002 | Governance Runtime                    | Specifies the runtime that enforces governance decisions |
-| RFC-0003 | Capability Registry & Policy Language | Defines capability schema and governance policies        |
-| RFC-0004 | Governance Event Model                | Defines event structures used in federation networks     |
+| RFC | Title | Status | Purpose |
+|---|---|---|---|
+| RFC-0001 | AEGIS Architecture | Draft | Foundational architecture, system model, and security guarantees |
+| RFC-0002 | Governance Runtime | Draft | Runtime API, state model, error behavior, and performance requirements |
+| RFC-0003 | Capability Registry & Policy Language | Draft | Capability schema, policy language syntax, and evaluation algorithm |
+| RFC-0004 | Governance Event Model | Draft | Federation event envelope, payload schemas, and trust evaluation |
+| RFC-0005 | Reference Deployment Patterns | Draft | Deployment-agnostic patterns for Kubernetes, sidecar, embedded, and serverless |
+| RFC-0006 | Claude Code Plugin | Draft | Governance enforcement plugin for the Claude Code development environment |
+| RFC-0007 | Operational Considerations | Placeholder | Monitoring, scaling, disaster recovery, and day-two operations |
+| RFC-0008 | Federation Network Protocol | Placeholder | GFN-1 transport, discovery, and federation topology |
 
 ---
 
@@ -37,22 +41,29 @@ RFCs allow the architecture to evolve while preserving a clear historical record
 
 ### For Implementers
 
-1. **RFC-0001 — Architecture**
-2. **RFC-0002 — Governance Runtime**
-3. **RFC-0003 — Capability Registry**
-4. **RFC-0004 — Governance Event Model**
+1. RFC-0001 — Architecture
+2. RFC-0002 — Governance Runtime
+3. RFC-0003 — Capability Registry
+4. RFC-0004 — Governance Event Model
+5. RFC-0005 — Reference Deployment Patterns
 
 ### For Security Architects
 
-1. **RFC-0001 — Architecture**
-2. **RFC-0003 — Capability Registry**
-3. **RFC-0002 — Governance Runtime**
+1. RFC-0001 — Architecture
+2. RFC-0003 — Capability Registry
+3. RFC-0004 — Governance Event Model
 
 ### For Governance Designers
 
-1. **RFC-0001 — Architecture**
-2. **RFC-0003 — Capability Registry**
-3. **RFC-0004 — Governance Event Model**
+1. RFC-0001 — Architecture
+2. RFC-0003 — Capability Registry
+3. RFC-0004 — Governance Event Model
+
+### For Developers (Quick Start)
+
+1. RFC-0001 — Architecture (summary and guide-level sections)
+2. RFC-0005 — Reference Deployment Patterns (RDP-03 Embedded Lightweight)
+3. RFC-0006 — Claude Code Plugin
 
 ---
 
@@ -60,124 +71,68 @@ RFCs allow the architecture to evolve while preserving a clear historical record
 
 AEGIS™ uses a lightweight RFC process to evolve the architecture.
 
-Typical lifecycle:
+| Status | Meaning |
+|---|---|
+| Placeholder | RFC number reserved; content pending |
+| Draft | RFC under active development or review |
+| Proposed | RFC submitted for community comment |
+| Accepted | RFC merged and part of the official specification |
+| Implemented | RFC fully implemented in runtime and tooling |
+| Superseded | RFC replaced by a later RFC |
 
-1. **Proposal** — RFC submitted through a pull request
-2. **Discussion** — community review and architectural debate
-3. **Revision** — author updates the proposal
-4. **Acceptance** — maintainers merge the RFC
-5. **Implementation** — runtime and schemas updated accordingly
+Typical lifecycle: Draft → Proposed → Accepted → Implemented
 
-Accepted RFCs become part of the official AEGIS specification.
+---
+
+## RFC Template
+
+All new RFCs must use the standard template: `RFC-0000-TEMPLATE.md`
+
+Required sections: Summary, Motivation, Guide-Level Explanation, Reference-Level Explanation, Drawbacks, Alternatives Considered, Compatibility, Implementation Notes, Open Questions, Success Criteria, References.
 
 ---
 
 ## Relationship to Other Documentation
 
-RFCs are part of the broader AEGIS documentation ecosystem.
-
-| Document               | Location                    | Purpose                            |
-| ---------------------- | --------------------------- | ---------------------------------- |
-| README                 | `/`                         | Project introduction               |
-| SPECIFICATION.md       | `/`                         | Specification overview             |
-| System Overview        | `/aegis-core/overview/`     | High-level architecture            |
-| Reference Architecture | `/aegis-core/architecture/` | Detailed system design             |
-| Threat Model           | `/aegis-core/threat-model/` | Security analysis                  |
-| Protocol               | `/aegis-core/protocol/`     | AGP protocol definition            |
-| Federation             | `/federation/`              | Governance federation architecture |
-
----
-
-## Specification Scope
-
-### RFC-0001 — AEGIS Architecture
-
-Defines the foundational architecture separating AI reasoning from operational execution.
-
-Includes:
-
-* architectural principles
-* system components
-* execution model
-* security guarantees
+| Document | Location | Purpose |
+|---|---|---|
+| README | `/` | Project introduction |
+| SPECIFICATION.md | `/` | Specification overview |
+| System Overview | `/aegis-core/overview/` | High-level architecture |
+| Reference Architecture | `/aegis-core/architecture/` | Detailed system design |
+| Threat Model (ATM-1) | `/aegis-core/threat-model/` | Security analysis |
+| Protocol (AGP-1) | `/aegis-core/protocol/` | Governance protocol definition |
+| Federation (GFN-1) | `/federation/` | Governance federation architecture |
+| RFC Template | `/rfc/RFC-0000-TEMPLATE.md` | Standard RFC format |
 
 ---
 
-### RFC-0002 — Governance Runtime
+## Implementation Status
 
-Defines the runtime responsible for enforcing governance decisions.
-
-Includes:
-
-* governance gateway
-* decision engine
-* capability registry integration
-* policy evaluation
-* audit logging
-
----
-
-### RFC-0003 — Capability Registry & Policy Language
-
-Defines how capabilities are modeled and how governance policies are expressed.
-
-Includes:
-
-* capability schema
-* policy language syntax
-* evaluation semantics
-* governance invariants
-
----
-
-### RFC-0004 — Governance Event Model
-
-Defines the event structures used by AEGIS federation networks.
-
-Includes:
-
-* event envelope format
-* governance signals
-* circumvention reports
-* federation distribution
+| Component | RFC | Status |
+|---|---|---|
+| Architecture Spec | RFC-0001 | Draft Complete |
+| Runtime Spec | RFC-0002 | Draft Complete |
+| Capability Registry | RFC-0003 | Draft Complete |
+| Governance Event Model | RFC-0004 | Draft Complete |
+| Reference Deployment Patterns | RFC-0005 | Draft Complete |
+| Claude Code Plugin | RFC-0006 | Draft — Q2 2026 |
+| Operational Considerations | RFC-0007 | Placeholder |
+| Federation Network Protocol | RFC-0008 | Placeholder |
+| Reference Runtime (Python) | — | In Progress |
+| Policy Engine | — | Planned |
+| Federation Node | — | Planned |
 
 ---
 
 ## Versioning
-
-The RFC series evolves alongside the AEGIS specification.
 
 ```
 v0.x  – early architecture development
 v1.0  – stable governance standard
 ```
 
-Major architectural changes may introduce new RFC documents or revisions.
-
----
-
-## Future RFCs
-
-Possible future specifications include:
-
-* RFC-0005 — Operational Considerations (monitoring, scaling, disaster recovery)
-* RFC-0006 — Federation Network Protocol
-* RFC-0007 — Hardware-Rooted Attestation
-* RFC-0008 — Multi-Organization Governance
-
----
-
-## Implementation Status
-
-| Component              | Status         |
-| ---------------------- | -------------- |
-| Architecture Spec      | Draft Complete |
-| Runtime Spec           | Draft Complete |
-| Capability Registry    | Draft Complete |
-| Governance Event Model | Draft Complete |
-| Reference Runtime      | Planned        |
-| Policy Engine          | Planned        |
-| Federation Node        | Planned        |
+Major architectural changes may introduce new RFC documents or revisions to existing ones.
 
 ---
 
