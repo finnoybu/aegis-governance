@@ -1,5 +1,6 @@
 # RFC-0004: AEGIS™ Governance Event Model
 
+**RFC**: RFC-0004
 **Status:** Draft  
 **Version:** 0.2  
 **Created:** 2026-03-05  

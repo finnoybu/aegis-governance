@@ -1,5 +1,6 @@
-# RFC-0003: AEGIS™ Capability Registry and Policy Language
+# RFC-0003: AEGIS™ Capability Registry and Policy 
 
+**RFC**: RFC-0003
 **Status:** Draft  
 **Version:** 0.2  
 **Created:** 2026-03-05  

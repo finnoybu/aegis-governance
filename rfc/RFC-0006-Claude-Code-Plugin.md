@@ -1,5 +1,6 @@
 # RFC-0006: AEGIS™ Claude Code Plugin
 
+**RFC**: RFC-0006
 **Status:** Draft  
 **Version:** 0.1.0  
 **Created:** 2026-03-08  

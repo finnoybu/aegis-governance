@@ -1,5 +1,6 @@
 # RFC-XXXX: [Title]
 
+**RFC**: RFC number (e.g., RFC-0004)
 **Status:** Draft | Proposed | Accepted | Implemented | Superseded  
 **Version:** 0.1.0  
 **Created:** YYYY-MM-DD  

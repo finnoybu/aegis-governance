@@ -1,5 +1,6 @@
 # RFC-0002: AEGIS™ Governance Runtime Specification
 
+**RFC**: RFC-0002
 **Status:** Draft  
 **Version:** 0.2  
 **Created:** 2026-03-05  

@@ -1,5 +1,6 @@
 # RFC-0005: Reference Deployment Patterns
 
+**RFC**: RFC-0005
 **Status:** Draft  
 **Version:** 0.1.0  
 **Created:** 2026-03-07  
