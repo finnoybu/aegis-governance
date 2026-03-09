@@ -54,15 +54,16 @@ flowchart TD
     C --> G[Audit System]
     C --> H[Tool Proxy Layer]
     H --> I[External Systems]
-```
 
+  ```
 ### 3. API Surface
 
 **Submit Action — POST /aegis/actions**
 
 Request:
-```json
-{
+
+  ```json
+  {
   "request_id": "uuid-v4",
   "actor_id": "agent:soc-001",
   "capability": "telemetry.query",
@@ -82,6 +83,7 @@ Request:
 ```
 
 Response:
+
 ```json
 {
   "request_id": "uuid-v4",
@@ -90,6 +92,7 @@ Response:
   "audit_id": "audit-6f4f",
   "conditions": ["max_results=500", "timeout_ms=10000"],
   "timestamp": "2026-03-05T12:00:00Z"
+
 }
 ```
 
