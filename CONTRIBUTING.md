@@ -128,6 +128,93 @@ When submitting a pull request:
 
 ---
 
+## Documentation Header Conventions
+
+When creating or updating documentation, include a standardized header with relevant metadata. The required fields vary by document type.
+
+### Document Types
+
+#### RFCs
+RFCs (Request for Comments) track proposals for architectural or protocol changes.
+
+**Required fields:**
+- Status (Draft | Proposed | Accepted | Implemented | Superseded)
+- Version (semver)
+- Created (YYYY-MM-DD)
+- Updated (YYYY-MM-DD)
+- Author (Name, Organization)
+- Repository (aegis-governance | aegis-runtime | aegis-systems)
+
+**Optional fields:**
+- Target milestone
+- Supersedes / Superseded by
+
+**Example:**
+```markdown
+# RFC-XXXX: [Title]
+
+**Status:** Draft
+**Version:** 0.1.0
+**Created:** 2026-03-09
+**Updated:** 2026-03-09
+**Author:** [Name], [Organization]
+**Repository:** aegis-governance
+```
+
+#### Architecture & Supporting Docs
+Technical documentation explaining system design, components, and concepts.
+
+**Required fields:**
+- Version
+- Status (Informational | Standard | Deprecated)
+- Part of (e.g., AEGIS Architecture)
+- Author
+- Last Updated
+
+**Optional fields:**
+- Prerequisites
+
+**Example:**
+```markdown
+# Document Title
+
+### Description
+
+**Version**: 0.1
+**Status**: Informational
+**Part of**: AEGIS Architecture
+**Author**: [Name]
+**Last Updated**: March 9, 2026
+```
+
+#### Normative Specifications (AGP/GFN/ATM)
+Formal protocol specifications and threat models that define authoritative standards.
+
+**Required fields:**
+- Version
+- Status (Draft | Stable | Deprecated)
+- Specification ID
+- Author
+- Effective Date (use instead of Last Updated for stable specs)
+
+**Example:**
+```markdown
+# AGP-1: AEGIS Governance Protocol
+
+**Version:** 1.0.0
+**Status:** Stable
+**Specification ID:** AGP-1
+**Author:** AEGIS Core Team
+**Effective Date:** 2026-01-15
+```
+
+### Last Updated vs Effective Date
+
+- **Last Updated**: Use for draft, informational, or frequently-changing documents where the update date is most relevant.
+- **Effective Date**: Use for stable, normative specifications that define contract-like standards. Once a spec is stable, changes are tracked through new versions, not update dates.
+
+---
+
 ## Documentation
 
 Documentation lives primarily in:
