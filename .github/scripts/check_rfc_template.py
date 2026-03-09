@@ -4,14 +4,13 @@ import sys
 import re
 
 REQUIRED_FIELDS = [
-    'Title:',
-    'Status:',
-    'Created:',
-    'Last-Modified:',
-    'Author:',
-    'Type:',
-    'Topic:',
-    'Content:',
+    '**RFC**:',
+    '**Status**:',
+    '**Version**:',
+    '**Created**:',
+    '**Updated**:',
+    # Accept either Author or Author(s)
+    ('**Author**:', '**Author(s)**:'),
 ]
 
 PLACEHOLDER_STATUS = 'Placeholder'
@@ -37,7 +36,14 @@ for filename in os.listdir(RFC_DIR):
         skipped_files.append(filename)
         continue
     content = ''.join(lines)
-    missing = [field for field in REQUIRED_FIELDS if field not in content]
+    missing = []
+    for field in REQUIRED_FIELDS:
+        if isinstance(field, tuple):
+            if not any(f in content for f in field):
+                missing.append(field[0] + ' or ' + field[1])
+        else:
+            if field not in content:
+                missing.append(field)
     if missing:
         missing_fields[filename] = missing
 
