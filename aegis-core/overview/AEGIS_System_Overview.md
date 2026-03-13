@@ -10,8 +10,7 @@ Effective Date: March 5, 2026
 
 # Overview
 
-AEGIS™ (Architec
-tural Enforcement & Governance of Intelligent Systems) is a governance architecture designed to enforce deterministic control over AI-generated actions before those actions interact with operational infrastructure.
+AEGIS™ (Architectural Enforcement & Governance of Intelligent Systems) is a governance architecture designed to enforce deterministic control over AI-generated actions before those actions interact with operational infrastructure.
 
 As AI systems become capable of executing real-world operations—querying databases, modifying infrastructure, triggering workflows, and interacting with APIs—the risks associated with ungoverned execution increase significantly. Traditional AI safety approaches focus primarily on influencing model behavior through alignment training and moderation. While valuable, those approaches do not guarantee that AI systems will act safely when given operational capabilities.[^12]
 
