@@ -61,11 +61,11 @@ The governance gateway must validate actor identity before processing any action
 **Principle:**  
 Governance decisions must be enforced through system architecture rather than relying solely on AI model behavior.
 
-**Rationale:**  
-AI models are probabilistic systems and may produce unexpected outputs. Voluntary compliance is insufficient for operational safety. Governance enforcement must be **architecturally guaranteed** and deterministic, independent of model reasoning, prompt engineering, or cooperative adherence. AEGIS™ treats AI reasoning as untrusted input that must pass through mandatory governance evaluation.
+**Rationale:**
+AI models are probabilistic systems and may produce unexpected outputs.[^12] Voluntary compliance is insufficient for operational safety. Governance enforcement must be **architecturally guaranteed** and deterministic, independent of model reasoning, prompt engineering, or cooperative adherence — a property grounded in the formal theory of security automata, which establishes that only safety policies are inline-enforceable by a runtime monitor.[^2] AEGIS™ treats AI reasoning as untrusted input that must pass through mandatory governance evaluation.
 
-**Implementation Requirement:**  
-All operational actions must pass through the AEGIS™ governance runtime prior to execution. AEGIS-compliant systems must place the governance runtime between AI agents and external infrastructure. AI systems must not have direct access to operational systems—all actions must flow through the governance gateway.
+**Implementation Requirement:**
+All operational actions must pass through the AEGIS™ governance runtime prior to execution — the complete mediation property of a reference monitor.[^1] AEGIS-compliant systems must place the governance runtime between AI agents and external infrastructure. AI systems must not have direct access to operational systems—all actions must flow through the governance gateway. Where multiple enforcement points operate in tandem (gateway, decision engine, tool proxy), each enforces its own policy; the composed system enforces the conjunction of all of them.[^2]
 
 ---
 
@@ -257,6 +257,18 @@ In cases of ambiguity or conflict, constitutional interpretation prioritizes:
 This maxim encapsulates the core philosophy of AEGIS™: that true intelligence requires not just capability, but **responsible constraint**. The future of artificial intelligence will be determined not by what systems can do, but by how responsibly those capabilities are governed.
 
 AEGIS™ exists to ensure that AI systems operate within **explicitly defined and enforceable governance boundaries**.
+
+---
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
+
+[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: https://arxiv.org/abs/2602.20021. See [REFERENCES.md](../../REFERENCES.md).
 
 ---
 
