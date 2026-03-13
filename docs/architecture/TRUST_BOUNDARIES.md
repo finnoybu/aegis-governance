@@ -13,7 +13,7 @@
 ## Purpose
 
 Trust boundaries define where authority changes and where controls MUST be
-applied to prevent capability escalation.
+applied to prevent capability escalation.[^1]
 
 Any transition across trust levels requires explicit validation and audit.
 
@@ -26,6 +26,8 @@ Any transition across trust levels requires explicit validation and audit.
 | Z2 | AEGIS Governance Engine + Policy/Risk evaluation | Trusted control plane |
 | Z3 | Tool Proxy execution channel | Trusted execution gateway |
 | Z4 | OS kernel and infrastructure | Trusted executor |
+
+Zone separation follows the ZTA logical component model (policy engine, policy administrator, policy enforcement point).[^17]
 
 ## Primary Boundary Map
 
@@ -76,7 +78,7 @@ Required outputs:
 - Signed execution grant for ALLOW/CONSTRAIN.
 - No grant for ESCALATE/DENY.
 
-### B3: System Invocation Boundary (Z3 -> Z4)
+### B3: System Invocation Boundary (Z3 -> Z4)[^5]
 
 Purpose:
 
@@ -94,9 +96,9 @@ Required outputs:
 
 ## Non-Negotiable Boundary Rules
 
-1. No direct Z1 -> Z4 execution path is permitted.
+1. No direct Z1 -> Z4 execution path is permitted.[^1]
 2. Governance decisions are mandatory for all capability invocations.
-3. Default behavior on boundary uncertainty is deny or escalate.
+3. Default behavior on boundary uncertainty is deny or escalate.[^2]
 4. Boundary crossing must always be auditable.
 
 ## Data Classification at Boundaries
@@ -149,3 +151,15 @@ Boundary verification should prove:
 - `docs/architecture/GOVERNANCE_ENGINE_COMPONENTS.md`
 - `docs/architecture/POLICY_MATCHING_AND_DEBUG.md`
 - `docs/architecture/END_TO_END_REQUEST_FLOW.md`
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
+
+[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](../../REFERENCES.md).
+
+[^17]: S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207. See [REFERENCES.md](../../REFERENCES.md).
