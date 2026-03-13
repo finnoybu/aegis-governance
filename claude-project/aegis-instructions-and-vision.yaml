@@ -1,0 +1,222 @@
+name: AEGIS Instructions & Vision
+description: >
+  Operational instructions for Claude when working in the aegis-governance
+  repository, plus the full AEGIS Canon vision (repository as living paper,
+  recursive self-governance). Mirrors CLAUDE.md and docs/vision/AEGIS_CANON_VISION.md.
+  Keep in sync with those files.
+
+---
+
+project:
+  name: AEGIS™ Initiative
+  full_name: Architectural Enforcement & Governance of Intelligent Systems
+  owner: Kenneth Tannenbaum (Finnoybu IP LLC)
+  github: https://github.com/finnoybu/aegis-governance
+  license: Apache 2.0
+  ieee_member: "102220161"
+
+core_thesis: >
+  The finnoybu/aegis-governance repository IS the living paper. Not just code + docs —
+  a complete, living, peer-reviewable governance framework where every claim is
+  traceable to established research, every position is cited, and the entire corpus
+  evolves as a unified scholarly work. Submissions (IEEE, NIST) are snapshots of the
+  living repository. The repository cites the field.
+
+---
+
+instructions_for_claude:
+
+  always:
+    - Read a file before editing it
+    - Check if claims should be cited; reference REFERENCES.md when adding technical content
+    - Maintain consistent terminology with cited sources
+    - Cross-reference related AEGIS documents rather than restating their content
+    - Suggest citations when reviewing or adding content
+    - Use backslash line breaks in markdown metadata (linter strips trailing spaces)
+    - Use blockquotes for notices, not fenced code blocks
+
+  never:
+    - Make uncited claims about architectural precedents
+    - Use terminology inconsistent with cited sources
+    - Restate content from canonical files — link to them instead
+    - Edit frozen documents without explicit instruction
+    - Conflate RLHF, Constitutional AI, and Constitutional Autonomy (distinct terms)
+    - Add Constitutional Autonomy (Agbemabiese 2026) to comparison tables without explicit instruction
+
+  git_workflow:
+    branch_naming: "docs/topic, feat/topic, fix/topic"
+    merge_strategy: squash merge always
+    commit_format: "Type: description\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+    never: force-push, skip hooks
+
+---
+
+terminology_distinctions:
+  - term: RLHF
+    definition: Reinforcement learning from human feedback (human labelers)
+    do_not_confuse_with: Constitutional AI
+  - term: Constitutional AI
+    definition: Reinforcement learning from AI feedback / RLAIF (Anthropic)
+    do_not_confuse_with: RLHF
+  - term: Constitutional Autonomy
+    definition: >
+      Agbemabiese (IEEE Access 2026) — runtime attention mechanism modification.
+      Brand-new paper, not yet widely cited. Use only where properly cited
+      (outreach record, Discussion #39). Do not use in comparison tables.
+    do_not_confuse_with: Constitutional AI
+  - term: Architectural-layer governance
+    definition: AEGIS — enforcement at execution boundary, model-agnostic, deterministic, federated
+    do_not_confuse_with: Model-layer approaches
+  - term: Model-layer governance
+    definition: Training-time alignment (RLHF, Constitutional AI, fine-tuning)
+    do_not_confuse_with: Architectural enforcement
+  - note: >
+      Model-layer and architectural-layer approaches are COMPLEMENTARY (defense-in-depth),
+      not competitive. AEGIS positioning should always reflect this.
+
+---
+
+frozen_documents:
+  - path: docs/position-papers/nist/2026-03-aegis-nist-ai-rmf-position-statement.md
+    status: SUBMITTED
+    rule: Do not edit under any circumstances.
+    submitted: "2026-03-07"
+    submission_type: Unsolicited Position Paper to NIST AI RMF
+
+  - path: aegis-core/manifesto/AEGIS_Manifesto.md
+    status: v0.1, referenced in NIST submission
+    rule: >
+      Substantial edits require version bump to 0.2. Treat changes as amendments,
+      not revisions. The manifesto is cited in the submitted NIST paper — changes
+      create provenance inconsistency.
+
+---
+
+single_source_of_truth:
+  - canonical: docs/position-papers/nist/2026-03-aegis-nist-ai-rmf-position-statement.md
+    rule: All NIST submission details must link here, not restate
+  - canonical: docs/position-papers/nist/README.md
+    rule: NIST directory index
+  - canonical: docs/outreach/
+    rule: All outreach records archived here
+
+---
+
+outreach_conventions:
+  header_fields_in_order: [Date, From, To, Status, Response, Discussion]
+  status_values: [Initial outreach sent, Follow-up sent, Response received, Closed]
+  response_values: [Pending, Received, No response]
+  file_naming: YYYY-MM-<topic>.md
+  readme_log: Keep docs/outreach/README.md log table current when adding records
+
+---
+
+citation_format:
+  style: IEEE
+  full: '[Author(s)], "Title," *Publication*, vol. X, no. Y, pp. ZZZ-ZZZ, Year, doi: XX.XXXX/XXXXXX.'
+  in_text: "[DroidForce, 2014] or numbered [1]"
+  bibliography_file: REFERENCES.md (to be created — Phase 1)
+
+---
+
+key_prior_art:
+  - shortname: DroidForce 2014
+    authors: Rasthofer, Arzt, Lovat, Bodden
+    title: "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android"
+    venue: ARES 2014
+    doi: 10.1109/ARES.2014.13
+    relevance: Centralized PDP + decentralized PEP architectural pattern — maps to AGP-1 + AEGIS gates
+
+  - shortname: Smart I/O 2020
+    authors: Pearce, Pinisetty, Roop, Kuo, Ukil
+    title: Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems
+    venue: IEEE Transactions on Industrial Informatics
+    doi: 10.1109/TII.2019.2945520
+    relevance: Boundary enforcement between controller and infrastructure; compromised controller threat model
+
+  - shortname: Web Services 2012
+    authors: Hallé, Villemaire
+    title: Runtime Enforcement of Web Service Message Contracts with Data
+    venue: IEEE Transactions on Services Computing
+    doi: 10.1109/TSC.2011.10
+    relevance: Runtime contract enforcement; ACTION_PROPOSE → ACTION_DECIDE → ACTION_EXECUTE pattern
+
+  - shortname: CPS Parallel 2024
+    authors: Baird, Panda, Pearce, Pinisetty, Roop
+    title: Scalable Security Enforcement for Cyber-Physical Systems
+    venue: IEEE Access
+    doi: 10.1109/ACCESS.2024.3357714
+    relevance: Compositional enforcement; scalability validation
+
+  - shortname: POLYNIX 2026
+    authors: Arunachalam, Kayyidavazhiyil, Santikellur
+    title: "POLYNIX: A Hybrid Policy Enforcement Framework for Zero-Trust Security in Virtualized Systems"
+    venue: IEEE CCNC 2026
+    doi: 10.1109/CCNC65079.2026.11366307
+    relevance: Hybrid centralized + distributed enforcement; <1% CPU overhead; <2s policy propagation
+
+  - shortname: Constitutional Autonomy 2026
+    authors: Agbemabiese, W. T.
+    title: "Toward Constitutional Autonomy in AI Systems: A Theoretical Framework for Aligned Agentic Intelligence"
+    venue: IEEE Access, vol. 14, pp. 11385-11402
+    doi: 10.1109/ACCESS.2026.3654907
+    ieee_xplore: https://ieeexplore.ieee.org/document/11354471
+    relevance: Model-layer governance complement to AEGIS; outreach initiated 2026-03-13; Discussion #39
+
+  - shortname: Schneider 2000
+    authors: Schneider, F. B.
+    title: Enforceable Security Policies
+    venue: ACM TISSEC
+    relevance: Security automata theory; foundation for constitutional enforcement
+
+  - shortname: NIST AI RMF 2023
+    title: AI Risk Management Framework (AI RMF 1.0)
+    publisher: NIST
+    relevance: Standards framework; AEGIS submitted unsolicited position paper 2026-03-07
+
+---
+
+aegis_canon_vision:
+  summary: >
+    AEGIS Canon is a local AI system running under the AEGIS governance framework
+    to govern its own development. The theoretical framework governs the physical
+    implementation; the physical implementation validates the theoretical framework.
+    Each refines the other. This closes the proof-of-concept loop.
+
+  loop:
+    - AEGIS Governance Framework (Theory) → Constitution, Architecture, AGP-1, ATM-1
+    - AEGIS Canon (Physical Implementation) → Local governance server, AGP-1 runtime, policy engine
+    - Local AI (Under AEGIS Governance) → Proposes code changes, RFC drafts via AGP-1
+    - AEGIS Framework Improvements → RFC proposals, architecture refinements
+    - Loop back to Theory
+
+  philosophical_distinction:
+    alignment: Make the AI want to do the right thing
+    governance: The AI can propose anything; governance decides what executes
+    maxim: Capability without constraint is not intelligence™ — even when improving the constraint itself
+
+  timeline:
+    week_1: Repository realignment, REFERENCES.md, IEEE paper
+    week_2: AEGIS Canon local server, AGP-1 runtime, policy engine
+    week_3: Connect local AI to governance, first governed proposals, audit validation
+    week_4: AEGIS Canon actively developing AEGIS under governance
+
+  success_criteria:
+    - Local AI proposes AEGIS improvements via AGP-1
+    - AEGIS governance evaluates against constitution
+    - High-impact changes require human confirmation
+    - Constitutional violations denied deterministically
+    - All decisions logged with immutable audit trail
+    - Framework evolves recursively
+    - Implementation proves the theory
+
+---
+
+implementation_status:
+  phase_1_references_md: pending
+  phase_2_document_citations: pending
+  phase_3_terminology_alignment: partially complete (System Overview updated 2026-03-13)
+  phase_4_cross_references: pending
+  aegis_canon_server: planned (week 2)
+  nist_submission: submitted 2026-03-07
+  outreach_constitutional_autonomy: sent 2026-03-13, response pending (Discussion #39)
