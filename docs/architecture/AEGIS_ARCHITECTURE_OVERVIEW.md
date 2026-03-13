@@ -58,7 +58,7 @@ External Input -> Application/Agent Layer -> Governance Gateway
 
 - Governance Gateway: request admission, schema validation, identity binding.
 - Capability Registry: allowed capabilities and agent grants.
-- Policy Engine: policy matching, precedence, effect resolution.
+- Policy Engine: policy matching, precedence, effect resolution.[^4]
 - Risk Engine: contextual risk scoring and threshold mapping.
 - Decision Engine: deterministic orchestration and final decision.
 - Tool Proxy Layer: constrained execution and runtime guardrails.
@@ -68,7 +68,7 @@ External Input -> Application/Agent Layer -> Governance Gateway
 
 AEGIS enforces three non-negotiable controls:
 
-1. Complete mediation: no direct capability execution from agent plane.
+1. Complete mediation: no direct capability execution from agent plane.[^1]
 2. Deterministic evaluation: fixed order and reproducible outcomes.
 3. Fail-closed behavior: uncertainty cannot produce implicit allow.
 
@@ -111,3 +111,11 @@ AEGIS architecture is considered correctly implemented when:
 AEGIS shifts AI systems from implicit trust to governed execution. It combines
 capability boundaries, policy logic, risk-aware controls, and immutable evidence
 to produce safe, auditable, and operationally robust AI behavior.
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](../../REFERENCES.md).
