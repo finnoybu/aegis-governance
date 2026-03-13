@@ -61,7 +61,7 @@ This ensures:
 
 ### 3. Complete Attribution
 
-**Principle**: Every request includes authenticated actor identity
+**Principle**: Every request includes authenticated actor identity[^17]
 
 This enables:
 
@@ -135,7 +135,7 @@ AGP-1 defines **6 message types** for complete governance:
 
 ---
 
-## Protocol Lifecycle
+## Protocol Lifecycle[^3]
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -297,3 +297,11 @@ Continue reading:
 1. **[AEGIS_AGP1_MESSAGES.md](./AEGIS_AGP1_MESSAGES.md)** - Exact message schemas and field specifications
 2. **[AEGIS_AGP1_AUTHENTICATION.md](./AEGIS_AGP1_AUTHENTICATION.md)** - How to authenticate as a client
 3. **[AGP1_Flows.md](./AGP1_Flows.md)** - Visual protocol flows and state machines
+
+---
+
+## References
+
+[^3]: S. Hallé and R. Villemaire, "Runtime Enforcement of Web Service Message Contracts with Data," *IEEE Transactions on Services Computing*, vol. 5, no. 2, pp. 192–206, April–June 2012, doi: 10.1109/TSC.2011.10. See [REFERENCES.md](../../REFERENCES.md).
+
+[^17]: S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207. See [REFERENCES.md](../../REFERENCES.md).
