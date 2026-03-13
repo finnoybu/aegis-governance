@@ -560,7 +560,7 @@ Ready to explore AEGIS governance? Follow this learning path:
 
 [^8]: K. Arunachalam, A. Kayyidavazhiyil, and P. Santikellur, "POLYNIX: A Hybrid Policy Enforcement Framework for Zero-Trust Security in Virtualized Systems," *2026 IEEE 23rd Consumer Communications & Networking Conference (CCNC)*, 2026, doi: 10.1109/CCNC65079.2026.11366307. See [REFERENCES.md](../../../REFERENCES.md).
 
-[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: https://arxiv.org/abs/2602.20021. See [REFERENCES.md](../../../REFERENCES.md).
+[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>. See [REFERENCES.md](../../../REFERENCES.md).
 
 ---
 
