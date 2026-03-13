@@ -27,6 +27,16 @@ Core maxim:
 
 > Capability without constraint is not intelligence™
 
+## Architectural Layer
+
+AEGIS enforces policy at the architectural layer—the boundary between AI agents and infrastructure—making it:
+
+- **Model-agnostic**: Works with any LLM (GPT-4, Claude, Llama, etc.)
+- **Deterministic**: Guaranteed enforcement regardless of model behavior
+- **Federated**: Cross-organizational governance via GFN-1
+
+This contrasts with model-internal approaches (RLHF, Constitutional Autonomy) that modify model weights or attention mechanisms. AEGIS and model-layer approaches are complementary (defense-in-depth).
+
 ## Architecture Goals
 
 - Deterministic governance of capability execution.

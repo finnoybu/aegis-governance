@@ -19,8 +19,9 @@ This directory contains AEGIS™ responses to:
 - **File**: [2026-03-aegis-nist-ai-rmf-position-statement.md](2026-03-aegis-nist-ai-rmf-position-statement.md)
 - **Date**: March 7, 2026
 - **Topic**: AEGIS™ architecture as reference implementation for AI RMF execution-time governance
-- **Status**: Draft for Public Comment
-- **Docket Number**: TBD
+- **Status**: Submitted for Public Comment and Community Review
+- **Submission Date**: March 7, 2026
+- **Submission Type**: Unsolicited Position Paper
 
 ---
 

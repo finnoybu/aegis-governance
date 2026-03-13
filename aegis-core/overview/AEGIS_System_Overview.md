@@ -26,6 +26,44 @@ Only approved actions execute
 
 ---
 
+# Architectural Positioning
+
+AEGIS operates at the **architectural layer**, enforcing policy at the execution boundary between AI agents and infrastructure. This distinguishes AEGIS from model-internal governance approaches.
+
+## Key Distinctions
+
+**Architectural vs Model-Layer:**
+- **AEGIS** enforces policy *outside* the AI model, at the boundary between agents and infrastructure
+- **Model-internal approaches** (e.g., Constitutional Autonomy, RLHF) modify model weights, attention mechanisms, or training objectives
+- AEGIS intercepts and validates agent actions *before* they reach external systems
+
+**Model-Agnostic:**
+- AEGIS works with any LLM or AI agent architecture
+- No model modification, retraining, or access to internal parameters required
+- Same governance framework applies to GPT-4, Claude, Llama, or any future model
+
+**Deterministic Enforcement:**
+- Unlike probabilistic model-layer approaches, AEGIS provides deterministic policy enforcement
+- If a policy prohibits an action, that action cannot be executed—regardless of model outputs, jailbreaks, or prompt injection
+- Architectural enforcement guarantees compliance
+
+**Federated Trust:**
+- AEGIS enables governance across organizational boundaries through the Governance Federation Network (GFN-1)
+- Organizations enforce their own policies while participating in cross-organizational trust networks
+- Impossible with siloed model-layer approaches
+
+## Complementary Approaches (Defense-in-Depth)
+
+AEGIS is **complementary** to model-layer governance, not competitive. Ideal deployment combines both:
+
+- **Model Layer**: Constitutional AI, RLHF, fine-tuning → shapes model behavior
+- **Architectural Layer**: AEGIS → enforces organizational policy
+
+**Example Integration:**
+An organization might use Constitutional AI (model-layer) to align agent behavior with human values, while simultaneously deploying AEGIS (architectural-layer) to enforce company policy, regulatory compliance, and cross-organizational agreements. Constitutional AI reduces the frequency of policy violations; AEGIS prevents violations from executing.
+
+---
+
 # Why AEGIS?
 
 Organizations deploying AI systems with operational capabilities face a critical question:

@@ -18,6 +18,10 @@ This design ensures that AI systems cannot directly execute operational actions 
 
 ---
 
+> **Architectural Layer Enforcement**: AEGIS operates at the architectural layer, enforcing policy at the execution boundary between AI agents and infrastructure. Unlike model-internal approaches (Constitutional Autonomy, RLHF), AEGIS is model-agnostic, deterministic, and federated. See [System Overview](../overview/AEGIS_System_Overview.md#architectural-positioning) for detailed positioning.
+
+---
+
 # Architectural Model
 
 ```
