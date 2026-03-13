@@ -68,7 +68,7 @@ All governance decisions must produce immutable records.
 
 ### Incremental Deployability
 
-AEGIS™ can be introduced gradually into existing AI systems.
+AEGIS™ can be introduced gradually into existing AI systems.[^7]
 
 ---
 
@@ -170,7 +170,7 @@ Risk scores may influence governance outcomes.
 
 ### Policy Enforcement
 
-Evaluates governance policies against the action request.
+Evaluates governance policies against the action request.[^4]
 
 Policies define conditions under which actions may execute.
 
@@ -214,7 +214,7 @@ Capabilities must be defined before they can be used.
 
 ## Policy Engine
 
-The policy engine evaluates governance rules defined in structured formats.
+The policy engine evaluates governance rules defined in structured formats.[^14]
 
 Policies determine when capabilities may be exercised.
 
@@ -539,7 +539,7 @@ AEGIS governance introduces evaluation latency before every action execution.
 | Risk Evaluation | <3ms | Recent history cache, async scoring |
 | Policy Evaluation | <5ms | Compiled policies, indexed rules |
 | Audit Write | <1ms | Async log write, buffering |
-| **Total (95th percentile)** | **<15ms** | **End-to-end optimization** |
+| **Total (95th percentile)** | **<15ms**[^8] | **End-to-end optimization** |
 
 ## Performance Optimization Strategies
 
@@ -591,7 +591,7 @@ Key metrics to monitor:
 
 AEGIS governance enforces security through multiple layers.
 
-## Trust Boundaries
+## Trust Boundaries[^17]
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -943,6 +943,22 @@ This document complements:
 * AGP-1 — Governance Protocol
 
 Together these documents define the complete AEGIS™ governance architecture.
+
+---
+
+---
+
+## References
+
+[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^7]: A. Baird, A. Panda, H. Pearce, S. Pinisetty, and P. Roop, "Scalable Security Enforcement for Cyber Physical Systems," *IEEE Access*, vol. 12, pp. 14385–14410, 2024, doi: 10.1109/ACCESS.2024.3357714. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^8]: K. Arunachalam, A. Kayyidavazhiyil, and P. Santikellur, "POLYNIX: A Hybrid Policy Enforcement Framework for Zero-Trust Security in Virtualized Systems," *2026 IEEE 23rd Consumer Communications & Networking Conference (CCNC)*, 2026, doi: 10.1109/CCNC65079.2026.11366307. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^14]: Open Policy Agent Project, "Open Policy Agent," The Linux Foundation, 2016–present. [Online]. Available: <https://www.openpolicyagent.org>. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^17]: S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207. See [REFERENCES.md](../../../REFERENCES.md).
 
 ---
 
