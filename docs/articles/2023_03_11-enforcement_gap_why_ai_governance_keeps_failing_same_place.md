@@ -352,7 +352,7 @@ The project is released under the Apache 2.0 license and is actively seeking con
 
 **IP Ownership**: AEGIS™ and "Capability without constraint is not intelligence™" are trademarks of Finnoybu IP LLC, a subsidiary of Finnoybu Holdings LLC.
 
-### Learn more:
+### Learn more
 
 - **Repository**: [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)
 - **Constitution**: [aegissystems.app](https://aegissystems.app)

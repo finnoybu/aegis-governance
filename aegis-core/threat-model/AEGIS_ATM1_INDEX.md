@@ -276,7 +276,7 @@ Planned extensions:
 
 ## References
 
-[Shapira et al., 2026] N. Shapira et al., "Agents of Chaos," arXiv preprint arXiv:2602.20021, Feb. 2026. [Online]. Available: https://arxiv.org/abs/2602.20021
+[Shapira et al., 2026] N. Shapira et al., "Agents of Chaos," arXiv preprint arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>
 
 [Smart I/O, 2020] H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520.
 

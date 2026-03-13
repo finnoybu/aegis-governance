@@ -8,7 +8,7 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 
 ## Foundational Security Theory
 
-[1] J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. [Online]. Available: https://csrc.nist.gov/files/pubs/conference/1998/10/08/proceedings-of-the-21st-nissc-1998/final/docs/early-cs-papers/ande72.pdf\
+[1] J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. [Online]. Available: <https://csrc.nist.gov/files/pubs/conference/1998/10/08/proceedings-of-the-21st-nissc-1998/final/docs/early-cs-papers/ande72.pdf>\
 **Relevance to AEGIS:** First articulation of the reference monitor — a component that validates all references made by executing programs against those authorized for the subject. The conceptual origin of every enforcement boundary AEGIS inherits. AEGIS's governance gateway is a direct descendant of this concept.
 
 [2] F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382.\
@@ -47,11 +47,11 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 
 ## Model-Layer AI Governance
 
-[9] P. Christiano, J. Leike, T. B. Brown, M. Martic, S. Legg, and D. Amodei, "Deep Reinforcement Learning from Human Preferences," in *Advances in Neural Information Processing Systems (NeurIPS)*, 2017. arXiv:1706.03741. [Online]. Available: https://arxiv.org/abs/1706.03741\
+[9] P. Christiano, J. Leike, T. B. Brown, M. Martic, S. Legg, and D. Amodei, "Deep Reinforcement Learning from Human Preferences," in *Advances in Neural Information Processing Systems (NeurIPS)*, 2017. arXiv:1706.03741. [Online]. Available: <https://arxiv.org/abs/1706.03741>\
 **Keywords:** Reinforcement learning from human feedback; RLHF; human preferences; reward learning\
 **Relevance to AEGIS:** Origin paper for RLHF. Cited alongside Constitutional AI [10] to establish the model-layer alignment lineage that AEGIS is complementary to. AEGIS positioning documents distinguish RLHF (human feedback) from Constitutional AI (AI feedback) — this paper establishes the RLHF definition.
 
-[10] Y. Bai et al., "Constitutional AI: Harmlessness from AI Feedback," arXiv:2212.08073, Dec. 2022. [Online]. Available: https://arxiv.org/abs/2212.08073\
+[10] Y. Bai et al., "Constitutional AI: Harmlessness from AI Feedback," arXiv:2212.08073, Dec. 2022. [Online]. Available: <https://arxiv.org/abs/2212.08073>\
 **Keywords:** Constitutional AI; RLAIF; AI alignment; harmlessness; reinforcement learning from AI feedback\
 **Relevance to AEGIS:** Establishes Constitutional AI (RLAIF) as a distinct model-layer alignment technique, differentiated from RLHF. Used in AEGIS positioning: Constitutional AI governs AI reasoning at training time (probabilistic); AEGIS governs AI execution at runtime (deterministic). The terminology distinction in AEGIS documents (RLHF ≠ Constitutional AI) is grounded in this paper.
 
@@ -59,7 +59,7 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 **Keywords:** Agentic systems; AI alignment; AI governance; artificial general intelligence; constitutional AI; long-horizon autonomy; runtime validation; sociotechnical validation; theoretical framework\
 **Relevance to AEGIS:** Model-layer governance complement to AEGIS's architectural-layer approach. Constitutional Autonomy governs AI reasoning through attention mechanism modification; AEGIS governs AI execution at the architectural boundary. Together they form a defense-in-depth governance stack. See [docs/outreach/](docs/outreach/) and [Discussion #39](https://github.com/finnoybu/aegis-governance/discussions/39).
 
-[12] N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: https://arxiv.org/abs/2602.20021\
+[12] N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>\
 **Keywords:** Agentic AI; red-teaming; autonomous agents; LLM safety; tool use; multi-agent systems\
 **Relevance to AEGIS:** Red-teaming study of autonomous LLM agents with persistent memory, email, file system, and shell access — documents eleven case studies of governance failures in agentic systems. Directly motivates AEGIS's architectural enforcement posture: agents with real-world tool access require deterministic governance boundaries, not just alignment training.
 
@@ -67,23 +67,23 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 
 ## Standards & Frameworks
 
-[13] National Institute of Standards and Technology, "Artificial Intelligence Risk Management Framework (AI RMF 1.0)," NIST AI 100-1, U.S. Department of Commerce, Washington, DC, Jan. 2023, doi: 10.6028/NIST.AI.100-1. [Online]. Available: https://doi.org/10.6028/NIST.AI.100-1\
+[13] National Institute of Standards and Technology, "Artificial Intelligence Risk Management Framework (AI RMF 1.0)," NIST AI 100-1, U.S. Department of Commerce, Washington, DC, Jan. 2023, doi: 10.6028/NIST.AI.100-1. [Online]. Available: <https://doi.org/10.6028/NIST.AI.100-1>\
 **Relevance to AEGIS:** Primary standards framework context for AEGIS. AEGIS submitted an unsolicited position paper proposing execution-time governance as a first-class AI RMF implementation pattern (March 7, 2026). See [docs/position-papers/nist/](docs/position-papers/nist/).
 
-[14] Open Policy Agent Project, "Open Policy Agent," The Linux Foundation, 2016–present. [Online]. Available: https://www.openpolicyagent.org\
+[14] Open Policy Agent Project, "Open Policy Agent," The Linux Foundation, 2016–present. [Online]. Available: <https://www.openpolicyagent.org>\
 **Relevance to AEGIS:** Proven policy engine pattern referenced in AGP-1 and AEGIS_Reference_Architecture.md. POLYNIX [8] validates OPA at scale (<1% CPU overhead, <2s policy propagation), directly supporting AEGIS's policy engine design decisions.
 
-[15] European Parliament and Council of the European Union, "Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)," *Official Journal of the European Union*, vol. 67, OJ L, 12 Jul. 2024. [Online]. Available: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689\
+[15] European Parliament and Council of the European Union, "Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)," *Official Journal of the European Union*, vol. 67, OJ L, 12 Jul. 2024. [Online]. Available: <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689>\
 **Relevance to AEGIS:** Primary EU regulatory framework for AI. While NIST AI RMF [13] is the technical governance framework AEGIS is built against, the EU AI Act is the regulatory environment AEGIS-governed systems must satisfy. Architectural enforcement at runtime (AEGIS's posture) directly supports mandatory conformity requirements under the Act. Most relevant to whitepaper, sponsor copy, and regulatory alignment documentation for EU-market enterprises and public institutions.
 
 [16] International Organization for Standardization and International Electrotechnical Commission, "Information technology — Artificial intelligence — Management system," ISO/IEC 42001:2023(E), Geneva, Switzerland, Dec. 2023.\
 **Relevance to AEGIS:** The world's first AI management system standard — defines what an organization's AI management system must do. AEGIS provides the architectural enforcement layer that makes ISO/IEC 42001 requirements technically auditable and deterministically enforceable at runtime. Clause mapping: §5.2 (AI policy) → AEGIS Doctrine layer; §6.1.2/6.1.3 (risk assessment/treatment) → ATM-1; §6.1.4 (AI system impact assessment) → AGP-1 ESCALATE/REQUIRE_CONFIRMATION; §8.1 (operational control) → AGP-1 runtime enforcement; §9.1/9.2 (monitoring and audit) → AEGIS audit trail and query interface; Annex A (reference controls) → AEGIS capability registry and policy engine. ISO/IEC 42001 itself uses STRIDE for threat modeling across the AI lifecycle — the same framework as ATM-1. Together with NIST AI RMF [13] and the EU AI Act [15], these three form the governance triad AEGIS implements: risk framework (NIST) + regulatory obligation (EU Act) + management system standard (ISO/IEC 42001).
 
-[17] S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207. [Online]. Available: https://doi.org/10.6028/NIST.SP.800-207\
+[17] S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>\
 **Keywords:** Zero trust architecture; ZTA; identity verification; dynamic policy; microsegmentation; least privilege\
 **Relevance to AEGIS:** Canonical definitional reference for zero-trust architecture. AEGIS implements the four core ZTA tenets from §2 directly: (1) all resources must be authenticated before access is granted → AGP-1 actor identity requirement; (2) access is determined by dynamic policy → AGP-1 capability registry and policy engine; (3) all communication is secured regardless of network location → AGP-1 mTLS requirement; (4) all resource access is logged and inspected → AEGIS immutable audit trail. The §3 logical components model (policy engine, policy administrator, policy enforcement point) maps directly to the AGP-1 architecture. POLYNIX [8] validates these ZTA principles empirically; SP 800-207 is the definitional reference reviewers expect to see cited alongside POLYNIX. Public domain — may be quoted directly.
 
-[18] B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020, doi: 10.17487/RFC8705. [Online]. Available: https://www.rfc-editor.org/rfc/rfc8705\
+[18] B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020, doi: 10.17487/RFC8705. [Online]. Available: <https://www.rfc-editor.org/rfc/rfc8705>\
 **Keywords:** OAuth 2.0; mTLS; certificate-bound tokens; client authentication; `cnf` claim; token binding\
 **Relevance to AEGIS:** Normative specification for AGP-1's combined JWT + mTLS authentication model. RFC 8705 defines how a client certificate at the TLS layer is cryptographically bound to an access token via the `cnf` (confirmation) claim — the token can only be used by the client holding the corresponding private key. This binding directly closes ATM-1's T3 (Identity Spoofing) and AV-1.4 (Token/Credential Theft) vectors: an intercepted token is useless without the certificate. RFC 7519 (JWT format) is the secondary reference if a reader needs the JWT structure definition; RFC 8705 is the primary citation wherever AGP-1 authentication is invoked.
 

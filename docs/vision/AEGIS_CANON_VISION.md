@@ -229,6 +229,7 @@ AEGIS Canon = A local AI system running the AEGIS governance framework to govern
 **Decision:** `DENY`
 
 **Audit log:**
+
 ```json
 {
   "event_id": "EVT-20260314-0001",
@@ -265,7 +266,7 @@ This is not AI alignment. This is AI governance.
 **Alignment says:** Make the AI want to do the right thing.\
 **Governance says:** The AI can propose anything; governance decides what executes.
 
-*Capability without constraint is not intelligence™ — even when the capability is improving the constraint itself.*
+_Capability without constraint is not intelligence™ — even when the capability is improving the constraint itself._
 
 ### Timeline
 

@@ -1,7 +1,7 @@
 > **Document**: 2026-03-aegis-nist-ai-rmf-position-statement.md\
 > **Version**: 0.1.0\
 > **Part of**: AEGIS™ Position Papers\
-
+>
 > **SUBMITTED — DO NOT EDIT**
 > This document has been formally submitted to NIST. The authoritative submitted version is [FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.pdf](FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.pdf). This markdown is preserved as a readable reference only. Any future updates must be issued as a new submission, not edits to this file.
 
@@ -18,7 +18,6 @@
 **Steward**: Finnoybu IP LLC | AEGIS™ Initiative\
 **Repository**: [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)\
 **Constitution**: [aegissystems.app](https://aegissystems.app)
-
 
 > *Capability without constraint is not intelligence™*
 
