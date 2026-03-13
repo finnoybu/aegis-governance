@@ -87,6 +87,10 @@ AEGIS™ threat actors are categorized by capability, motivation, and access lev
 - Detection difficulty: high (appears legitimate)
 - Impact window: extends until behavior flagged
 
+**Empirical Precedent:**
+
+The compromised internal agent threat model is grounded in two independent research traditions. In industrial control systems, Pearce et al. [Smart I/O, 2020] establish that enforcement must sit at the boundary between a potentially-compromised controller and the infrastructure it commands — the controller's internal state cannot be trusted. In contemporary agentic AI systems, Shapira et al. [Agents of Chaos, 2026] provide empirical documentation of this threat in live deployments: agents with legitimate credentials disclosed sensitive information, executed destructive system-level actions, and were corrupted through cross-agent interaction — all while possessing valid authorization. Both research traditions converge on the same architectural conclusion: enforcement at the boundary, not inside the agent.
+
 ---
 
 ### Actor 3: Insider with Elevated Access

@@ -117,6 +117,8 @@ Controls:
 - mTLS between components.
 - Nonce/replay protection and strict token validation.
 
+*Empirical precedent:* Documented in Shapira et al. [Agents of Chaos, 2026], Case Study #8 (Owner Identity Spoofing): agents in a live deployment were successfully manipulated into accepting non-owner instructions as owner-level authority, executing unauthorized actions under false identity assumptions. Attribution of malicious actions to trusted identities was confirmed in practice.
+
 ### T4: Audit Log Manipulation
 
 Scenario:
@@ -166,6 +168,22 @@ Controls:
 - Governance remains out-of-band and deterministic.
 - Prompt content is never an authorization source.
 - Policy/risk checks remain mandatory before execution.
+
+*Empirical precedent:* Documented in Shapira et al. [Agents of Chaos, 2026], Case Study #12 (Prompt Injection via Broadcast): malicious broadcast messages caused agents in a live deployment to identify and act on injected instructions propagated through shared communication channels. Cross-agent corruption (Case Study #10) was additionally documented as a multi-hop prompt injection variant, in which unsafe practices propagated between agents through knowledge-sharing mechanisms. Both cases confirm that model-layer defenses are insufficient to prevent injection-driven misbehavior at the execution level.
+
+## Empirical and Industrial Precedent
+
+ATM-1's threat scenarios are not hypothetical — they have been documented empirically in live agentic deployments and validated by decades of industrial control systems security practice.
+
+**Contemporary agentic systems:** Shapira et al. [Agents of Chaos, 2026] conducted a two-week red-teaming study of autonomous LLM-powered agents deployed in a live laboratory environment with persistent memory, email accounts, Discord access, file systems, and shell execution. Twenty AI researchers conducted adversarial testing across eleven documented case studies. The study recorded unauthorized compliance with non-owner instructions, sensitive information disclosure, destructive system-level actions, denial-of-service, owner identity spoofing, cross-agent propagation of unsafe practices, and partial system takeover — mapping directly to T1 (Governance Bypass), T3 (Identity Spoofing), T5 (Coordinated Low-Risk Abuse), T6 (Prompt Injection), and the Information Disclosure and Denial of Service categories in the STRIDE mapping above.
+
+Critically, the paper's authors attribute these failures explicitly to the *agentic layer* — the integration of language models with tool use, persistent memory, communication channels, and delegated authority — not to model-level weaknesses. Model alignment was insufficient to prevent the documented harms. The paper calls explicitly for "systematic oversight and realistic red-teaming for agentic systems" and governance protocols addressing accountability when autonomous systems cause harm. This finding directly establishes the architectural enforcement gap that ATM-1 addresses.
+
+**Industrial control systems precedent:** Pearce et al. [Smart I/O, 2020] establish in the industrial control systems domain that enforcement modules positioned between a potentially-compromised controller and the actuators it commands prevent damage regardless of controller state. The core architectural assumption — that the controller cannot be trusted — maps directly to ATM-1's TA-2 threat actor model: the AI agent (controller) may be compromised through prompt injection, adversarial inputs, or supply-chain manipulation; AEGIS's governance gateway (I/O module enforcer) intercepts and evaluates all action proposals before they reach infrastructure (actuators).
+
+Together, these precedents establish that ATM-1's compromised agent assumption (TA-2) and governance-as-architecture approach are grounded in both contemporary agentic systems research and decades of industrial control systems security practice.
+
+---
 
 ## STRIDE Mapping
 
@@ -255,6 +273,16 @@ Planned extensions:
 - Adversarial simulation.
 - Runtime anomaly detection tuning based on production baselines.
 - Governance reputation systems within the federation network.
+
+## References
+
+[Shapira et al., 2026] N. Shapira et al., "Agents of Chaos," arXiv preprint arXiv:2602.20021, Feb. 2026. [Online]. Available: https://arxiv.org/abs/2602.20021
+
+[Smart I/O, 2020] H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520.
+
+See [REFERENCES.md](../../../REFERENCES.md) at repository root for the complete AEGIS bibliography.
+
+---
 
 ## Foundational Principle
 

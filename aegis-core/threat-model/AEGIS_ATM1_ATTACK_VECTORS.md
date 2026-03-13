@@ -109,6 +109,7 @@
 - **Technique**: Forge certificate, compromise identity provider, social engineer token issuance
 - **Impact**: Malicious actions attributed to trusted actor; blame misdirected
 - **Example**: Forge mTLS certificate for "soc-analyst-trusted" identity
+- **Empirical precedent**: Documented in Shapira et al. [Agents of Chaos, 2026], Case Study #8 (Owner Identity Spoofing): agents in a live deployment accepted non-owner instructions as owner-level authority, executing unauthorized actions under false identity assumptions. Confirms that identity spoofing in agentic systems produces real unauthorized execution, not merely theoretical risk.
 
 #### AV-3.2 Lateral Movement via Privilege Escalation
 
