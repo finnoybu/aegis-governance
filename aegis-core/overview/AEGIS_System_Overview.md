@@ -10,7 +10,8 @@ Effective Date: March 5, 2026
 
 # Overview
 
-AEGIS™ (Architectural Enforcement & Governance of Intelligent Systems) is a governance architecture designed to enforce deterministic control over AI-generated actions before those actions interact with operational infrastructure.
+AEGIS™ (Architec
+tural Enforcement & Governance of Intelligent Systems) is a governance architecture designed to enforce deterministic control over AI-generated actions before those actions interact with operational infrastructure.
 
 As AI systems become capable of executing real-world operations—querying databases, modifying infrastructure, triggering workflows, and interacting with APIs—the risks associated with ungoverned execution increase significantly. Traditional AI safety approaches focus primarily on influencing model behavior through alignment training and moderation. While valuable, those approaches do not guarantee that AI systems will act safely when given operational capabilities.
 
@@ -34,7 +35,7 @@ AEGIS operates at the **architectural layer**, enforcing policy at the execution
 
 **Architectural vs Model-Layer:**
 - **AEGIS** enforces policy *outside* the AI model, at the boundary between agents and infrastructure
-- **Model-internal approaches** (e.g., Constitutional Autonomy, RLHF) modify model weights, attention mechanisms, or training objectives
+- **Model-internal approaches** (e.g., Constitutional AI, RLHF, fine-tuning) modify model weights, attention mechanisms, or training objectives
 - AEGIS intercepts and validates agent actions *before* they reach external systems
 
 **Model-Agnostic:**
@@ -77,7 +78,10 @@ Several approaches exist, each with limitations:
 | Approach | Description | Limitations |
 |----------|-------------|-------------|
 | **Prompt Engineering** | Instruct AI models to "be careful" or "ask before acting" | Models may ignore prompts; adversarial prompts can override instructions |
-| **Model Alignment Training** | Train models to behave safely through RLHF and constitutional AI | Alignment is probabilistic, not deterministic; works for generation, not execution |
+| **RLHF (Human Feedback)** | Reinforcement learning from human preferences | Training-time only; probabilistic; expensive to scale; model-specific |
+| **Constitutional AI (Anthropic)** | Reinforcement learning from AI feedback (RLAIF) | Training-time only; probabilistic alignment; doesn't prevent execution |
+| **Output Filtering / Moderation** | Post-generation safety checks (OpenAI moderation, guardrails) | Acts after generation; doesn't govern execution; can be bypassed |
+| **Model Fine-tuning** | Safety-focused training (DPO, alignment techniques) | Probabilistic; model-specific; doesn't govern execution |
 | **Tool Restrictions** | Limit which tools AI can access | Coarse-grained; doesn't prevent misuse of allowed tools |
 | **Human-in-the-Loop** | Require human approval for every action | Doesn't scale; humans become bottlenecks and rubber-stamp approvals |
 | **Post-Execution Monitoring** | Detect problems after actions execute | Damage already done; too late for irreversible operations |

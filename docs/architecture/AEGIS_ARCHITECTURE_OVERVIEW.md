@@ -35,7 +35,7 @@ AEGIS enforces policy at the architectural layer—the boundary between AI agent
 - **Deterministic**: Guaranteed enforcement regardless of model behavior
 - **Federated**: Cross-organizational governance via GFN-1
 
-This contrasts with model-internal approaches (RLHF, Constitutional Autonomy) that modify model weights or attention mechanisms. AEGIS and model-layer approaches are complementary (defense-in-depth).
+This contrasts with model-internal approaches (Constitutional AI, RLHF, fine-tuning) that modify model weights or training objectives. AEGIS and model-layer approaches are complementary (defense-in-depth).
 
 ## Architecture Goals
 
