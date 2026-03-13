@@ -5,7 +5,7 @@ _Instructions for Claude Code — 2026-03-13_
 
 The `finnoybu/aegis-governance` repository is a **living scholarly work** — not just code + docs, but a complete, peer-reviewable governance framework where every claim is traceable to established research. See [docs/vision/AEGIS_CANON_VISION.md](docs/vision/AEGIS_CANON_VISION.md) for the full vision.
 
-The canonical bibliography lives in `REFERENCES.md` (to be created — see Phase 1 of the implementation plan in the vision doc).
+The canonical bibliography lives in [`REFERENCES.md`](REFERENCES.md).
 
 ---
 
@@ -98,10 +98,39 @@ Keep `docs/outreach/README.md` log table current.
 
 ---
 
-## Citation Format (IEEE)
+## Citation Format
+
+Use **IEEE style** for all formal papers. For other source types:
+
+| Source type | Format |
+|-------------|--------|
+| IEEE / academic paper | `[Author(s)], "Title," *Venue*, vol. X, no. Y, pp. ZZZ–ZZZ, Year, doi: XX.XXXX/XXXXXX.` |
+| Standards document | `Organization, *Standard Title*, Standard No., Year. [Online]. Available: URL` |
+| Web article / blog | `Author(s), "Title," *Site Name*, Date. [Online]. Available: URL` |
+| arXiv preprint | `Author(s), "Title," arXiv:XXXXXXX, Month Year. [Online]. Available: URL` |
+| Software / framework | `Name, Version, Organization, Year. [Online]. Available: URL` |
+
+### Inline footnotes (GitHub Markdown)
+
+Use `[^N]` at point of use; define at document bottom:
+
+```markdown
+AEGIS adopts the centralized PDP + distributed PEP pattern [^2] proven
+effective in system-wide policy enforcement.
+
+[^2]: S. Rasthofer et al., "DroidForce," ARES 2014, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](../../REFERENCES.md).
+```
+
+This renders as a clickable superscript with a jump link to the reference.
+
+### Shorthand in-text citations
+
+Where inline footnotes are not appropriate (tables, positioning statements):
 
 ```
-[Author(s)], "Title," *Publication*, vol. X, no. Y, pp. ZZZ-ZZZ, Year, doi: XX.XXXX/XXXXXX.
+[DroidForce, 2014]  or  [1]
 ```
 
-In-text: `[DroidForce, 2014]` or numbered `[1]`
+### Canonical bibliography
+
+All papers cited anywhere in the repo must appear in [`REFERENCES.md`](REFERENCES.md). Individual document footnotes are self-contained but always include a pointer to `REFERENCES.md` for the full entry.
