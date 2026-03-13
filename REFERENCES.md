@@ -8,7 +8,7 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 
 ## Foundational Security Theory
 
-[1] J. P. Anderson, "Computer Security Technology Planning Study," Technical Report ESD-TR-73-51, The MITRE Corporation, Air Force Electronic Systems Division, Hanscom AFB, Bedford, MA, Oct. 1972, Vols. I and II. [Online]. Available: https://csrc.nist.gov/publications/history/ande72.pdf\
+[1] J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. [Online]. Available: https://csrc.nist.gov/files/pubs/conference/1998/10/08/proceedings-of-the-21st-nissc-1998/final/docs/early-cs-papers/ande72.pdf\
 **Relevance to AEGIS:** First articulation of the reference monitor — a component that validates all references made by executing programs against those authorized for the subject. The conceptual origin of every enforcement boundary AEGIS inherits. AEGIS's governance gateway is a direct descendant of this concept.
 
 [2] F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382.\
