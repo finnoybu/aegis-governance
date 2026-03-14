@@ -103,6 +103,10 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 **Keywords:** AI agents; multi-agent systems; security architecture; agent governance; provider trust; communication plane\
 **Relevance to AEGIS:** Primary architectural differentiation target. SAGA governs the inter-agent communication plane — trust and identity between agents in a multi-agent pipeline. AEGIS governs the agent-to-infrastructure action plane — what agents can do against operational systems. SAGA introduces a single Provider authority as trust root, creating a cross-organization single point of failure. AEGIS GFN-1 explicitly rejects centralized trust oracles in favor of a decentralized trust-scored federation. Complementary scope; distinct trust model.
 
+[23] X. Wang et al., "MI9: An Integrated Runtime Governance Framework for Agentic AI," arXiv:2508.03858v4, 2025. [Online]. Available: <https://arxiv.org/pdf/2508.03858>\
+**Keywords:** Agentic AI; runtime governance; agent intelligence protocol; multi-agent systems; LLM governance\
+**Relevance to AEGIS:** Differentiation target. MI9 governs the internal reasoning loop of AI agents — applying policy constraints during the agent's planning and action selection phases. AEGIS governs the infrastructure boundary — what agents can do against operational systems post-reasoning. MI9 and AEGIS address complementary layers: MI9 operates inside the agent; AEGIS operates at the agent-infrastructure boundary. Neither subsumes the other; together they form a more complete governance stack.
+
 ---
 
 ## LLM Security
@@ -126,4 +130,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-14\
-**Entries**: 22
+**Entries**: 23
