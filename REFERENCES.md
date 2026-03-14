@@ -64,7 +64,8 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 
 [11] W. T. Agbemabiese, "Toward Constitutional Autonomy in AI Systems: A Theoretical Framework for Aligned Agentic Intelligence," *IEEE Access*, vol. 14, pp. 11385–11402, 2026, doi: 10.1109/ACCESS.2026.3654907.\
 **Keywords:** Agentic systems; AI alignment; AI governance; artificial general intelligence; constitutional AI; long-horizon autonomy; runtime validation; sociotechnical validation; theoretical framework\
-**Relevance to AEGIS:** Model-layer governance complement to AEGIS's architectural-layer approach. Constitutional Autonomy governs AI reasoning through attention mechanism modification; AEGIS governs AI execution at the architectural boundary. Together they form a defense-in-depth governance stack. See [docs/outreach/](docs/outreach/) and [Discussion #39](https://github.com/finnoybu/aegis-governance/discussions/39).
+**Relevance to AEGIS:** Model-layer governance complement to AEGIS's architectural-layer approach. Constitutional Autonomy governs AI reasoning through attention mechanism modification; AEGIS governs AI execution at the architectural boundary. Together they form a defense-in-depth governance stack. See [docs/outreach/](docs/outreach/) and [Discussion #39](https://github.com/finnoybu/aegis-governance/discussions/39).\
+**Cited in:** aegis-core/overview/AEGIS_System_Overview.md
 
 [12] N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>\
 **Keywords:** Agentic AI; red-teaming; autonomous agents; LLM safety; tool use; multi-agent systems\
