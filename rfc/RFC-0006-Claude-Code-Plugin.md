@@ -21,7 +21,7 @@ This RFC defines the AEGIS™ Claude Code Plugin: a governance enforcement layer
 
 ## Motivation
 
-The AEGIS™ architecture currently exists as a specification and a minimal Python runtime. Neither is immediately demonstrable to a skeptical practitioner. A Claude Code plugin changes that. Claude Code executes real actions: shell commands, file writes, network requests, code execution. These are exactly the action classes AEGIS™ was designed to govern. A plugin that intercepts those actions, evaluates them, and records decisions is a working governance runtime any developer can install and observe.
+The AEGIS™ architecture currently exists as a specification and a minimal Python runtime. Neither is immediately demonstrable to a skeptical practitioner. A Claude Code plugin changes that. Claude Code executes real actions: shell commands, file writes, network requests, code execution. These are exactly the action classes AEGIS™ was designed to govern — the same action classes documented as governance failures in live agentic deployments.[^12] A plugin that intercepts those actions, evaluates them, and records decisions is a working governance runtime any developer can install and observe.
 
 ---
 
@@ -207,18 +207,24 @@ The supply chain verification hook (v1.1) depends on Claude Code plugin manifest
 
 ## References
 
-- AEGIS Constitution — `aegis-core/constitution/`
-- AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
-- SP-1 Decision Integrity — `aegis-core/security-protocols/`
-- RFC-0001 — AEGIS Architecture
-- RFC-0005 — Reference Deployment Patterns
-- aegis-runtime — `github.com/finnoybu/aegis-runtime`
-- Claude Code Plugin Documentation — `code.claude.com/docs/en/discover-plugins`
-- Agents of Chaos — arXiv:2602.20021 (February 2026)
+**Internal AEGIS documents:**
+
+- [AEGIS Constitution](../aegis-core/constitution/)
+- [AGP-1 Protocol](../aegis-core/protocol/AEGIS_AGP1_INDEX.md)
+- [SP-1 Decision Integrity](../aegis-core/security-protocols/)
+- [RFC-0001 — AEGIS Architecture](./RFC-0001-AEGIS-Architecture.md)
+- [RFC-0005 — Reference Deployment Patterns](./RFC-0005-Reference-Deployment-Patterns.md)
+
+**External references:**
+
+- Finnoybu IP LLC, "aegis-runtime," GitHub, 2026. [Online]. Available: <https://github.com/finnoybu/aegis-runtime>
+- Anthropic, "Claude Code Plugin Documentation," 2026. [Online]. Available: <https://code.claude.com/docs/en/discover-plugins>
 
 [^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
 
 [^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../REFERENCES.md).
+
+[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>. See [REFERENCES.md](../REFERENCES.md).
 
 ---
 
