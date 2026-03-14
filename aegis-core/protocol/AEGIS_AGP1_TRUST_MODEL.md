@@ -122,7 +122,7 @@ trust_federation = weighted_agreement
 
 ### Component 4: Cryptographic Proof (Weight: 0.10)[^18]
 
-Has the actor provided cryptographic proof of identity?
+Has the actor provided cryptographic proof of identity?[^25]
 
 ```
 proof_score ∈ {
@@ -213,7 +213,7 @@ def trust_score_with_age_adjustment(actor_id):
 
 **Rationale**:
 
-- Recent behavior is more predictive
+- Recent behavior is more predictive[^26]
 - Incentivizes continued good behavior
 - Allows low-trust actors to rehabilitate
 
@@ -287,7 +287,7 @@ llm_trust = 0.40 × model_integrity +
 
 ## Trust Attestation & Certification
 
-Federation nodes can explicitly attest to trust via signed certificates:
+Federation nodes can explicitly attest to trust via signed certificates[^20]:
 
 ```json
 {
@@ -379,3 +379,9 @@ All trust calculations are logged:
 [^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../../REFERENCES.md).
 
 [^18]: B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020. [Online]. Available: <https://www.rfc-editor.org/rfc/rfc8705>. See [REFERENCES.md](../../REFERENCES.md).
+
+[^20]: M. Sporny, A. Guy, M. Sabadello, and D. Reed, "Decentralized Identifiers (DIDs) v1.0: Core architecture, data model, and representations," W3C Recommendation, 19 Jul. 2022. [Online]. Available: <https://www.w3.org/TR/2022/REC-did-core-20220719/>. See [REFERENCES.md](../../REFERENCES.md).
+
+[^25]: S. Rodriguez Garzon et al., "AI Agents with Decentralized Identifiers and Verifiable Credentials," arXiv:2511.02841v2, 2025. [Online]. Available: <https://arxiv.org/abs/2511.02841>. See [REFERENCES.md](../../REFERENCES.md).
+
+[^26]: A. Jøsang, R. Ismail, and C. Boyd, "A survey of trust and reputation systems for online service provision," *Decision Support Systems*, vol. 43, no. 2, pp. 618–644, Mar. 2007, doi: 10.1016/j.dss.2005.05.019. See [REFERENCES.md](../../REFERENCES.md).

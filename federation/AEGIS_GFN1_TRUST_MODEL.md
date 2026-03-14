@@ -247,6 +247,8 @@ Where:
 
 **Rationale**: publishers inactive for 6+ months have uncertain current posture
 
+**Success criteria**: The trust score calculation is reproducible given the same input signals and evaluation timestamp $t$. Implementations MUST treat $t$ as an explicit, logged input parameter — identical values of $T_0$, $\lambda$, and $t$ MUST always yield the identical decayed score on any node. Score variation across nodes or time reflects differing values of $t$, not non-determinism in the computation.
+
 ### 3.9 Trust Score Thresholds (Normative)
 
 | Threshold | Interpretation | Action |

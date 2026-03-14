@@ -76,7 +76,7 @@ Nodes share immutable governance intelligence:
 
 ### Node Identity (DIDs)
 
-All federation participants are identified by Decentralized Identifiers (DIDs):
+All federation participants are identified by Decentralized Identifiers (DIDs)[^20][^27]:
 
 ```
 did:aegis:enterprise-001
@@ -245,3 +245,7 @@ For detailed specifications, see:
 [^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
 
 [^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../REFERENCES.md).
+
+[^20]: M. Sporny, A. Guy, M. Sabadello, and D. Reed, "Decentralized Identifiers (DIDs) v1.0: Core architecture, data model, and representations," W3C Recommendation, 19 Jul. 2022. [Online]. Available: <https://www.w3.org/TR/2022/REC-did-core-20220719/>. See [REFERENCES.md](../REFERENCES.md).
+
+[^27]: H. Shuhan et al., "Decentralised identity federations using blockchain," *Int. J. Inf. Secur.*, 2024, doi: 10.1007/s10207-024-00864-6. [Online preprint]. Available: <https://arxiv.org/pdf/2305.00315>. See [REFERENCES.md](../REFERENCES.md).
