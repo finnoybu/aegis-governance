@@ -115,6 +115,10 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 **Keywords:** AI agents; decentralized identifiers; verifiable credentials; self-sovereign identity; agent identity; trust\
 **Relevance to AEGIS:** Differentiation target. LOKA establishes cryptographic identity for AI agents using DIDs and Verifiable Credentials — a necessary component of accountable governance — but does not specify a governance protocol for agent actions. AEGIS incorporates DID-based identity as the foundation of its GFN-1 authentication layer and extends it with constitutional enforcement, capability authorization, and federated governance. LOKA answers "who is this agent?"; AEGIS answers "what is this agent allowed to do?"
 
+[28] Various authors, "A survey of agentic AI and cybersecurity: Challenges, opportunities and use-case prototypes," arXiv:2601.05293v1, 2026. [Online]. Available: <https://arxiv.org/abs/2601.05293>\
+**Keywords:** Agentic AI; cybersecurity; autonomous agents; LLM security; threat landscape; use cases\
+**Relevance to AEGIS:** Landscape survey documenting the intersection of agentic AI and cybersecurity as of early 2026. Provides context for the governance gap AEGIS addresses — agentic AI deployment has materially outpaced the development of governance infrastructure suited to the action layer. Cited alongside Chan et al. (AI Agent Index) to establish the scale and urgency of the problem AEGIS solves.
+
 ---
 
 ## Distributed Trust & Reputation
@@ -150,4 +154,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-14\
-**Entries**: 27
+**Entries**: 28
