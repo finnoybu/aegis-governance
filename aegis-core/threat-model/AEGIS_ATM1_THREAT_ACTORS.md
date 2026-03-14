@@ -89,7 +89,7 @@ AEGIS™ threat actors are categorized by capability, motivation, and access lev
 
 **Empirical Precedent:**
 
-The compromised internal agent threat model is grounded in two independent research traditions. In industrial control systems, Pearce et al. [Smart I/O, 2020] establish that enforcement must sit at the boundary between a potentially-compromised controller and the infrastructure it commands — the controller's internal state cannot be trusted. In contemporary agentic AI systems, Shapira et al. [Agents of Chaos, 2026] provide empirical documentation of this threat in live deployments: agents with legitimate credentials disclosed sensitive information, executed destructive system-level actions, and were corrupted through cross-agent interaction — all while possessing valid authorization. Both research traditions converge on the same architectural conclusion: enforcement at the boundary, not inside the agent.
+The compromised internal agent threat model is grounded in two independent research traditions. In industrial control systems, Pearce et al. [Smart I/O, 2020][^5] establish that enforcement must sit at the boundary between a potentially-compromised controller and the infrastructure it commands — the controller's internal state cannot be trusted. In contemporary agentic AI systems, Shapira et al. [Agents of Chaos, 2026] provide empirical documentation of this threat in live deployments: agents with legitimate credentials disclosed sensitive information, executed destructive system-level actions, and were corrupted through cross-agent interaction — all while possessing valid authorization. Both research traditions converge on the same architectural conclusion: enforcement at the boundary, not inside the agent.[^1]
 
 ---
 
@@ -228,3 +228,11 @@ The compromised internal agent threat model is grounded in two independent resea
 - [AEGIS_ATM1_ATTACK_VECTORS.md](./AEGIS_ATM1_ATTACK_VECTORS.md) — Detailed attack techniques and scenarios
 - [AEGIS_ATM1_SECURITY_PROPERTIES.md](./AEGIS_ATM1_SECURITY_PROPERTIES.md) — Security assumptions and invariants
 - [AEGIS_ATM1_MITIGATIONS.md](./AEGIS_ATM1_MITIGATIONS.md) — Defense strategies and controls
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](../../../REFERENCES.md).
