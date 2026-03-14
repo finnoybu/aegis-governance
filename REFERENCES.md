@@ -111,6 +111,10 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 **Keywords:** AI governance; multi-agent systems; compliance; policy enforcement; governance-as-a-service; LLM\
 **Relevance to AEGIS:** Differentiation target. GaaS applies governance policies as a post-inference filtering layer operating on AI outputs. AEGIS governs at the action boundary — pre-infrastructure execution — before any real-world effect occurs. GaaS addresses content risk; AEGIS addresses action risk. An agent whose output has been filtered by GaaS can still invoke tools, call APIs, and modify state through its execution framework. The two approaches are complementary but address categorically different failure modes.
 
+[25] S. Rodriguez Garzon et al., "AI Agents with Decentralized Identifiers and Verifiable Credentials," arXiv:2511.02841v2, 2025. [Online]. Available: <https://arxiv.org/abs/2511.02841>\
+**Keywords:** AI agents; decentralized identifiers; verifiable credentials; self-sovereign identity; agent identity; trust\
+**Relevance to AEGIS:** Differentiation target. LOKA establishes cryptographic identity for AI agents using DIDs and Verifiable Credentials — a necessary component of accountable governance — but does not specify a governance protocol for agent actions. AEGIS incorporates DID-based identity as the foundation of its GFN-1 authentication layer and extends it with constitutional enforcement, capability authorization, and federated governance. LOKA answers "who is this agent?"; AEGIS answers "what is this agent allowed to do?"
+
 ---
 
 ## LLM Security
@@ -134,4 +138,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-14\
-**Entries**: 24
+**Entries**: 25
