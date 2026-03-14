@@ -45,7 +45,7 @@ The Capability Registry, Governance Gateway, Authority Verification, and Decisio
 
 | AEGIS Component | Implementation |
 |---|---|
-| Capability Registry | OPA policy bundle |
+| Capability Registry | OPA policy bundle[^14] |
 | Governance Gateway | AgentGateway sidecar |
 | Authority Verification | Keycloak token validation |
 | Decision Integrity (SP-1) | OpenShift logging stack |
@@ -153,6 +153,8 @@ RDP-03 is the recommended starting point for new implementations. The aegis-runt
 - aegis-runtime — `github.com/finnoybu/aegis-runtime`
 - Derrick Sutherland, Shadow-Soft — "What Has To Be In Place Before An AI Agent Gets Production Access" (March 2026)
 - JFrog AI Catalog — supply chain reference
+
+[^14]: Open Policy Agent, v0.61, Cloud Native Computing Foundation, 2024. [Online]. Available: https://www.openpolicyagent.org. See [REFERENCES.md](../REFERENCES.md).
 
 ---
 
