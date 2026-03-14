@@ -135,7 +135,7 @@ Load the policy set associated with capability:
 
 ## Policy Language (Formal Specification)
 
-AGP-1 requires AEGIS Policy DSL (Domain-Specific Language) for all policy definitions.
+AGP-1 requires AEGIS Policy DSL (Domain-Specific Language) for all policy definitions.[^14]
 
 ### Grammar (EBNF)
 
@@ -259,7 +259,7 @@ policy "infrastructure_deploy_prod" {
 
 ---
 
-## Evaluation Algorithm (Deterministic)
+## Evaluation Algorithm (Deterministic)[^1][^2]
 
 ```pseudo
 function evaluatePolicy(actionPropose, capability, policySet):
@@ -305,7 +305,7 @@ This algorithm guarantees:
 
 When multiple policies could match, resolution order:
 
-### Rule 1: Explicit DENY Always Wins
+### Rule 1: Explicit DENY Always Wins[^2]
 
 ```
 policy "deny_network_x" { action: DENY, priority: 500 }
@@ -447,3 +447,13 @@ Results:
 
 - [AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md) - Risk calculation and decision thresholds
 - [AEGIS_AGP1_FLOWS.md](./AEGIS_AGP1_FLOWS.md) - Complete protocol flows with policy evaluation
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
+
+[^14]: Open Policy Agent Project, "Open Policy Agent," The Linux Foundation, 2016–present. [Online]. Available: https://www.openpolicyagent.org. See [REFERENCES.md](../../REFERENCES.md).
