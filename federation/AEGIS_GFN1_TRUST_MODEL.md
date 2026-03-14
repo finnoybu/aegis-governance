@@ -34,7 +34,7 @@ The model enables autonomous governance nodes to:
 - **Evaluate signal credibility** from diverse publishers without central authority
 - **Resist coordinated attacks** (malicious injection, spam, Sybil nodes, misinformation)
 - **Preserve operational autonomy** (nodes retain final decision authority)
-- **Enable transparent auditing** (all trust decisions are auditable)
+- **Enable transparent auditing** (all trust decisions are auditable)[^1]
 
 ### 1.2 Trust Evaluation Objectives
 
@@ -63,7 +63,7 @@ The trust model defends against:
 
 ## 2. Trust Primitives
 
-### 2.1 Identity Verification (Mandatory)
+### 2.1 Identity Verification (Mandatory)[^17]
 
 All federation signals MUST carry cryptographic identity binding.
 
@@ -757,7 +757,7 @@ $$
 
 ## 10. Signal Ingestion and Quarantine
 
-### 10.1 Ingestion Policy by Trust Level
+### 10.1 Ingestion Policy by Trust Level[^2]
 
 | Trust Level | Automatic Ingestion? | Corroboration Required? | Human Review? |
 |---|---|---|---|
@@ -860,6 +860,16 @@ Nodes MUST implement safe defaults:
 
 ---
 
-**Document Status**: Normative  
-**Version**: 1.0  
+**Document Status**: Normative\
+**Version**: 1.0\
 **Next Review**: September 5, 2026
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../REFERENCES.md).
+
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: https://doi.org/10.6028/NIST.SP.800-207. See [REFERENCES.md](../REFERENCES.md).

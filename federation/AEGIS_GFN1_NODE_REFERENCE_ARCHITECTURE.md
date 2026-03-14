@@ -30,9 +30,9 @@ An AEGIS node MUST support:
 
 1. **Governance signal publication** - publish structured events to federation feeds
 2. **Governance feed subscription** - ingest signals from curated peer nodes and policy authorities
-3. **Local policy enforcement integration** - bind federation signals to local access control decisions
+3. **Local policy enforcement integration** - bind federation signals to local access control decisions[^4]
 4. **Trust evaluation and reputation weighting** - assign credibility scores to external signals
-5. **Audit logging and evidence retention** - maintain immutable records of all decisions and sources
+5. **Audit logging and evidence retention** - maintain immutable records of all decisions and sources[^1]
 6. **Privacy controls and selective disclosure** - redact sensitive data before publication per configured policies
 
 ---
@@ -42,7 +42,7 @@ An AEGIS node MUST support:
 AEGIS nodes exhibit a **layered, event-driven architecture** designed for federation at scale. The reference design consists of:
 
 - **Signal Boundary Layer**: Ingress/egress points for federation events
-- **Trust & Policy Evaluation Layer**: Reputation weighting and decision enforcement
+- **Trust & Policy Evaluation Layer**: Reputation weighting and decision enforcement[^17]
 - **Audit & Compliance Layer**: Immutable logging and evidence management
 - **Operational Layer**: Identity, key management, observability, storage
 - **Integration Layer**: Bridges to local governance and risk systems
@@ -1361,3 +1361,13 @@ Detailed configuration schema document available in accompanying `AEGIS_NODE_CON
 - [AEGIS_Governance_Event_Model.md](../rfc/RFC-0004-Governance-Event-Model.md) - Event envelope schemas
 - [AEGIS_Governance_Protocol_AGP1.md](../aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) - Wire protocol specification
 - [AEGIS_Constitution.md](../docs/05_AEGIS_Constitution.md) - Governance principles
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
+
+[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, Fribourg, Switzerland, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](../REFERENCES.md).
+
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../REFERENCES.md).

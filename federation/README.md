@@ -23,7 +23,7 @@ Individual AEGIS governance runtimes operate autonomously within their trust dom
 - **Share governance signals** – policy updates, risk alerts, circumvention reports, attestations
 - **Improve collective security** – distributed threat detection and response coordination
 - **Maintain operational autonomy** – federated nodes make independent approval decisions
-- **Ensure auditability** – immutable event logs with cryptographic verification
+- **Ensure auditability** – immutable event logs with cryptographic verification[^1]
 
 ### Federation Architecture
 
@@ -89,7 +89,7 @@ DIDs include cryptographic keys for:
 - trust anchor binding
 - key rotation and lifecycle
 
-### Trust Evaluation
+### Trust Evaluation[^17]
 
 Receiving nodes evaluate incoming events using multi-factor trust scoring:
 
@@ -234,6 +234,14 @@ For detailed specifications, see:
 
 ---
 
-**Status**: Normative  
-**Next Review**: June 5, 2026  
+**Status**: Normative
+**Next Review**: June 5, 2026
 **Maintained By**: AEGIS Governance Project
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
+
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../REFERENCES.md).

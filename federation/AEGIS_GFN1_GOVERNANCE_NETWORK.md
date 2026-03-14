@@ -24,7 +24,7 @@ Modern AI systems operate in increasingly complex and adversarial environments. 
 
 The AEGIS Governance Federation Network addresses these challenges by enabling **AI systems to share governance signals, policies, and risk telemetry in a federated network**.
 
-The goal is to establish a **cooperative defense model for AI governance**, analogous to threat-intelligence sharing systems used in cybersecurity.
+The goal is to establish a **cooperative defense model for AI governance**, analogous to threat-intelligence sharing systems used in cybersecurity.[^4]
 
 ---
 
@@ -261,4 +261,12 @@ Potential future developments include:
 
 The AEGIS Governance Federation Network introduces a decentralized infrastructure for sharing governance intelligence between AI systems.
 
-By combining federated architecture, verifiable identities, governance signal exchange, and cooperative defense models, the network enables governance to emerge through shared intelligence and trust relationships—without centralized control.
+By combining federated architecture, verifiable identities,[^17] governance signal exchange, and cooperative defense models, the network enables governance to emerge through shared intelligence and trust relationships—without centralized control.
+
+---
+
+## References
+
+[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, Fribourg, Switzerland, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](../REFERENCES.md).
+
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../REFERENCES.md).
