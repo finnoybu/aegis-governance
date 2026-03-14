@@ -12,8 +12,8 @@
 
 ## Purpose
 
-The Governance Engine is the deterministic policy decision authority for AEGIS.
-It evaluates every capability request before any infrastructure interaction.
+The Governance Engine is the deterministic policy decision authority for AEGIS.[^2]
+It evaluates every capability request before any infrastructure interaction.[^1]
 
 Core rule:
 
@@ -88,7 +88,7 @@ Execution order is fixed and MUST NOT vary by request type:
 8. Emit immutable audit record.
 9. Return response.
 
-If any stage fails internally, engine MUST fail closed (`ESCALATE` or `DENY`).
+If any stage fails internally, engine MUST fail closed (`ESCALATE` or `DENY`).[^2]
 
 ## Decision Semantics
 
@@ -197,5 +197,13 @@ Release gate criteria:
 ## Security Posture
 
 The Governance Engine enforces capability-based authorization and default-deny
-semantics. No capability may execute unless explicitly authorized by policy and
+semantics.[^1] No capability may execute unless explicitly authorized by policy and
 risk evaluation within defined trust boundaries.
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
