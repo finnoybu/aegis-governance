@@ -117,7 +117,11 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 
 [28] Various authors, "A survey of agentic AI and cybersecurity: Challenges, opportunities and use-case prototypes," arXiv:2601.05293v1, 2026. [Online]. Available: <https://arxiv.org/abs/2601.05293>\
 **Keywords:** Agentic AI; cybersecurity; autonomous agents; LLM security; threat landscape; use cases\
-**Relevance to AEGIS:** Landscape survey documenting the intersection of agentic AI and cybersecurity as of early 2026. Provides context for the governance gap AEGIS addresses — agentic AI deployment has materially outpaced the development of governance infrastructure suited to the action layer. Cited alongside Chan et al. (AI Agent Index) to establish the scale and urgency of the problem AEGIS solves.
+**Relevance to AEGIS:** Landscape survey documenting the intersection of agentic AI and cybersecurity as of early 2026. Provides context for the governance gap AEGIS addresses — agentic AI deployment has materially outpaced the development of governance infrastructure suited to the action layer. Cited alongside Chan et al. (AI Agent Index) [29] to establish the scale and urgency of the problem AEGIS solves.
+
+[29] R. Chan et al., "The 2025 AI Agent Index," arXiv:2602.17753v1, 2025. [Online]. Available: <https://arxiv.org/abs/2602.17753>\
+**Keywords:** AI agents; agentic AI; agent index; deployment survey; autonomous systems; LLM agents\
+**Relevance to AEGIS:** Quantitative evidence of agentic AI proliferation at scale. Documents the order-of-magnitude growth in production autonomous agent deployments across financial services, healthcare, software development, and security operations — directly establishing the scale and urgency of the governance gap AEGIS addresses. Cited alongside the Agentic AI & Cybersecurity Survey [28] and Shapira et al. [Agents of Chaos] to ground the paper's opening argument in measurable real-world deployment reality.
 
 ---
 
@@ -154,4 +158,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-14\
-**Entries**: 28
+**Entries**: 29
