@@ -120,7 +120,7 @@ trust_federation = weighted_agreement
 - Reporting from only 1 node (not well-known) → reduced weight
 - Explicit contradiction from high-trust federation nodes → can reduce trust
 
-### Component 4: Cryptographic Proof (Weight: 0.10)
+### Component 4: Cryptographic Proof (Weight: 0.10)[^18]
 
 Has the actor provided cryptographic proof of identity?
 
@@ -169,7 +169,7 @@ trust_score = 0.30×0.8 + 0.40×0.95 + 0.20×0.85 + 0.10×0.8
 
 ---
 
-## Trust Score Tiers & Implications
+## Trust Score Tiers & Implications[^17]
 
 | Tier | Score | Implications | Risk Multiplier | Requires Escalation |
 |------|-------|--------------|-----------------|------------------|
@@ -371,3 +371,11 @@ All trust calculations are logged:
 - [AGP1_PolicyLanguage.md](./AGP1_PolicyLanguage.md) - Policy rules that use trust scores
 - [AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md) - Complete risk scoring calculations
 - [AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md](../federation/AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md) - Trust evaluator component
+
+---
+
+## References
+
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../../REFERENCES.md).
+
+[^18]: B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020. [Online]. Available: <https://www.rfc-editor.org/rfc/rfc8705>. See [REFERENCES.md](../../REFERENCES.md).

@@ -22,10 +22,10 @@ The **AEGIS™ Governance Protocol (AGP-1)** is the normative wire protocol for 
 
 **Key Properties**:
 
-- ✅ Deterministic: identical requests + policies = identical decisions
-- ✅ Default-deny: absence of approval yields denial
-- ✅ Fully auditable: every decision is immutable and attributable
-- ✅ Fail-closed: all subsystem failures result in denial or escalation
+- ✅ Deterministic: identical requests + policies = identical decisions[^2]
+- ✅ Default-deny: absence of approval yields denial[^2]
+- ✅ Fully auditable: every decision is immutable and attributable[^1]
+- ✅ Fail-closed: all subsystem failures result in denial or escalation[^2]
 
 ---
 
@@ -301,3 +301,11 @@ A client implementation MUST:
 ## License & Attribution
 
 All AEGIS governance specifications are published under the AEGIS Governance framework. See [LICENSE](../../LICENSE) for details.
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).

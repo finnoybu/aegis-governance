@@ -205,7 +205,7 @@ Risk score: 2.87 (MODERATE)
 
 ---
 
-## Decision Thresholds
+## Decision Thresholds[^17]
 
 After computing risk_score, the decision is determined:
 
@@ -443,3 +443,9 @@ test_case: "high_risk_production_at_3am"
 
 - [AEGIS_AGP1_FLOWS.md](./AEGIS_AGP1_FLOWS.md) - Complete decision flows with risk thresholds
 - [AEGIS_AGP1_ERROR_HANDLING.md](./AEGIS_AGP1_ERROR_HANDLING.md) - Error codes and retry logic
+
+---
+
+## References
+
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../../REFERENCES.md).
