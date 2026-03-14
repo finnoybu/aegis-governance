@@ -89,6 +89,13 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 
 ---
 
+## LLM Security
+
+[19] OWASP Foundation, "OWASP Top 10 for Large Language Model Applications," Version 2025, Nov. 18, 2024. [Online]. Available: <https://owasp.org/www-project-top-10-for-large-language-model-applications/>\
+**Relevance to AEGIS:** The OWASP Top 10 for LLM Applications catalogues the primary security risks in LLM-based systems. LLM01 (Prompt Injection) directly motivates ATM-1 T6 and AEGIS's out-of-band governance posture — prompt content is never an authorization source. LLM06 (Excessive Agency) names the core problem AEGIS addresses: LLMs granted overly permissive capabilities, tools, or actions without adequate governance controls. AEGIS's capability registry, default-deny posture, and execution-time enforcement are direct architectural responses to the Excessive Agency risk.
+
+---
+
 ## How to Cite
 
 Add new references sequentially at the end of the appropriate section. Use IEEE format for formal papers; adapted format for standards, web resources, and software (see [CLAUDE.md — Citation Format](CLAUDE.md)).
@@ -102,5 +109,5 @@ When citing in a document:
 
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
-**Last Updated**: 2026-03-13\
-**Entries**: 18
+**Last Updated**: 2026-03-14\
+**Entries**: 19
