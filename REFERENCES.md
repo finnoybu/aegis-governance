@@ -107,6 +107,10 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 **Keywords:** Agentic AI; runtime governance; agent intelligence protocol; multi-agent systems; LLM governance\
 **Relevance to AEGIS:** Differentiation target. MI9 governs the internal reasoning loop of AI agents — applying policy constraints during the agent's planning and action selection phases. AEGIS governs the infrastructure boundary — what agents can do against operational systems post-reasoning. MI9 and AEGIS address complementary layers: MI9 operates inside the agent; AEGIS operates at the agent-infrastructure boundary. Neither subsumes the other; together they form a more complete governance stack.
 
+[24] S. Gaurav, J. Heikkonen, and R. Chaudhary, "Governance-as-a-Service: A Multi-Agent Framework for AI System Compliance and Policy Enforcement," arXiv:2508.18765v2, 2025. [Online]. Available: <https://arxiv.org/pdf/2508.18765>\
+**Keywords:** AI governance; multi-agent systems; compliance; policy enforcement; governance-as-a-service; LLM\
+**Relevance to AEGIS:** Differentiation target. GaaS applies governance policies as a post-inference filtering layer operating on AI outputs. AEGIS governs at the action boundary — pre-infrastructure execution — before any real-world effect occurs. GaaS addresses content risk; AEGIS addresses action risk. An agent whose output has been filtered by GaaS can still invoke tools, call APIs, and modify state through its execution framework. The two approaches are complementary but address categorically different failure modes.
+
 ---
 
 ## LLM Security
@@ -130,4 +134,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-14\
-**Entries**: 23
+**Entries**: 24
