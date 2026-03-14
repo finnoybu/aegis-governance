@@ -13,7 +13,7 @@
 ## Overview
 
 Policies are expressed in a structured YAML‑based DSL that defines
-authorization rules for capability requests.
+authorization rules for capability requests.[^14]
 
 ## Policy Structure
 
@@ -234,10 +234,10 @@ matches over PREFIX matches.
 
 When multiple policies match:
 
-1. **Explicit DENY always wins** (if any DENY matches)
+1. **Explicit DENY always wins** (if any DENY matches)[^2]
 2. **Priority field determines evaluation order** (higher first)
 3. **First matching policy wins** (for ALLOW/CONSTRAIN/ESCALATE)
-4. **Default-deny** if no policies match
+4. **Default-deny** if no policies match[^2]
 
 ## Performance Considerations
 
@@ -245,3 +245,11 @@ When multiple policies match:
 - Regex conditions are slower than prefix/exact
 - Sort policies by specificity + priority for optimal performance
 - Cache compiled regex patterns
+
+---
+
+## References
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
+
+[^14]: Open Policy Agent Project, "Open Policy Agent," The Linux Foundation, 2016–present. [Online]. Available: <https://www.openpolicyagent.org>. See [REFERENCES.md](../../REFERENCES.md).

@@ -55,7 +55,7 @@ The first matching policy's effect is used:
 - CONSTRAIN → apply constraints from matching policy
 - ESCALATE → escalate for human review
 
-**Exception**: If ANY policy has effect=DENY, recheck for DENY matches first:
+**Exception**: If ANY policy has effect=DENY, recheck for DENY matches first.[^2]
 
 ```python
 # Check for explicit denies first
@@ -293,7 +293,7 @@ print(breakdown)
    policies_by_cap = policy_engine.find_policies_by_capability(request.capability)
    ```
 
-2. If empty → No policies defined for this capability → Default-deny
+2. If empty → No policies defined for this capability → Default-deny[^2]
 3. If non-empty → Check conditions:
 
    ```python
@@ -364,3 +364,9 @@ audit_id: audit_xyz789
 
 === END REPORT ===
 ```
+
+---
+
+## References
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).

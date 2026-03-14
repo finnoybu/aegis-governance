@@ -57,7 +57,7 @@ Failure behavior:
 Required behavior:
 
 - Evaluate enabled policies only.
-- Apply deterministic precedence (deny first, then priority).
+- Apply deterministic precedence (deny first, then priority).[^2]
 
 ### Stage 6: Risk Calculation
 
@@ -87,8 +87,8 @@ Required behavior:
 
 ## Flow Invariants
 
-1. No request executes without a prior decision.
-2. No decision exists without an audit ID.
+1. No request executes without a prior decision.[^1]
+2. No decision exists without an audit ID.[^1]
 3. No constrained request executes unconstrained.
 4. No denied request causes infrastructure side effects.
 
@@ -115,3 +115,11 @@ The flow is valid only if:
 - `docs/architecture/DECISION_ALGORITHM.md`
 - `docs/architecture/POLICY_MATCHING_AND_DEBUG.md`
 - `docs/architecture/END_TO_END_REQUEST_FLOW.md`
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).

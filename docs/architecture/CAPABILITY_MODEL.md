@@ -86,7 +86,7 @@ Full schema reference:
 
 ## Capability Scope Model
 
-Scope is mandatory for containment and least privilege.
+Scope is mandatory for containment and least privilege.[^17]
 
 Examples:
 
@@ -110,8 +110,8 @@ Bulk grant and revoke operations must preserve audit history.
 
 ## Safety Invariants
 
-1. No execution without a capability request.
-2. No capability request without identity attribution.
+1. No execution without a capability request.[^1]
+2. No capability request without identity attribution.[^1]
 3. No privileged scope without explicit policy support.
 4. No unresolved escalation may execute.
 
@@ -121,3 +121,11 @@ Bulk grant and revoke operations must preserve audit history.
 - Revoked capabilities cannot be used.
 - Scope constraints enforced at runtime.
 - Every execution maps to capability + decision + audit ID.
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../../REFERENCES.md).

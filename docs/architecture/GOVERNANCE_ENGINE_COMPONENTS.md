@@ -42,7 +42,7 @@ has_capability(agent_id: str, cap_id: str) -> bool
 
 ### 2. PolicyEngine
 
-**Purpose**: Policy evaluation and matching against requests.
+**Purpose**: Policy evaluation and matching against requests.[^2]
 
 **Key Methods**:
 
@@ -217,8 +217,8 @@ except DecisionError as e:
 
 1. **PolicyEngine crash**: DecisionEngine catches, logs, escalates
 2. **AuditSystem failure**: Decision still returned, audit attempted on retry
-3. **Risk calculation failure**: Default to ESCALATE (conservative)
-4. **Capability registry corruption**: Fail-closed (assume no capability)
+3. **Risk calculation failure**: Default to ESCALATE (conservative)[^2]
+4. **Capability registry corruption**: Fail-closed (assume no capability)[^2]
 
 ---
 
@@ -235,4 +235,12 @@ engine = DecisionEngine(
 )
 ```
 
-All component access is synchronized through DecisionEngine.authorize()
+All component access is synchronized through DecisionEngine.authorize()[^1]
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).

@@ -122,7 +122,7 @@ Adjustment based on agent's historical behavior.
 
 ## Threshold Mapping
 
-Risk score → Decision + Constraints:
+Risk score → Decision + Constraints:[^17]
 
 | Range | Decision | Action |
 |-------|----------|--------|
@@ -250,3 +250,9 @@ Regularly audit risk scores for bias across:
 - Agent types (human vs AI)
 - Operational patterns (time of day, environment)
 - Historical context (avoid false positives from old incidents)
+
+---
+
+## References
+
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../../REFERENCES.md).

@@ -12,8 +12,8 @@
 
 ## Overview
 
-The decision engine converts a capability request into a deterministic
-authorization decision through a two-stage evaluation pipeline.
+The decision engine converts a capability request into a deterministic[^2]
+authorization decision through a two-stage evaluation pipeline.[^1]
 
 ## Inputs
 
@@ -192,7 +192,7 @@ Policies are evaluated in priority order:
    - First match wins
 
 3. **Default rule** (lowest priority)
-   - If no policies match: DENY (default-deny posture)
+   - If no policies match: DENY (default-deny posture)[^1]
 
 ## Escalation
 
@@ -203,3 +203,11 @@ Requests with risk_score ≥ 61 are escalated to:
 - **Audit Queue**: For subsequent analysis
 
 **Timeout**: Escalations auto-deny after configurable timeout (default 300s)
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).

@@ -42,7 +42,7 @@ L6  Hardware / Infrastructure Layer
 ### L2 Agent/AI Layer
 
 - Produces candidate actions (proposals only).
-- Cannot authorize or execute privileged capability directly.
+- Cannot authorize or execute privileged capability directly.[^1]
 
 ### L3 AEGIS Governance Layer
 
@@ -53,7 +53,7 @@ L6  Hardware / Infrastructure Layer
 
 ### L4 Tool Proxy Layer
 
-- Executes only governance-approved actions.
+- Executes only governance-approved actions.[^4]
 - Enforces runtime constraints (timeout, rate, scope, resource).
 - Records execution telemetry and violations.
 
@@ -77,7 +77,7 @@ L6  Hardware / Infrastructure Layer
 
 ## Forbidden Paths
 
-These paths are explicitly prohibited:
+These paths are explicitly prohibited:[^1]
 
 - L2 -> L5 direct execution.
 - L1/L2 direct write access to policy store.
@@ -94,4 +94,14 @@ Violations MUST be denied and audited.
 ## Design Outcome
 
 The stack ensures intelligence can propose, but only governance can authorize,
-and only constrained execution paths can invoke capability.
+and only constrained execution paths can invoke capability.[^1][^2]
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
+
+[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, Fribourg, Switzerland, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](../../REFERENCES.md).

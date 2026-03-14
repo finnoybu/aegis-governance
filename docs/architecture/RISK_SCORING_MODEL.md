@@ -60,7 +60,7 @@ These dimensions provide contextual risk beyond static permissions.
 
 - Reflects trend-based behavior and prior violations.
 
-## Risk-to-Governance Mapping
+## Risk-to-Governance Mapping[^17]
 
 Risk is advisory to policy, but binding to outcome thresholds.
 
@@ -100,3 +100,9 @@ The risk model is considered healthy when:
 - Risk distribution aligns with expected operational profile.
 - High-risk events correlate with stricter governance outcomes.
 - No critical-risk request is executed without escalation override.
+
+---
+
+## References
+
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../../REFERENCES.md).
