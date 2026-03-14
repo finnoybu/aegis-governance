@@ -14,7 +14,7 @@ The AEGIS™ governance architecture maintains the following core security prope
 
 ### SP-1: Decision Integrity
 
-**Property**: Every governance decision is computed deterministically and cannot be modified after issuance.
+**Property**: Every governance decision is computed deterministically[^2] and cannot be modified after issuance.
 
 **Invariants**:
 
@@ -25,7 +25,7 @@ The AEGIS™ governance architecture maintains the following core security prope
 
 **How Maintained**:
 
-- Finite-state decision engine (no randomness)
+- Finite-state decision engine (no randomness)[^2]
 - Deterministic policy evaluation
 - Cryptographic signing of decisions
 - Audit chaining with tamper-evident hashing
@@ -92,7 +92,7 @@ The AEGIS™ governance architecture maintains the following core security prope
 
 ### SP-4: Capability Authorization Binding
 
-**Property**: Capability execution strictly requires prior authorization via policy grant.
+**Property**: Capability execution strictly requires prior authorization via policy grant.[^1]
 
 **Invariants**:
 
@@ -104,7 +104,7 @@ The AEGIS™ governance architecture maintains the following core security prope
 
 **How Maintained**:
 
-- Default-deny policy model
+- Default-deny policy model[^1]
 - Capability Registry lookup before policy evaluation
 - Policy engine checks actor.grants for capability
 - Audit log includes capability existence check result
@@ -118,7 +118,7 @@ The AEGIS™ governance architecture maintains the following core security prope
 
 ### SP-5: Audit Completeness & Append-Only
 
-**Property**: Audit log captures every governance decision and cannot be retroactively modified.
+**Property**: Audit log captures every governance decision and cannot be retroactively modified.[^1]
 
 **Invariants**:
 
@@ -177,7 +177,7 @@ The AEGIS™ governance architecture maintains the following core security prope
 
 ### Assumption-3: Network Isolation & TLS Deployment
 
-**Assumption**: Governance communication uses TLS 1.3+; network isolated from untrusted networks.
+**Assumption**: Governance communication uses TLS 1.3+; network isolated from untrusted networks.[^17]
 
 **Verified By**:
 
@@ -360,3 +360,13 @@ The AEGIS™ governance architecture maintains the following core security prope
 
 - [AEGIS_ATM1_MITIGATIONS.md](./AEGIS_ATM1_MITIGATIONS.md) — Control strategies and mitigations
 - [AEGIS_ATM1_RESIDUAL_RISKS.md](./AEGIS_ATM1_RESIDUAL_RISKS.md) — Residual risks and acceptance
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM TISSEC*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
+
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../../REFERENCES.md).
