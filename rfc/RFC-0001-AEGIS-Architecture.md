@@ -23,7 +23,7 @@ This RFC defines the reference architecture for AEGIS™ (Architectural Enforcem
 
 Model alignment and content moderation influence outputs but do not guarantee control over operational side effects. When AI systems can take real actions — executing shell commands, modifying infrastructure, sending messages, querying data — policy documents and alignment techniques are insufficient. They describe what should happen. They do not prevent what should not.
 
-AEGIS addresses this gap by enforcing complete mediation at the execution boundary: every action is evaluated before it reaches external systems, and every decision is recorded immutably.
+AEGIS addresses this gap by enforcing complete mediation at the execution boundary:[^1] every action is evaluated before it reaches external systems, and every decision is recorded immutably.
 
 ---
 
@@ -42,9 +42,9 @@ The guard also keeps a notebook. Every proposal, every decision, every reason �
 1. **Deterministic Governance:** same inputs and policy version produce same outcome.
 2. **Capability-First Authorization:** every action maps to a predefined capability.
 3. **Explicit Authority Attribution:** every request is bound to an authenticated actor.
-4. **Default Deny:** absence of explicit authorization yields denial.
-5. **Complete Auditability:** every decision is recorded and replay-verifiable.
-6. **Fail-Closed Safety:** subsystem uncertainty cannot result in implicit allow.
+4. **Default Deny:** absence of explicit authorization yields denial.[^2]
+5. **Complete Auditability:** every decision is recorded and replay-verifiable.[^1]
+6. **Fail-Closed Safety:** subsystem uncertainty cannot result in implicit allow.[^2]
 
 ### 2. System Context
 
@@ -134,7 +134,7 @@ sequenceDiagram
 
 ## Drawbacks
 
-- Adds latency to every AI action. The governance evaluation path introduces overhead. RFC-0002 specifies SLO targets to bound this.
+- Adds latency to every AI action. The governance evaluation path introduces overhead. [RFC-0002](./RFC-0002-Governance-Runtime.md) specifies SLO targets to bound this.
 - Requires capability definitions to exist before agents can operate. Cold-start and onboarding complexity is non-trivial.
 - Default-deny posture will produce friction during initial deployment until registries are tuned to the operational environment.
 - Audit log growth is unbounded over time and requires operational management.
@@ -149,7 +149,7 @@ sequenceDiagram
 
 **Human-in-the-loop for all actions:** Provides strong safety guarantees but eliminates the operational value of AI agents at scale. AEGIS reserves human escalation for genuinely ambiguous or high-risk decisions.
 
-**Policy-as-code without runtime enforcement:** Tools like OPA can evaluate policy but require integration with an execution boundary. AEGIS provides that boundary as a first-class architectural component.
+**Policy-as-code without runtime enforcement:** Tools like OPA[^14] can evaluate policy but require integration with an execution boundary. AEGIS provides that boundary as a first-class architectural component.
 
 ---
 
@@ -161,9 +161,7 @@ This is the foundational architecture RFC. All other RFCs are downstream of it. 
 
 ## Implementation Notes
 
-RFC-0002 specifies the runtime API. RFC-0003 specifies the capability registry and policy language. Implementers should read in order: RFC-0001, RFC-0002, RFC-0003, RFC-0004.
-
-The aegis-runtime repository provides a minimal Python reference implementation of RDP-03 (embedded lightweight pattern, per RFC-0005).
+[RFC-0002](./RFC-0002-Governance-Runtime.md) specifies the runtime API. [RFC-0003](./RFC-0003-Capability-Registry.md) specifies the capability registry and policy language. Implementers should read in order: RFC-0001, RFC-0002, RFC-0003, [RFC-0004](./RFC-0004-Governance-Event-Model.md).
 
 ---
 
@@ -184,13 +182,11 @@ The aegis-runtime repository provides a minimal Python reference implementation 
 
 ## References
 
-- RFC-0002 — Governance Runtime
-- RFC-0003 — Capability Registry and Policy Language
-- RFC-0004 — Governance Event Model
-- AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
-- ATM-1 Threat Model — `aegis-core/threat-model/AEGIS_ATM1_INDEX.md`
-- Anderson, J.P. (1972) — Computer Security Technology Planning Study (Reference Monitor model)
-- Open Policy Agent — policy-as-code reference
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../REFERENCES.md).
+
+[^14]: Open Policy Agent, v0.61, Cloud Native Computing Foundation, 2024. [Online]. Available: <https://www.openpolicyagent.org>. See [REFERENCES.md](../REFERENCES.md).
 
 ---
 

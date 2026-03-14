@@ -21,7 +21,7 @@ This RFC specifies the capability schema, inheritance model, policy language syn
 
 ## Motivation
 
-The governance runtime (RFC-0002) enforces decisions. This RFC defines the vocabulary and logic those decisions are based on. Without a formal capability model and policy language, governance is arbitrary. With it, governance is deterministic, auditable, and reproducible.
+The governance runtime ([RFC-0002](./RFC-0002-Governance-Runtime.md)) enforces decisions. This RFC defines the vocabulary and logic those decisions are based on. Without a formal capability model and policy language, governance is arbitrary. With it, governance is deterministic, auditable, and reproducible.
 
 ---
 
@@ -29,7 +29,7 @@ The governance runtime (RFC-0002) enforces decisions. This RFC defines the vocab
 
 A capability is a named, versioned declaration of something an agent is allowed to attempt. Before an agent can take an action, that action must map to a registered capability the agent has been granted.
 
-A policy is a rule that says: when these conditions are true, make this decision. Policies are evaluated in priority order. The first matching deny wins. If nothing matches, the default is deny.
+A policy is a rule that says: when these conditions are true, make this decision. Policies are evaluated in priority order. The first matching deny wins. If nothing matches, the default is deny.[^2]
 
 Together, the capability registry and policy engine answer one question: should this agent be allowed to do this thing right now?
 
@@ -123,6 +123,8 @@ DECISION    = "ALLOW" | "DENY" | "ESCALATE" | "REQUIRE_CONFIRMATION" ;
 8. Emit evaluation trace for audit.
 ```
 
+Step 7 implements default-deny[^2] — absence of explicit authorization yields denial. Step 8 records the full evaluation trace to support complete auditability.[^1]
+
 Complexity target: O(P * C), where P is policies and C is conditions per policy.
 
 ### 7. Complex Policy Examples
@@ -180,13 +182,13 @@ Policy sets MUST include: `policy_set_id`, semantic version, immutable hash, act
 
 ## Compatibility
 
-Downstream of RFC-0001 and RFC-0002. The policy language defined here is the authoritative input to the Policy Engine specified in RFC-0002.
+Downstream of [RFC-0001](./RFC-0001-AEGIS-Architecture.md) and [RFC-0002](./RFC-0002-Governance-Runtime.md). The policy language defined here is the authoritative input to the Policy Engine specified in RFC-0002.
 
 ---
 
 ## Implementation Notes
 
-The `deny_unknown_capability` hard deny invariant (Section 7) must be the first policy evaluated in any compliant implementation. The aegis-runtime repository provides reference implementations of the registry loader and evaluator.
+The `deny_unknown_capability` hard deny invariant (Section 7) must be the first policy evaluated in any compliant implementation.
 
 ---
 
@@ -208,10 +210,9 @@ The `deny_unknown_capability` hard deny invariant (Section 7) must be the first 
 
 ## References
 
-- RFC-0001 — AEGIS Architecture
-- RFC-0002 — Governance Runtime
-- RFC-0004 — Governance Event Model
-- AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../REFERENCES.md).
 
 ---
 

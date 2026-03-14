@@ -21,7 +21,7 @@ This RFC defines the AEGIS™ Claude Code Plugin: a governance enforcement layer
 
 ## Motivation
 
-The AEGIS™ architecture currently exists as a specification and a minimal Python runtime. Neither is immediately demonstrable to a skeptical practitioner. A Claude Code plugin changes that. Claude Code executes real actions: shell commands, file writes, network requests, code execution. These are exactly the action classes AEGIS™ was designed to govern. A plugin that intercepts those actions, evaluates them, and records decisions is a working governance runtime any developer can install and observe.
+The AEGIS™ architecture currently exists as a specification and a minimal Python runtime. Neither is immediately demonstrable to a skeptical practitioner. A Claude Code plugin changes that. Claude Code executes real actions: shell commands, file writes, network requests, code execution. These are exactly the action classes AEGIS™ was designed to govern — the same action classes documented as governance failures in live agentic deployments.[^12] A plugin that intercepts those actions, evaluates them, and records decisions is a working governance runtime any developer can install and observe.
 
 ---
 
@@ -39,8 +39,8 @@ You can see governance working. That is the point.
 
 - `PreToolUse` hook — intercepts all tool executions before they occur
 - Local capability registry — declarative JSON definition of permitted, escalated, and denied action classes
-- Append-only audit log — tamper-evident JSONL record of every governance decision
-- Default-deny posture — actions not explicitly registered are denied
+- Append-only audit log — tamper-evident JSONL record of every governance decision[^1]
+- Default-deny posture — actions not explicitly registered are denied[^2]
 
 ### Version 1.1 Scope (follow-on)
 
@@ -120,7 +120,7 @@ Location: `.aegis/audit.jsonl`
 }
 ```
 
-### Governance Cycle (AGP-1 Compliance)
+### Governance Cycle ([AGP-1](../aegis-core/protocol/AEGIS_AGP1_INDEX.md) Compliance)
 
 1. PROPOSAL — Hook intercepts tool call
 2. EVALUATION — Evaluator checks registry
@@ -175,13 +175,13 @@ aegis-governance/
 
 ## Compatibility
 
-No breaking changes to RFC-0001 through RFC-0005. The plugin implements RDP-03 (Embedded Lightweight Pattern) in the Claude Code execution environment. It is additive.
+No breaking changes to [RFC-0001](./RFC-0001-AEGIS-Architecture.md) through [RFC-0005](./RFC-0005-Reference-Deployment-Patterns.md). The plugin implements RDP-03 (Embedded Lightweight Pattern) from RFC-0005 in the Claude Code execution environment. It is additive.
 
 ---
 
 ## Implementation Notes
 
-Begin with the PreToolUse hook and a minimal default registry. Audit log and hash chain can be added incrementally. The aegis-runtime repository provides reference implementations of the evaluator and registry loader that can be adapted for the plugin context.
+Begin with the PreToolUse hook and a minimal default registry. Audit log and hash chain can be added incrementally.
 
 The supply chain verification hook (v1.1) depends on Claude Code plugin manifest capabilities not yet fully documented. Defer until v1.1 scope is confirmed.
 
@@ -201,20 +201,17 @@ The supply chain verification hook (v1.1) depends on Claude Code plugin manifest
 - A developer installs the plugin and immediately has governance enforcement on all tool executions
 - Every denied or escalated action produces a readable audit record
 - The registry is human-editable without plugin reinstallation
-- The plugin demonstrates a complete AGP-1 governance cycle to any observer
+- The plugin demonstrates a complete [AGP-1](../aegis-core/protocol/AEGIS_AGP1_INDEX.md) governance cycle to any observer
 
 ---
 
 ## References
 
-- AEGIS Constitution — `aegis-core/constitution/`
-- AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
-- SP-1 Decision Integrity — `aegis-core/security-protocols/`
-- RFC-0001 — AEGIS Architecture
-- RFC-0005 — Reference Deployment Patterns
-- aegis-runtime — `github.com/finnoybu/aegis-runtime`
-- Claude Code Plugin Documentation — `code.claude.com/docs/en/discover-plugins`
-- Agents of Chaos — arXiv:2602.20021 (February 2026)
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../REFERENCES.md).
+
+[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>. See [REFERENCES.md](../REFERENCES.md).
 
 ---
 

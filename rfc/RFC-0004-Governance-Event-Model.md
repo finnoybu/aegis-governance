@@ -86,7 +86,7 @@ Consumers MUST enforce:
 - Timestamp skew window (default +/- 5 minutes)
 - Signature verification with key validity period
 
-### 5. Trust Evaluation Model
+### 5. Trust Evaluation Model[^17]
 
 Trust score range: 0.0 to 1.0.
 
@@ -130,7 +130,7 @@ Supported patterns: pull feeds, push subscriptions, replicated append-only logs.
 
 ## Compatibility
 
-Downstream of RFC-0001 through RFC-0003. The event model enables federation between compliant AEGIS runtimes but does not modify the local governance cycle defined in RFC-0001 and RFC-0002.
+Downstream of [RFC-0001](./RFC-0001-AEGIS-Architecture.md) through RFC-0003. The event model enables federation between compliant AEGIS runtimes but does not modify the local governance cycle defined in RFC-0001 and RFC-0002.
 
 ---
 
@@ -160,11 +160,7 @@ The cold-start trust problem for new nodes should be addressed operationally: ne
 
 ## References
 
-- RFC-0001 — AEGIS Architecture
-- RFC-0002 — Governance Runtime
-- RFC-0003 — Capability Registry and Policy Language
-- AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
-- AEGIS Federation spec — `federation/`
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../REFERENCES.md).
 
 ---
 

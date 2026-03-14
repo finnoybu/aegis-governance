@@ -15,7 +15,7 @@
 
 ## Summary
 
-This RFC establishes the Reference Deployment Patterns (RDP) framework for AEGIS™. It defines how the AEGIS governance architecture may be deployed across heterogeneous infrastructure environments while preserving constitutional integrity and protocol compliance. AEGIS™ is deployment-environment agnostic: the Constitution and AGP-1 define what governance must do; this RFC defines how that governance may be instantiated.
+This RFC establishes the Reference Deployment Patterns (RDP) framework for AEGIS™. It defines how the AEGIS governance architecture may be deployed across heterogeneous infrastructure environments while preserving constitutional integrity and protocol compliance. AEGIS™ is deployment-environment agnostic: the [Constitution](../aegis-core/constitution/) and [AGP-1](../aegis-core/protocol/AEGIS_AGP1_INDEX.md) define what governance must do; this RFC defines how that governance may be instantiated.
 
 ---
 
@@ -45,7 +45,7 @@ The Capability Registry, Governance Gateway, Authority Verification, and Decisio
 
 | AEGIS Component | Implementation |
 |---|---|
-| Capability Registry | OPA policy bundle |
+| Capability Registry | OPA policy bundle[^14] |
 | Governance Gateway | AgentGateway sidecar |
 | Authority Verification | Keycloak token validation |
 | Decision Integrity (SP-1) | OpenShift logging stack |
@@ -117,13 +117,13 @@ None of the four RDPs currently address supply chain integrity for the AI model 
 
 ## Compatibility
 
-No breaking changes to RFC-0001 through RFC-0004. Deployment patterns are additive. An existing AEGIS specification deployment is unaffected by this RFC.
+No breaking changes to [RFC-0001](./RFC-0001-AEGIS-Architecture.md) through RFC-0004. Deployment patterns are additive. An existing AEGIS specification deployment is unaffected by this RFC.
 
 ---
 
 ## Implementation Notes
 
-RDP-03 is the recommended starting point for new implementations. The aegis-runtime repository implements RDP-03. RDP-01 is the recommended path for enterprise Kubernetes environments and is the subject of ongoing experimental work. Derrick Sutherland's article (Shadow-Soft, March 2026) provides independent validation of the Kubernetes control plane approach.
+RDP-03 is the recommended starting point for new implementations. RDP-01 is the recommended path for enterprise Kubernetes environments and is the subject of ongoing experimental work. Derrick Sutherland's article (Shadow-Soft, March 2026) provides independent validation of the Kubernetes control plane approach.
 
 ---
 
@@ -145,14 +145,7 @@ RDP-03 is the recommended starting point for new implementations. The aegis-runt
 
 ## References
 
-- AEGIS Constitution — `aegis-core/constitution/`
-- AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
-- ATM-1 Threat Model — `aegis-core/threat-model/AEGIS_ATM1_INDEX.md`
-- RFC-0001 — AEGIS Architecture
-- RFC-0002 — Governance Runtime
-- aegis-runtime — `github.com/finnoybu/aegis-runtime`
-- Derrick Sutherland, Shadow-Soft — "What Has To Be In Place Before An AI Agent Gets Production Access" (March 2026)
-- JFrog AI Catalog — supply chain reference
+[^14]: Open Policy Agent, v0.61, Cloud Native Computing Foundation, 2024. [Online]. Available: <https://www.openpolicyagent.org>. See [REFERENCES.md](../REFERENCES.md).
 
 ---
 
