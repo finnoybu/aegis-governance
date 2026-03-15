@@ -98,7 +98,7 @@ Where:
 
 - **B** — Baseline Trust Factor (identity class and credential strength)
 - **H** — Historical Accuracy Factor (fraction of signals not subsequently contradicted)
-- **Q** — Evidence Quality Factor (signal completeness and confidence calibration)
+- **Q** — Consistency and Quality Factor (signal completeness and confidence calibration)
 - **A** — Audit Posture Factor (operational governance maturity)
 - **F** — Federation Reputation Factor (peer node endorsements)
 
