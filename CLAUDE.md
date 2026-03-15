@@ -101,6 +101,8 @@ The architectural principle — that security and reputation must never share a 
 | RFC-0007 | Operational Considerations | 0.0.1 | Placeholder | Monitoring, DR, day-two ops |
 | RFC-0008 | Federation Network Protocol | 0.0.1 | Placeholder | GFN-1 transport layer |
 | RFC-0009 | Prior Art and External Validation Record | 0.0.1 | Placeholder | Pending normative source audit |
+| RFC-0010 | State Dump Protocol Formalization | 0.0.1 | Placeholder | Formalizes gap-001–004; pending normative source audit |
+| RFC-0011 | Authority Binding Sub-Spec Revision | 0.0.1 | Placeholder | Formalizes gap-005–006 + authority drift; pending normative source audit |
 
 **RFC-0006 is the active implementation target.** It implements RDP-03 (Embedded Lightweight) from RFC-0005 in the Claude Code execution environment. Start there.
 
