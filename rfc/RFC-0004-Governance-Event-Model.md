@@ -90,7 +90,7 @@ Consumers MUST enforce:
 - Timestamp skew window (default +/- 5 minutes)
 - Signature verification with key validity period
 
-### 5. Runtime Trust Model
+### 5. Runtime Trust Model[^17]
 
 AEGIS runtime trust operates through two structurally separate mechanisms. These mechanisms MUST NOT share a score, a decay function, or a combined threshold. They are defined independently and governed by an explicit non-override constraint.
 
