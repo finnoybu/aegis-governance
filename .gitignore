@@ -26,3 +26,7 @@ env/
 .idea/
 .vscode/
 *.swp
+
+# Local working directories
+.claude/
+resources/
