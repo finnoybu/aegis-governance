@@ -1,9 +1,9 @@
 # AEGIS™ ATM-1 Mitigations & Defense Strategies
 
-**Document**: ATM-1/Mitigations (AEGIS_ATM1_MITIGATIONS.md)
-**Version**: 1.0 (Normative)
-**Part of**: AEGIS Adaptive Threat Model (ATM-1)
-**References**: ATM-1/Vectors
+**Document**: ATM-1/Mitigations (AEGIS_ATM1_MITIGATIONS.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Adaptive Threat Model (ATM-1)\
+**References**: ATM-1/Vectors\
 **Last Updated**: March 6, 2026
 
 ---

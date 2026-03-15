@@ -1,7 +1,7 @@
 # AEGIS™ Announcement Readiness Assessment
 
-**Generated**: March 5, 2026
-**Repository**: [https://github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)
+**Generated**: March 5, 2026\
+**Repository**: [https://github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)\
 **Assessment against**: docs/announcements/2026-03-05-launch/READINESS_CHECKLIST.md
 
 ---
@@ -353,7 +353,7 @@ Updated files (24 files):
 - All trademark references updated to Finnoybu IP LLC
 - Comprehensive global update completed
 - Trademark policy clearly states Finnoybu IP LLC as owner
-- Both AEGIS™ and "Capability without constraint is not intelligence™" federally registered
+- Both AEGIS™ and "Capability without constraint is not intelligence"™ federally registered
 
 ---
 
@@ -448,3 +448,8 @@ The one remaining gap (roadmap issues) is an administrative detail that is bette
 **Report Generated**: March 5, 2026
 **Assessed By**: GitHub Copilot
 **Repository**: [https://github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

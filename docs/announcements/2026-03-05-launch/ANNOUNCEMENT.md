@@ -56,3 +56,8 @@ The initial release includes the foundational architecture for the AEGIS ecosyst
 * Architectural design documents
 * Governance constitution and framework definitions
 * RFC series establishing co
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

@@ -1,8 +1,8 @@
 # AEGIS™ GFN-1 Governance Feed Taxonomy & Semantics
 
-**Document**: GFN-1/Feeds (AEGIS_GFN1_GOVERNANCE_FEEDS.md)
-**Version**: 1.0 (Normative)
-**Part of**: AEGIS Governance Federation Network
+**Document**: GFN-1/Feeds (AEGIS_GFN1_GOVERNANCE_FEEDS.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Governance Federation Network\
 **Last Updated**: March 6, 2026
 
 ---

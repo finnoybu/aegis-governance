@@ -11,13 +11,14 @@ This directory archives outreach communications to maintain transparency in the 
 - Files are named `YYYY-MM-<topic>.md`
 - Email addresses are removed or masked for privacy
 - Header metadata includes: Date, From, To, Status, Response, and Discussion link (where applicable)
-- Status values: `Initial outreach sent`, `Follow-up sent`, `Response received`, `Closed`
+- Status values: `Initial outreach sent`, `Follow-up sent`, `Response received`, `Active — ongoing exchange`, `Closed`
 - Response values: `Pending`, `Received`, `No response`
 
 ## Log
 
 | Date | Recipient | Topic | Status | Response |
 |------|-----------|-------|--------|----------|
+| 2026-03-10 | Nathan Freestone (The Elora Taurus Project) | Architectural convergence — Elora/AEGIS execution boundary; three patterns for AEGIS spec | Active — ongoing exchange | Received — Discussions [#73](https://github.com/orgs/aegis-initiative/discussions/73), [#74](https://github.com/orgs/aegis-initiative/discussions/74), [#75](https://github.com/orgs/aegis-initiative/discussions/75) |
 | 2026-03-13 | William Torgbi Agbemabiese | Constitutional Autonomy + AEGIS multi-layer governance | Initial outreach sent | Pending |
 | 2026-03-14 | Mattijs Moens (Sovereign Shield) | Trust decay determinism objection — GFN-1 §3.8 / RFC-0004 | Response received | Received — Discussion [#72](https://github.com/finnoybu/aegis-governance/discussions/72) |
 

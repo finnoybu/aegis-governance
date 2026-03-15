@@ -149,5 +149,5 @@ RDP-03 is the recommended starting point for new implementations. RDP-01 is the 
 
 ---
 
-*"Capability without constraint is not intelligence™"*  
-*Finnoybu IP LLC — AEGIS™ Initiative*
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

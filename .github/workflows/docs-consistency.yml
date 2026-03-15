@@ -19,8 +19,8 @@ jobs:
         run: |
           set -e
           # Check for correct tagline (must appear exactly as specified)
-          if grep -r -i 'Capability without constraint is not intelligence' . --include='*.md' | grep -v 'Capability without constraint is not intelligence™'; then
-            echo '❌ Inconsistent tagline found. Only "Capability without constraint is not intelligence™" is allowed.'
+          if grep -r -i 'Capability without constraint is not intelligence' . --include='*.md' | grep -vE 'Capability without constraint is not intelligence"?™'; then
+            echo '❌ Inconsistent tagline found. Only "Capability without constraint is not intelligence"™ is allowed.'
             exit 1
           fi
           # Check for correct expansion (must appear exactly as specified)

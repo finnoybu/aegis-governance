@@ -490,6 +490,5 @@ By enforcing governance at the architecture layer, AEGIS ensures that intelligen
 
 ---
 
-# Foundational Principle
-
-> Capability without constraint is not intelligence™
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

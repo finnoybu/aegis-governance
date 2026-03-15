@@ -190,24 +190,5 @@ The project includes:
 
 ---
 
-# Foundational Principle
-
-> **Capability without constraint is not intelligence™**
-
-The future of artificial intelligence will not only depend on what systems can do, but also on how responsibly those capabilities are governed.
-
----
-
-# Project Stewardship
-
-AEGIS™ is currently stewarded by its original author.
-
-The long-term goal is to develop AEGIS™ as an **open governance architecture** with participation from the AI safety, security, and research communities.
-
----
-
-# Trademark Notice
-
-AEGIS™ and **"Capability without constraint is not intelligence™"** are trademarks of Finnoybu IP LLC.
-
-Use of these marks in derivative works must not imply endorsement without explicit permission.
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

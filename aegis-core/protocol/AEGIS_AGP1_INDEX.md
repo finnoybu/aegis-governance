@@ -1,8 +1,8 @@
 # AEGIS™ AGP-1 Complete Specification Suite & Index
 
-**Document**: AGP-1/Index (AEGIS_AGP1_INDEX.md)
-**Version**: 1.0 (Normative)
-**Part of**: AEGIS Governance Protocol
+**Document**: AGP-1/Index (AEGIS_AGP1_INDEX.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Governance Protocol\
 **Last Updated**: March 6, 2026
 
 ---

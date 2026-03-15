@@ -84,7 +84,7 @@ The [faq/](faq/) directory answers common questions:
 The [manifesto/](manifesto/) directory contains the foundational principles:
 
 - Why capability-based governance is essential for AI safety
-- The "Capability without constraint is not intelligence™" principle
+- The "Capability without constraint is not intelligence"™ principle
 - Design philosophy and non-negotiable properties
 
 ### Overview
@@ -210,7 +210,7 @@ See [../LICENSE](../LICENSE) for full license text.
 
 ## Trademark Notice
 
-AEGIS™ and **"Capability without constraint is not intelligence™"** are trademarks of Finnoybu IP LLC.
+AEGIS™ and **"Capability without constraint is not intelligence"™** are trademarks of Finnoybu IP LLC.
 
 See [../TRADEMARKS.md](../TRADEMARKS.md) for trademark usage guidelines.
 
@@ -220,3 +220,8 @@ See [../TRADEMARKS.md](../TRADEMARKS.md) for trademark usage guidelines.
 
 - **GitHub Discussions**: [aegis-governance/discussions](https://github.com/finnoybu/aegis-governance/discussions)
 - **GitHub Issues**: [aegis-governance/issues](https://github.com/finnoybu/aegis-governance/issues)
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

@@ -78,3 +78,8 @@ When adding position papers:
 
 **Part of**: AEGIS™ Documentation  
 **Maintained by**: AEGIS™ Initiative
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

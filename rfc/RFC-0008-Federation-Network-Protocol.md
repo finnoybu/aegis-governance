@@ -37,5 +37,5 @@ Note: The governance event envelope and payload schemas are already defined in R
 
 ---
 
-*"Capability without constraint is not intelligence™"*  
-*Finnoybu IP LLC — AEGIS™ Initiative*
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

@@ -1,9 +1,9 @@
 # AEGIS™ ATM-1 Residual Risks & Risk Acceptance
 
-**Document**: ATM-1/Residual (AEGIS_ATM1_RESIDUAL_RISKS.md)
-**Version**: 1.0 (Normative)
-**Part of**: AEGIS Adaptive Threat Model (ATM-1)
-**References**: ATM-1/Mitigations
+**Document**: ATM-1/Residual (AEGIS_ATM1_RESIDUAL_RISKS.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Adaptive Threat Model (ATM-1)\
+**References**: ATM-1/Mitigations\
 **Last Updated**: March 6, 2026
 
 ---

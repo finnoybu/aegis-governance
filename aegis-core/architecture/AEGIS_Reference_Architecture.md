@@ -962,6 +962,5 @@ Together these documents define the complete AEGIS™ governance architecture.
 
 ---
 
-# Foundational Principle
-
-> Capability without constraint is not intelligence™
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

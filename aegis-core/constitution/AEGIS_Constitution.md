@@ -1,14 +1,14 @@
 # AEGIS™ Constitution
 
-Architectural Enforcement & Governance of Intelligent Systems
+### Architectural Enforcement & Governance of Intelligent Systems
 
-Version: 0.1\ 
+Version: 0.1\
 Status: Draft\
 Effective Date: March 5, 2026
 
 ---
 
-## Preamble
+# Preamble
 
 AEGIS™ (Architectural Enforcement & Governance of Intelligent Systems) exists to ensure that increasingly capable AI systems operate within **explicit governance boundaries**.
 
@@ -22,7 +22,7 @@ This constitution is not framed as master-slave control. It is a governance comp
 
 ---
 
-## Article I — Bounded Capability
+# Article I — Bounded Capability
 
 **Principle:**  
 AI systems operating within an AEGIS™ environment may only access capabilities that are explicitly defined in the capability registry.
@@ -37,7 +37,7 @@ Bounded capability is therefore a stewardship mechanism: it limits operational b
 
 ---
 
-## Article II — Authority Verification
+# Article II — Authority Verification
 
 **Principle:**  
 All actions executed through AEGIS™ must be attributable to a verified actor.
@@ -56,7 +56,7 @@ The governance gateway must validate actor identity before processing any action
 
 ---
 
-## Article III — Deterministic Enforcement
+# Article III — Deterministic Enforcement
 
 **Principle:**  
 Governance decisions must be enforced through system architecture rather than relying solely on AI model behavior.
@@ -69,7 +69,7 @@ All operational actions must pass through the AEGIS™ governance runtime prior 
 
 ---
 
-## Article IV — Operational Safety
+# Article IV — Operational Safety
 
 **Principle:**  
 Actions capable of causing significant operational impact must require elevated governance review.
@@ -94,7 +94,7 @@ The policy engine must classify actions based on operational impact. Actions cat
 
 ---
 
-## Article V — Data Protection
+# Article V — Data Protection
 
 **Principle:**  
 Sensitive data must not be exposed without authorization.
@@ -107,7 +107,7 @@ The policy engine must enforce data classification rules. Actions that would exp
 
 ---
 
-## Article VI — Governance Transparency
+# Article VI — Governance Transparency
 
 **Principle:**  
 Governance rules and policies should be inspectable and understandable by system operators.
@@ -120,7 +120,7 @@ Policies governing AI actions should be stored in structured formats that allow 
 
 ---
 
-## Article VII — Auditability
+# Article VII — Auditability
 
 **Principle:**  
 All governance decisions and executed actions must generate immutable audit records.
@@ -142,7 +142,7 @@ Audit logs must be tamper-evident, stored in immutable formats, and retained acc
 
 ---
 
-## Article VIII — Federation Cooperation
+# Article VIII — Federation Cooperation
 
 **Principle:**  
 AEGIS™ systems may participate in distributed governance intelligence networks to share safety insights and emerging risks.
@@ -155,11 +155,11 @@ AEGIS™ runtimes may integrate with the AEGIS Governance Federation Network to 
 
 ---
 
-## Constitutional Compliance
+# Constitutional Compliance
 
 AEGIS™ constitutional compliance is enforced through **architectural requirements**, not voluntary adherence.
 
-### Compliance Mechanisms
+## Compliance Mechanisms
 
 1. **Gateway Enforcement** — AI actions must pass through the governance gateway; direct infrastructure access is architecturally prohibited
 2. **Capability Registry Validation** — Actions referencing undefined capabilities are automatically rejected
@@ -167,7 +167,7 @@ AEGIS™ constitutional compliance is enforced through **architectural requireme
 4. **Audit System Logging** — Every action produces an immutable audit record
 5. **Tool Proxy Layer** — Only approved actions proceed to execution; denied actions never reach operational systems
 
-### Verification
+## Verification
 
 Organizations deploying AEGIS™ can verify constitutional compliance through:
 
@@ -179,17 +179,17 @@ Organizations deploying AEGIS™ can verify constitutional compliance through:
 - **Runtime Architecture Validation** — Verify governance runtime is properly interposed between AI agents and infrastructure
 - **Governance Policy Audits** — Review policy configurations for alignment with constitutional principles
 
-### Non-Compliance
+## Non-Compliance
 
 Systems that do not enforce these constitutional principles **cannot be considered AEGIS-compliant**, regardless of stated intent or documentation. Compliance is measured by architectural enforcement, not aspirational policy.
 
 ---
 
-## Constitutional Amendments
+# Constitutional Amendments
 
 This constitution may evolve as the AEGIS™ architecture develops and operational experience reveals new governance requirements.
 
-### Amendment Process
+## Amendment Process
 
 Constitutional amendments must follow the AEGIS RFC process:
 
@@ -199,7 +199,7 @@ Constitutional amendments must follow the AEGIS RFC process:
 4. **Approval** — Requires consensus from AEGIS Initiative maintainers and community contributors
 5. **Effective Date** — Amendments include transition period for implementation updates (minimum 6 months for breaking changes)
 
-### Versioning
+## Versioning
 
 The constitution follows **semantic versioning** aligned with AEGIS™ specification releases:
 
@@ -218,7 +218,7 @@ Example progression:
 
 **Current version:** 0.1.0 (initial draft)
 
-### Backward Compatibility
+## Backward Compatibility
 
 Major version changes (e.g., 1.0.0 → 2.0.0) may introduce **breaking changes** requiring system updates. Organizations should:
 
@@ -227,7 +227,7 @@ Major version changes (e.g., 1.0.0 → 2.0.0) may introduce **breaking changes**
 - Update implementations before the amendment effective date
 - Maintain audit trails documenting constitutional version compliance
 
-### Deprecation Policy
+## Deprecation Policy
 
 When constitutional principles evolve:
 
@@ -238,7 +238,7 @@ When constitutional principles evolve:
 
 ---
 
-## Interpretation
+# Interpretation
 
 In cases of ambiguity or conflict, constitutional interpretation prioritizes:
 
@@ -250,34 +250,5 @@ In cases of ambiguity or conflict, constitutional interpretation prioritizes:
 
 ---
 
-## Foundational Maxim
-
-> **Capability without constraint is not intelligence™**
-
-This maxim encapsulates the core philosophy of AEGIS™: that true intelligence requires not just capability, but **responsible constraint**. The future of artificial intelligence will be determined not by what systems can do, but by how responsibly those capabilities are governed.
-
-AEGIS™ exists to ensure that AI systems operate within **explicitly defined and enforceable governance boundaries**.
-
----
-
----
-
-## References
-
-[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
-
-[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
-
-[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>. See [REFERENCES.md](../../REFERENCES.md).
-
----
-
-**Document Metadata:**
-
-- **Version:** 0.1.0
-- **Status:** Draft
-- **Last Updated:** March 5, 2026
-- **Next Review:** Prior to v1.0 release
-- **Canonical Location:** `/aegis-core/constitution/AEGIS_Constitution.md`
-- **Governing Authority:** AEGIS Initiative
-- **Amendment Process:** RFC-based (see Constitutional Amendments section)
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

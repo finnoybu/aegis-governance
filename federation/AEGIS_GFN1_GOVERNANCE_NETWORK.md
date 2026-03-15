@@ -1,8 +1,8 @@
 # AEGIS™ GFN-1 Governance Intelligence & Federated Architecture
 
-**Document**: GFN-1/Network (AEGIS_GFN1_GOVERNANCE_NETWORK.md)
-**Version**: 1.0 (Normative)
-**Part of**: AEGIS Governance Federation Network
+**Document**: GFN-1/Network (AEGIS_GFN1_GOVERNANCE_NETWORK.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Governance Federation Network\
 **Last Updated**: March 6, 2026
 
 ---

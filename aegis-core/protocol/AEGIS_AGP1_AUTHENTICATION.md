@@ -1,8 +1,8 @@
 # AEGIS™ AGP-1 Authentication & Authorization
 
-**Document**: AGP-1/Auth (AEGIS_AGP1_AUTHENTICATION.md)
-**Version**: 1.0 (Normative)
-**Part of**: AEGIS Governance Protocol
+**Document**: AGP-1/Auth (AEGIS_AGP1_AUTHENTICATION.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Governance Protocol\
 **Last Updated**: March 6, 2026
 
 ---

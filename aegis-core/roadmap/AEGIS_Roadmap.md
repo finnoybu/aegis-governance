@@ -430,6 +430,5 @@ If successful, AEGIS™ could evolve into a widely adopted governance standard s
 
 ---
 
-# Foundational Principle
-
-> Capability without constraint is not intelligence™
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

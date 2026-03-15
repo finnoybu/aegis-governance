@@ -398,3 +398,8 @@ Future extensions may include:
 # License
 
 See the project LICENSE file.
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

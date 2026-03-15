@@ -18,4 +18,5 @@ All notable changes to the AEGIS™ project are documented in [`changelog/`](cha
 
 ---
 
-> **Capability without constraint is not intelligence™**
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*
