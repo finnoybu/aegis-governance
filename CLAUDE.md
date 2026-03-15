@@ -97,7 +97,7 @@ The architectural principle — that security and reputation must never share a 
 | RFC-0003 | Capability Registry & Policy | 0.2 | Draft | Policy language, evaluation algorithm |
 | RFC-0004 | Governance Event Model | 0.4 | Draft | Two-layer trust; issue #35 closed |
 | RFC-0005 | Reference Deployment Patterns | 0.1 | Draft | RDP-01–04; RDP-03 is recommended start |
-| RFC-0006 | Claude Code Plugin | 0.1 | Draft | **Next implementation target — Q2 2026** |
+| RFC-0006 | Claude Code Plugin | 0.2 | Draft | **Next implementation target — Q2 2026** |
 | RFC-0007 | Operational Considerations | 0.0.1 | Placeholder | Monitoring, DR, day-two ops |
 | RFC-0008 | Federation Network Protocol | 0.0.1 | Placeholder | GFN-1 transport layer |
 

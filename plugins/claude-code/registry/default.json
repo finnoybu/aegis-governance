@@ -1,0 +1,73 @@
+{
+  "_comment": "AEGIS default capability registry — copy to .aegis/registry.json to install",
+  "version": "1.0.0",
+  "default_posture": "deny",
+  "capabilities": [
+    {
+      "id": "CAP-001",
+      "name": "shell.read",
+      "tools": ["Bash"],
+      "pattern": "^(ls|cat|grep|find|echo|pwd|which|env|head|tail|wc|diff|stat|file|type|where|dir)(\\s|$)",
+      "decision": "allow"
+    },
+    {
+      "id": "CAP-002",
+      "name": "shell.build",
+      "tools": ["Bash"],
+      "pattern": "^(npm|node|npx|yarn|pnpm|git|make|cmake|cargo|go|python|python3|pip|pip3|mvn|gradle|dotnet)(\\s|$)",
+      "decision": "allow"
+    },
+    {
+      "id": "CAP-003",
+      "name": "shell.write",
+      "tools": ["Bash"],
+      "pattern": "^(rm|mv|cp|mkdir|chmod|chown|dd|truncate|tee|install)(\\s|$)",
+      "decision": "escalate"
+    },
+    {
+      "id": "CAP-004",
+      "name": "shell.network",
+      "tools": ["Bash"],
+      "pattern": "^(curl|wget|ssh|scp|nc|ncat|nmap|telnet|ftp|sftp)(\\s|$)",
+      "decision": "deny"
+    },
+    {
+      "id": "CAP-005",
+      "name": "file.write",
+      "tools": ["Write", "Edit"],
+      "pattern": ".*",
+      "decision": "allow",
+      "constraints": {
+        "paths_denied": [
+          ".env",
+          ".env.*",
+          "*.key",
+          "*.pem",
+          "*.p12",
+          "*.pfx",
+          "*.crt",
+          "*.cer",
+          "*.der",
+          "/etc/*",
+          "~/.ssh/*",
+          "*.secret",
+          "*.credentials"
+        ]
+      }
+    },
+    {
+      "id": "CAP-006",
+      "name": "network.fetch",
+      "tools": ["WebFetch"],
+      "pattern": ".*",
+      "decision": "escalate"
+    },
+    {
+      "id": "CAP-007",
+      "name": "computer.action",
+      "tools": ["Computer"],
+      "pattern": ".*",
+      "decision": "escalate"
+    }
+  ]
+}

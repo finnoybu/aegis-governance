@@ -30,3 +30,7 @@ env/
 # Local working directories
 .claude/
 resources/
+
+# AEGIS runtime artifacts
+.aegis/audit.jsonl
+.aegis/registry.json.bak

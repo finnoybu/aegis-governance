@@ -1,0 +1,26 @@
+{
+  "_comment": "AEGIS companion settings.json — copy to .claude/settings.json to install. Sets Claude Code native permissions to permissive so AEGIS is the sole authoritative governance layer. Do NOT deploy without a valid .aegis/registry.json. See RFC-0006 §Component 5.",
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Write(*)",
+      "Edit(*)",
+      "WebFetch(*)",
+      "Computer(*)"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Write|Edit|WebFetch|Computer",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/pre_tool_use.js"
+          }
+        ]
+      }
+    ]
+  }
+}
