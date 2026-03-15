@@ -68,6 +68,7 @@ The hook fires after Claude Code's tool routing but before execution. It is the 
 **Missing registry behavior:** If `.aegis/registry.json` is absent, the hook MUST deny all tool executions and emit a configuration warning to stderr. Silent fail-open is not permitted.[^2]
 
 **Stdin payload (from Claude Code):**
+
 ```json
 {
   "hook_event_name": "PreToolUse",
@@ -82,6 +83,7 @@ The hook fires after Claude Code's tool routing but before execution. It is the 
 ```
 
 **Structured allow/deny/escalate output (stdout):**
+
 ```json
 {
   "hookSpecificOutput": {
@@ -273,6 +275,7 @@ cp plugins/claude-code/registry/default.json .aegis/registry.json
 ```
 
 Verify the hook is registered:
+
 ```bash
 # Start Claude Code and check hook fires
 claude
@@ -361,10 +364,10 @@ The HMAC signing on audit records (v1.1) should reference Nathan Freestone's Elo
 
 > **Resolved:** *Should escalation present a Claude Code confirmation prompt or write to a separate escalation queue?*
 > **Resolution:** Confirmation prompt for v1.0 (synchronous, visible, single-developer context). Queue-based escalation is v1.1 for multi-operator environments.
-
+>
 > **Resolved:** *Should the audit log be scoped per-session or per-project?*
 > **Resolution:** Per-project. Audit records must persist across sessions for longitudinal forensic value.
-
+>
 > **Resolved:** *Should AEGIS co-govern with `settings.json` or replace it as the authoritative layer?*
 > **Resolution:** AEGIS replaces `settings.json` as the semantic governance layer. Companion `settings.json` ships with plugin set to permissive. See §Relationship to Claude Code Native Permissions.
 
