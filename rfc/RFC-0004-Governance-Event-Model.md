@@ -2,9 +2,9 @@
 
 **RFC:** RFC-0004
 **Status:** Draft  
-**Version:** 0.2  
-**Created:** 2026-03-05  
-**Updated:** 2026-03-06  
+**Version:** 0.3
+**Created:** 2026-03-05
+**Updated:** 2026-03-15
 **Author:** AEGIS™ Initiative, Finnoybu IP LLC  
 **Repository:** aegis-governance  
 **Target milestone:** v1.0  
@@ -88,16 +88,21 @@ Consumers MUST enforce:
 
 ### 5. Trust Evaluation Model[^17]
 
-Trust score range: 0.0 to 1.0.
+Trust score range: 0.0 to 1.0. The normative formula is defined in GFN-1 §3.7:
 
 ```text
-trust_score =
-  0.25 * identity_confidence +
-  0.20 * signature_confidence +
-  0.25 * historical_accuracy +
-  0.15 * audit_posture +
-  0.15 * federation_reputation
+T = 0.30B + 0.25H + 0.20Q + 0.15A + 0.10F
 ```
+
+Where:
+
+- **B** — Baseline Trust Factor (identity class and credential strength)
+- **H** — Historical Accuracy Factor (fraction of signals not subsequently contradicted)
+- **Q** — Evidence Quality Factor (signal completeness and confidence calibration)
+- **A** — Audit Posture Factor (operational governance maturity)
+- **F** — Federation Reputation Factor (peer node endorsements)
+
+`T` is clamped to [0.0, 1.0]. Bootstrap values for nodes with no operational history are specified in GFN-1 §3.2–§3.6.
 
 Application policy:
 - `>= 0.8`: allow automated policy ingestion
@@ -112,7 +117,7 @@ Supported patterns: pull feeds, push subscriptions, replicated append-only logs.
 
 ## Drawbacks
 
-- The trust scoring model is partially subjective. `historical_accuracy` and `federation_reputation` require operational history that new nodes do not have, creating a cold-start trust problem.
+- The trust scoring model requires operational history. New nodes start with bootstrap values defined in GFN-1 §5 and converge to earned scores over time.
 - ed25519 signature verification adds per-event overhead. High-volume event streams require careful performance management.
 - At-least-once delivery requires all consumers to implement idempotency, adding implementation burden.
 
@@ -138,7 +143,7 @@ Downstream of [RFC-0001](./RFC-0001-AEGIS-Architecture.md) through RFC-0003. The
 
 Complete payload examples for all five event types are in the canonical repository at `schemas/examples/governance/events/`. Implementers should validate against those examples before publishing events to a federation network.
 
-The cold-start trust problem for new nodes should be addressed operationally: new nodes begin in a quarantine-only posture and are promoted based on operator attestation.
+Trust bootstrap for new nodes is handled by the mechanisms defined in GFN-1 §5. See that section for allowlist, consortium membership, transitive endorsement, and accelerated onboarding approaches.
 
 ---
 
