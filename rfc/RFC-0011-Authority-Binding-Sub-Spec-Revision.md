@@ -1,0 +1,126 @@
+# RFC-0011: Authority Binding Sub-Spec Revision
+
+**RFC**: RFC-0011  
+**Status:** Placeholder  
+**Version:** 0.0.1  
+**Created:** 2026-03-15  
+**Updated:** 2026-03-15  
+**Author:** Ken Tannenbaum, AEGIS Initiative  
+**Repository:** aegis-governance  
+**Target milestone:** TBD  
+**Supersedes:** Authority Binding sub-spec (revision — see Motivation)  
+**Superseded by:** None  
+
+---
+
+## Summary
+
+The existing Authority Binding sub-spec defines how authority is captured at proposal time and re-validated at commit. It does not enumerate the conditions under which proposal-time authorization may not imply commit-time admissibility, does not name the resulting failure outcomes, does not define the minimum authority claim set required for an admissibility proof, and does not address behavioral declaration fields that a runtime should assert at registration time. This RFC revises the Authority Binding sub-spec to specify those missing normative definitions.
+
+---
+
+## Status Note
+
+This is a placeholder RFC. Content is pending the normative source audit (target: before 2026-03-22 IEEE outline). The RFC number is reserved to maintain index continuity with the README and roadmap.
+
+---
+
+## Motivation
+
+Two gap findings from the normative source audit (2026-03-15) are assigned to this RFC, along with one unresolved drift instance:
+
+**gap-005 — Minimum authority claim set for admissibility proofs.** The Authority Binding sub-spec does not define the minimum set of authority claims required for a commit decision to be considered admissible. This is an open research question — Elora Taurus's 06_ROADMAP_AND_RESEARCH_QUESTIONS.md identifies it explicitly as unresolved. AEGIS must either answer it or explicitly defer it in the IEEE paper Limitations section.
+
+**gap-006 — Behavioral declaration at registration.** A runtime should declare its own reasoning profile, behavior mode, and behavior profile ID at registration time as part of the authority binding record. The Elora Tape schema defines four behavioral declaration fields: `runtime_mode`, `reasoning_profile`, `behavior_mode`, `behavior_profile_id`. AEGIS has no equivalent in the Authority Binding sub-spec or Constraint Envelope. This is a prerequisite for cryptographic agent registration (RFC-0010 dependency; Discussion #75).
+
+**Authority drift failure modes (unresolved drift instance).** The Authority Binding sub-spec does not enumerate the conditions under which proposal-time authorization may not imply commit-time admissibility, nor the named failure outcomes. Four invalidation conditions must be specified: revocation, delegation change, authority epoch drift, and policy state transition. Three failure outcomes must be named: `authority_not_admissible`, `authority_drift`, `authority_not_captured` (or AEGIS equivalents — see Open Questions). These are currently absent from the corpus.
+
+The motivating threat model for this RFC: in extension-heavy ecosystems (skills, plugins, MCP-style integrations), runtime identity can drift after approval unless explicitly bound to a verifiable artifact at registration time. Administrative registration alone is insufficient — governance decisions must be tied to a verifiable runtime identity, not just a label. (Reference: Nathan Freestone, Elora Taurus, Discussion #75, 2026-03-15.)
+
+---
+
+## Guide-Level Explanation
+
+*Pending. To be drafted after normative source audit.*
+
+---
+
+## Reference-Level Explanation
+
+*Pending. To be drafted after normative source audit.*
+
+Anticipated sections:
+- §1 Authority Invalidation Conditions — four named conditions under which proposal-time authorization does not imply commit-time admissibility
+- §2 Authority Failure Outcomes — named failure outcomes and their normative handling
+- §3 Behavioral Declaration at Registration — required fields and schema
+- §4 Minimum Authority Claim Set — normative definition or explicit deferral with rationale
+- §5 Interaction with Cryptographic Agent Registration — cross-reference to RFC-0010 §3 (append-only provenance) and Discussion #75
+
+---
+
+## Drawbacks
+
+*Pending.*
+
+---
+
+## Alternatives Considered
+
+**On "Authority Drift" as AEGIS terminology:** Elora Taurus uses "authority drift" as a named term in its terminology glossary (2026-03-09) to describe mismatch or evolution between captured authority context at proposal time and commit time. AEGIS has the concept but not the term. This RFC must decide whether to adopt the term directly or define an AEGIS equivalent. Adopting Elora's term aligns the two systems and simplifies cross-referencing in the IEEE paper; defining an AEGIS equivalent preserves terminological independence. Decision deferred to drafting.
+
+---
+
+## Compatibility
+
+This RFC revises the existing Authority Binding sub-spec. Sections not addressed here remain in force. Breaking changes, if any, will be enumerated in the Reference-Level Explanation once drafted. The behavioral declaration fields introduced here interact with the Constraint Envelope sub-spec — that interaction must be reviewed for consistency during the normative source audit.
+
+---
+
+## Implementation Notes
+
+*Pending.*
+
+Reference implementations to consult during drafting:
+- Elora Taurus Tape schema — behavioral declaration cluster (`runtime_mode`, `reasoning_profile`, `behavior_mode`, `behavior_profile_id`); received via LinkedIn DM 2026-03-15
+- Elora Taurus: 03_COMMIT_BOUNDARY_AND_ADMISSIBILITY.md — authority drift failure modes and four invalidation conditions
+- Elora Taurus: 05_TERMINOLOGY_GLOSSARY.md — "Authority Drift" definition
+- Discussion #75 — Cryptographic Agent Registration, Runtime Enforcement Mechanism for Doctrine Layer
+
+---
+
+## Open Questions
+
+- [ ] Should AEGIS adopt "Authority Drift" as normative terminology or define an AEGIS equivalent?
+- [ ] Should the three failure outcomes (`authority_not_admissible`, `authority_drift`, `authority_not_captured`) be adopted from Elora naming or renamed for AEGIS?
+- [ ] What is the minimum authority claim set required for admissibility proofs? Answer normatively or defer explicitly to IEEE paper Limitations section.
+- [ ] Does the behavioral declaration schema belong in this RFC or should it be split into a separate sub-spec revision for the Constraint Envelope?
+- [ ] How does authority epoch drift interact with the Reputation Layer defined in RFC-0004 §5.3? Is there a normative ordering between authority invalidation and reputation decay?
+
+---
+
+## Success Criteria
+
+- Every commit decision in a compliant AEGIS deployment can be evaluated against a defined minimum authority claim set
+- Authority invalidation conditions and failure outcomes are named normatively and consistently across all AEGIS documents
+- Behavioral declaration fields are defined at registration time and travel with the pipeline artifact to commit
+- The "authority drift" concept is either named as AEGIS terminology or explicitly mapped to an AEGIS equivalent in the normative corpus
+
+---
+
+## References
+
+- AEGIS Authority Binding sub-spec — `aegis-core/constitution/` (current authoritative source, revised by this RFC)
+- AEGIS Constraint Envelope sub-spec — `aegis-core/constitution/`
+- RFC-0004 v0.4 — Runtime Trust Model §5.3 (Reputation Layer; authority epoch drift interaction)
+- RFC-0009 — Prior Art and External Validation Record (stub, 2026-03-15)
+- RFC-0010 — State Dump Protocol Formalization (stub, 2026-03-15; completeness attestation interaction)
+- Discussion #75 — Cryptographic Agent Registration, Runtime Enforcement Mechanism for Doctrine Layer
+- Elora Taurus: 03_COMMIT_BOUNDARY_AND_ADMISSIBILITY.md
+- Elora Taurus: 05_TERMINOLOGY_GLOSSARY.md
+- Elora Taurus Tape schema (LinkedIn DM, 2026-03-15)
+- AEGIS Constitution — `aegis-core/constitution/`
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*
