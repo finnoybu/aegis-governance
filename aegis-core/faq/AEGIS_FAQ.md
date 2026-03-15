@@ -637,3 +637,8 @@ This distinction becomes critical when autonomous systems are capable of executi
 AEGIS™ complements traditional access control by adding a **governance layer specifically designed for AI agency**.
 
 ---
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

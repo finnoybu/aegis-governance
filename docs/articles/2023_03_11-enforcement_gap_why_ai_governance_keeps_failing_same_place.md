@@ -350,7 +350,7 @@ AEGIS™ is designed as a constitutional mediation layer that establishes explic
 
 The project is released under the Apache 2.0 license and is actively seeking contributors from the AI safety, security, and research communities. Contributions, discussions, and engagement are welcomed through the project repository at [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance).
 
-**IP Ownership**: AEGIS™ and "Capability without constraint is not intelligence™" are trademarks of Finnoybu IP LLC, a subsidiary of Finnoybu Holdings LLC.
+**IP Ownership**: AEGIS™ and "Capability without constraint is not intelligence"™ are trademarks of Finnoybu IP LLC, a subsidiary of Finnoybu Holdings LLC.
 
 ### Learn more
 
@@ -365,3 +365,8 @@ The project is released under the Apache 2.0 license and is actively seeking con
 Kenneth Tannenbaum is the founder of the AEGIS™ Initiative, the brand name under which Finnoybu IP LLC develops and stewards the AEGIS™ governance architecture. Ken bridges AI policy doctrine and production enforcement, working to close the gap between what organizations say about their AI systems and what those systems actually do.
 
 **Connect**: [linkedin.com/in/kenneth-tannenbaum](https://linkedin.com/in/kenneth-tannenbaum)
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

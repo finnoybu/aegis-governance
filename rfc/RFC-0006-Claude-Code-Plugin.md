@@ -217,5 +217,5 @@ The supply chain verification hook (v1.1) depends on Claude Code plugin manifest
 
 ---
 
-*"Capability without constraint is not intelligence™"*
-*Finnoybu IP LLC — AEGIS™ Initiative*
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

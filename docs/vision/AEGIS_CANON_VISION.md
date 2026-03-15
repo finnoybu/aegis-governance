@@ -316,3 +316,8 @@ The theory informs the practice. The practice validates the theory. Both evolve 
 3. Should examples reference source papers when demonstrating patterns?
 4. Do we create a separate bibliography for each major component (AGP-1, ATM-1, GFN-1)?
 5. How do we version `REFERENCES.md` as citations evolve?
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

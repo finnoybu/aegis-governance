@@ -164,5 +164,5 @@ The cold-start trust problem for new nodes should be addressed operationally: ne
 
 ---
 
-*"Capability without constraint is not intelligence™"*  
-*Finnoybu IP LLC — AEGIS™ Initiative*
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

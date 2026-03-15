@@ -190,5 +190,5 @@ This is the foundational architecture RFC. All other RFCs are downstream of it. 
 
 ---
 
-*"Capability without constraint is not intelligence™"*  
-*Finnoybu IP LLC — AEGIS™ Initiative*
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

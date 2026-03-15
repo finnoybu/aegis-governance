@@ -236,5 +236,5 @@ Implementers should begin with the API surface and state model. Performance targ
 
 ---
 
-*"Capability without constraint is not intelligence™"*  
-*Finnoybu IP LLC — AEGIS™ Initiative*
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

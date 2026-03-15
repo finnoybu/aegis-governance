@@ -1,8 +1,8 @@
 # AEGIS™ ATM-1 Threat Model & Security Analysis
 
-**Document**: ATM-1/Index (AEGIS_ATM1_INDEX.md)
-**Version**: 1.0 (Normative)
-**Part of**: AEGIS Adaptive Threat Model (ATM-1)
+**Document**: ATM-1/Index (AEGIS_ATM1_INDEX.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Adaptive Threat Model (ATM-1)\
 **Last Updated**: March 6, 2026
 
 ---
@@ -274,22 +274,7 @@ Planned extensions:
 - Runtime anomaly detection tuning based on production baselines.
 - Governance reputation systems within the federation network.
 
-## Foundational Principle
-
-> Capability without constraint is not intelligence™
-
 ---
 
-## References
-
-[Shapira et al., 2026] N. Shapira et al., "Agents of Chaos," arXiv preprint arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>
-
-[Smart I/O, 2020] H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520.
-
-[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../../REFERENCES.md).
-
-[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](../../../REFERENCES.md).
-
-See [REFERENCES.md](../../../REFERENCES.md) at repository root for the complete AEGIS bibliography.
-
-[^19]: OWASP Foundation, "OWASP Top 10 for Large Language Model Applications," Version 2025, Nov. 18, 2024. [Online]. Available: <https://owasp.org/www-project-top-10-for-large-language-model-applications/>. See [REFERENCES.md](../../../REFERENCES.md).
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

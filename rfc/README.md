@@ -136,14 +136,5 @@ Major architectural changes may introduce new RFC documents or revisions to exis
 
 ---
 
-## Foundational Principle
-
-> Capability without constraint is not intelligence™
-
-AEGIS™ operationalizes this principle through deterministic architectural governance.
-
----
-
-## Trademark Notice
-
-AEGIS™ is a trademark of Finnoybu IP LLC.
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*

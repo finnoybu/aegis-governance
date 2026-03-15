@@ -588,3 +588,8 @@ AEGIS is built around a simple guiding principle:
 Intelligent systems must operate within explicit governance boundaries in order to safely interact with real-world infrastructure.
 
 AEGIS provides the architectural foundation for enforcing those boundaries.
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS Initiative — Finnoybu IP LLC*
