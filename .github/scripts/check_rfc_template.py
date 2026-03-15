@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import os
-import sys
-import re
 import os
 import sys
 import re
@@ -51,7 +47,6 @@ for filename in os.listdir(RFC_DIR):
     if re.search(r'\*\*Status:\*\*\s*Placeholder', content, re.IGNORECASE):
         skipped_files.append(filename)
         continue
-    content = ''.join(lines)
     missing = []
     for field in REQUIRED_FIELDS:
         if not re.search(field, content):
@@ -72,4 +67,3 @@ else:
     if skipped_files:
         print('Skipped placeholder RFCs:', ', '.join(skipped_files))
     sys.exit(0)
-    sys.exit(1)
