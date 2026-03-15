@@ -154,7 +154,7 @@ The cold-start trust problem for new nodes should be addressed operationally: ne
 
 - Any two compliant AEGIS nodes can exchange all five event types without schema negotiation
 - A replay attack is detected and rejected in all scenarios defined in Section 4
-- Trust score calculation is reproducible given the same input signals
+- Trust score calculation is reproducible given the same input signals and evaluation timestamp $t$. Implementations must treat $t$ as an explicit logged parameter. See GFN-1 §3.8 for the normative specification.
 
 ---
 

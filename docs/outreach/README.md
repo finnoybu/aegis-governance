@@ -19,6 +19,7 @@ This directory archives outreach communications to maintain transparency in the 
 | Date | Recipient | Topic | Status | Response |
 |------|-----------|-------|--------|----------|
 | 2026-03-13 | William Torgbi Agbemabiese | Constitutional Autonomy + AEGIS multi-layer governance | Initial outreach sent | Pending |
+| 2026-03-14 | Mattijs Moens (Sovereign Shield) | Trust decay determinism objection — GFN-1 §3.8 / RFC-0004 | Response received | Received — Discussion [#72](https://github.com/finnoybu/aegis-governance/discussions/72) |
 
 ---
 

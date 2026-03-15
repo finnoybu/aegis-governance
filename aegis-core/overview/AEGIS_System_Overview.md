@@ -12,7 +12,7 @@ Effective Date: March 5, 2026
 
 AEGIS™ (Architectural Enforcement & Governance of Intelligent Systems) is a governance architecture designed to enforce deterministic control over AI-generated actions before those actions interact with operational infrastructure.
 
-As AI systems become capable of executing real-world operations—querying databases, modifying infrastructure, triggering workflows, and interacting with APIs—the risks associated with ungoverned execution increase significantly. Traditional AI safety approaches focus primarily on influencing model behavior through alignment training and moderation. While valuable, those approaches do not guarantee that AI systems will act safely when given operational capabilities.[^12]
+As AI systems become capable of executing real-world operations—querying databases, modifying infrastructure, triggering workflows, and interacting with APIs—the risks associated with ungoverned execution increase significantly.[^6][^13][^28][^29] Traditional AI safety approaches focus primarily on influencing model behavior through alignment training and moderation. While valuable, those approaches do not guarantee that AI systems will act safely when given operational capabilities.[^12]
 
 AEGIS™ addresses this challenge by introducing a **governance runtime layer** between AI agents and the systems they control. This runtime evaluates proposed actions against capability definitions, governance policies, and risk conditions before allowing execution.
 
@@ -34,7 +34,7 @@ AEGIS operates at the **architectural layer**, enforcing policy at the execution
 
 **Architectural vs Model-Layer:**
 - **AEGIS** enforces policy *outside* the AI model, at the boundary between agents and infrastructure
-- **Model-internal approaches** (e.g., Constitutional AI, RLHF, fine-tuning) modify model weights, attention mechanisms, or training objectives
+- **Model-internal approaches** (e.g., Constitutional AI, RLHF, fine-tuning) modify model weights, attention mechanisms,[^11] or training objectives
 - AEGIS intercepts and validates agent actions *before* they reach external systems[^5]
 
 **Model-Agnostic:**
@@ -77,8 +77,8 @@ Several approaches exist, each with limitations:
 | Approach | Description | Limitations |
 |----------|-------------|-------------|
 | **Prompt Engineering** | Instruct AI models to "be careful" or "ask before acting" | Models may ignore prompts; adversarial prompts can override instructions |
-| **RLHF (Human Feedback)** | Reinforcement learning from human preferences | Training-time only; probabilistic; expensive to scale; model-specific |
-| **Constitutional AI (Anthropic)** | Reinforcement learning from AI feedback (RLAIF) | Training-time only; probabilistic alignment; doesn't prevent execution |
+| **RLHF (Human Feedback)**[^9] | Reinforcement learning from human preferences | Training-time only; probabilistic; expensive to scale; model-specific |
+| **Constitutional AI (Anthropic)**[^10] | Reinforcement learning from AI feedback (RLAIF) | Training-time only; probabilistic alignment; doesn't prevent execution |
 | **Output Filtering / Moderation** | Post-generation safety checks (OpenAI moderation, guardrails) | Acts after generation; doesn't govern execution; can be bypassed |
 | **Model Fine-tuning** | Safety-focused training (DPO, alignment techniques) | Probabilistic; model-specific; doesn't govern execution |
 | **Tool Restrictions** | Limit which tools AI can access | Coarse-grained; doesn't prevent misuse of allowed tools |
@@ -298,7 +298,7 @@ Use this decision matrix to evaluate if AEGIS governance is appropriate for your
 | Does your AI system execute operations (not just generate text)? | ✅ |
 | Can AI actions modify infrastructure, data, or configurations? | ✅ |
 | Do you need audit trails for compliance (SOC2, HIPAA, PCI, ISO)? | ✅ |
-| Are you in a regulated industry (finance, healthcare, government)? | ✅ |
+| Are you in a regulated industry (finance, healthcare, government)?[^15] | ✅ |
 | Could AI mistakes cause operational outages or data loss? | ✅ |
 | Do you need role-based access control for AI agents? | ✅ |
 | Are AI actions subject to approval workflows? | ✅ |
@@ -551,15 +551,31 @@ Ready to explore AEGIS governance? Follow this learning path:
 
 ## References
 
-[^3]: S. Hallé and R. Villemaire, "Runtime Enforcement of Web Service Message Contracts with Data," *IEEE Transactions on Services Computing*, vol. 5, no. 2, pp. 192–206, April–June 2012, doi: 10.1109/TSC.2011.10. See [REFERENCES.md](../../../REFERENCES.md).
+[^3]: S. Hallé and R. Villemaire, "Runtime Enforcement of Web Service Message Contracts with Data," *IEEE Transactions on Services Computing*, vol. 5, no. 2, pp. 192–206, April–June 2012, doi: 10.1109/TSC.2011.10. See [REFERENCES.md](../../REFERENCES.md).
 
-[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](../../../REFERENCES.md).
+[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](../../REFERENCES.md).
 
-[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](../../../REFERENCES.md).
+[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](../../REFERENCES.md).
 
-[^8]: K. Arunachalam, A. Kayyidavazhiyil, and P. Santikellur, "POLYNIX: A Hybrid Policy Enforcement Framework for Zero-Trust Security in Virtualized Systems," *2026 IEEE 23rd Consumer Communications & Networking Conference (CCNC)*, 2026, doi: 10.1109/CCNC65079.2026.11366307. See [REFERENCES.md](../../../REFERENCES.md).
+[^6]: S. Majumdar et al., "ProSAS: Proactive Security Auditing System for Clouds," *IEEE Transactions on Dependable and Secure Computing*, vol. 19, no. 4, pp. 2517–2534, July–Aug. 2022, doi: 10.1109/TDSC.2021.3062204. See [REFERENCES.md](../../REFERENCES.md).
 
-[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>. See [REFERENCES.md](../../../REFERENCES.md).
+[^8]: K. Arunachalam, A. Kayyidavazhiyil, and P. Santikellur, "POLYNIX: A Hybrid Policy Enforcement Framework for Zero-Trust Security in Virtualized Systems," *2026 IEEE 23rd Consumer Communications & Networking Conference (CCNC)*, 2026, doi: 10.1109/CCNC65079.2026.11366307. See [REFERENCES.md](../../REFERENCES.md).
+
+[^9]: P. Christiano, J. Leike, T. B. Brown, M. Martic, S. Legg, and D. Amodei, "Deep Reinforcement Learning from Human Preferences," in *Advances in Neural Information Processing Systems (NeurIPS)*, 2017, arXiv:1706.03741. See [REFERENCES.md](../../REFERENCES.md).
+
+[^10]: Y. Bai et al., "Constitutional AI: Harmlessness from AI Feedback," arXiv:2212.08073, Dec. 2022. [Online]. Available: <https://arxiv.org/abs/2212.08073>. See [REFERENCES.md](../../REFERENCES.md).
+
+[^13]: National Institute of Standards and Technology, "Artificial Intelligence Risk Management Framework (AI RMF 1.0)," NIST AI 100-1, U.S. Department of Commerce, Jan. 2023, doi: 10.6028/NIST.AI.100-1. See [REFERENCES.md](../../REFERENCES.md).
+
+[^15]: European Parliament and Council of the European Union, "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)," *Official Journal of the European Union*, 12 Jul. 2024. See [REFERENCES.md](../../REFERENCES.md).
+
+[^11]: W. T. Agbemabiese, "Toward Constitutional Autonomy in AI Systems: A Theoretical Framework for Aligned Agentic Intelligence," *IEEE Access*, vol. 14, pp. 11385–11402, 2026, doi: 10.1109/ACCESS.2026.3654907. See [REFERENCES.md](../../REFERENCES.md).
+
+[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>. See [REFERENCES.md](../../REFERENCES.md).
+
+[^28]: Various authors, "A survey of agentic AI and cybersecurity: Challenges, opportunities and use-case prototypes," arXiv:2601.05293v1, 2026. [Online]. Available: <https://arxiv.org/abs/2601.05293>. See [REFERENCES.md](../../REFERENCES.md).
+
+[^29]: R. Chan et al., "The 2025 AI Agent Index," arXiv:2602.17753v1, 2025. [Online]. Available: <https://arxiv.org/abs/2602.17753>. See [REFERENCES.md](../../REFERENCES.md).
 
 ---
 
