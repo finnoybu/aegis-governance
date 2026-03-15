@@ -226,6 +226,8 @@ Where:
 
 ### 3.7 Normative Trust Score Formula
 
+**Scope:** This formula governs federation publisher trust only — the evaluation of how much weight to assign to governance signals received from remote AEGIS nodes. It MUST NOT be applied to agent runtime trust decisions. Agent runtime trust is governed by a structurally separate two-mechanism model defined in RFC-0004 §5. See RFC-0004 §5.5 for the explicit prohibition and scope boundary.
+
 $$
 T = 0.30B + 0.25H + 0.20Q + 0.15A + 0.10F
 $$
@@ -233,6 +235,8 @@ $$
 **Constraint**: `trust_score` is clamped to **[0.0, 1.0]**
 
 ### 3.8 Trust Score Decay
+
+**Scope:** This decay function applies exclusively to the composite publisher trust score `T` — a measure of operational reliability and signal quality accumulated over time. It governs how a publisher's reputation fades during inactivity. It does not apply to, and has no effect on, the security revocation triggers defined in §8. Those triggers are evidence-based and fire immediately upon detection; they are structurally independent of this decay function. No amount of reputation accumulation delays or softens a §8 revocation trigger.
 
 Publisher trust scores decay over time if not updated within evaluation window.
 
@@ -769,6 +773,29 @@ $$
 | L3_CONTRIBUTOR | Partial | Yes, min 1 peer | Recommended |
 | UNCLASSIFIED | No | Yes, min 2 peers | Required |
 | QUARANTINE | No | N/A (always rejected) | N/A |
+
+### 10.1.1 Class vs. Score Conflict — Precedence Rule (Normative)
+
+A publisher's authority class (§2.2, §10.1) and their computed trust score (§3.9) are independent signals that may produce conflicting ingestion dispositions. For example: a publisher holding `L2_ENTERPRISE` class (automatic ingestion eligible per §10.1) may have a decayed trust score of 0.45 (quarantine required per §3.9).
+
+When class and score dispositions conflict, the **more restrictive disposition applies**.
+
+Implementations MUST:
+
+1. Evaluate both the authority class disposition (§10.1) and the trust score disposition (§3.9) independently
+2. Apply whichever disposition is more restrictive (lower trust, more operator involvement, more corroboration)
+3. Log both values and the conflict resolution reason in the trust decision audit record (§11.1)
+
+**Example:**
+
+| Publisher Class | Computed Score | Class Disposition | Score Disposition | Applied Disposition |
+|---|---|---|---|---|
+| L2_ENTERPRISE | 0.72 | Auto-ingest | Medium Trust (ingest + corroboration) | Ingest + corroboration required |
+| L2_ENTERPRISE | 0.45 | Auto-ingest | Low Trust (quarantine) | Quarantine |
+| L3_CONTRIBUTOR | 0.85 | Partial, corroboration required | High Trust (auto-ingest) | Partial, corroboration required |
+| L1_AUTHORITY | 0.22 | Auto-ingest | Untrusted (reject) | Reject |
+
+The authority class floor does not override a score-based rejection. The score ceiling does not grant automatic ingestion to a lower class publisher.
 
 ### 10.2 Quarantine Queue
 

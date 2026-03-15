@@ -9,8 +9,8 @@
 # AEGIS™ Governance Federation Network
 
 **Document Pack Status**: Normative  
-**Version**: 1.0  
-**Last Updated**: March 5, 2026
+**Version**: 1.1  
+**Last Updated**: March 15, 2026
 
 ---
 
@@ -91,15 +91,22 @@ DIDs include cryptographic keys for:
 
 ### Trust Evaluation[^17]
 
-Receiving nodes evaluate incoming events using multi-factor trust scoring:
+AEGIS federation trust operates through two structurally separate mechanisms that must never be combined into a single score.
 
-$$\text{trust\_score} = 0.25 \times \text{identity\_confidence} + 0.20 \times \text{signature\_confidence} + 0.25 \times \text{historical\_accuracy} + 0.15 \times \text{audit\_posture} + 0.15 \times \text{federation\_reputation}$$
+**Publisher Trust Score** — governs how much weight to assign to governance signals received from a remote node. Computed as a weighted composite of five factors: Baseline identity class (B), Historical accuracy (H), Signal quality (Q), Audit posture (A), and Federation reputation (F). The normative formula and factor definitions are specified in GFN-1 §3.7. Scores decay during publisher inactivity (GFN-1 §3.8); security revocation triggers (GFN-1 §8) are evidence-based, fire immediately, and are structurally independent of this decay.
 
-**Application**:
+**Application thresholds** (see GFN-1 §3.9 for normative definition):
 
-- `trust_score >= 0.8`: auto-ingest into policy engine
-- `0.5 <= trust_score < 0.8`: require operator confirmation
-- `< 0.5`: quarantine for review
+| Score | Disposition |
+|---|---|
+| ≥ 0.80 | Auto-ingest signal |
+| [0.50, 0.80) | Ingest; corroboration required for risk changes |
+| [0.25, 0.50) | Quarantine; manual review required |
+| < 0.25 | Reject; log for audit |
+
+When a publisher's authority class (GFN-1 §2.2) and computed trust score produce conflicting dispositions, the more restrictive disposition applies. See GFN-1 §10.1.1.
+
+**Agent Runtime Trust** — governs agent admissibility at the execution boundary. This is a separate concern from publisher trust and is defined in RFC-0004 §5. It operates through a Threat Detection Layer (Engine layer — evidence-based, binary, immediate) and a Reputation Layer (Schema layer — longitudinal, advisory). No reputation score overrides a threat detection block under any condition.
 
 ### Event Ordering and Replay Protection
 
