@@ -100,6 +100,7 @@ The architectural principle — that security and reputation must never share a 
 | RFC-0006 | Claude Code Plugin | 0.2 | Draft | **Next implementation target — Q2 2026** |
 | RFC-0007 | Operational Considerations | 0.0.1 | Placeholder | Monitoring, DR, day-two ops |
 | RFC-0008 | Federation Network Protocol | 0.0.1 | Placeholder | GFN-1 transport layer |
+| RFC-0009 | Prior Art and External Validation Record | 0.0.1 | Placeholder | Pending normative source audit |
 
 **RFC-0006 is the active implementation target.** It implements RDP-03 (Embedded Lightweight) from RFC-0005 in the Claude Code execution environment. Start there.
 

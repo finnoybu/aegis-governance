@@ -1,13 +1,13 @@
 # RFC-XXXX: [Title]
 
-**RFC**: RFC number (e.g., RFC-0004)
-**Status:** Draft | Proposed | Accepted | Implemented | Superseded  
-**Version:** 0.1.0  
+**RFC**: RFC-0000
+**Status:** Placeholder  
+**Version:** 0.0.1  
 **Created:** YYYY-MM-DD  
 **Updated:** YYYY-MM-DD  
 **Author:** [Name], [Organization]  
 **Repository:** [aegis-governance | aegis-runtime | aegis-systems]  
-**Target milestone:** [Q1/Q2/Q3/Q4 YYYY | None]  
+**Target milestone:** TBD 
 **Supersedes:** [RFC-XXXX | None]  
 **Superseded by:** [RFC-XXXX | None]  
 
@@ -16,6 +16,12 @@
 ## Summary
 
 One paragraph. What is this RFC proposing and why does it matter? A reader should understand the core idea without reading further.
+
+---
+
+## Status Note
+
+This is a placeholder RFC. Content is pending. The RFC number is reserved to maintain index continuity with the README and roadmap.
 
 ---
 
