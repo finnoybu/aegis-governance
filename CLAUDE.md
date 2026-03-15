@@ -167,6 +167,8 @@ Branch naming: `docs/topic`, `feat/topic`, `fix/topic`\
 Merge strategy: squash merge always\
 Never force-push, never skip hooks.
 
+**PR body:** Always use `.github/pull_request_template.md`. Fill every section; mark checkboxes with `[x]` where applicable. Never substitute a custom summary format.
+
 ---
 
 ## Markdown Conventions
