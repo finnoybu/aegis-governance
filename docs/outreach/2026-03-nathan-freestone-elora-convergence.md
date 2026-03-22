@@ -5,9 +5,9 @@
 **Status:** Active — ongoing exchange\
 **Response:** Received\
 **Discussions:**
-- [#73 — Append-Only Pipeline Provenance](https://github.com/finnoybu/aegis-governance/discussions/73)
-- [#74 — Stateless Execution Units](https://github.com/finnoybu/aegis-governance/discussions/74)
-- [#75 — Cryptographic Agent Registration](https://github.com/finnoybu/aegis-governance/discussions/75)
+- [#73 — Append-Only Pipeline Provenance](https://github.com/aegis-initiative/aegis-governance/discussions/73)
+- [#74 — Stateless Execution Units](https://github.com/aegis-initiative/aegis-governance/discussions/74)
+- [#75 — Cryptographic Agent Registration](https://github.com/aegis-initiative/aegis-governance/discussions/75)
 
 ---
 
@@ -34,7 +34,7 @@ into the AEGIS specification and IEEE paper:
 3. **Cryptographic agent registration** — hash assigned at Tape registration; travels with
    pipeline artifact; verified at Commit Boundary; unregistered agents fail at Commit.
 
-Three GitHub Discussions were opened on March 15, 2026 in finnoybu/aegis-governance
+Three GitHub Discussions were opened on March 15, 2026 in aegis-initiative/aegis-governance
 crediting Nathan's work for each pattern. Nathan confirmed his GitHub account as
 @EloraTaurus and was tagged in each Discussion. Nathan gave explicit permission for
 all three patterns to be referenced or incorporated into AEGIS.
@@ -85,10 +85,10 @@ mentioned DFIR app targeting SMB under Apache 2.0, and shared personal context o
 workload and IEEE/NIST submissions.
 
 ### March 15, 2026 — Three GitHub Discussions opened
-Opened in finnoybu/aegis-governance under Ideas category, crediting Nathan in each:
-- [#73 — Append-Only Pipeline Provenance](https://github.com/finnoybu/aegis-governance/discussions/73)
-- [#74 — Stateless Execution Units](https://github.com/finnoybu/aegis-governance/discussions/74)
-- [#75 — Cryptographic Agent Registration](https://github.com/finnoybu/aegis-governance/discussions/75)
+Opened in aegis-initiative/aegis-governance under Ideas category, crediting Nathan in each:
+- [#73 — Append-Only Pipeline Provenance](https://github.com/aegis-initiative/aegis-governance/discussions/73)
+- [#74 — Stateless Execution Units](https://github.com/aegis-initiative/aegis-governance/discussions/74)
+- [#75 — Cryptographic Agent Registration](https://github.com/aegis-initiative/aegis-governance/discussions/75)
 
 Nathan informed via DM with correct discussion links. Tagged as @EloraTaurus in each.
 

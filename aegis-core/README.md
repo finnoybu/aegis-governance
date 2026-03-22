@@ -218,8 +218,8 @@ See [../TRADEMARKS.md](../TRADEMARKS.md) for trademark usage guidelines.
 
 ## Questions?
 
-- **GitHub Discussions**: [aegis-governance/discussions](https://github.com/finnoybu/aegis-governance/discussions)
-- **GitHub Issues**: [aegis-governance/issues](https://github.com/finnoybu/aegis-governance/issues)
+- **GitHub Discussions**: [aegis-governance/discussions](https://github.com/aegis-initiative/aegis-governance/discussions)
+- **GitHub Issues**: [aegis-governance/issues](https://github.com/aegis-initiative/aegis-governance/issues)
 
 ---
 

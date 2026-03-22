@@ -48,7 +48,7 @@ You can see governance working. That is the point.
 
 - Slash commands: `/aegis:status`, `/aegis:audit`, `/aegis:register`, `/aegis:explain`
 - HMAC signing on audit decision records (Nathan Freestone / Elora pattern — Discussion #73)
-- AEGIS™ plugin marketplace at `github.com/finnoybu/aegis-governance`
+- AEGIS™ plugin marketplace at `github.com/aegis-initiative/aegis-governance`
 - Supply chain verification hook
 
 ---
@@ -400,7 +400,7 @@ The append-only pipeline provenance pattern implemented in the audit log hash ch
 
 [^19]: OWASP Foundation, "OWASP Top 10 for Large Language Model Applications," Version 2025, Nov. 18, 2024. [Online]. Available: <https://owasp.org/www-project-top-10-for-large-language-model-applications/>. See [REFERENCES.md](../REFERENCES.md).
 
-[^73]: N. Freestone, "Append-Only Pipeline Provenance," AEGIS Discussion #73, finnoybu/aegis-governance, Mar. 15, 2026. [Online]. Available: <https://github.com/finnoybu/aegis-governance/discussions/73>. See [REFERENCES.md](../REFERENCES.md).
+[^73]: N. Freestone, "Append-Only Pipeline Provenance," AEGIS Discussion #73, aegis-initiative/aegis-governance, Mar. 15, 2026. [Online]. Available: <https://github.com/aegis-initiative/aegis-governance/discussions/73>. See [REFERENCES.md](../REFERENCES.md).
 
 ---
 

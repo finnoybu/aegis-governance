@@ -44,7 +44,7 @@ Position papers should use a consistent header format that balances internal doc
 **Docket Number**: [If applicable]  
 **Steward**: Finnoybu IP LLC | AEGIS™ Initiative  
 
-**Repository**: [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)  
+**Repository**: [github.com/aegis-initiative/aegis-governance](https://github.com/aegis-initiative/aegis-governance)  
 **Constitution**: [aegissystems.app](https://aegissystems.app)
 
 > *Capability without constraint is not intelligence™*

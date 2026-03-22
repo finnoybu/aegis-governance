@@ -193,7 +193,7 @@ The insight that Chrenko articulates—that AI systems require enabling constrai
 
 ## AEGIS™: Deterministic Architectural Enforcement
 
-**[AEGIS™](https://github.com/finnoybu/aegis-governance)** (Architectural Enforcement & Governance of Intelligent Systems) is an open governance architecture that enforces deterministic constitutional governance over AI-generated actions before they interact with infrastructure.¹⁵
+**[AEGIS™](https://github.com/aegis-initiative/aegis-governance)** (Architectural Enforcement & Governance of Intelligent Systems) is an open governance architecture that enforces deterministic constitutional governance over AI-generated actions before they interact with infrastructure.¹⁵
 
 The core thesis is simple: AI systems may propose actions. AEGIS™ evaluates those actions. Only approved actions are allowed to execute.
 
@@ -229,7 +229,7 @@ This architecture ensures that incorrect reasoning or adversarial manipulation c
 
 ### The Protocol
 
-The [AEGIS Governance Protocol (AGP-1)](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/protocol/AEGIS_AGP1_INDEX.md) standardizes how AI systems request operational actions:¹⁵
+The [AEGIS Governance Protocol (AGP-1)](https://github.com/aegis-initiative/aegis-governance/blob/main/aegis-core/protocol/AEGIS_AGP1_INDEX.md) standardizes how AI systems request operational actions:¹⁵
 
 ```
 AI Agent → ACTION_PROPOSE
@@ -248,7 +248,7 @@ This ensures that all operational actions are subject to deterministic governanc
 
 ### The Threat Model
 
-The [AEGIS Threat Model (ATM-1)](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/threat-model/AEGIS_ATM1_INDEX.md) addresses security risks that traditional AI safety mechanisms miss:¹⁵
+The [AEGIS Threat Model (ATM-1)](https://github.com/aegis-initiative/aegis-governance/blob/main/aegis-core/threat-model/AEGIS_ATM1_INDEX.md) addresses security risks that traditional AI safety mechanisms miss:¹⁵
 
 - Prompt injection attacks that manipulate AI reasoning
 - Tool misuse where AI systems are tricked into executing unauthorized operations
@@ -260,7 +260,7 @@ By enforcing governance at the architectural layer, AEGIS™ makes these attacks
 
 ### The Federation Network
 
-The [AEGIS Governance Federation Network (GFN)](https://github.com/finnoybu/aegis-governance/blob/main/federation/README.md) enables organizations to share governance intelligence through decentralized infrastructure.¹⁵
+The [AEGIS Governance Federation Network (GFN)](https://github.com/aegis-initiative/aegis-governance/blob/main/federation/README.md) enables organizations to share governance intelligence through decentralized infrastructure.¹⁵
 
 Participating nodes may publish signals such as:
 
@@ -294,7 +294,7 @@ And it aligns with the core insight that runs through all of these articles: gov
 
 ## Where AEGIS™ Stands in the Landscape
 
-AEGIS™ is aligned with the [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) and released under the [Apache 2.0 license](https://github.com/finnoybu/aegis-governance/blob/main/LICENSE).¹⁵ It operationalizes Krimmelbein's ten pillars—not as separate programs to be managed, but as layers of an integrated enforcement architecture.
+AEGIS™ is aligned with the [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) and released under the [Apache 2.0 license](https://github.com/aegis-initiative/aegis-governance/blob/main/LICENSE).¹⁵ It operationalizes Krimmelbein's ten pillars—not as separate programs to be managed, but as layers of an integrated enforcement architecture.
 
 Strategy and organizational leadership define the governance canon. Legal and regulatory compliance inform capability definitions and policy rules. Risk management feeds classification logic to the decision engine. Technical robustness, transparency, and auditability become system properties, not aspirations.
 
@@ -336,7 +336,7 @@ The conversation doesn't end here. It begins.
 12. Fehring, Pamela (JD, CIPP/US). ["Building an AI Governance Program that Works for You."](https://www.linkedin.com/pulse/building-ai-governance-program-works-you-fehring-jd-cipp-us--owudc/) LinkedIn, February 15, 2026.
 13. Mann, Philip. ["AI Governance Starts Below the Model (Part 1 of 3)."](https://www.linkedin.com/pulse/ai-governance-starts-below-model-part-1-3-philip-mann-tgdze/) LinkedIn, March 10, 2026.
 14. Mann, Philip. ["Agentic AI Needs Real Guardrails (Part 2 of 3)."](https://www.linkedin.com/pulse/agentic-ai-needs-real-guardrails-part-2-3-philip-mann-69nie/) LinkedIn, March 11, 2026.
-15. AEGIS™ Governance. GitHub Repository: [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance) | Constitution: [aegissystems.app](https://aegissystems.app) | Apache 2.0 License
+15. AEGIS™ Governance. GitHub Repository: [github.com/aegis-initiative/aegis-governance](https://github.com/aegis-initiative/aegis-governance) | Constitution: [aegissystems.app](https://aegissystems.app) | Apache 2.0 License
 
 ---
 
@@ -348,13 +348,13 @@ The conversation doesn't end here. It begins.
 
 AEGIS™ is designed as a constitutional mediation layer that establishes explicit boundaries, accountability, and appealable governance pathways so increasingly capable AI systems and human institutions can coexist safely.
 
-The project is released under the Apache 2.0 license and is actively seeking contributors from the AI safety, security, and research communities. Contributions, discussions, and engagement are welcomed through the project repository at [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance).
+The project is released under the Apache 2.0 license and is actively seeking contributors from the AI safety, security, and research communities. Contributions, discussions, and engagement are welcomed through the project repository at [github.com/aegis-initiative/aegis-governance](https://github.com/aegis-initiative/aegis-governance).
 
 **IP Ownership**: AEGIS™ and "Capability without constraint is not intelligence"™ are trademarks of Finnoybu IP LLC, a subsidiary of Finnoybu Holdings LLC.
 
 ### Learn more
 
-- **Repository**: [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)
+- **Repository**: [github.com/aegis-initiative/aegis-governance](https://github.com/aegis-initiative/aegis-governance)
 - **Constitution**: [aegissystems.app](https://aegissystems.app)
 - **Documentation**: Full specifications, protocol definitions (AGP-1), threat model (ATM-1), and federation network design (GFN-1) available in the repository
 

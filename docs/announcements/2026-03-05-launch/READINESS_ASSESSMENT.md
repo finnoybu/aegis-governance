@@ -1,7 +1,7 @@
 # AEGIS™ Announcement Readiness Assessment
 
 **Generated**: March 5, 2026\
-**Repository**: [https://github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)\
+**Repository**: [https://github.com/aegis-initiative/aegis-governance](https://github.com/aegis-initiative/aegis-governance)\
 **Assessment against**: docs/announcements/2026-03-05-launch/READINESS_CHECKLIST.md
 
 ---
@@ -447,7 +447,7 @@ The one remaining gap (roadmap issues) is an administrative detail that is bette
 
 **Report Generated**: March 5, 2026
 **Assessed By**: GitHub Copilot
-**Repository**: [https://github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)
+**Repository**: [https://github.com/aegis-initiative/aegis-governance](https://github.com/aegis-initiative/aegis-governance)
 
 ---
 

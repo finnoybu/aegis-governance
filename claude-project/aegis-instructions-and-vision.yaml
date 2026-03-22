@@ -11,12 +11,12 @@ project:
   name: AEGIS™ Initiative
   full_name: Architectural Enforcement & Governance of Intelligent Systems
   owner: Kenneth Tannenbaum (Finnoybu IP LLC)
-  github: https://github.com/finnoybu/aegis-governance
+  github: https://github.com/aegis-initiative/aegis-governance
   license: Apache 2.0
   ieee_member: "102220161"
 
 core_thesis: >
-  The finnoybu/aegis-governance repository IS the living paper. Not just code + docs —
+  The aegis-initiative/aegis-governance repository IS the living paper. Not just code + docs —
   a complete, living, peer-reviewable governance framework where every claim is
   traceable to established research, every position is cited, and the entire corpus
   evolves as a unified scholarly work. Submissions (IEEE, NIST) are snapshots of the
