@@ -4,7 +4,7 @@
 **To:** William Torgbi Agbemabiese\
 **Status:** Initial outreach sent\
 **Response:** Pending\
-**Discussion:** <https://github.com/finnoybu/aegis-governance/discussions/39>
+**Discussion:** <https://github.com/aegis-initiative/aegis-governance/discussions/39>
 
 ---
 
@@ -32,7 +32,7 @@ This multi-layer approach addresses a gap neither framework solves alone: Consti
 
 **Invitation for Public Discussion:** I've opened a discussion thread in the AEGIS GitHub repository specifically for this topic
 
-- **GitHub Discussion:** <https://github.com/finnoybu/aegis-governance/discussions/39>
+- **GitHub Discussion:** <https://github.com/aegis-initiative/aegis-governance/discussions/39>
 
 I believe public technical discussion benefits the broader AI governance community. The thread covers:
 
@@ -43,7 +43,7 @@ I believe public technical discussion benefits the broader AI governance communi
 I'd welcome your thoughts, feedback, or questions either in the GitHub discussion or via email reply. I'm archiving this outreach email in the AEGIS repository under docs/outreach/ to maintain transparency in the project's development process.
 
 **AEGIS Resources:**
-- GitHub: <https://github.com/finnoybu/aegis-governance>\
+- GitHub: <https://github.com/aegis-initiative/aegis-governance>\
 - Constitution: <https://aegissystems.app>\
 - NIST Position Paper: docs/position-papers/nist/ in the repository
 
@@ -54,7 +54,7 @@ Best regards,
 Kenneth Tannenbaum\
 Founder, AEGIS Initiative (Finnoybu IP LLC)\
 IEEE Member #102220161\
-GitHub: <https://github.com/finnoybu/aegis-governance>
+GitHub: <https://github.com/aegis-initiative/aegis-governance>
 
 > **Privacy Note:** Email addresses have been removed or masked for privacy. The content of the outreach is preserved for transparency in AEGIS project development.
 

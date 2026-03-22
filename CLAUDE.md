@@ -3,7 +3,7 @@ _Instructions for Claude Code — 2026-03-15_
 
 ## What This Repository Is
 
-The `finnoybu/aegis-governance` repository is a **living scholarly work** — not just code + docs, but a complete, peer-reviewable governance framework where every claim is traceable to established research. See [docs/vision/AEGIS_CANON_VISION.md](docs/vision/AEGIS_CANON_VISION.md) for the full vision.
+The `aegis-initiative/aegis-governance` repository is a **living scholarly work** — not just code + docs, but a complete, peer-reviewable governance framework where every claim is traceable to established research. See [docs/vision/AEGIS_CANON_VISION.md](docs/vision/AEGIS_CANON_VISION.md) for the full vision.
 
 The canonical bibliography lives in [`REFERENCES.md`](REFERENCES.md).
 

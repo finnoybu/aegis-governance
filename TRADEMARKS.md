@@ -111,8 +111,8 @@ The following uses are **not permitted** without explicit permission:
 
 For uses requiring permission or questions about trademark usage, please:
 
-1. Open a [GitHub Discussion](https://github.com/finnoybu/aegis-governance/discussions) in the "Legal & Licensing" category
-2. Or file a [GitHub Issue](https://github.com/finnoybu/aegis-governance/issues) with the label "trademark-inquiry"
+1. Open a [GitHub Discussion](https://github.com/aegis-initiative/aegis-governance/discussions) in the "Legal & Licensing" category
+2. Or file a [GitHub Issue](https://github.com/aegis-initiative/aegis-governance/issues) with the label "trademark-inquiry"
 
 Include details about your intended use, and a response will be provided within 5 business days.
 

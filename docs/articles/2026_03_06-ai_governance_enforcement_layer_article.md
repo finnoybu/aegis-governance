@@ -269,4 +269,4 @@ challenge is building the runtime systems capable of enforcing them.
 7. Center for Security and Emerging Technology. Brundage et al. The
    Malicious Use of Artificial Intelligence.
 
-Reference Architecture: <https://github.com/finnoybu/aegis-governance>
+Reference Architecture: <https://github.com/aegis-initiative/aegis-governance>

@@ -121,9 +121,9 @@ governs, and audit trails must be append-only, hash-linked, and forensically rep
 
 | Pattern | AEGIS Specs Affected | Citable Discussion |
 |---|---|---|
-| Append-only pipeline provenance (`prev_hash` → `event_hash`; DB-level no-update enforcement) | State Dump Protocol; audit trail requirements | <https://github.com/finnoybu/aegis-governance/discussions/73> |
-| Stateless execution units (Worker as minimal shell; Tape loaded at execution time, unloaded on completion) | Constraint Envelope sub-spec; Detached Execution sub-spec | <https://github.com/finnoybu/aegis-governance/discussions/74> |
-| Cryptographic agent registration (`tape_hash_not_captured` / `tape_hash_mismatch` as normative failure modes) | Doctrine layer; Authority Binding sub-spec | <https://github.com/finnoybu/aegis-governance/discussions/75> |
+| Append-only pipeline provenance (`prev_hash` → `event_hash`; DB-level no-update enforcement) | State Dump Protocol; audit trail requirements | <https://github.com/aegis-initiative/aegis-governance/discussions/73> |
+| Stateless execution units (Worker as minimal shell; Tape loaded at execution time, unloaded on completion) | Constraint Envelope sub-spec; Detached Execution sub-spec | <https://github.com/aegis-initiative/aegis-governance/discussions/74> |
+| Cryptographic agent registration (`tape_hash_not_captured` / `tape_hash_mismatch` as normative failure modes) | Doctrine layer; Authority Binding sub-spec | <https://github.com/aegis-initiative/aegis-governance/discussions/75> |
 
 **Tape schema (received 2026-03-15 via LinkedIn DM — pending formal mapping):**
 
@@ -251,9 +251,9 @@ No breaking changes. No deprecations.
 - GFN-1 — `aegis-governance/federation/AEGIS_GFN1_TRUST_MODEL.md`
 - normative-source-audit.yaml — audit scope and sequencing
 - Elora Taurus prior art record — <https://elorataurus.com/prior-art.html>
-- GitHub Discussion #73 — <https://github.com/finnoybu/aegis-governance/discussions/73>
-- GitHub Discussion #74 — <https://github.com/finnoybu/aegis-governance/discussions/74>
-- GitHub Discussion #75 — <https://github.com/finnoybu/aegis-governance/discussions/75>
+- GitHub Discussion #73 — <https://github.com/aegis-initiative/aegis-governance/discussions/73>
+- GitHub Discussion #74 — <https://github.com/aegis-initiative/aegis-governance/discussions/74>
+- GitHub Discussion #75 — <https://github.com/aegis-initiative/aegis-governance/discussions/75>
 - GitHub Discussion #82 — <https://github.com/orgs/aegis-initiative/discussions/82>
 - *Agents of Chaos* — arXiv:2602.20021
 - NIST AI RMF 1.0 — <https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf>

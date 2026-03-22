@@ -20,7 +20,7 @@ This security policy covers:
 Instead, report security vulnerabilities by:
 
 1. **Email:** Contact the project maintainer through GitHub with "SECURITY" in the subject line
-2. **GitHub Security Advisories:** Use the [private vulnerability reporting feature](https://github.com/finnoybu/aegis-governance/security/advisories/new)
+2. **GitHub Security Advisories:** Use the [private vulnerability reporting feature](https://github.com/aegis-initiative/aegis-governance/security/advisories/new)
 
 ### What to Include
 

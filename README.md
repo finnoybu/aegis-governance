@@ -7,10 +7,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/finnoybu/aegis-governance/actions/workflows/docs-lint.yml"><img src="https://github.com/finnoybu/aegis-governance/actions/workflows/docs-lint.yml/badge.svg" alt="Docs Lint"></a>
-  <a href="https://github.com/finnoybu/aegis-governance/actions/workflows/markdown-link-check.yml"><img src="https://github.com/finnoybu/aegis-governance/actions/workflows/markdown-link-check.yml/badge.svg" alt="Link Check"></a>
-  <a href="https://github.com/finnoybu/aegis-governance/actions/workflows/schema-validation.yml"><img src="https://github.com/finnoybu/aegis-governance/actions/workflows/schema-validation.yml/badge.svg" alt="Schema Validation"></a>
-  <a href="https://github.com/finnoybu/aegis-governance/actions/workflows/spellcheck.yml"><img src="https://github.com/finnoybu/aegis-governance/actions/workflows/spellcheck.yml/badge.svg" alt="Spell Check"></a>
+  <a href="https://github.com/aegis-initiative/aegis-governance/actions/workflows/docs-lint.yml"><img src="https://github.com/aegis-initiative/aegis-governance/actions/workflows/docs-lint.yml/badge.svg" alt="Docs Lint"></a>
+  <a href="https://github.com/aegis-initiative/aegis-governance/actions/workflows/markdown-link-check.yml"><img src="https://github.com/aegis-initiative/aegis-governance/actions/workflows/markdown-link-check.yml/badge.svg" alt="Link Check"></a>
+  <a href="https://github.com/aegis-initiative/aegis-governance/actions/workflows/schema-validation.yml"><img src="https://github.com/aegis-initiative/aegis-governance/actions/workflows/schema-validation.yml/badge.svg" alt="Schema Validation"></a>
+  <a href="https://github.com/aegis-initiative/aegis-governance/actions/workflows/spellcheck.yml"><img src="https://github.com/aegis-initiative/aegis-governance/actions/workflows/spellcheck.yml/badge.svg" alt="Spell Check"></a>
 </p>
 
 ### Announcement

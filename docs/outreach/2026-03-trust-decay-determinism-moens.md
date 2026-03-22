@@ -4,7 +4,7 @@
 **To:** Mattijs Moens (Founder, Sovereign Shield)\
 **Status:** Response received\
 **Response:** Received\
-**Discussion:** <https://github.com/finnoybu/aegis-governance/discussions/72>
+**Discussion:** <https://github.com/aegis-initiative/aegis-governance/discussions/72>
 
 ---
 
@@ -20,7 +20,7 @@ Mattijs Moens conducted external peer review of the AEGIS governance specificati
 
 AEGIS determinism is local and peer-to-peer, not global. Constitution Article III guarantees identical decisions for identical inputs — time is an explicit, logged input to the decay function, not a stochastic element. The function is fully deterministic given its inputs. Comparable systems (TLS, Kerberos, credit scoring, AML) treat time-awareness as a designed property of trustworthiness evaluation.
 
-Full technical exchange documented in [Discussion #72](https://github.com/finnoybu/aegis-governance/discussions/72).
+Full technical exchange documented in [Discussion #72](https://github.com/aegis-initiative/aegis-governance/discussions/72).
 
 ## Outcome
 

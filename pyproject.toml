@@ -24,11 +24,11 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/finnoybu/aegis-governance"
-Repository = "https://github.com/finnoybu/aegis-governance"
-Documentation = "https://github.com/finnoybu/aegis-governance/blob/main/SPECIFICATION.md"
-Discussions = "https://github.com/finnoybu/aegis-governance/discussions"
-Issues = "https://github.com/finnoybu/aegis-governance/issues"
+Homepage = "https://github.com/aegis-initiative/aegis-governance"
+Repository = "https://github.com/aegis-initiative/aegis-governance"
+Documentation = "https://github.com/aegis-initiative/aegis-governance/blob/main/SPECIFICATION.md"
+Discussions = "https://github.com/aegis-initiative/aegis-governance/discussions"
+Issues = "https://github.com/aegis-initiative/aegis-governance/issues"
 
 [project.optional-dependencies]
 dev = [

@@ -9,7 +9,7 @@ _2026-03-13_
 
 ## Core Thesis
 
-**The entire `finnoybu/aegis-governance` repository IS the living paper.**
+**The entire `aegis-initiative/aegis-governance` repository IS the living paper.**
 
 Not just code + docs. A complete, living, peer-reviewable governance framework where every claim is traceable to established research, every position is cited, and the entire corpus evolves as a unified scholarly work.
 

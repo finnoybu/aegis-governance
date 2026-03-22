@@ -199,7 +199,7 @@ All governance interactions are represented using these protocol objects.
 
 ---
 
-`git clone https://github.com/finnoybu/aegis-governance.git`
+`git clone https://github.com/aegis-initiative/aegis-governance.git`
 
 ```
 cd aegis-governance/aegis-runtime
@@ -212,7 +212,7 @@ After installation, the runtime can be imported as:
 Clone the repository and install the runtime locally.
 
 ```
-`git clone https://github.com/finnoybu/aegis-governance.git`
+`git clone https://github.com/aegis-initiative/aegis-governance.git`
 cd aegis-governance/aegis-runtime
 pip install -e .
 ```
@@ -223,7 +223,7 @@ After installation, the runtime can be imported as:
 from aegis import AEGISRuntime
 ```
 
-`git clone https://github.com/finnoybu/aegis-governance.git`
+`git clone https://github.com/aegis-initiative/aegis-governance.git`
 *** End Patch
 pip install -e .
 
