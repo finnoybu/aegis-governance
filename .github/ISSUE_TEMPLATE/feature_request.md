@@ -1,8 +1,8 @@
 ---
 name: Feature Request
-about: Suggest an improvement or new feature for the AEGIS architecture
+about: Suggest an improvement or new feature
 title: "[FEATURE] "
-labels: roadmap,discussion
+labels: enhancement
 assignees: ''
 ---
 
