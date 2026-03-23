@@ -16,7 +16,7 @@
 ### Announcement
 
 - **2026-03-05** — AEGIS™ has been **[publicly released](docs/announcements/2026-03-05-launch/ANNOUNCEMENT.md)** as an open governance architecture for intelligent systems.
-- **2026-03-07** — AEGIS™ has been **[submitted as an unsolicited position statement](docs/position-papers/nist/FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.md)** to the NIST AI Risk Management Framework.
+- **2026-03-07** — AEGIS™ has been **[submitted as an unsolicited position statement](docs/position-papers/nist/2026-03-aegis-nist-ai-rmf-position-statement.md)** to the NIST AI Risk Management Framework.
 
 ---
 

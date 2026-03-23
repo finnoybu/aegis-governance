@@ -40,6 +40,6 @@ The AEGIS repository is established as a complete, living, peer-reviewable schol
   - `aegis-core/architecture/AEGIS_Reference_Architecture.md` — Added architectural layer positioning callout.
   - `docs/architecture/AEGIS_ARCHITECTURE_OVERVIEW.md` — Added `## Architectural Layer` section.
 
-- **NIST position paper marked SUBMITTED** — `docs/position-papers/nist/FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.md` marked `SUBMITTED — DO NOT EDIT`. Status, submission date, and submission type synced to `README.md`. Document is now frozen; future changes require a new version.
+- **NIST position paper marked SUBMITTED** — `docs/position-papers/nist/2026-03-aegis-nist-ai-rmf-position-statement.md` marked `SUBMITTED — DO NOT EDIT`. Status, submission date, and submission type synced to `README.md`. Document is now frozen; future changes require a new version.
 
 - **`changelog/`** — Changelog restructured from single `CHANGELOG.md` to a directory of dated files with `README.md` and `INDEX.md`.

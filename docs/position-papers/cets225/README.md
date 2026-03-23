@@ -1,20 +1,34 @@
+# Council of Europe Framework Convention on AI (CETS No. 225)
 
-# Council of Europe — CETS No. 225 Submissions — AEGIS™
+Position statements and positioning documents related to the **Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law** (CETS No. 225).
 
-This folder contains AEGIS™ positioning and conformance work related to the Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law (CETS No. 225).
+## Purpose
 
-## Contents
+This directory contains AEGIS™ positioning work related to CETS No. 225 — the first legally binding international treaty dedicated specifically to AI governance. Documents here address AEGIS's conformance pathway under Article 3 §1(b), which permits private sector actors to satisfy the convention's obligations by "taking other appropriate measures."
 
-- [FinnoybuIPLLC-AEGIS-CETS225-Positioning-2026-03.md](FinnoybuIPLLC-AEGIS-CETS225-Positioning-2026-03.md) — Living Markdown positioning/conformance statement
+As the convention moves through ratification and the Council of Europe issues implementation guidance, this directory will expand to include conformance mapping, article-level analysis, and follow-on positioning statements.
 
-## Metadata
+## Documents
 
-- **First Created:** March 15, 2026
-- **Status:** Living document — will be updated as ratification and implementation guidance progresses
-- **Submitted by:** AEGIS Initiative, Finnoybu IP LLC
-- **Contact:** ktannenbaum@aegis-initiative.com
+### 2026-03 AEGIS Positioning Statement — CETS No. 225
 
-## Notes
+- **File**: [2026-03-aegis-cets225-positioning.md](2026-03-aegis-cets225-positioning.md)
+- **Date**: March 15, 2026
+- **Topic**: AEGIS™ as a technical conformance pathway under CETS No. 225 Article 3 §1(b)
+- **Status**: Draft (Living — will be updated as ratification and implementation guidance progresses)
+- **Audience**: Whitepaper, IEEE paper background, landing page, sponsor profile
 
-- This is a living positioning document, not a formal submission. It will be updated as the convention moves through ratification and as implementation guidance emerges.
-- For citation, use the latest version and note the date of access.
+## Convention Status
+
+| Event | Date |
+|-------|------|
+| Convention opened for signature | September 5, 2024 (Vilnius) |
+| EU Parliament consent vote (455–101–74) | March 11, 2026 |
+| Council conclusion of EU agreement | Pending |
+
+Current signatories: EU, United Kingdom, Ukraine, Canada, Israel, United States.
+
+---
+
+**Part of**: AEGIS™ Documentation\
+**Maintained by**: AEGIS™ Initiative

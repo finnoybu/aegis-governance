@@ -14,7 +14,7 @@ AEGIS™ submitted an unsolicited position statement to NIST proposing execution
 
 ### Added
 
-- **NIST Position Statement** — `docs/position-papers/nist/FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.md`
+- **NIST Position Statement** — `docs/position-papers/nist/2026-03-aegis-nist-ai-rmf-position-statement.md`
   - Submission type: Unsolicited position paper
   - Purpose: Propose execution-time governance as a first-class implementation pattern for agentic AI risk management
   - Scope: Constitutional governance framing, AGP-1/ATM-1 alignment, actionable recommendations for AI RMF evolution

@@ -114,7 +114,7 @@ RFC-0004 v0.4 is the current trust model specification. The prior composite scor
 
 | Document | Status | Rule |
 |----------|--------|------|
-| `docs/position-papers/nist/FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.md` | SUBMITTED | Do not edit. |
+| `docs/position-papers/nist/2026-03-aegis-nist-ai-rmf-position-statement.md` | SUBMITTED | Do not edit. |
 | `aegis-core/manifesto/AEGIS_Manifesto.md` | v0.1, referenced in NIST submission | Substantial edits require version bump to 0.2. Treat changes as amendments. |
 
 ---
@@ -125,7 +125,7 @@ Canonical files are authoritative. All other documents must **link**, not restat
 
 | Topic | Canonical file |
 |-------|---------------|
-| NIST submission | `docs/position-papers/nist/FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.md` |
+| NIST submission | `docs/position-papers/nist/2026-03-aegis-nist-ai-rmf-position-statement.md` |
 | NIST directory index | `docs/position-papers/nist/README.md` |
 | Federation trust model | `federation/AEGIS_GFN1_TRUST_MODEL.md` |
 | Agent runtime trust | `rfc/RFC-0004-Governance-Event-Model.md` §5 |

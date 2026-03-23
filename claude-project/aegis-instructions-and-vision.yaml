@@ -77,7 +77,7 @@ terminology_distinctions:
 ---
 
 frozen_documents:
-  - path: docs/position-papers/nist/FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.md
+  - path: docs/position-papers/nist/2026-03-aegis-nist-ai-rmf-position-statement.md
     status: SUBMITTED
     rule: Do not edit under any circumstances.
     submitted: "2026-03-07"
@@ -93,7 +93,7 @@ frozen_documents:
 ---
 
 single_source_of_truth:
-  - canonical: docs/position-papers/nist/FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.md
+  - canonical: docs/position-papers/nist/2026-03-aegis-nist-ai-rmf-position-statement.md
     rule: All NIST submission details must link here, not restate
   - canonical: docs/position-papers/nist/README.md
     rule: NIST directory index

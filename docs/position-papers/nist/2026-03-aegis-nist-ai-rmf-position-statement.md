@@ -1,4 +1,4 @@
-**Document**: FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.md\
+> **Document**: 2026-03-aegis-nist-ai-rmf-position-statement.md\
 > **Version**: 0.1.0\
 > **Part of**: AEGIS™ Position Papers\
 >

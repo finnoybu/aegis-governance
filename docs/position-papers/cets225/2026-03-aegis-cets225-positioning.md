@@ -1,12 +1,12 @@
-> **Document**: FinnoybuIPLLC-AEGIS-CETS225-Positioning-2026-03.md
-> **Version**: 0.1 (Living — not submitted)
-> **Part of**: AEGIS™ Position Papers
-> **Status**: Active — update as ratification progresses
-> **Created**: March 15, 2026
-> **Updated**: March 15, 2026
-> **Author**: AEGIS™ Initiative, Finnoybu IP LLC
-
 # AEGIS™ and the Council of Europe Framework Convention on Artificial Intelligence
+
+**Document**: `docs/position-papers/cets225/2026-03-aegis-cets225-positioning.md`  
+**Version**: 0.1 (Living — not submitted)  
+**Status**: Active — update as ratification progresses  
+**Created**: 2026-03-15  
+**Updated**: 2026-03-15 
+**Author**: AEGIS™ Initiative, Finnoybu IP LLC  
+**Part of**: AEGIS™ Position Papers
 
 > **NOTE — LIVING DOCUMENT**: Unlike the NIST AI RMF position paper, this document is not
 > a submitted statement. It is a living positioning resource that will require updates as the
@@ -129,7 +129,7 @@ This document should be reviewed and updated when:
 
 ## Related Documents
 
-- NIST AI RMF position paper: `docs/position-papers/nist/FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.md`
+- NIST AI RMF position paper: `docs/position-papers/nist/2026-03-aegis-nist-ai-rmf-position-statement.md`
 - EU AI Act reference: `REFERENCES.md` [^15]
 - AEGIS architecture: `aegis-core/architecture/`
 - ATM-1 threat model: `aegis-core/threat-model/`
