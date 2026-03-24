@@ -94,7 +94,7 @@ class AEGISPolicyError(AEGISError):
     - Required policy context is missing
     - Policy database is unavailable or corrupted
     
-    This typically results in a DEFERRED decision pending investigation.
+    This typically results in a ESCALATE decision pending investigation.
     
     Examples
     --------

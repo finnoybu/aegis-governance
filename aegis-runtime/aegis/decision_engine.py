@@ -39,7 +39,7 @@ class DecisionMetrics:
     denied_count : int
         Number of decisions that were DENIED.
     deferred_count : int
-        Number of decisions that were DEFERRED.
+        Number of decisions that were ESCALATE.
     capability_denials : int
         Number of decisions denied in stage 1 (capability check).
     policy_denials : int
@@ -210,7 +210,7 @@ class DecisionEngine:
             self._metrics.approved_count += 1
         elif decision == Decision.DENIED:
             self._metrics.denied_count += 1
-        elif decision == Decision.DEFERRED:
+        elif decision == Decision.ESCALATE:
             self._metrics.deferred_count += 1
 
     def get_metrics(self) -> DecisionMetrics:

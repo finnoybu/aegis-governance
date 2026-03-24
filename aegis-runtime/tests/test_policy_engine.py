@@ -228,7 +228,7 @@ class TestValidatePolicy:
     def test_invalid_effect_raises(self, engine):
         policy = make_allow_policy()
         policy.effect = "invalid"  # type: ignore
-        with pytest.raises(AEGISPolicyError, match="must be ALLOW or DENY"):
+        with pytest.raises(AEGISPolicyError, match="must be ALLOW, DENY, ESCALATE, or REQUIRE_CONFIRMATION"):
             engine.validate_policy(policy)
 
     def test_non_callable_condition_raises(self, engine):
@@ -360,3 +360,111 @@ class TestFindMatchingPolicies:
         
         matching = engine.find_matching_policies(make_request())
         assert [p.id for p in matching] == ["p2", "p1"]
+
+
+# ── ESCALATE and REQUIRE_CONFIRMATION tests ─────────────────────
+
+
+def make_escalate_policy(policy_id: str = "pol-escalate", priority: int = 150) -> Policy:
+    return Policy(
+        id=policy_id,
+        name="Escalate High Risk",
+        description="Escalates high-risk actions",
+        effect=PolicyEffect.ESCALATE,
+        conditions=[PolicyCondition(evaluate=always_true, description="always true")],
+        priority=priority,
+    )
+
+
+def make_require_confirmation_policy(policy_id: str = "pol-confirm", priority: int = 175) -> Policy:
+    return Policy(
+        id=policy_id,
+        name="Require Confirmation",
+        description="Requires human confirmation",
+        effect=PolicyEffect.REQUIRE_CONFIRMATION,
+        conditions=[PolicyCondition(evaluate=always_true, description="always true")],
+        priority=priority,
+    )
+
+
+class TestEscalatePolicy:
+    def test_matching_escalate_returns_escalate(self):
+        engine = PolicyEngine()
+        engine.add_policy(make_escalate_policy())
+        result = engine.evaluate(make_request())
+        assert result.decision == Decision.ESCALATE
+
+    def test_deny_overrides_escalate(self):
+        engine = PolicyEngine()
+        engine.add_policy(make_escalate_policy(priority=200))
+        engine.add_policy(make_deny_policy(priority=100))
+        result = engine.evaluate(make_request())
+        assert result.decision == Decision.DENIED
+
+    def test_escalate_overrides_allow(self):
+        engine = PolicyEngine()
+        engine.add_policy(make_allow_policy(priority=100))
+        engine.add_policy(make_escalate_policy(priority=200))
+        result = engine.evaluate(make_request())
+        assert result.decision == Decision.ESCALATE
+
+
+class TestRequireConfirmationPolicy:
+    def test_matching_require_confirmation(self):
+        engine = PolicyEngine()
+        engine.add_policy(make_require_confirmation_policy())
+        result = engine.evaluate(make_request())
+        assert result.decision == Decision.REQUIRE_CONFIRMATION
+
+    def test_deny_overrides_require_confirmation(self):
+        engine = PolicyEngine()
+        engine.add_policy(make_require_confirmation_policy(priority=200))
+        engine.add_policy(make_deny_policy(priority=100))
+        result = engine.evaluate(make_request())
+        assert result.decision == Decision.DENIED
+
+    def test_escalate_overrides_require_confirmation(self):
+        engine = PolicyEngine()
+        engine.add_policy(make_require_confirmation_policy(priority=100))
+        engine.add_policy(make_escalate_policy(priority=200))
+        result = engine.evaluate(make_request())
+        assert result.decision == Decision.ESCALATE
+
+    def test_require_confirmation_overrides_allow(self):
+        engine = PolicyEngine()
+        engine.add_policy(make_allow_policy(priority=100))
+        engine.add_policy(make_require_confirmation_policy(priority=200))
+        result = engine.evaluate(make_request())
+        assert result.decision == Decision.REQUIRE_CONFIRMATION
+
+
+class TestFullPrecedenceChain:
+    def test_deny_wins_over_all(self):
+        engine = PolicyEngine()
+        engine.add_policy(make_allow_policy(priority=100))
+        engine.add_policy(make_require_confirmation_policy(priority=150))
+        engine.add_policy(make_escalate_policy(priority=200))
+        engine.add_policy(make_deny_policy(priority=50))
+        result = engine.evaluate(make_request())
+        assert result.decision == Decision.DENIED
+
+    def test_escalate_wins_over_confirm_and_allow(self):
+        engine = PolicyEngine()
+        engine.add_policy(make_allow_policy(priority=100))
+        engine.add_policy(make_require_confirmation_policy(priority=150))
+        engine.add_policy(make_escalate_policy(priority=200))
+        result = engine.evaluate(make_request())
+        assert result.decision == Decision.ESCALATE
+
+    def test_confirm_wins_over_allow(self):
+        engine = PolicyEngine()
+        engine.add_policy(make_allow_policy(priority=100))
+        engine.add_policy(make_require_confirmation_policy(priority=200))
+        result = engine.evaluate(make_request())
+        assert result.decision == Decision.REQUIRE_CONFIRMATION
+
+    def test_allow_wins_when_only_option(self):
+        engine = PolicyEngine()
+        engine.add_policy(make_allow_policy())
+        result = engine.evaluate(make_request())
+        assert result.decision == Decision.APPROVED

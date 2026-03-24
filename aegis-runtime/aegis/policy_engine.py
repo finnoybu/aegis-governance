@@ -38,6 +38,8 @@ class PolicyEffect(str, Enum):
 
     ALLOW = "allow"
     DENY = "deny"
+    ESCALATE = "escalate"
+    REQUIRE_CONFIRMATION = "require_confirmation"
 
 
 @dataclass
@@ -220,7 +222,7 @@ class PolicyEngine:
         Checks:
         - Policy ID is non-empty
         - Policy name is non-empty
-        - Effect is valid (ALLOW or DENY)
+        - Effect is valid (ALLOW, DENY, ESCALATE, or REQUIRE_CONFIRMATION)
         - All conditions have callable evaluate functions
         
         Parameters
@@ -245,9 +247,9 @@ class PolicyEngine:
                 error_code="EMPTY_POLICY_NAME"
             )
         
-        if policy.effect not in (PolicyEffect.ALLOW, PolicyEffect.DENY):
+        if policy.effect not in (PolicyEffect.ALLOW, PolicyEffect.DENY, PolicyEffect.ESCALATE, PolicyEffect.REQUIRE_CONFIRMATION):
             raise AEGISPolicyError(
-                f"Policy.effect must be ALLOW or DENY, got {policy.effect}",
+                f"Policy.effect must be ALLOW, DENY, ESCALATE, or REQUIRE_CONFIRMATION, got {policy.effect}",
                 error_code="INVALID_POLICY_EFFECT"
             )
         
@@ -327,10 +329,12 @@ class PolicyEngine:
 
         1. Sort enabled policies by ascending *priority*.
         2. Evaluate each policy's conditions against the request.
-        3. On the first matching **deny** policy, return ``DENIED``.
-        4. Record the first matching **allow** policy.
-        5. After all policies: return ``APPROVED`` if an allow matched,
-           otherwise return ``DENIED`` (default-deny).
+        3. On the first matching **deny** policy, return ``DENIED`` immediately.
+        4. Record the first matching **escalate**, **require_confirmation**,
+           or **allow** policy.
+        5. After all policies: return the most restrictive matched effect
+           (deny > escalate > require_confirmation > allow),
+           or ``DENIED`` if nothing matched (default-deny).
 
         Parameters
         ----------
@@ -349,7 +353,8 @@ class PolicyEngine:
         """
         evaluations: list[PolicyEvaluation] = []
         first_allow: Policy | None = None
-        first_deny: Policy | None = None
+        first_escalate: Policy | None = None
+        first_require_confirmation: Policy | None = None
 
         with self._lock:
             sorted_policies = sorted(
@@ -376,15 +381,31 @@ class PolicyEngine:
 
             if matched:
                 if policy.effect == PolicyEffect.DENY:
-                    first_deny = policy
-                    break  # Deny at highest priority is immediately final
-                elif first_allow is None and policy.effect == PolicyEffect.ALLOW:
+                    # Deny is immediately final — highest precedence
+                    return PolicyResult(
+                        decision=Decision.DENIED,
+                        reason=f"Denied by policy '{policy.name}'.",
+                        evaluations=evaluations,
+                    )
+                elif policy.effect == PolicyEffect.ESCALATE and first_escalate is None:
+                    first_escalate = policy
+                elif policy.effect == PolicyEffect.REQUIRE_CONFIRMATION and first_require_confirmation is None:
+                    first_require_confirmation = policy
+                elif policy.effect == PolicyEffect.ALLOW and first_allow is None:
                     first_allow = policy
 
-        if first_deny is not None:
+        # Precedence: deny (handled above) > escalate > require_confirmation > allow
+        if first_escalate is not None:
             return PolicyResult(
-                decision=Decision.DENIED,
-                reason=f"Denied by policy '{first_deny.name}'.",
+                decision=Decision.ESCALATE,
+                reason=f"Escalation required by policy '{first_escalate.name}'.",
+                evaluations=evaluations,
+            )
+
+        if first_require_confirmation is not None:
+            return PolicyResult(
+                decision=Decision.REQUIRE_CONFIRMATION,
+                reason=f"Human confirmation required by policy '{first_require_confirmation.name}'.",
                 evaluations=evaluations,
             )
 

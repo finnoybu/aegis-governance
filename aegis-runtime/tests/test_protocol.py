@@ -19,7 +19,8 @@ class TestDecision:
     def test_values(self):
         assert Decision.APPROVED == "approved"
         assert Decision.DENIED == "denied"
-        assert Decision.DEFERRED == "deferred"
+        assert Decision.ESCALATE == "escalate"
+        assert Decision.REQUIRE_CONFIRMATION == "require_confirmation"
 
     def test_string_comparison(self):
         assert Decision.APPROVED == "approved"
@@ -273,7 +274,7 @@ class TestAGPResponse:
         assert parsed.conditions == original.conditions
 
     def test_from_json_roundtrip_all_decisions(self):
-        for decision in [Decision.APPROVED, Decision.DENIED, Decision.DEFERRED]:
+        for decision in [Decision.APPROVED, Decision.DENIED, Decision.ESCALATE, Decision.REQUIRE_CONFIRMATION]:
             original = AGPResponse(
                 request_id="req-123",
                 decision=decision,

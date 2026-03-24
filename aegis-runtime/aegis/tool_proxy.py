@@ -5,7 +5,7 @@ invoke.  Every tool call is intercepted and a governance request is
 submitted to the :class:`~aegis.gateway.GovernanceGateway` before the
 actual tool function is executed.
 
-If the gateway returns ``Decision.DENIED`` or ``Decision.DEFERRED``,
+If the gateway returns ``Decision.DENIED`` or ``Decision.ESCALATE``,
 the tool is **not** invoked and a :class:`PermissionError` is raised so
 that the calling agent can handle the rejection cleanly.
 

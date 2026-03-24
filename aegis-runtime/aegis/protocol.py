@@ -10,6 +10,7 @@ Protocol flow
 2. The :class:`GovernanceGateway` receives the request.
 3. The :class:`DecisionEngine` evaluates it and emits an :class:`AGPResponse`.
 4. Only ``Decision.APPROVED`` responses allow the action to proceed.
+   ``ESCALATE`` and ``REQUIRE_CONFIRMATION`` halt execution pending review.
 
 Serialization
 -------------
@@ -42,8 +43,11 @@ class Decision(str, Enum):
     DENIED = "denied"
     """The action is prohibited and must not proceed."""
 
-    DEFERRED = "deferred"
-    """A definitive decision requires human or higher-authority review."""
+    ESCALATE = "escalate"
+    """The action requires elevated review before proceeding."""
+
+    REQUIRE_CONFIRMATION = "require_confirmation"
+    """The action requires explicit human approval before proceeding."""
 
 
 class ActionType(str, Enum):
