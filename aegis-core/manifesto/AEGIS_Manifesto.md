@@ -210,7 +210,7 @@ Actions are evaluated based on their potential system impact.
 
 ### Auditability
 
-All actions must produce immutable audit records.
+All actions must produce tamper-evident, append-only audit records.
 
 Together, these mechanisms create an environment where AI systems operate within **bounded authority**.
 
@@ -264,7 +264,7 @@ In this future:
 
 * AI agents autonomously manage infrastructure within explicit boundaries
 * Security teams trust AI copilots with operational access because actions are governed
-* Compliance teams can audit AI decisions with immutable records
+* Compliance teams can audit AI decisions with tamper-evident audit records
 * Enterprises confidently deploy agentic systems knowing destructive actions require human oversight
 
 **For Developers:**

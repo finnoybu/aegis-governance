@@ -76,7 +76,7 @@ This enables:
 - Actor type indicates human, AI system, or automation
 - Signatures or mutual TLS proves identity
 
-### 4. Immutable Audit
+### 4. Tamper-Evident Audit
 
 **Principle**: Every decision is persisted permanently and cannot be modified
 
@@ -90,7 +90,7 @@ This ensures:
 
 - All decisions written to append-only log
 - Hash chain prevents modification of older entries
-- Audit log backed up to immutable storage
+- Audit log backed up to tamper-evident storage
 - Deletion requires explicit governance approval
 
 ### 5. Fail-Closed Semantics

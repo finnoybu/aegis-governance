@@ -24,7 +24,7 @@ The **AEGIS™ Governance Protocol (AGP-1)** is the normative wire protocol for 
 
 - ✅ Deterministic: identical requests + policies = identical decisions[^2]
 - ✅ Default-deny: absence of approval yields denial[^2]
-- ✅ Fully auditable: every decision is immutable and attributable[^1]
+- ✅ Fully auditable: every decision is tamper-evident and attributable[^1]
 - ✅ Fail-closed: all subsystem failures result in denial or escalation[^2]
 
 ---
@@ -179,7 +179,7 @@ This protocol specification is tightly integrated with:
 - `governance:escalate_decision` - respond to escalations
 - `governance:health_check` - protocol health queries
 
-**Audit**: Every decision is immutable and fully attributed
+**Audit**: Every decision is tamper-evident and fully attributed
 
 - Decision recorded with actor_id, timestamp, policies evaluated
 - Risk factors and federation signals logged
@@ -198,7 +198,7 @@ A server implementation MUST:
 - ✅ Evaluate policies deterministically
 - ✅ Compute risk scores using 5-factor model
 - ✅ Support at least one authentication method (Bearer token)
-- ✅ Maintain immutable audit log
+- ✅ Maintain tamper-evident, append-only audit log
 - ✅ Return appropriate error codes
 - ✅ Support HTTP/1.1 or HTTP/2
 - ✅ Enforce rate limiting

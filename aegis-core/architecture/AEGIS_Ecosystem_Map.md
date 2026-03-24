@@ -341,7 +341,7 @@ The federation network allows organizations to coordinate responses to emerging 
 | **Decision Engine** | Evaluate actions against policies | Action requests, capability registry, policies | ALLOW/DENY/ESCALATE decisions | Trusted |
 | **Capability Registry** | Define allowable operations | Capability definitions | Capability existence validation | Trusted |
 | **Policy Engine** | Enforce governance rules | Actions, context, risk scores | Policy evaluation results | Trusted |
-| **Audit System** | Record all governance decisions | Decisions, execution results | Immutable audit logs | Trusted |
+| **Audit System** | Record all governance decisions | Decisions, execution results | Tamper-evident audit logs | Trusted |
 | **Tool Proxy** | Execute approved actions with controls | EXECUTE_ACTION commands | Execution results | Trusted |
 | **External Systems** | Perform operational work | Tool proxy requests | Operation results | Varies |
 | **Federation Network** | Share governance intelligence | Governance signals, threats | Risk intelligence | Semi-trusted |

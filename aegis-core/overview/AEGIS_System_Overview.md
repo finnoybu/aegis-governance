@@ -95,7 +95,7 @@ AEGIS takes a fundamentally different approach: **governance as a runtime proper
 1. **Deterministic Enforcement** — Governance is architecturally guaranteed, not dependent on model behavior
 2. **Capability Boundaries** — AI can only access explicitly defined capabilities, limiting blast radius
 3. **Context-Aware Policies** — Decisions account for environment, actor, risk level, and resource classification
-4. **Auditability** — Every action produces immutable records for forensic analysis
+4. **Auditability** — Every action produces tamper-evident audit records for forensic analysis
 5. **Scalability** — Policy evaluation is automated; humans intervene only for high-risk actions
 6. **Defense in Depth** — Works alongside alignment and prompt engineering, not instead of them
 
@@ -203,7 +203,7 @@ message: "Production critical resources cannot be deleted via AI"
 - Trades above threshold require compliance officer approval
 - Blackout period enforcement prevents trades during restricted windows
 - Position limits enforced architecturally, not by model behavior
-- All trading decisions audited with immutable records
+- All trading decisions audited with tamper-evident audit records
 
 **Governance Policies:**
 

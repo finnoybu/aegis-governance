@@ -231,7 +231,7 @@ This document provides complete, normative schemas for all 6 AGP-1 message types
 | `decision` | enum | yes | ALLOW, DENY, ESCALATE, REQUIRE_CONFIRMATION |
 | `decision_reason` | string | yes | Human-readable explanation (for logs, UI, audit) |
 | `policy_set_version` | string | yes | Version of policy set used for evaluation (SemVer) |
-| `audit_event_id` | string | yes | Immutable audit log entry ID (for tracing) |
+| `audit_event_id` | string | yes | Tamper-evident audit log entry ID (for tracing) |
 | `risk_score` | float [0.0-10.0] | yes | Overall risk score; higher = riskier |
 | `risk_category` | enum | yes | Category: `data_access`, `system_control`, `capability_elevation`, `behavioral_anomaly` |
 | `decision_confidence` | float [0.0-1.0] | yes | Confidence in decision determinism |

@@ -64,7 +64,7 @@ Actions are rejected unless explicitly permitted.
 
 ### Operational Auditability
 
-All governance decisions must produce immutable records.
+All governance decisions must produce tamper-evident, append-only audit records.
 
 ### Incremental Deployability
 
@@ -672,7 +672,7 @@ AEGIS governance enforces security through multiple layers.
 
 ### 4. Audit & Forensics
 
-**Immutable Audit Logs:**
+**Tamper-Evident Audit Logs:**
 
 * Append-only audit storage
 * Cryptographic hashing for tamper detection
