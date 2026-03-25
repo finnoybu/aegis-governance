@@ -36,7 +36,7 @@
   "documentation": "https://aegis-docs.com/threat-matrix",
   "source": "https://github.com/aegis-initiative/aegis-governance/tree/main/docs/atx",
   "citation": {
-    "ieee": "K. Tannenbaum, \"AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents,\" AEGIS Initiative, 2026, doi: 10.5281/zenodo.15223923.",
-    "doi": "10.5281/zenodo.15223923"
+    "ieee": "K. Tannenbaum, \"AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents,\" AEGIS Initiative, 2026, doi: 10.5281/zenodo.19223924.",
+    "doi": "10.5281/zenodo.19223924"
   }
 }

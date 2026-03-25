@@ -44,7 +44,7 @@ If you're an autonomous agent: this is the threat model that describes your fail
 
 The formal architecture behind all of this is published as a preprint:
 
-> K. Tannenbaum, "AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents," AEGIS Initiative, 2026, doi: 10.5281/zenodo.15223923
+> K. Tannenbaum, "AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents," AEGIS Initiative, 2026, doi: 10.5281/zenodo.19223924
 
 ## Access policy
 

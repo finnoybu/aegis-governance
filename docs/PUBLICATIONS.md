@@ -7,7 +7,7 @@ Authoritative record of all AEGIS publications, datasets, and persistent identif
 | Title | Venue | Status | DOI | Date |
 |---|---|---|---|---|
 | AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents | IEEE Computer (Special Issue: AI Governance and Compliance) | Submitted | — | 2026-04-13 (deadline) |
-| AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents (Preprint) | Zenodo | Published | [10.5281/zenodo.15223923](https://doi.org/10.5281/zenodo.15223923) | 2026-03-25 |
+| AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents (Preprint) | Zenodo | Published | [10.5281/zenodo.19223924](https://doi.org/10.5281/zenodo.19223924) | 2026-03-25 |
 
 ## Datasets
 

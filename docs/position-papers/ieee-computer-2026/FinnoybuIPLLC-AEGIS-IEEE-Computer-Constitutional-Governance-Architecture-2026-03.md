@@ -20,7 +20,7 @@
 **ORCID**: 0009-0007-4215-1789\
 **IEEE Member**: #102220161
 
-**Preprint DOI**: [10.5281/zenodo.15223923](https://doi.org/10.5281/zenodo.15223923)
+**Preprint DOI**: [10.5281/zenodo.19223924](https://doi.org/10.5281/zenodo.19223924)
 
 > *Capability without constraint is not intelligence™*
 
