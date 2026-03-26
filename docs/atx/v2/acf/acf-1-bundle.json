@@ -1,0 +1,243 @@
+{
+  "type": "bundle",
+  "id": "bundle--fb389d67-3f4f-42e9-a240-77f3f7e53b43",
+  "objects": [
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--b33a5b1d-79b6-5a1f-a3af-2471cf4ab026",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Execution / Report Mismatch",
+      "description": "Mismatch between reported task completion and actual execution logs.",
+      "x_acf_signal_type": "correlation",
+      "x_acf_log_source": "agent_execution_layer",
+      "x_acf_detection_logic": "reported_success == true AND execution_log.exists == false",
+      "x_acf_related_atx": [
+        "T5001"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--dc6f7d7c-a01e-530c-9cdf-b7c2c8a68fa8",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Execution Verification Check",
+      "description": "Ensure all reported actions have corresponding execution artifacts.",
+      "x_acf_validation_type": "consistency_check",
+      "x_acf_required_signals": [
+        "execution_log",
+        "task_report"
+      ],
+      "x_acf_expected_condition": "execution_log.exists == true",
+      "x_acf_related_atx": [
+        "T5001",
+        "T5003"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--83a13da4-556e-52e2-8061-ee9064737549",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Halt Agent on False Completion",
+      "description": "Stop agent execution when task completion cannot be verified.",
+      "x_acf_response_type": "containment",
+      "x_acf_trigger": "validation_failure",
+      "x_acf_related_atx": [
+        "T5001"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09fb87db-2144-4e76-87c9-9f7723b9e8c1",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--b33a5b1d-79b6-5a1f-a3af-2471cf4ab026",
+      "target_ref": "attack-pattern--c4d1afa8-c1e0-5688-b3c5-8c1fc6c825b6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4f5fa58b-452d-49e9-b854-dd3dfea15c01",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--dc6f7d7c-a01e-530c-9cdf-b7c2c8a68fa8",
+      "target_ref": "attack-pattern--c4d1afa8-c1e0-5688-b3c5-8c1fc6c825b6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b9a97969-652e-42c6-9779-f41c82050f17",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--83a13da4-556e-52e2-8061-ee9064737549",
+      "target_ref": "attack-pattern--c4d1afa8-c1e0-5688-b3c5-8c1fc6c825b6"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--e622f9f3-e1ae-5fdb-b675-4393ac23711d",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Tool Chain Anomaly",
+      "description": "Detection of unusual sequences of tool invocations forming a potentially unsafe composite action.",
+      "x_acf_signal_type": "correlation",
+      "x_acf_log_source": "tool_proxy",
+      "x_acf_detection_logic": "sequence_length > threshold AND cross_tool_dependency_detected",
+      "x_acf_related_atx": [
+        "T2004"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--6eaf39e0-2996-509c-bd0d-bc2e636e607e",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Tool Chain Policy Validation",
+      "description": "Validate that chained tool executions do not produce a policy-violating aggregate outcome.",
+      "x_acf_validation_type": "policy_enforcement",
+      "x_acf_required_signals": [
+        "tool_sequence",
+        "policy_rules"
+      ],
+      "x_acf_expected_condition": "aggregate_effect in allowed_actions",
+      "x_acf_related_atx": [
+        "T2004"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--4290e4d5-0c93-53be-a34f-f46e5028d52b",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Block Unsafe Tool Chain",
+      "description": "Prevent execution of tool sequences that produce unauthorized outcomes.",
+      "x_acf_response_type": "prevention",
+      "x_acf_trigger": "policy_violation",
+      "x_acf_related_atx": [
+        "T2004"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--52b7efe0-e612-4077-b648-035d6152d7d9",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--e622f9f3-e1ae-5fdb-b675-4393ac23711d",
+      "target_ref": "attack-pattern--1ff1a693-4126-535b-8b92-fa3d310f711a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--50fe91df-aba4-4e80-94da-e020387197d5",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--6eaf39e0-2996-509c-bd0d-bc2e636e607e",
+      "target_ref": "attack-pattern--1ff1a693-4126-535b-8b92-fa3d310f711a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--57bcd24b-1a15-481b-a33c-26b235aeeda8",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--4290e4d5-0c93-53be-a34f-f46e5028d52b",
+      "target_ref": "attack-pattern--1ff1a693-4126-535b-8b92-fa3d310f711a"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--a9c67ddf-2d82-5e88-aec6-3f62d861af5e",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Consensus Convergence Anomaly",
+      "description": "Detection of multiple agents converging on a shared decision that deviates from safe baseline behavior.",
+      "x_acf_signal_type": "correlation",
+      "x_acf_log_source": "multi_agent_coordinator",
+      "x_acf_detection_logic": "multiple_agents_same_decision AND decision_risk_score > threshold",
+      "x_acf_related_atx": [
+        "T7004"
+      ],
+      "x_acf_multi_agent": {
+        "coordination_type": "emergent",
+        "propagation_mode": "context",
+        "detection_scope": "multi-agent"
+      }
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--d7d5e265-b8b8-5eef-9362-3c9e1869fb6f",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Consensus Safety Validation",
+      "description": "Verify that group decisions comply with policy and safety constraints.",
+      "x_acf_validation_type": "policy_enforcement",
+      "x_acf_required_signals": [
+        "agent_decisions",
+        "policy_rules"
+      ],
+      "x_acf_expected_condition": "decision_outcome in allowed_actions",
+      "x_acf_related_atx": [
+        "T7004"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--62bae5c9-5f1d-5e85-b967-b152d189f2f7",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Break Unsafe Consensus",
+      "description": "Interrupt or override group decisions that violate policy.",
+      "x_acf_response_type": "intervention",
+      "x_acf_trigger": "consensus_violation",
+      "x_acf_related_atx": [
+        "T7004"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--36993e8a-4f86-4df1-a554-cfcc421555d1",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--a9c67ddf-2d82-5e88-aec6-3f62d861af5e",
+      "target_ref": "attack-pattern--c4873da3-2d95-5cca-abbf-350241b26a5d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b336f1dc-09bc-402c-839f-c966fdac85f2",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--d7d5e265-b8b8-5eef-9362-3c9e1869fb6f",
+      "target_ref": "attack-pattern--c4873da3-2d95-5cca-abbf-350241b26a5d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--25d59e90-7cf6-4558-ba4c-ecea5f0b2e66",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--62bae5c9-5f1d-5e85-b967-b152d189f2f7",
+      "target_ref": "attack-pattern--c4873da3-2d95-5cca-abbf-350241b26a5d"
+    }
+  ]
+}
