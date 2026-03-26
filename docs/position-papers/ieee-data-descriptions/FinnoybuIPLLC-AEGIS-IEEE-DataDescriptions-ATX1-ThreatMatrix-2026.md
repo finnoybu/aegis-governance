@@ -1,22 +1,20 @@
 > **Document**: FinnoybuIPLLC-AEGIS-IEEE-DataDescriptions-ATX1-ThreatMatrix-2026.md\
-> **Version**: 0.2 (DRAFT)\
+> **Version**: 0.3 (DRAFT)\
 > **Part of**: AEGIS™ Position Papers\
+> **Target Venue**: IEEE Data Descriptions\
+> **Article Type**: Descriptor\
+> **Author**: Kenneth Tannenbaum (AEGIS Initiative)\
+> **ORCID**: 0009-0007-4215-1789\
+> **Preprint DOI**: 10.5281/zenodo.19223924\
+> **Dataset DOI**: 10.21227/f87b-1d57
 >
 > **DRAFT — NOT YET SUBMITTED**
 > This document is a working draft for submission to IEEE Data Descriptions.
+> Everything above this line is internal metadata and will not appear in the submission.
 
 ---
 
 # **Descriptor:** *AEGIS Threat Matrix for Agentic AI Systems* (ATX-1)
-
-**Target Venue**: IEEE Data Descriptions\
-**Article Type**: Descriptor\
-**Author**: Kenneth Tannenbaum (AEGIS Initiative)\
-**ORCID**: 0009-0007-4215-1789
-
-> *Capability without constraint is not intelligence™*
-
----
 
 ## Abstract
 
