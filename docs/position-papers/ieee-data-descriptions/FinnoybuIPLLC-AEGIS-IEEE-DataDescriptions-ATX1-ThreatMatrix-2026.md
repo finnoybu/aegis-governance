@@ -7,7 +7,7 @@
 
 ---
 
-# Descriptor: ATX-1 AEGIS Threat Matrix for Agentic AI Systems
+# **Descriptor:** *AEGIS Threat Matrix for Agentic AI Systems* (ATX-1)
 
 **Target Venue**: IEEE Data Descriptions\
 **Article Type**: Descriptor\
