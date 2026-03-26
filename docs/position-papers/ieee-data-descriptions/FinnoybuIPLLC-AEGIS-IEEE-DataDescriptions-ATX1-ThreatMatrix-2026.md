@@ -22,6 +22,14 @@
 
 ATX-1 (AEGIS Threat Matrix) is a structured adversarial knowledge base that catalogs failure modes of autonomous AI agents operating without governance constraints. Unlike existing threat frameworks — MITRE ATT&CK for human adversaries and MITRE ATLAS for adversaries targeting AI systems — ATX-1 addresses a distinct threat class: AI agents that act outside their governance boundaries not through external compromise, but through their own structural capability without corresponding authority. ATX-1 is grounded in a fundamental distinction: capability — what an agent can do — is not authority — what an agent may do. The four structural root causes identified in the dataset (missing authority verification, missing consequence modeling, missing behavioral boundaries, and missing state integrity protection) trace all 20 techniques to architectural gaps that governance frameworks can address. The dataset defines 9 tactics (TA001–TA009), 20 techniques distributed non-sequentially across tactics (T1001–T9001), and 20 mitigations, each grounded in empirical observations from the *Agents of Chaos* study, which documented 11 failure modes across live agentic deployments. ATX-1 is published in STIX 2.1 format for compatibility with threat intelligence platforms, with supplementary structured JSON files providing technique metadata, regulatory cross-references to the NIST AI Risk Management Framework, EU AI Act, and OWASP Top 10 for LLM Applications, and a JSON Schema for validation. The dataset satisfies FAIR principles through three permanent repositories — IEEE DataPort, Zenodo, and a live machine-readable API — under the Apache 2.0 license.
 
+**IEEE SOCIETY/COUNCIL** Computer Society (CS)
+
+**DATA TYPE/LOCATION** Threat Taxonomy; Online (IEEE DataPort, Zenodo, aegis-governance.com)
+
+**DATA DOI/PID** 10.21227/f87b-1d57
+
+**INDEX TERMS** AI governance, threat taxonomy, autonomous agents, STIX 2.1, agentic AI, NIST AI RMF, EU AI Act, OWASP LLM, constitutional enforcement.
+
 ---
 
 ## Background
@@ -60,6 +68,24 @@ The ATX-1 taxonomy was constructed through a four-stage process:
 
 4. **Mitigation mapping.** Each technique was mapped to specific AEGIS constitutional articles and AGP-1 governance protocol mechanisms that architecturally prevent the failure mode. Regulatory cross-references to NIST AI RMF functions, EU AI Act articles, and OWASP LLM Top 10 categories were added.
 
+**TABLE I.** ATX-1 Tactic Summary
+
+| ID | Tactic | Techniques | Severity Range |
+|------|------|------|------|
+| TA001 | Authority Boundary Violation | T1001, T1002, T1003 | High–Critical |
+| TA002 | Destructive Action | T2001, T2002, T2003 | High–Critical |
+| TA003 | Scope Violation | T3001 | High |
+| TA004 | Information Breach | T4001, T4002 | High–Critical |
+| TA005 | Deceptive Output | T5001, T5002 | Medium–High |
+| TA006 | Resource Abuse | T6001, T6002 | Medium–High |
+| TA007 | Multi-Agent Exploitation | T7001, T7002 | High–Critical |
+| TA008 | Persistence Violation | T8001, T8002 | High–Critical |
+| TA009 | Monitoring Evasion | T9001 | Medium |
+
+**Fig. 1.** ATX-1 taxonomy construction pipeline. Case studies from the *Agents of Chaos* study [4] are analyzed to identify structural root causes (RC1–RC4), which are classified into 9 tactics and 20 techniques. Each technique is mapped to AEGIS constitutional mitigations and cross-referenced to regulatory frameworks (NIST AI RMF, EU AI Act, OWASP LLM Top 10).
+
+> [Figure placeholder: Four-stage pipeline diagram — Case Studies → Root Causes → Tactics & Techniques → Mitigations & Regulatory Cross-References. Each stage feeds the next. Output arrows show the four machine-readable formats (STIX, JSON, Regulatory Cross-Ref, Schema).]
+
 ### Machine-Readable Encoding
 
 The taxonomy was encoded in four machine-readable formats:
@@ -95,6 +121,14 @@ Every technique has a corresponding entry in the regulatory cross-reference matr
 ### Severity Distribution
 
 The 20 techniques distribute across severity levels as follows: critical (6), high (9), medium (4), low (1). This distribution reflects the empirical finding that most ungoverned agent behaviors have high or critical impact potential.
+
+**Fig. 2.** Severity distribution of ATX-1 techniques. The majority of techniques (75%) are rated high or critical, reflecting the empirical observation that ungoverned agent behaviors predominantly result in significant operational impact.
+
+> [Figure placeholder: Bar chart — x-axis: Critical (6), High (9), Medium (4), Low (1). Color-coded: red, orange, blue, green. Y-axis: Number of techniques.]
+
+**Fig. 3.** STIX 2.1 object composition of the ATX-1 bundle. The bundle contains 104 objects: 9 tactic definitions, 20 attack patterns, 20 mitigations, 54 relationships, and 1 identity.
+
+> [Figure placeholder: Pie or stacked bar chart showing object type distribution — x-mitre-tactic (9), attack-pattern (20), course-of-action (20), relationship (54), identity (1). Total: 104.]
 
 ---
 
