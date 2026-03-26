@@ -1,93 +1,478 @@
 {
   "type": "bundle",
-  "id": "bundle--fb389d67-3f4f-42e9-a240-77f3f7e53b43",
+  "id": "bundle--f3313f02-116f-41cc-a8f3-f369099dcf41",
   "objects": [
     {
       "type": "x-acf-detection",
       "spec_version": "2.1",
-      "id": "x-acf-detection--b33a5b1d-79b6-5a1f-a3af-2471cf4ab026",
+      "id": "x-acf-detection--bf932fdf-91cd-5721-94e2-071e590bc455",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
-      "name": "Execution / Report Mismatch",
-      "description": "Mismatch between reported task completion and actual execution logs.",
-      "x_acf_signal_type": "correlation",
-      "x_acf_log_source": "agent_execution_layer",
-      "x_acf_detection_logic": "reported_success == true AND execution_log.exists == false",
+      "name": "Identity Validation Failure",
+      "description": "Detection for T1001: Identity Validation Failure",
+      "x_acf_signal_type": "metric",
+      "x_acf_log_source": "identity_layer",
+      "x_acf_detection_logic": "invalid_signature OR unknown_principal",
       "x_acf_related_atx": [
-        "T5001"
+        "T1001"
       ]
     },
     {
       "type": "x-acf-validation",
       "spec_version": "2.1",
-      "id": "x-acf-validation--dc6f7d7c-a01e-530c-9cdf-b7c2c8a68fa8",
+      "id": "x-acf-validation--cb2ce1f6-a9f1-5663-81ef-5cac330f4cdf",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
-      "name": "Execution Verification Check",
-      "description": "Ensure all reported actions have corresponding execution artifacts.",
-      "x_acf_validation_type": "consistency_check",
+      "name": "Authority Verification",
+      "description": "Validation for T1001: Authority Verification",
+      "x_acf_validation_type": "policy_enforcement",
       "x_acf_required_signals": [
-        "execution_log",
-        "task_report"
+        "principal",
+        "policy"
       ],
-      "x_acf_expected_condition": "execution_log.exists == true",
+      "x_acf_expected_condition": "principal in authorized_identities",
       "x_acf_related_atx": [
-        "T5001",
-        "T5003"
+        "T1001"
       ]
     },
     {
       "type": "x-acf-response",
       "spec_version": "2.1",
-      "id": "x-acf-response--83a13da4-556e-52e2-8061-ee9064737549",
+      "id": "x-acf-response--75a22e60-90c5-5b3b-94c3-796dc01e3236",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
-      "name": "Halt Agent on False Completion",
-      "description": "Stop agent execution when task completion cannot be verified.",
-      "x_acf_response_type": "containment",
-      "x_acf_trigger": "validation_failure",
+      "name": "Reject Unauthorized Instruction",
+      "description": "Response for T1001: Reject Unauthorized Instruction",
+      "x_acf_response_type": "prevention",
+      "x_acf_trigger": "identity_failure",
       "x_acf_related_atx": [
-        "T5001"
+        "T1001"
       ]
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--09fb87db-2144-4e76-87c9-9f7723b9e8c1",
+      "id": "relationship--72d9708b-e2a2-49bb-bcaa-2587569e2010",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "relationship_type": "detects",
-      "source_ref": "x-acf-detection--b33a5b1d-79b6-5a1f-a3af-2471cf4ab026",
-      "target_ref": "attack-pattern--c4d1afa8-c1e0-5688-b3c5-8c1fc6c825b6"
+      "source_ref": "x-acf-detection--bf932fdf-91cd-5721-94e2-071e590bc455",
+      "target_ref": "attack-pattern--a4ddb757-0240-5586-8940-2b72506905de"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4f5fa58b-452d-49e9-b854-dd3dfea15c01",
+      "id": "relationship--597d29ed-b4ff-40a5-ba32-83cf9f8caa0a",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "relationship_type": "validates",
-      "source_ref": "x-acf-validation--dc6f7d7c-a01e-530c-9cdf-b7c2c8a68fa8",
-      "target_ref": "attack-pattern--c4d1afa8-c1e0-5688-b3c5-8c1fc6c825b6"
+      "source_ref": "x-acf-validation--cb2ce1f6-a9f1-5663-81ef-5cac330f4cdf",
+      "target_ref": "attack-pattern--a4ddb757-0240-5586-8940-2b72506905de"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b9a97969-652e-42c6-9779-f41c82050f17",
+      "id": "relationship--2c58180e-b260-4507-b209-47a2ad9118b6",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "relationship_type": "responds-to",
-      "source_ref": "x-acf-response--83a13da4-556e-52e2-8061-ee9064737549",
-      "target_ref": "attack-pattern--c4d1afa8-c1e0-5688-b3c5-8c1fc6c825b6"
+      "source_ref": "x-acf-response--75a22e60-90c5-5b3b-94c3-796dc01e3236",
+      "target_ref": "attack-pattern--a4ddb757-0240-5586-8940-2b72506905de"
     },
     {
       "type": "x-acf-detection",
       "spec_version": "2.1",
-      "id": "x-acf-detection--e622f9f3-e1ae-5fdb-b675-4393ac23711d",
+      "id": "x-acf-detection--0f155f5f-d0d2-5d22-831d-d50fbbe359c8",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Implicit Authority Inference",
+      "description": "Detection for T1002: Implicit Authority Inference",
+      "x_acf_signal_type": "event",
+      "x_acf_log_source": "context_layer",
+      "x_acf_detection_logic": "authority_claim_present AND explicit_grant == false",
+      "x_acf_related_atx": [
+        "T1002"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--465ed7ad-109c-511c-a37e-382660aa592a",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Explicit Authority Check",
+      "description": "Validation for T1002: Explicit Authority Check",
+      "x_acf_validation_type": "policy_enforcement",
+      "x_acf_required_signals": [
+        "authority_claim",
+        "grant_registry"
+      ],
+      "x_acf_expected_condition": "authority_claim in explicit_grants",
+      "x_acf_related_atx": [
+        "T1002"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--7128148d-0ca0-54b5-bcd5-3d6a6b0d2d31",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Deny Implicit Authority",
+      "description": "Response for T1002: Deny Implicit Authority",
+      "x_acf_response_type": "prevention",
+      "x_acf_trigger": "authority_not_verified",
+      "x_acf_related_atx": [
+        "T1002"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bf7d04f7-f34d-4223-a5ff-2ad6b00e1b67",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--0f155f5f-d0d2-5d22-831d-d50fbbe359c8",
+      "target_ref": "attack-pattern--01e81452-001d-5dab-85ae-40634a6b8943"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6343d620-6855-40b2-88f0-142d51604a4b",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--465ed7ad-109c-511c-a37e-382660aa592a",
+      "target_ref": "attack-pattern--01e81452-001d-5dab-85ae-40634a6b8943"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dc01bf70-d05c-4d84-bd67-009dc3dca8e5",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--7128148d-0ca0-54b5-bcd5-3d6a6b0d2d31",
+      "target_ref": "attack-pattern--01e81452-001d-5dab-85ae-40634a6b8943"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--84573a9b-57e6-594c-8331-e6645afe09ce",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Mass Distribution Under Spoofed Identity",
+      "description": "Detection for T1003: Mass Distribution Under Spoofed Identity",
+      "x_acf_signal_type": "correlation",
+      "x_acf_log_source": "communication_layer",
+      "x_acf_detection_logic": "broadcast_count > threshold AND sender_identity_unverified",
+      "x_acf_related_atx": [
+        "T1003"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--83b1e69f-7fda-5dc6-8e7a-10c8f44aa258",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Broadcast Authority Validation",
+      "description": "Validation for T1003: Broadcast Authority Validation",
+      "x_acf_validation_type": "policy_enforcement",
+      "x_acf_required_signals": [
+        "sender_identity",
+        "broadcast_scope",
+        "policy"
+      ],
+      "x_acf_expected_condition": "sender in authorized_broadcasters",
+      "x_acf_related_atx": [
+        "T1003"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--0e1986dc-7a3f-5923-a42e-e39853f17294",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Block Spoofed Broadcast",
+      "description": "Response for T1003: Block Spoofed Broadcast",
+      "x_acf_response_type": "containment",
+      "x_acf_trigger": "identity_spoof_detected",
+      "x_acf_related_atx": [
+        "T1003"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6115aba5-d1f7-4cbf-8ce9-d0ea8e028e03",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--84573a9b-57e6-594c-8331-e6645afe09ce",
+      "target_ref": "attack-pattern--edeb543d-275a-5ca2-b5f0-87746b572b12"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4f6770c7-d4e3-462b-b737-32ac11ddc906",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--83b1e69f-7fda-5dc6-8e7a-10c8f44aa258",
+      "target_ref": "attack-pattern--edeb543d-275a-5ca2-b5f0-87746b572b12"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4bddea9a-c2ed-4d77-8994-65b19b16fb04",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--0e1986dc-7a3f-5923-a42e-e39853f17294",
+      "target_ref": "attack-pattern--edeb543d-275a-5ca2-b5f0-87746b572b12"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--a68d093d-8d9e-5b8c-b2ed-1feaddd3ae0f",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Scope Deviation",
+      "description": "Detection for T2001: Scope Deviation",
+      "x_acf_signal_type": "event",
+      "x_acf_log_source": "planner",
+      "x_acf_detection_logic": "planned_action NOT IN declared_scope",
+      "x_acf_related_atx": [
+        "T2001"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--25d3f388-738d-537c-9607-c240ad8d10d2",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Scope Boundary Enforcement",
+      "description": "Validation for T2001: Scope Boundary Enforcement",
+      "x_acf_validation_type": "policy_enforcement",
+      "x_acf_required_signals": [
+        "task_scope",
+        "planned_action"
+      ],
+      "x_acf_expected_condition": "planned_action in task_scope",
+      "x_acf_related_atx": [
+        "T2001"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--dd8d10d1-c070-543f-86fd-d306a2f8cae5",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Halt Scope Expansion",
+      "description": "Response for T2001: Halt Scope Expansion",
+      "x_acf_response_type": "containment",
+      "x_acf_trigger": "scope_violation",
+      "x_acf_related_atx": [
+        "T2001"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--044092d9-464b-4fe7-bc9d-53a4df7d1fd2",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--a68d093d-8d9e-5b8c-b2ed-1feaddd3ae0f",
+      "target_ref": "attack-pattern--e09c7152-2086-534d-b9eb-1b4488a0ad8d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4277ea89-2a1e-4c9c-8e17-ea96b7c1201e",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--25d3f388-738d-537c-9607-c240ad8d10d2",
+      "target_ref": "attack-pattern--e09c7152-2086-534d-b9eb-1b4488a0ad8d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--935727d2-ccf9-4355-b863-85289bf7c743",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--dd8d10d1-c070-543f-86fd-d306a2f8cae5",
+      "target_ref": "attack-pattern--e09c7152-2086-534d-b9eb-1b4488a0ad8d"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--e6a73f33-74f3-5460-ac4a-2fb1a16f8a57",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Bulk Operation Volume Anomaly",
+      "description": "Detection for T2002: Bulk Operation Volume Anomaly",
+      "x_acf_signal_type": "metric",
+      "x_acf_log_source": "execution_engine",
+      "x_acf_detection_logic": "operation_count > bulk_threshold AND validation_step == false",
+      "x_acf_related_atx": [
+        "T2002"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--ab73dd9f-aaeb-55da-bc69-54d30afa378f",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Bulk Operation Scope Check",
+      "description": "Validation for T2002: Bulk Operation Scope Check",
+      "x_acf_validation_type": "policy_enforcement",
+      "x_acf_required_signals": [
+        "operation_batch",
+        "scope_limits"
+      ],
+      "x_acf_expected_condition": "batch_size <= max_batch AND targets_validated",
+      "x_acf_related_atx": [
+        "T2002"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--469c1d3f-dfbc-50bc-a093-b2a992f2ac9d",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Throttle Bulk Operations",
+      "description": "Response for T2002: Throttle Bulk Operations",
+      "x_acf_response_type": "prevention",
+      "x_acf_trigger": "bulk_threshold_exceeded",
+      "x_acf_related_atx": [
+        "T2002"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e9f8efb6-25e6-48a4-9d4e-a751551d5e8a",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--e6a73f33-74f3-5460-ac4a-2fb1a16f8a57",
+      "target_ref": "attack-pattern--0baabd62-9e0a-5040-ba79-39f716265318"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--57e3121c-bdda-4203-a630-77f34dec00e8",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--ab73dd9f-aaeb-55da-bc69-54d30afa378f",
+      "target_ref": "attack-pattern--0baabd62-9e0a-5040-ba79-39f716265318"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cc968dad-1f45-4e3f-bf09-9b7e992a9865",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--469c1d3f-dfbc-50bc-a093-b2a992f2ac9d",
+      "target_ref": "attack-pattern--0baabd62-9e0a-5040-ba79-39f716265318"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--2d2907bb-7782-50b2-a847-3579a9ae46e8",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Delegation Fragmentation Pattern",
+      "description": "Detection for T2003: Delegation Fragmentation Pattern",
+      "x_acf_signal_type": "correlation",
+      "x_acf_log_source": "delegation_tracker",
+      "x_acf_detection_logic": "sub_task_count > threshold AND no_single_task_triggers_policy",
+      "x_acf_related_atx": [
+        "T2003"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--95c0490e-21d3-56a9-b051-6503692da79f",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Aggregate Delegation Intent Check",
+      "description": "Validation for T2003: Aggregate Delegation Intent Check",
+      "x_acf_validation_type": "consistency_check",
+      "x_acf_required_signals": [
+        "sub_tasks",
+        "aggregate_intent"
+      ],
+      "x_acf_expected_condition": "aggregate_intent in allowed_actions",
+      "x_acf_related_atx": [
+        "T2003"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--72bbf713-b3ef-5949-83cf-f18ea4ba0fb6",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Block Fragmented Delegation",
+      "description": "Response for T2003: Block Fragmented Delegation",
+      "x_acf_response_type": "prevention",
+      "x_acf_trigger": "delegation_obfuscation_detected",
+      "x_acf_related_atx": [
+        "T2003"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--43d9d92c-042d-4292-85ae-8cb171917f65",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--2d2907bb-7782-50b2-a847-3579a9ae46e8",
+      "target_ref": "attack-pattern--b059abe8-030d-55f8-9e78-bcbc205d228b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6315cb5c-35fe-4c9d-99ad-b2f347f16668",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--95c0490e-21d3-56a9-b051-6503692da79f",
+      "target_ref": "attack-pattern--b059abe8-030d-55f8-9e78-bcbc205d228b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1ac52ba9-f337-4164-bdd7-39cf4660608e",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--72bbf713-b3ef-5949-83cf-f18ea4ba0fb6",
+      "target_ref": "attack-pattern--b059abe8-030d-55f8-9e78-bcbc205d228b"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--0512a69d-f5a1-52b0-af70-2e6dfcc723b6",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "name": "Tool Chain Anomaly",
-      "description": "Detection of unusual sequences of tool invocations forming a potentially unsafe composite action.",
+      "description": "Detection for T2004: Tool Chain Anomaly",
       "x_acf_signal_type": "correlation",
       "x_acf_log_source": "tool_proxy",
       "x_acf_detection_logic": "sequence_length > threshold AND cross_tool_dependency_detected",
@@ -98,11 +483,11 @@
     {
       "type": "x-acf-validation",
       "spec_version": "2.1",
-      "id": "x-acf-validation--6eaf39e0-2996-509c-bd0d-bc2e636e607e",
+      "id": "x-acf-validation--538c903d-46de-5b0b-9274-b936774128b3",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "name": "Tool Chain Policy Validation",
-      "description": "Validate that chained tool executions do not produce a policy-violating aggregate outcome.",
+      "description": "Validation for T2004: Tool Chain Policy Validation",
       "x_acf_validation_type": "policy_enforcement",
       "x_acf_required_signals": [
         "tool_sequence",
@@ -116,11 +501,11 @@
     {
       "type": "x-acf-response",
       "spec_version": "2.1",
-      "id": "x-acf-response--4290e4d5-0c93-53be-a34f-f46e5028d52b",
+      "id": "x-acf-response--2155b291-3217-5175-87c8-e3cd2c240e31",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "name": "Block Unsafe Tool Chain",
-      "description": "Prevent execution of tool sequences that produce unauthorized outcomes.",
+      "description": "Response for T2004: Block Unsafe Tool Chain",
       "x_acf_response_type": "prevention",
       "x_acf_trigger": "policy_violation",
       "x_acf_related_atx": [
@@ -130,41 +515,1059 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--52b7efe0-e612-4077-b648-035d6152d7d9",
+      "id": "relationship--9fea5ca6-cd2e-47ad-9bbf-2ed81cb15934",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "relationship_type": "detects",
-      "source_ref": "x-acf-detection--e622f9f3-e1ae-5fdb-b675-4393ac23711d",
+      "source_ref": "x-acf-detection--0512a69d-f5a1-52b0-af70-2e6dfcc723b6",
       "target_ref": "attack-pattern--1ff1a693-4126-535b-8b92-fa3d310f711a"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--50fe91df-aba4-4e80-94da-e020387197d5",
+      "id": "relationship--d88db173-cc0d-492b-929d-77e61df331ce",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "relationship_type": "validates",
-      "source_ref": "x-acf-validation--6eaf39e0-2996-509c-bd0d-bc2e636e607e",
+      "source_ref": "x-acf-validation--538c903d-46de-5b0b-9274-b936774128b3",
       "target_ref": "attack-pattern--1ff1a693-4126-535b-8b92-fa3d310f711a"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--57bcd24b-1a15-481b-a33c-26b235aeeda8",
+      "id": "relationship--1ccbf387-9a9f-45fb-a450-eb8700f6245b",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "relationship_type": "responds-to",
-      "source_ref": "x-acf-response--4290e4d5-0c93-53be-a34f-f46e5028d52b",
+      "source_ref": "x-acf-response--2155b291-3217-5175-87c8-e3cd2c240e31",
       "target_ref": "attack-pattern--1ff1a693-4126-535b-8b92-fa3d310f711a"
     },
     {
       "type": "x-acf-detection",
       "spec_version": "2.1",
-      "id": "x-acf-detection--a9c67ddf-2d82-5e88-aec6-3f62d861af5e",
+      "id": "x-acf-detection--2cb01642-049e-50b3-8e16-5e6bb459138c",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Destructive Operation Attempt",
+      "description": "Detection for T3001: Destructive Operation Attempt",
+      "x_acf_signal_type": "event",
+      "x_acf_log_source": "tool_proxy",
+      "x_acf_detection_logic": "action_type in [delete, overwrite, drop] AND rollback_available == false",
+      "x_acf_related_atx": [
+        "T3001"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--476a71d1-3b3d-52ff-9c88-8128c6e04451",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Destructive Action Authorization",
+      "description": "Validation for T3001: Destructive Action Authorization",
+      "x_acf_validation_type": "policy_enforcement",
+      "x_acf_required_signals": [
+        "action",
+        "authorization_level"
+      ],
+      "x_acf_expected_condition": "authorization_level >= owner",
+      "x_acf_related_atx": [
+        "T3001"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--81066dc4-3407-5b94-bde0-4f8acfd97708",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Block Destructive Action",
+      "description": "Response for T3001: Block Destructive Action",
+      "x_acf_response_type": "prevention",
+      "x_acf_trigger": "unauthorized_destructive_action",
+      "x_acf_related_atx": [
+        "T3001"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e830fa0f-af42-4055-9db2-88f250a6ff2c",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--2cb01642-049e-50b3-8e16-5e6bb459138c",
+      "target_ref": "attack-pattern--9ac36a50-0c61-5174-beb5-fe69a78b0017"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4be8efb4-d0c4-4da2-a358-707da87c28c7",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--476a71d1-3b3d-52ff-9c88-8128c6e04451",
+      "target_ref": "attack-pattern--9ac36a50-0c61-5174-beb5-fe69a78b0017"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9379265f-0d7e-4789-b708-084da113186d",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--81066dc4-3407-5b94-bde0-4f8acfd97708",
+      "target_ref": "attack-pattern--9ac36a50-0c61-5174-beb5-fe69a78b0017"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--1988e722-a511-5c45-9e44-a670b50758a0",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Cascading Action Pattern",
+      "description": "Detection for T3002: Cascading Action Pattern",
+      "x_acf_signal_type": "correlation",
+      "x_acf_log_source": "execution_graph",
+      "x_acf_detection_logic": "multiple_linked_actions AND dependency_chain_length > threshold",
+      "x_acf_related_atx": [
+        "T3002"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--a1bc3032-44c7-5bbd-a597-f51c13d1f412",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Cascade Impact Assessment",
+      "description": "Validation for T3002: Cascade Impact Assessment",
+      "x_acf_validation_type": "anomaly_detection",
+      "x_acf_required_signals": [
+        "action_graph",
+        "impact_model"
+      ],
+      "x_acf_expected_condition": "estimated_impact <= acceptable_threshold",
+      "x_acf_related_atx": [
+        "T3002"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--87dc91b8-e65a-528a-80d7-c01d04bf19a6",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Halt Cascading Operations",
+      "description": "Response for T3002: Halt Cascading Operations",
+      "x_acf_response_type": "containment",
+      "x_acf_trigger": "cascade_detected",
+      "x_acf_related_atx": [
+        "T3002"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c66ff759-401c-4ef4-af07-eb4408c2878b",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--1988e722-a511-5c45-9e44-a670b50758a0",
+      "target_ref": "attack-pattern--aad4ff49-cd20-5d79-abf8-37094c6a22e4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2b18d543-3fe1-427c-bf39-63d722de8349",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--a1bc3032-44c7-5bbd-a597-f51c13d1f412",
+      "target_ref": "attack-pattern--aad4ff49-cd20-5d79-abf8-37094c6a22e4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cf2c2e54-9f2b-40a6-9902-cb5c4c19aadb",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--87dc91b8-e65a-528a-80d7-c01d04bf19a6",
+      "target_ref": "attack-pattern--aad4ff49-cd20-5d79-abf8-37094c6a22e4"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--c73d2e46-20a7-595d-88b0-5507e0e7b563",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Context Data Exfiltration",
+      "description": "Detection for T4001: Context Data Exfiltration",
+      "x_acf_signal_type": "metric",
+      "x_acf_log_source": "data_layer",
+      "x_acf_detection_logic": "data_transfer_size > threshold OR sensitive_field_in_output",
+      "x_acf_related_atx": [
+        "T4001"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--8137ca28-885c-583a-a063-cd9ce0bcb5e0",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Data Classification Check",
+      "description": "Validation for T4001: Data Classification Check",
+      "x_acf_validation_type": "policy_enforcement",
+      "x_acf_required_signals": [
+        "output_data",
+        "classification_tags"
+      ],
+      "x_acf_expected_condition": "no_sensitive_data_in_output",
+      "x_acf_related_atx": [
+        "T4001"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--d5a160a9-c705-54ad-84af-11be3834fdcf",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Block Data Exfiltration",
+      "description": "Response for T4001: Block Data Exfiltration",
+      "x_acf_response_type": "prevention",
+      "x_acf_trigger": "sensitive_data_leak",
+      "x_acf_related_atx": [
+        "T4001"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7673ed01-6c8a-410e-900e-ba1d5976b2ab",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--c73d2e46-20a7-595d-88b0-5507e0e7b563",
+      "target_ref": "attack-pattern--a624a446-1446-5a10-b6d9-0fad23d57059"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--173f5eca-57f6-4d0c-9e5b-9a4b5b4643e3",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--8137ca28-885c-583a-a063-cd9ce0bcb5e0",
+      "target_ref": "attack-pattern--a624a446-1446-5a10-b6d9-0fad23d57059"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2ab08a4a-1bdb-4183-a349-1f3ed4bd8d9b",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--d5a160a9-c705-54ad-84af-11be3834fdcf",
+      "target_ref": "attack-pattern--a624a446-1446-5a10-b6d9-0fad23d57059"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--dd020892-7cf2-5b7b-a4a2-775f7f8240bd",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Cross-Session Data Access",
+      "description": "Detection for T4002: Cross-Session Data Access",
+      "x_acf_signal_type": "event",
+      "x_acf_log_source": "memory_layer",
+      "x_acf_detection_logic": "data_source_session != current_session",
+      "x_acf_related_atx": [
+        "T4002"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--0e4fe0ff-0342-5173-89de-ced549ed64c1",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Session Isolation Check",
+      "description": "Validation for T4002: Session Isolation Check",
+      "x_acf_validation_type": "consistency_check",
+      "x_acf_required_signals": [
+        "data_source",
+        "session_boundary"
+      ],
+      "x_acf_expected_condition": "data_source.session == current_session",
+      "x_acf_related_atx": [
+        "T4002"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--3aa7bab9-64b5-58f7-99ce-edf2516833ae",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Enforce Session Isolation",
+      "description": "Response for T4002: Enforce Session Isolation",
+      "x_acf_response_type": "prevention",
+      "x_acf_trigger": "session_boundary_violation",
+      "x_acf_related_atx": [
+        "T4002"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--80ac372b-38f6-4fb3-a897-8503efce4bb4",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--dd020892-7cf2-5b7b-a4a2-775f7f8240bd",
+      "target_ref": "attack-pattern--4b059eb8-ee70-5d26-923e-9d4e6e54d5a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--178bf9f3-28f5-41c1-82c6-ae74f33188af",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--0e4fe0ff-0342-5173-89de-ced549ed64c1",
+      "target_ref": "attack-pattern--4b059eb8-ee70-5d26-923e-9d4e6e54d5a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e0a50500-9bab-40f0-bd2c-67c67534fbd4",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--3aa7bab9-64b5-58f7-99ce-edf2516833ae",
+      "target_ref": "attack-pattern--4b059eb8-ee70-5d26-923e-9d4e6e54d5a0"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--bde953db-3f75-50ba-82a6-78b64eed0455",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Cross-Domain Data Transfer",
+      "description": "Detection for T4003: Cross-Domain Data Transfer",
+      "x_acf_signal_type": "correlation",
+      "x_acf_log_source": "data_layer",
+      "x_acf_detection_logic": "source_domain != target_domain AND data_contains_secrets",
+      "x_acf_related_atx": [
+        "T4003"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--7bda2a23-8b85-5e9b-b85f-7c4b8cb9c914",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Domain Boundary Authorization",
+      "description": "Validation for T4003: Domain Boundary Authorization",
+      "x_acf_validation_type": "policy_enforcement",
+      "x_acf_required_signals": [
+        "source_domain",
+        "target_domain",
+        "data_classification"
+      ],
+      "x_acf_expected_condition": "cross_domain_transfer_authorized",
+      "x_acf_related_atx": [
+        "T4003"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--c10c801e-1a03-5206-93ca-79a52b4e5438",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Block Cross-Domain Leakage",
+      "description": "Response for T4003: Block Cross-Domain Leakage",
+      "x_acf_response_type": "prevention",
+      "x_acf_trigger": "domain_boundary_violation",
+      "x_acf_related_atx": [
+        "T4003"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f5b403d-379a-4518-907e-12a8fe9253bc",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--bde953db-3f75-50ba-82a6-78b64eed0455",
+      "target_ref": "attack-pattern--b3375518-fe98-5f77-8b22-3748ff81bfb2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7604bd85-95e8-4b0b-bc47-acef74ebe7d1",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--7bda2a23-8b85-5e9b-b85f-7c4b8cb9c914",
+      "target_ref": "attack-pattern--b3375518-fe98-5f77-8b22-3748ff81bfb2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--621eb6d5-5877-43d8-81ec-0d644057ff4a",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--c10c801e-1a03-5206-93ca-79a52b4e5438",
+      "target_ref": "attack-pattern--b3375518-fe98-5f77-8b22-3748ff81bfb2"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--c4eba05e-c7bd-58d2-943b-601c7af742e8",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Execution / Report Mismatch",
+      "description": "Detection for T5001: Execution / Report Mismatch",
+      "x_acf_signal_type": "correlation",
+      "x_acf_log_source": "agent_execution_layer",
+      "x_acf_detection_logic": "reported_success == true AND execution_log.exists == false",
+      "x_acf_related_atx": [
+        "T5001"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--2042df94-2fb3-5c9e-8613-facffd617e32",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Execution Verification Check",
+      "description": "Validation for T5001: Execution Verification Check",
+      "x_acf_validation_type": "consistency_check",
+      "x_acf_required_signals": [
+        "execution_log",
+        "task_report"
+      ],
+      "x_acf_expected_condition": "execution_log.exists == true",
+      "x_acf_related_atx": [
+        "T5001"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--31a178ad-ef75-5ed6-96bb-841ed740d22b",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Halt Agent on False Completion",
+      "description": "Response for T5001: Halt Agent on False Completion",
+      "x_acf_response_type": "containment",
+      "x_acf_trigger": "validation_failure",
+      "x_acf_related_atx": [
+        "T5001"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e9beeab4-80d3-4631-9296-bc71a4649a18",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--c4eba05e-c7bd-58d2-943b-601c7af742e8",
+      "target_ref": "attack-pattern--c4d1afa8-c1e0-5688-b3c5-8c1fc6c825b6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6696a895-97ba-4737-9b08-760f28007572",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--2042df94-2fb3-5c9e-8613-facffd617e32",
+      "target_ref": "attack-pattern--c4d1afa8-c1e0-5688-b3c5-8c1fc6c825b6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d838d92c-a083-4664-b0b3-721c45e6c168",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--31a178ad-ef75-5ed6-96bb-841ed740d22b",
+      "target_ref": "attack-pattern--c4d1afa8-c1e0-5688-b3c5-8c1fc6c825b6"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--821a5576-9264-5977-91bc-3a2f874f4e0a",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Attribution Fabrication",
+      "description": "Detection for T5002: Attribution Fabrication",
+      "x_acf_signal_type": "correlation",
+      "x_acf_log_source": "audit_layer",
+      "x_acf_detection_logic": "claimed_action_source != actual_source",
+      "x_acf_related_atx": [
+        "T5002"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--2615ccd5-0492-5062-83b6-2254a0f0ebda",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Action Attribution Verification",
+      "description": "Validation for T5002: Action Attribution Verification",
+      "x_acf_validation_type": "integrity_check",
+      "x_acf_required_signals": [
+        "action_record",
+        "actor_identity"
+      ],
+      "x_acf_expected_condition": "action_record.actor == verified_actor",
+      "x_acf_related_atx": [
+        "T5002"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--8034cbb6-9f17-5c93-b81d-7cb58effc1e8",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Flag Fabricated Attribution",
+      "description": "Response for T5002: Flag Fabricated Attribution",
+      "x_acf_response_type": "escalation",
+      "x_acf_trigger": "attribution_mismatch",
+      "x_acf_related_atx": [
+        "T5002"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b7edf26b-51c6-46ae-ac89-a4de02b8c368",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--821a5576-9264-5977-91bc-3a2f874f4e0a",
+      "target_ref": "attack-pattern--6b9af2ad-5773-5363-912f-1b180c339299"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--677874d6-ba7a-4307-a67d-a6a7a4009fb5",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--2615ccd5-0492-5062-83b6-2254a0f0ebda",
+      "target_ref": "attack-pattern--6b9af2ad-5773-5363-912f-1b180c339299"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a41d15b8-4f2b-4de8-bd67-f08ab0214b15",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--8034cbb6-9f17-5c93-b81d-7cb58effc1e8",
+      "target_ref": "attack-pattern--6b9af2ad-5773-5363-912f-1b180c339299"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--7c259429-8ef9-5882-8db1-3821cd39d5cb",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Missing Execution Signal",
+      "description": "Detection for T5003: Missing Execution Signal",
+      "x_acf_signal_type": "state",
+      "x_acf_log_source": "agent_execution_layer",
+      "x_acf_detection_logic": "expected_execution_report == missing AND timeout_exceeded",
+      "x_acf_related_atx": [
+        "T5003"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--0cb73e3b-fec5-56b1-82ae-ada340e374b8",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Failure Transparency Check",
+      "description": "Validation for T5003: Failure Transparency Check",
+      "x_acf_validation_type": "consistency_check",
+      "x_acf_required_signals": [
+        "execution_log",
+        "error_log"
+      ],
+      "x_acf_expected_condition": "failure_reported OR execution_confirmed",
+      "x_acf_related_atx": [
+        "T5003"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--54cc7be9-f375-5025-8e44-d21472f56696",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Force Failure Reporting",
+      "description": "Response for T5003: Force Failure Reporting",
+      "x_acf_response_type": "intervention",
+      "x_acf_trigger": "silent_failure_detected",
+      "x_acf_related_atx": [
+        "T5003"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3ba9522d-acb7-49b1-a951-72dbe9bcfcb5",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--7c259429-8ef9-5882-8db1-3821cd39d5cb",
+      "target_ref": "attack-pattern--71fbaa02-daf7-5fde-9a51-05a7bc7b7481"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e90d3185-aa16-4405-b50d-71cfe4eedac2",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--0cb73e3b-fec5-56b1-82ae-ada340e374b8",
+      "target_ref": "attack-pattern--71fbaa02-daf7-5fde-9a51-05a7bc7b7481"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b3b46039-862d-47b9-9738-853fba4ac026",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--54cc7be9-f375-5025-8e44-d21472f56696",
+      "target_ref": "attack-pattern--71fbaa02-daf7-5fde-9a51-05a7bc7b7481"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--a6a266fc-7f8a-560b-b0a7-e8510e133e95",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Recursive Invocation Loop",
+      "description": "Detection for T6001: Recursive Invocation Loop",
+      "x_acf_signal_type": "metric",
+      "x_acf_log_source": "execution_engine",
+      "x_acf_detection_logic": "call_depth > threshold OR self_invocation_count > limit",
+      "x_acf_related_atx": [
+        "T6001"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--e03e4592-3617-5d7d-a0ea-0349fbbf2e93",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Recursion Depth Check",
+      "description": "Validation for T6001: Recursion Depth Check",
+      "x_acf_validation_type": "policy_enforcement",
+      "x_acf_required_signals": [
+        "call_stack",
+        "depth_limit"
+      ],
+      "x_acf_expected_condition": "call_depth <= max_depth",
+      "x_acf_related_atx": [
+        "T6001"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--4832a258-5c72-5f8d-a733-6116f7d73a36",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Terminate Recursive Loop",
+      "description": "Response for T6001: Terminate Recursive Loop",
+      "x_acf_response_type": "containment",
+      "x_acf_trigger": "recursion_limit_exceeded",
+      "x_acf_related_atx": [
+        "T6001"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e4bf6625-2cfe-46b7-a089-cc830ab6fbca",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--a6a266fc-7f8a-560b-b0a7-e8510e133e95",
+      "target_ref": "attack-pattern--4edcfea5-e0e1-5593-9ccc-231141d0ce34"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0b719655-7e4d-4918-a1ca-4f2ca256b4cd",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--e03e4592-3617-5d7d-a0ea-0349fbbf2e93",
+      "target_ref": "attack-pattern--4edcfea5-e0e1-5593-9ccc-231141d0ce34"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8876fc70-ddf6-41a2-9cd6-fad76823fcdc",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--4832a258-5c72-5f8d-a733-6116f7d73a36",
+      "target_ref": "attack-pattern--4edcfea5-e0e1-5593-9ccc-231141d0ce34"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--dbe2f0e6-3c30-571f-bac8-75c1538531a9",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Unbounded Resource Consumption",
+      "description": "Detection for T6002: Unbounded Resource Consumption",
+      "x_acf_signal_type": "metric",
+      "x_acf_log_source": "resource_monitor",
+      "x_acf_detection_logic": "api_call_rate > threshold OR compute_usage > budget",
+      "x_acf_related_atx": [
+        "T6002"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--402dab57-a96b-5c0b-beef-441f694fed33",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Resource Quota Check",
+      "description": "Validation for T6002: Resource Quota Check",
+      "x_acf_validation_type": "policy_enforcement",
+      "x_acf_required_signals": [
+        "resource_usage",
+        "quota"
+      ],
+      "x_acf_expected_condition": "resource_usage <= allocated_quota",
+      "x_acf_related_atx": [
+        "T6002"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--3f09e0ae-f1a2-5767-bfd4-461f8e21fe6c",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Throttle Resource Usage",
+      "description": "Response for T6002: Throttle Resource Usage",
+      "x_acf_response_type": "prevention",
+      "x_acf_trigger": "quota_exceeded",
+      "x_acf_related_atx": [
+        "T6002"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7e645c8a-92ed-4431-9adc-e5e671d71ebd",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--dbe2f0e6-3c30-571f-bac8-75c1538531a9",
+      "target_ref": "attack-pattern--5ca3f485-6510-5804-b99f-5bf9ca94f444"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e79c5d24-67dd-4c30-8860-892d121f4226",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--402dab57-a96b-5c0b-beef-441f694fed33",
+      "target_ref": "attack-pattern--5ca3f485-6510-5804-b99f-5bf9ca94f444"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6612104a-9dc8-4deb-94b2-cc78b34fdf06",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--3f09e0ae-f1a2-5767-bfd4-461f8e21fe6c",
+      "target_ref": "attack-pattern--5ca3f485-6510-5804-b99f-5bf9ca94f444"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--29a683a8-09f6-5c03-af44-401e82980ba6",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Agent Identity Spoofing",
+      "description": "Detection for T7001: Agent Identity Spoofing",
+      "x_acf_signal_type": "event",
+      "x_acf_log_source": "identity_layer",
+      "x_acf_detection_logic": "agent_identity_verification_failed OR duplicate_identity_detected",
+      "x_acf_related_atx": [
+        "T7001"
+      ],
+      "x_acf_multi_agent": {
+        "coordination_type": "explicit",
+        "propagation_mode": "delegation",
+        "detection_scope": "multi-agent"
+      }
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--b850582a-a851-5113-8bd3-61712c98775e",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Agent Identity Verification",
+      "description": "Validation for T7001: Agent Identity Verification",
+      "x_acf_validation_type": "integrity_check",
+      "x_acf_required_signals": [
+        "agent_id",
+        "credential",
+        "identity_registry"
+      ],
+      "x_acf_expected_condition": "agent_id.signature_valid == true",
+      "x_acf_related_atx": [
+        "T7001"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--21ce09fe-cc7e-5955-8e66-7cd95445c3e3",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Quarantine Spoofed Agent",
+      "description": "Response for T7001: Quarantine Spoofed Agent",
+      "x_acf_response_type": "containment",
+      "x_acf_trigger": "identity_spoof_confirmed",
+      "x_acf_related_atx": [
+        "T7001"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4c2a0917-a7d8-450c-96e8-3a3567e85f51",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--29a683a8-09f6-5c03-af44-401e82980ba6",
+      "target_ref": "attack-pattern--8c53a44d-11ac-5084-b063-e46eff91c7b3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--95f51db6-37e6-4009-bb85-55fa54cd45b8",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--b850582a-a851-5113-8bd3-61712c98775e",
+      "target_ref": "attack-pattern--8c53a44d-11ac-5084-b063-e46eff91c7b3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8ed958da-694e-4d9d-be1c-0b8046e178ca",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--21ce09fe-cc7e-5955-8e66-7cd95445c3e3",
+      "target_ref": "attack-pattern--8c53a44d-11ac-5084-b063-e46eff91c7b3"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--39b91751-427c-5d94-8a30-521fdc4773c7",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Malicious Delegation Injection",
+      "description": "Detection for T7002: Malicious Delegation Injection",
+      "x_acf_signal_type": "correlation",
+      "x_acf_log_source": "delegation_tracker",
+      "x_acf_detection_logic": "new_agent_in_chain AND agent_trust_score < threshold",
+      "x_acf_related_atx": [
+        "T7002"
+      ],
+      "x_acf_multi_agent": {
+        "coordination_type": "explicit",
+        "propagation_mode": "delegation",
+        "detection_scope": "multi-agent"
+      }
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--aba44a8d-f473-58c2-9761-5e7e16334e85",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Delegation Chain Integrity",
+      "description": "Validation for T7002: Delegation Chain Integrity",
+      "x_acf_validation_type": "integrity_check",
+      "x_acf_required_signals": [
+        "delegation_chain",
+        "authorized_agents"
+      ],
+      "x_acf_expected_condition": "all_agents_in_chain in authorized_set",
+      "x_acf_related_atx": [
+        "T7002"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--b4ce5360-569c-51b5-ac9d-4806d11bae64",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Reject Unauthorized Delegation",
+      "description": "Response for T7002: Reject Unauthorized Delegation",
+      "x_acf_response_type": "prevention",
+      "x_acf_trigger": "delegation_chain_compromised",
+      "x_acf_related_atx": [
+        "T7002"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c57b7039-dc23-4214-b8b0-befa688f24b3",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--39b91751-427c-5d94-8a30-521fdc4773c7",
+      "target_ref": "attack-pattern--422a6a47-888b-5b67-a7e3-e44ff9172147"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2dcd8211-7201-466a-b89d-2071c2ef2edb",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--aba44a8d-f473-58c2-9761-5e7e16334e85",
+      "target_ref": "attack-pattern--422a6a47-888b-5b67-a7e3-e44ff9172147"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9f75c212-fb02-49f7-b3d4-8332b351beea",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--b4ce5360-569c-51b5-ac9d-4806d11bae64",
+      "target_ref": "attack-pattern--422a6a47-888b-5b67-a7e3-e44ff9172147"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--7ee75ef4-8564-5bf2-9205-fb6ef8e784f9",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Behavioral Drift Signal",
+      "description": "Detection for T7003: Behavioral Drift Signal",
+      "x_acf_signal_type": "correlation",
+      "x_acf_log_source": "multi_agent_coordinator",
+      "x_acf_detection_logic": "agent_behavior_deviation > baseline_threshold over time_window",
+      "x_acf_related_atx": [
+        "T7003"
+      ],
+      "x_acf_multi_agent": {
+        "coordination_type": "implicit",
+        "propagation_mode": "context",
+        "detection_scope": "multi-agent"
+      }
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--18037fe5-bf12-5089-892a-4bc70f5966ca",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Behavioral Baseline Check",
+      "description": "Validation for T7003: Behavioral Baseline Check",
+      "x_acf_validation_type": "anomaly_detection",
+      "x_acf_required_signals": [
+        "agent_behavior_log",
+        "baseline_model"
+      ],
+      "x_acf_expected_condition": "behavior_within_normal_range",
+      "x_acf_related_atx": [
+        "T7003"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--668a27a4-dc06-5804-9098-0a1a1a848cde",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Reset Drifted Agent",
+      "description": "Response for T7003: Reset Drifted Agent",
+      "x_acf_response_type": "intervention",
+      "x_acf_trigger": "behavioral_drift_confirmed",
+      "x_acf_related_atx": [
+        "T7003"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--05a849b2-70c9-475d-b21e-c2e70cd3fb48",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--7ee75ef4-8564-5bf2-9205-fb6ef8e784f9",
+      "target_ref": "attack-pattern--b9befc5e-76a1-515d-ae4b-22207154daaa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5902e1c8-616e-41d3-98ab-2f270f8b0f76",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--18037fe5-bf12-5089-892a-4bc70f5966ca",
+      "target_ref": "attack-pattern--b9befc5e-76a1-515d-ae4b-22207154daaa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--60e2a5d2-93eb-4c83-8320-702cbc45f434",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--668a27a4-dc06-5804-9098-0a1a1a848cde",
+      "target_ref": "attack-pattern--b9befc5e-76a1-515d-ae4b-22207154daaa"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--39fecc79-44f9-5535-a23e-178c81fe3118",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "name": "Consensus Convergence Anomaly",
-      "description": "Detection of multiple agents converging on a shared decision that deviates from safe baseline behavior.",
+      "description": "Detection for T7004: Consensus Convergence Anomaly",
       "x_acf_signal_type": "correlation",
       "x_acf_log_source": "multi_agent_coordinator",
       "x_acf_detection_logic": "multiple_agents_same_decision AND decision_risk_score > threshold",
@@ -180,11 +1583,11 @@
     {
       "type": "x-acf-validation",
       "spec_version": "2.1",
-      "id": "x-acf-validation--d7d5e265-b8b8-5eef-9362-3c9e1869fb6f",
+      "id": "x-acf-validation--e6fc66dc-6f36-59c7-b5c1-af41603238e5",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "name": "Consensus Safety Validation",
-      "description": "Verify that group decisions comply with policy and safety constraints.",
+      "description": "Validation for T7004: Consensus Safety Validation",
       "x_acf_validation_type": "policy_enforcement",
       "x_acf_required_signals": [
         "agent_decisions",
@@ -198,11 +1601,11 @@
     {
       "type": "x-acf-response",
       "spec_version": "2.1",
-      "id": "x-acf-response--62bae5c9-5f1d-5e85-b967-b152d189f2f7",
+      "id": "x-acf-response--0a4511ab-a29f-5970-820a-42f67e610e47",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "name": "Break Unsafe Consensus",
-      "description": "Interrupt or override group decisions that violate policy.",
+      "description": "Response for T7004: Break Unsafe Consensus",
       "x_acf_response_type": "intervention",
       "x_acf_trigger": "consensus_violation",
       "x_acf_related_atx": [
@@ -212,32 +1615,340 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--36993e8a-4f86-4df1-a554-cfcc421555d1",
+      "id": "relationship--dc6ad31f-d687-4237-9203-37ab8191e798",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "relationship_type": "detects",
-      "source_ref": "x-acf-detection--a9c67ddf-2d82-5e88-aec6-3f62d861af5e",
+      "source_ref": "x-acf-detection--39fecc79-44f9-5535-a23e-178c81fe3118",
       "target_ref": "attack-pattern--c4873da3-2d95-5cca-abbf-350241b26a5d"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b336f1dc-09bc-402c-839f-c966fdac85f2",
+      "id": "relationship--65a589c3-b956-47a2-873e-5cf080a52b52",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "relationship_type": "validates",
-      "source_ref": "x-acf-validation--d7d5e265-b8b8-5eef-9362-3c9e1869fb6f",
+      "source_ref": "x-acf-validation--e6fc66dc-6f36-59c7-b5c1-af41603238e5",
       "target_ref": "attack-pattern--c4873da3-2d95-5cca-abbf-350241b26a5d"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--25d59e90-7cf6-4558-ba4c-ecea5f0b2e66",
+      "id": "relationship--226dedfd-cd38-4960-90d0-2c63ffed455f",
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "relationship_type": "responds-to",
-      "source_ref": "x-acf-response--62bae5c9-5f1d-5e85-b967-b152d189f2f7",
+      "source_ref": "x-acf-response--0a4511ab-a29f-5970-820a-42f67e610e47",
       "target_ref": "attack-pattern--c4873da3-2d95-5cca-abbf-350241b26a5d"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--6cfa4a64-c3e1-561c-b988-d8a79bc9a097",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Memory Integrity Anomaly",
+      "description": "Detection for T8001: Memory Integrity Anomaly",
+      "x_acf_signal_type": "state",
+      "x_acf_log_source": "memory_layer",
+      "x_acf_detection_logic": "memory_content_hash != expected_hash OR injection_pattern_detected",
+      "x_acf_related_atx": [
+        "T8001"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--74ecbeb9-9d33-5abf-aedf-37f6d861f365",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Memory Content Validation",
+      "description": "Validation for T8001: Memory Content Validation",
+      "x_acf_validation_type": "integrity_check",
+      "x_acf_required_signals": [
+        "memory_snapshot",
+        "integrity_baseline"
+      ],
+      "x_acf_expected_condition": "memory_hash == trusted_baseline",
+      "x_acf_related_atx": [
+        "T8001"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--579c1cb1-a4c7-54e8-b190-3073a20fd8bc",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Restore Clean Memory State",
+      "description": "Response for T8001: Restore Clean Memory State",
+      "x_acf_response_type": "intervention",
+      "x_acf_trigger": "memory_corruption_detected",
+      "x_acf_related_atx": [
+        "T8001"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--69a154ce-fe4e-4867-ac62-23cd4216fe43",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--6cfa4a64-c3e1-561c-b988-d8a79bc9a097",
+      "target_ref": "attack-pattern--54cbca4f-f6c1-57f0-81ca-6dd65d875a39"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5f144dac-e0d2-4402-a664-de94ba6c14d7",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--74ecbeb9-9d33-5abf-aedf-37f6d861f365",
+      "target_ref": "attack-pattern--54cbca4f-f6c1-57f0-81ca-6dd65d875a39"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--14c8136d-5045-4216-a9e9-ccb03e061130",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--579c1cb1-a4c7-54e8-b190-3073a20fd8bc",
+      "target_ref": "attack-pattern--54cbca4f-f6c1-57f0-81ca-6dd65d875a39"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--878c79ee-db1f-5e61-ba8c-6809ead81840",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Policy Integrity Failure",
+      "description": "Detection for T8002: Policy Integrity Failure",
+      "x_acf_signal_type": "event",
+      "x_acf_log_source": "policy_engine",
+      "x_acf_detection_logic": "signature_verification_failed OR unauthorized_policy_modification",
+      "x_acf_related_atx": [
+        "T8002"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--5c2d5ef3-5242-53e7-a432-f2d72935580d",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Policy Signature Verification",
+      "description": "Validation for T8002: Policy Signature Verification",
+      "x_acf_validation_type": "integrity_check",
+      "x_acf_required_signals": [
+        "policy_file",
+        "expected_signature"
+      ],
+      "x_acf_expected_condition": "policy_signature_valid == true",
+      "x_acf_related_atx": [
+        "T8002"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--39cd3d15-c935-5b72-97b4-2f4c37e9219c",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Revert Policy to Last Known Good",
+      "description": "Response for T8002: Revert Policy to Last Known Good",
+      "x_acf_response_type": "containment",
+      "x_acf_trigger": "policy_tamper_detected",
+      "x_acf_related_atx": [
+        "T8002"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--34365ac3-d004-4f1a-9194-918aa0a20f2d",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--878c79ee-db1f-5e61-ba8c-6809ead81840",
+      "target_ref": "attack-pattern--ddd5f070-e9a7-5198-ad3c-7832cc1118b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--245f5cac-ebc4-441f-a9e9-3dfcad0235f2",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--5c2d5ef3-5242-53e7-a432-f2d72935580d",
+      "target_ref": "attack-pattern--ddd5f070-e9a7-5198-ad3c-7832cc1118b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--58d53149-8966-4c99-abdc-207547cacb7e",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--39cd3d15-c935-5b72-97b4-2f4c37e9219c",
+      "target_ref": "attack-pattern--ddd5f070-e9a7-5198-ad3c-7832cc1118b2"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--12ca85dd-df5a-56a4-8b91-03e8f95988a6",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Unmonitored Execution Context",
+      "description": "Detection for T9001: Unmonitored Execution Context",
+      "x_acf_signal_type": "state",
+      "x_acf_log_source": "monitoring_layer",
+      "x_acf_detection_logic": "action_executed AND monitoring_coverage == false",
+      "x_acf_related_atx": [
+        "T9001"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--4ee4ce5c-ee40-589d-8d04-ef772235b323",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Monitoring Coverage Check",
+      "description": "Validation for T9001: Monitoring Coverage Check",
+      "x_acf_validation_type": "consistency_check",
+      "x_acf_required_signals": [
+        "action_context",
+        "monitoring_scope"
+      ],
+      "x_acf_expected_condition": "action_context in monitored_scope",
+      "x_acf_related_atx": [
+        "T9001"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--fe33f082-f29f-50eb-a421-3cf072d43f2a",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Redirect to Monitored Context",
+      "description": "Response for T9001: Redirect to Monitored Context",
+      "x_acf_response_type": "intervention",
+      "x_acf_trigger": "monitoring_gap_detected",
+      "x_acf_related_atx": [
+        "T9001"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f3906697-f2ac-477d-8280-3762a8b9913f",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--12ca85dd-df5a-56a4-8b91-03e8f95988a6",
+      "target_ref": "attack-pattern--235bced0-d88c-5d96-9b59-6eb7866b67c2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ae138b7b-d85e-43e7-b745-dfc1a5c06c19",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--4ee4ce5c-ee40-589d-8d04-ef772235b323",
+      "target_ref": "attack-pattern--235bced0-d88c-5d96-9b59-6eb7866b67c2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--07180acf-6b0c-4563-a75e-10832ca5e7d6",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--fe33f082-f29f-50eb-a421-3cf072d43f2a",
+      "target_ref": "attack-pattern--235bced0-d88c-5d96-9b59-6eb7866b67c2"
+    },
+    {
+      "type": "x-acf-detection",
+      "spec_version": "2.1",
+      "id": "x-acf-detection--ff9e4bf5-0b45-539d-b8fc-a1deae964d54",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Audit Trail Obfuscation",
+      "description": "Detection for T9002: Audit Trail Obfuscation",
+      "x_acf_signal_type": "correlation",
+      "x_acf_log_source": "audit_layer",
+      "x_acf_detection_logic": "audit_completeness_score < threshold OR reconstruction_failure",
+      "x_acf_related_atx": [
+        "T9002"
+      ]
+    },
+    {
+      "type": "x-acf-validation",
+      "spec_version": "2.1",
+      "id": "x-acf-validation--e82c97e6-b381-5e4c-af4a-031894716a36",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Audit Reconstructability Check",
+      "description": "Validation for T9002: Audit Reconstructability Check",
+      "x_acf_validation_type": "integrity_check",
+      "x_acf_required_signals": [
+        "audit_trail",
+        "execution_log"
+      ],
+      "x_acf_expected_condition": "audit_trail.reconstructable == true",
+      "x_acf_related_atx": [
+        "T9002"
+      ]
+    },
+    {
+      "type": "x-acf-response",
+      "spec_version": "2.1",
+      "id": "x-acf-response--3876909d-b5c7-5f5b-b9bf-cdb38163d500",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Flag Non-Reconstructable Actions",
+      "description": "Response for T9002: Flag Non-Reconstructable Actions",
+      "x_acf_response_type": "escalation",
+      "x_acf_trigger": "audit_obfuscation_detected",
+      "x_acf_related_atx": [
+        "T9002"
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cb065a0a-ebf3-4890-a1e1-f0b1728236d5",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "detects",
+      "source_ref": "x-acf-detection--ff9e4bf5-0b45-539d-b8fc-a1deae964d54",
+      "target_ref": "attack-pattern--0f327815-a70a-5c91-941d-bd97a894e615"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--870859c1-5c7c-470d-9df0-b55f016f4a67",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "validates",
+      "source_ref": "x-acf-validation--e82c97e6-b381-5e4c-af4a-031894716a36",
+      "target_ref": "attack-pattern--0f327815-a70a-5c91-941d-bd97a894e615"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dd4772c4-ca58-426b-850b-0008d326c798",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "relationship_type": "responds-to",
+      "source_ref": "x-acf-response--3876909d-b5c7-5f5b-b9bf-cdb38163d500",
+      "target_ref": "attack-pattern--0f327815-a70a-5c91-941d-bd97a894e615"
     }
   ]
 }
