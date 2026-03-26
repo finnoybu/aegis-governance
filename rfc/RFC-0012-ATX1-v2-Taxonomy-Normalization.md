@@ -1,6 +1,8 @@
 # RFC-0012: ATX-1 v2.0 Taxonomy Normalization
 
-- **Status:** Proposed
+- **Status:** Implemented
+- **Implemented:** 2026-03-26
+- **DOI:** [10.5281/zenodo.19238844](https://doi.org/10.5281/zenodo.19238844)
 - **Author:** Kenneth Tannenbaum (AEGIS Initiative)
 - **Date:** 2026-03-26
 - **Supersedes:** ATX-1 v1.0 (docs/atx/ATX-1_TECHNIQUE_TAXONOMY.md)

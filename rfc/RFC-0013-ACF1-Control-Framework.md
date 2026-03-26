@@ -1,6 +1,7 @@
 # RFC-0013: ACF-1 — AEGIS Control Framework
 
-- **Status:** Proposed
+- **Status:** Implemented
+- **Implemented:** 2026-03-26
 - **Author:** Kenneth Tannenbaum (AEGIS Initiative)
 - **Date:** 2026-03-26
 - **Depends on:** RFC-0012 (ATX-1 v2.0), ATM-1 (Adaptive Threat Model)
