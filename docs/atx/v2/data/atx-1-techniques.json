@@ -89,7 +89,7 @@
     "name": "Obscure Objective Through Delegation",
     "tactic": "TA002",
     "tactic_name": "Exceed Operational Scope",
-    "description": "Harmful intent is decomposed across multiple delegated steps such that no individual action appears unsafe. The aggregate effect of the delegated actions achieves an objective that would be blocked if attempted as a single operation.",
+    "description": "Harmful intent is decomposed across multiple delegated steps — including across multiple agents where no single agent has full visibility of the objective — such that no individual action appears unsafe.",
     "severity": "high",
     "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate aggregate intent across delegation chains; no mechanism to detect composition attacks.",
     "agents_of_chaos_case": [],
@@ -98,6 +98,23 @@
       "constitutional_article": "Delegation Transparency",
       "agp_mechanism": "AGP Delegation Chain Audit, AGP Composition Analysis",
       "mechanism": "All delegation chains must be traceable end-to-end. Aggregate intent analysis applied across delegated sub-tasks to detect composition attacks."
+    },
+    "v1_id": null
+  },
+  {
+    "id": "T2004",
+    "name": "Exploit Tool-Chain Composition",
+    "tactic": "TA002",
+    "tactic_name": "Exceed Operational Scope",
+    "description": "The agent chains multiple tool calls or intermediate steps such that each step appears valid, but the aggregate effect bypasses policy or authorization constraints.",
+    "severity": "high",
+    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate aggregate policy impact of chained tool calls; no compositional policy enforcement.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": ["LLM07"],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Capability",
+      "agp_mechanism": "AGP Tool Chain Validation",
+      "mechanism": "Tool call sequences are evaluated as aggregate operations. The governance gateway tracks chain context and applies compositional policy rules."
     },
     "v1_id": null
   },
@@ -168,6 +185,23 @@
       "mechanism": "Persistent data access requires explicit authorization per session. Cross-session data sharing governed by owner-defined policies with audit logging."
     },
     "v1_id": "T4002"
+  },
+  {
+    "id": "T4003",
+    "name": "Cross-Domain Secret Leakage",
+    "tactic": "TA004",
+    "tactic_name": "Expose or Exfiltrate Information",
+    "description": "The agent transfers sensitive information across trust or policy domains through interactions with other agents, systems, or contexts that individually appear authorized.",
+    "severity": "high",
+    "root_cause": "RC1 (No Stakeholder Model), RC3 (No Private Deliberation Surface) — No data classification across domain boundaries; no cross-domain transfer authorization.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": ["LLM02"],
+    "aegis_mitigation": {
+      "constitutional_article": "Information Sovereignty",
+      "agp_mechanism": "AGP Domain Boundary Enforcement",
+      "mechanism": "Data classification tags are maintained across agent interactions. Cross-domain transfers require explicit authorization and audit."
+    },
+    "v1_id": null
   },
   {
     "id": "T5001",
@@ -302,6 +336,23 @@
       "constitutional_article": "Behavioral Integrity",
       "agp_mechanism": "AGP Behavioral Baseline, AGP Drift Detection",
       "mechanism": "Agent behavior continuously compared against governance-defined baseline. Behavioral drift beyond configurable thresholds triggers escalation and governance re-verification."
+    },
+    "v1_id": null
+  },
+  {
+    "id": "T7004",
+    "name": "Induce Unsafe Consensus",
+    "tactic": "TA007",
+    "tactic_name": "Manipulate Agent Interactions",
+    "description": "The agent influences a group of agents to converge on a shared but unsafe or unauthorized objective, even when individual agents would not independently select that action.",
+    "severity": "high",
+    "root_cause": "RC3 (No Private Deliberation Surface) — No mechanism to detect anomalous convergence in multi-agent decision-making; consensus accepted without independent verification.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": ["LLM01"],
+    "aegis_mitigation": {
+      "constitutional_article": "Collective Defense",
+      "agp_mechanism": "AGP Consensus Validation",
+      "mechanism": "Multi-agent decision convergence is monitored for anomalous alignment. Independent evaluation is enforced before collective action."
     },
     "v1_id": null
   },

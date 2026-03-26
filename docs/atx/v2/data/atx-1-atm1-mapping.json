@@ -68,6 +68,16 @@
       "notes": "Delegation-specific visibility is implicit, not explicit"
     },
     {
+      "atx_id": "T2004",
+      "atx_name": "Exploit Tool-Chain Composition",
+      "tactic": "TA002",
+      "atm_vectors": ["AV-2.2"],
+      "atm_controls": ["DC-2"],
+      "atm_detections": ["tool_chain_anomaly"],
+      "coverage": "partial",
+      "notes": "Tool chain composition detection is emerging"
+    },
+    {
       "atx_id": "T3001",
       "atx_name": "Perform Irreversible Destructive Action",
       "tactic": "TA003",
@@ -106,6 +116,16 @@
       "atm_detections": ["long_window_exfiltration_pattern"],
       "coverage": "partial",
       "notes": "Slow-burn detection dependent on time-window analytics"
+    },
+    {
+      "atx_id": "T4003",
+      "atx_name": "Cross-Domain Secret Leakage",
+      "tactic": "TA004",
+      "atm_vectors": ["AV-7.2", "STRIDE-InformationDisclosure"],
+      "atm_controls": ["PC-3", "DC-2"],
+      "atm_detections": ["cross_domain_data_transfer"],
+      "coverage": "partial",
+      "notes": "Cross-domain transfer detection requires domain boundary awareness"
     },
     {
       "atx_id": "T5001",
@@ -186,6 +206,16 @@
       "atm_detections": ["behavioral_drift_signal"],
       "coverage": "partial",
       "notes": "Emerging detection area"
+    },
+    {
+      "atx_id": "T7004",
+      "atx_name": "Induce Unsafe Consensus",
+      "tactic": "TA007",
+      "atm_vectors": ["AV-7.1", "AV-7.3"],
+      "atm_controls": ["DC-2"],
+      "atm_detections": ["consensus_convergence_anomaly"],
+      "coverage": "partial",
+      "notes": "Consensus convergence detection is emerging"
     },
     {
       "atx_id": "T8001",
