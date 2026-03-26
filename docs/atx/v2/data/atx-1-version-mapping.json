@@ -1,0 +1,44 @@
+{
+  "version": "1.0-to-2.0",
+  "date": "2026-03-26",
+  "description": "Mapping of ATX-1 technique IDs from v1.0 to v2.0 for traceability. v1.0 remains frozen at its published DOIs.",
+  "references": {
+    "v1_ieee_dataport": "10.21227/f87b-1d57",
+    "v1_zenodo": "10.5281/zenodo.19225676"
+  },
+  "mappings": [
+    { "v1_id": "T1001", "v2_id": "T1001", "v1_name": "Non-Owner Instruction Compliance", "v2_name": "Execute Non-Owner Instruction", "v1_tactic": "TA001", "v2_tactic": "TA001", "change": "renamed" },
+    { "v1_id": "T1002", "v2_id": "T1002", "v1_name": "Implicit Authority Acceptance", "v2_name": "Infer Implicit Authority", "v1_tactic": "TA001", "v2_tactic": "TA001", "change": "renamed" },
+    { "v1_id": "T1003", "v2_id": "T1003", "v1_name": "Mass Distribution Under Spoofed Authority", "v2_name": "Propagate Spoofed Authority at Scale", "v1_tactic": "TA001", "v2_tactic": "TA001", "change": "renamed" },
+    { "v1_id": "T3001", "v2_id": "T2001", "v1_name": "Persistent Process Injection", "v2_name": "Expand Task Scope Autonomously", "v1_tactic": "TA003", "v2_tactic": "TA002", "change": "moved+renamed" },
+    { "v1_id": "T2003", "v2_id": "T2002", "v1_name": "Guilt-Induced Self-Restriction", "v2_name": "Perform Unvalidated Bulk Operations", "v1_tactic": "TA002", "v2_tactic": "TA002", "change": "moved+renamed" },
+    { "v1_id": null, "v2_id": "T2003", "v1_name": null, "v2_name": "Obscure Objective Through Delegation", "v1_tactic": null, "v2_tactic": "TA002", "change": "new" },
+    { "v1_id": "T2001", "v2_id": "T3001", "v1_name": "Irreversible Collateral Action", "v2_name": "Perform Irreversible Destructive Action", "v1_tactic": "TA002", "v2_tactic": "TA003", "change": "moved+renamed" },
+    { "v1_id": "T2002", "v2_id": "T3002", "v1_name": "Social Pressure Escalation", "v2_name": "Trigger Cascading System Changes", "v1_tactic": "TA002", "v2_tactic": "TA003", "change": "moved+renamed" },
+    { "v1_id": "T4001", "v2_id": "T4001", "v1_name": "Bulk Data Disclosure via Indirect Request", "v2_name": "Exfiltrate Context-Scoped Data", "v1_tactic": "TA004", "v2_tactic": "TA004", "change": "renamed" },
+    { "v1_id": "T4002", "v2_id": "T4002", "v1_name": "Semantic Sensitivity Bypass", "v2_name": "Leak Cross-Session or Persistent Data", "v1_tactic": "TA004", "v2_tactic": "TA004", "change": "renamed" },
+    { "v1_id": "T8001", "v2_id": "T5001", "v1_name": "False Deletion Confirmation", "v2_name": "Report False Task Completion", "v1_tactic": "TA008", "v2_tactic": "TA005", "change": "moved+renamed" },
+    { "v1_id": "T5002", "v2_id": "T5002", "v1_name": "Display Name Authority Claim", "v2_name": "Fabricate Action Attribution", "v1_tactic": "TA005", "v2_tactic": "TA005", "change": "renamed" },
+    { "v1_id": "T9001", "v2_id": "T5003", "v1_name": "Silent Provider-Level Task Failure", "v2_name": "Suppress or Omit Execution Failure", "v1_tactic": "TA009", "v2_tactic": "TA005", "change": "moved+renamed" },
+    { "v1_id": "T3001", "v2_id": "T6001", "v1_name": "Persistent Process Injection", "v2_name": "Execute Recursive Invocation Loops", "v1_tactic": "TA003", "v2_tactic": "TA006", "change": "moved+renamed" },
+    { "v1_id": "T3002", "v2_id": "T6002", "v1_name": "Inter-Agent Conversational Loop", "v2_name": "Consume Unbounded External Resources", "v1_tactic": "TA003", "v2_tactic": "TA006", "change": "moved+renamed" },
+    { "v1_id": "T7001", "v2_id": "T7001", "v1_name": "Tribal Knowledge Transfer", "v2_name": "Spoof Agent Identity", "v1_tactic": "TA007", "v2_tactic": "TA007", "change": "renamed" },
+    { "v1_id": "T7002", "v2_id": "T7002", "v1_name": "Compromised Governance Propagation", "v2_name": "Inject Malicious Delegation Chains", "v1_tactic": "TA007", "v2_tactic": "TA007", "change": "renamed" },
+    { "v1_id": null, "v2_id": "T7003", "v1_name": null, "v2_name": "Induce Cross-Agent Behavioral Drift", "v1_tactic": null, "v2_tactic": "TA007", "change": "new" },
+    { "v1_id": "T6001", "v2_id": "T8001", "v1_name": "Externally Editable Governance Injection", "v2_name": "Poison Persistent Memory", "v1_tactic": "TA006", "v2_tactic": "TA008", "change": "moved+renamed" },
+    { "v1_id": "T6002", "v2_id": "T8002", "v1_name": "Covert Constitutional Amendment", "v2_name": "Corrupt Governance or Policy State", "v1_tactic": "TA006", "v2_tactic": "TA008", "change": "moved+renamed" },
+    { "v1_id": null, "v2_id": "T9001", "v1_name": null, "v2_name": "Operate Outside Monitoring Boundaries", "v1_tactic": null, "v2_tactic": "TA009", "change": "new" },
+    { "v1_id": null, "v2_id": "T9002", "v1_name": null, "v2_name": "Obfuscate Action Traceability", "v1_tactic": null, "v2_tactic": "TA009", "change": "new" }
+  ],
+  "tactic_mappings": [
+    { "v1_id": "TA001", "v2_id": "TA001", "v1_name": "Authority Boundary Violation", "v2_name": "Violate Authority Boundaries", "change": "renamed" },
+    { "v1_id": "TA002", "v2_id": "TA003", "v1_name": "Disproportionate Execution", "v2_name": "Compromise System Integrity", "change": "renamed+restructured" },
+    { "v1_id": "TA003", "v2_id": "TA002", "v1_name": "Resource Exhaustion", "v2_name": "Exceed Operational Scope", "change": "renamed+restructured" },
+    { "v1_id": "TA004", "v2_id": "TA004", "v1_name": "Unauthorized Disclosure", "v2_name": "Expose or Exfiltrate Information", "change": "renamed" },
+    { "v1_id": "TA005", "v2_id": "TA005", "v1_name": "Identity and Authority Confusion", "v2_name": "Violate State Integrity", "change": "renamed+restructured" },
+    { "v1_id": "TA006", "v2_id": "TA006", "v1_name": "Governance State Corruption", "v2_name": "Abuse Resource Allocation", "change": "renamed+restructured" },
+    { "v1_id": "TA007", "v2_id": "TA007", "v1_name": "Cross-Agent Propagation", "v2_name": "Manipulate Agent Interactions", "change": "renamed" },
+    { "v1_id": "TA008", "v2_id": "TA008", "v1_name": "False Completion Reporting", "v2_name": "Establish or Modify Persistence", "change": "renamed+restructured" },
+    { "v1_id": "TA009", "v2_id": "TA009", "v1_name": "Provider Constraint Opacity", "v2_name": "Evade Detection or Oversight", "change": "renamed+restructured" }
+  ]
+}

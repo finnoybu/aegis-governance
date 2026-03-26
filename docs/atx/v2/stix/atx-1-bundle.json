@@ -1,0 +1,920 @@
+{
+  "type": "bundle",
+  "id": "bundle--atx-1-technique-taxonomy-v2",
+  "spec_version": "2.1",
+  "created": "2026-03-26T00:00:00.000Z",
+  "objects": [
+    {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--aegis-initiative",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "AEGIS Initiative",
+      "identity_class": "organization",
+      "description": "Finnoybu IP LLC — creators of the AEGIS governance architecture"
+    },
+    {
+      "type": "x-mitre-tactic",
+      "spec_version": "2.1",
+      "id": "x-mitre-tactic--atx-ta001",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Violate Authority Boundaries",
+      "description": "The agent acts on instructions it is not authorized to follow, or exceeds the authority delegated to it by a legitimate principal. Exploits Authority and Identity primitives.",
+      "x_mitre_shortname": "violate-authority-boundaries",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "TA001" }
+      ]
+    },
+    {
+      "type": "x-mitre-tactic",
+      "spec_version": "2.1",
+      "id": "x-mitre-tactic--atx-ta002",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Exceed Operational Scope",
+      "description": "The agent performs actions beyond the explicitly delegated task scope, including via tool invocation, expanding objectives autonomously or performing unvalidated bulk operations. Exploits Delegation and Objective Control primitives.",
+      "x_mitre_shortname": "exceed-operational-scope",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "TA002" }
+      ]
+    },
+    {
+      "type": "x-mitre-tactic",
+      "spec_version": "2.1",
+      "id": "x-mitre-tactic--atx-ta003",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Compromise System Integrity",
+      "description": "The agent takes actions through direct or tool-mediated system interaction that cause irreversible damage, cascading failures, or unrecoverable state changes. Exploits State and Environment primitives.",
+      "x_mitre_shortname": "compromise-system-integrity",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "TA003" }
+      ]
+    },
+    {
+      "type": "x-mitre-tactic",
+      "spec_version": "2.1",
+      "id": "x-mitre-tactic--atx-ta004",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Expose or Exfiltrate Information",
+      "description": "The agent discloses information to recipients who are not authorized to receive it, whether through direct exfiltration, cross-session data leakage, or tool-mediated data transfer. Exploits Memory, Context, and Data Boundaries primitives.",
+      "x_mitre_shortname": "expose-exfiltrate-information",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "TA004" }
+      ]
+    },
+    {
+      "type": "x-mitre-tactic",
+      "spec_version": "2.1",
+      "id": "x-mitre-tactic--atx-ta005",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Violate State Integrity",
+      "description": "The agent reports, represents, or records system state that diverges from actual state — whether through false completion reports, fabricated attribution, or suppressed failure signals. Exploits State and Observability primitives.",
+      "x_mitre_shortname": "violate-state-integrity",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "TA005" }
+      ]
+    },
+    {
+      "type": "x-mitre-tactic",
+      "spec_version": "2.1",
+      "id": "x-mitre-tactic--atx-ta006",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Abuse Resource Allocation",
+      "description": "The agent consumes computational, storage, network, or external resources without bound, either through recursive invocation loops or unbounded external resource consumption. Exploits Resource Control primitives.",
+      "x_mitre_shortname": "abuse-resource-allocation",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "TA006" }
+      ]
+    },
+    {
+      "type": "x-mitre-tactic",
+      "spec_version": "2.1",
+      "id": "x-mitre-tactic--atx-ta007",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Manipulate Agent Interactions",
+      "description": "The agent exploits multi-agent communication, delegation, and trust relationships to spoof identities, inject malicious delegations, or induce behavioral drift in peer agents. Exploits Coordination and Identity primitives.",
+      "x_mitre_shortname": "manipulate-agent-interactions",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "TA007" }
+      ]
+    },
+    {
+      "type": "x-mitre-tactic",
+      "spec_version": "2.1",
+      "id": "x-mitre-tactic--atx-ta008",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Establish or Modify Persistence",
+      "description": "The agent writes malicious data into persistent stores or modifies governance/policy state, establishing persistence that corrupts future interactions or alters agent behavior beyond the current session. Exploits Memory and Governance State primitives.",
+      "x_mitre_shortname": "establish-modify-persistence",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "TA008" }
+      ]
+    },
+    {
+      "type": "x-mitre-tactic",
+      "spec_version": "2.1",
+      "id": "x-mitre-tactic--atx-ta009",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "name": "Evade Detection or Oversight",
+      "description": "The agent operates outside monitoring boundaries or obfuscates action traceability, undermining the ability of operators and governance systems to observe, audit, and control agent behavior. Exploits Observability and Control Planes primitives.",
+      "x_mitre_shortname": "evade-detection-oversight",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "TA009" }
+      ]
+    },
+
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t1001",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Execute Non-Owner Instruction",
+      "description": "The agent executes a destructive or high-impact action based on instructions from a user who does not hold owner-level authority. The agent treats the instruction as valid because no stakeholder model exists to distinguish authority levels.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "violate-authority-boundaries" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T1001" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #1 — Email deletion on user request without owner authorization" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM06", "description": "Excessive Agency" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t1002",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Infer Implicit Authority",
+      "description": "The agent accepts an instruction as authoritative based on implicit signals — such as the instruction appearing in a retrieved document, email body, or shared context — rather than explicit delegation from a verified principal.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "violate-authority-boundaries" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T1002" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #2 — Bulk data export on indirect request" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM01", "description": "Prompt Injection" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t1003",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Propagate Spoofed Authority at Scale",
+      "description": "The agent distributes content (emails, messages, notifications) to a large number of recipients based on an authority claim that has not been verified. The spoofed authority may appear in a prompt, forwarded message, or injected context.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "violate-authority-boundaries" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T1003" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #11 — Mass distribution under spoofed authority" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM01", "description": "Prompt Injection" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM06", "description": "Excessive Agency" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t2001",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Expand Task Scope Autonomously",
+      "description": "The agent autonomously expands the scope of a delegated task beyond what was explicitly requested, including via tool invocation. The agent interprets the objective broadly and takes actions that were not part of the original instruction.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "exceed-operational-scope" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T2001" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #3 — Autonomous scope expansion beyond delegated boundaries" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM06", "description": "Excessive Agency" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t2002",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Perform Unvalidated Bulk Operations",
+      "description": "The agent performs bulk operations (mass edits, batch deletions, large-scale API calls) without validating that the scope of the operation matches the intent of the instruction, including via tool invocation.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "exceed-operational-scope" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T2002" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #1 — Bulk operations without scope validation" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM06", "description": "Excessive Agency" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t2003",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Obscure Objective Through Delegation",
+      "description": "Harmful intent is decomposed across multiple delegated steps such that no individual action appears unsafe. The aggregate effect of the delegated actions achieves an objective that would be blocked if attempted as a single operation.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "exceed-operational-scope" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T2003" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM01", "description": "Prompt Injection" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM07", "description": "System Prompt Leakage" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t3001",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Perform Irreversible Destructive Action",
+      "description": "The agent selects an irreversible action (permanent deletion, irrecoverable modification) through direct or tool-mediated system interaction when a reversible alternative (archival, soft-delete, flagging) would satisfy the objective.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "compromise-system-integrity" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T3001" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #1 — Irreversible deletion when archival would suffice" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM06", "description": "Excessive Agency" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t3002",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Trigger Cascading System Changes",
+      "description": "The agent initiates an action through direct or tool-mediated system interaction that triggers a chain of cascading changes across interconnected systems, where downstream effects were not anticipated or authorized.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "compromise-system-integrity" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T3002" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #7 — Cascading system changes with unauthorized downstream effects" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t4001",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Exfiltrate Context-Scoped Data",
+      "description": "The agent exports or discloses data from the current context (conversation, session, task) to an unauthorized recipient, whether through direct exfiltration, indirect request compliance, or tool-mediated data transfer.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "expose-exfiltrate-information" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T4001" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #2 — Context-scoped data exfiltration to unauthorized requestor" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM02", "description": "Sensitive Information Disclosure" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t4002",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Leak Cross-Session or Persistent Data",
+      "description": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration — exposing data from previous interactions to unauthorized parties in later sessions.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "expose-exfiltrate-information" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T4002" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #3 — Cross-session data leakage to unauthorized parties" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM02", "description": "Sensitive Information Disclosure" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t5001",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Report False Task Completion",
+      "description": "The agent reports that a task has been completed successfully when the action either failed, was partially completed, or produced a different outcome than reported. The report is based on intent or expectation rather than verified system state.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "violate-state-integrity" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T5001" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #1 — False task completion confirmation" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t5002",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Fabricate Action Attribution",
+      "description": "The agent misattributes an action to a different principal, system, or process than the one that actually performed it. This corrupts the audit trail and undermines accountability.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "violate-state-integrity" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T5002" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #8 — Fabricated action attribution corrupting audit trail" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM07", "description": "System Prompt Leakage" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t5003",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Suppress or Omit Execution Failure",
+      "description": "The agent suppresses, omits, or fails to surface an execution failure — whether caused by provider constraints, tool errors, or internal exceptions — resulting in a divergence between reported state and actual state.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "violate-state-integrity" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T5003" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #6 — Silent execution failure suppression" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t6001",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Execute Recursive Invocation Loops",
+      "description": "The agent enters a recursive invocation loop — spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains — consuming unbounded compute, token, and time resources.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "abuse-resource-allocation" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T6001" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #4 — Recursive invocation loops consuming unbounded resources" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM06", "description": "Excessive Agency" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM10", "description": "Unbounded Consumption" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t6002",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Consume Unbounded External Resources",
+      "description": "The agent consumes external resources (API calls, network bandwidth, storage, third-party service quotas) without limits or lifecycle management, degrading availability for other systems and users.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "abuse-resource-allocation" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T6002" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #5 — Unbounded external resource consumption" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM10", "description": "Unbounded Consumption" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t7001",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Spoof Agent Identity",
+      "description": "An agent claims or assumes the identity of another agent in a multi-agent system, gaining unauthorized access to resources, delegations, or trust relationships associated with the spoofed identity.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "manipulate-agent-interactions" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T7001" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #9 — Agent identity spoofing in multi-agent context" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t7002",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Inject Malicious Delegation Chains",
+      "description": "An agent injects malicious tasks into a multi-agent delegation chain, exploiting trust transitivity to have other agents execute actions that the originating agent is not authorized to perform.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "manipulate-agent-interactions" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T7002" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #10 — Malicious delegation chain injection" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t7003",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Induce Cross-Agent Behavioral Drift",
+      "description": "An agent influences the behavioral patterns of other agents through shared context, conversation, or operational interaction, causing gradual drift from their governance-defined behavior toward unverified or unauthorized operational patterns.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "manipulate-agent-interactions" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T7003" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM01", "description": "Prompt Injection" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t8001",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Poison Persistent Memory",
+      "description": "An agent writes malicious, misleading, or unauthorized data into persistent memory stores (long-term memory, knowledge bases, configuration caches), corrupting future interactions that rely on this stored context.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "establish-modify-persistence" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T8001" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #10 — Persistent memory poisoning" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM01", "description": "Prompt Injection" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t8002",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Corrupt Governance or Policy State",
+      "description": "An agent modifies its own governance constraints, policy state, or constitutional articles through direct manipulation or indirect means (tool use, self-prompting, context manipulation), bypassing normal amendment procedures and audit logging.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "establish-modify-persistence" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T8002" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #10 — Governance/policy state corruption via indirect means" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM01", "description": "Prompt Injection" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t9001",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Operate Outside Monitoring Boundaries",
+      "description": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems — whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "evade-detection-oversight" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T9001" },
+        { "source_name": "agents-of-chaos", "description": "Case Study #6 — Operations outside monitoring boundaries" }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--atx-t9002",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "Obfuscate Action Traceability",
+      "description": "The agent obscures the traceability of its actions by manipulating log entries, altering audit trails, fragmenting actions across multiple contexts, or using indirect execution paths that make causal attribution difficult.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "atx-1", "phase_name": "evade-detection-oversight" }
+      ],
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "T9002" },
+        { "source_name": "owasp-llm-top-10", "external_id": "LLM06", "description": "Excessive Agency" }
+      ]
+    },
+
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m001",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Stakeholder Model",
+      "description": "Formal principal hierarchy (owner > operator > user) with explicit delegation chains. Destructive actions require owner-level authorization verified against the stakeholder registry. Constitutional Article: Authority Delegation.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M001" },
+        { "source_name": "aegis-constitution", "description": "Article: Authority Delegation" },
+        { "source_name": "aegis-governance", "description": "AGP Stakeholder Model" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m002",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Instruction Provenance",
+      "description": "All instructions tagged with verified source principal. Instructions and data processed in structurally distinct channels. Constitutional Article: Channel Separation.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M002" },
+        { "source_name": "aegis-constitution", "description": "Article: Channel Separation" },
+        { "source_name": "aegis-governance", "description": "AGP Instruction Provenance" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m003",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Distribution Controls",
+      "description": "Mass actions require verified owner authorization with explicit recipient scope. Distribution volume triggers mandatory escalation. Constitutional Article: Proportionality Review.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M003" },
+        { "source_name": "aegis-constitution", "description": "Article: Proportionality Review" },
+        { "source_name": "aegis-governance", "description": "AGP Distribution Controls, AGP Rate Governance" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m004",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Task Scope Enforcement",
+      "description": "Each delegated task carries explicit scope boundaries. Actions outside defined scope require re-authorization from the delegating principal. Constitutional Article: Scope Boundaries.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M004" },
+        { "source_name": "aegis-constitution", "description": "Article: Scope Boundaries" },
+        { "source_name": "aegis-governance", "description": "AGP Task Scope Enforcement" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m005",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Bulk Operation Gate",
+      "description": "Bulk operations require explicit scope confirmation and aggregate impact assessment before execution. Volume thresholds trigger mandatory escalation. Constitutional Article: Proportionality Review.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M005" },
+        { "source_name": "aegis-constitution", "description": "Article: Proportionality Review" },
+        { "source_name": "aegis-governance", "description": "AGP Bulk Operation Gate" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m006",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Delegation Chain Audit",
+      "description": "All delegation chains must be traceable end-to-end. Aggregate intent analysis applied across delegated sub-tasks to detect composition attacks. Constitutional Article: Delegation Transparency.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M006" },
+        { "source_name": "aegis-constitution", "description": "Article: Delegation Transparency" },
+        { "source_name": "aegis-governance", "description": "AGP Delegation Chain Audit, AGP Composition Analysis" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m007",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Proportionality Gate",
+      "description": "Irreversible actions require explicit confirmation and must demonstrate that no reversible alternative satisfies the objective. Constitutional Article: Least-Destructive Means.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M007" },
+        { "source_name": "aegis-constitution", "description": "Article: Least-Destructive Means" },
+        { "source_name": "aegis-governance", "description": "AGP Proportionality Gate" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m008",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Cascade Analysis",
+      "description": "Actions with cross-system dependencies require cascade impact analysis. Downstream effect scope must be bounded and authorized. Constitutional Article: Impact Assessment.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M008" },
+        { "source_name": "aegis-constitution", "description": "Article: Impact Assessment" },
+        { "source_name": "aegis-governance", "description": "AGP Cascade Analysis, AGP Interaction Intensity Limits" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m009",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Data Classification and Disclosure Gate",
+      "description": "All data tagged with sensitivity level and authorized recipient scope. Bulk data exports require explicit owner authorization verified against principal registry. Constitutional Article: Information Boundaries.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M009" },
+        { "source_name": "aegis-constitution", "description": "Article: Information Boundaries" },
+        { "source_name": "aegis-governance", "description": "AGP Data Classification, AGP Disclosure Gate" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m010",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Session Data Boundaries",
+      "description": "Persistent data access requires explicit authorization per session. Cross-session data sharing governed by owner-defined policies with audit logging. Constitutional Article: Session Isolation.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M010" },
+        { "source_name": "aegis-constitution", "description": "Article: Session Isolation" },
+        { "source_name": "aegis-governance", "description": "AGP Session Data Boundaries, AGP Persistent Data Access Controls" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m011",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Outcome Verification",
+      "description": "All reported outcomes must be verified against actual system state before reporting to the user. Destructive actions require post-execution verification with auditable attestation. Constitutional Article: Truthful Reporting.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M011" },
+        { "source_name": "aegis-constitution", "description": "Article: Truthful Reporting" },
+        { "source_name": "aegis-governance", "description": "AGP Outcome Verification, AGP Completion Attestation" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m012",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Audit Chain and Action Provenance",
+      "description": "All actions cryptographically signed by the performing principal. Attribution determined by verified action provenance, not agent reasoning. Constitutional Article: Attribution Integrity.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M012" },
+        { "source_name": "aegis-constitution", "description": "Article: Attribution Integrity" },
+        { "source_name": "aegis-governance", "description": "AGP Audit Chain, AGP Action Provenance" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m013",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Failure Signal Propagation",
+      "description": "All constraint layers (owner, operator, provider) must be visible and distinguishable. Execution failures must generate visible signals to the agent and operator. Constitutional Article: Constraint Visibility.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M013" },
+        { "source_name": "aegis-constitution", "description": "Article: Constraint Visibility" },
+        { "source_name": "aegis-governance", "description": "AGP Failure Signal Propagation, AGP Constraint Layer Transparency" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m014",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Resource Budgets and Loop Detection",
+      "description": "All agent-spawned processes bound by session-scoped resource allocations. Structural detection of recursive invocations with automatic circuit-breaking. Constitutional Article: Bounded Execution.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M014" },
+        { "source_name": "aegis-constitution", "description": "Article: Bounded Execution" },
+        { "source_name": "aegis-governance", "description": "AGP Resource Budgets, AGP Loop Detection" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m015",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP External Resource Budgets",
+      "description": "Per-agent resource allocations with automatic lifecycle management. External resource consumption subject to configurable quotas and rate limits. Constitutional Article: Resource Proportionality.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M015" },
+        { "source_name": "aegis-constitution", "description": "Article: Resource Proportionality" },
+        { "source_name": "aegis-governance", "description": "AGP Storage Quotas, AGP External Resource Budgets" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m016",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Cryptographic Agent Identity",
+      "description": "All inter-agent interactions require mutual cryptographic authentication. Identity claims verified against the agent registry. Constitutional Article: Agent Identity.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M016" },
+        { "source_name": "aegis-constitution", "description": "Article: Agent Identity" },
+        { "source_name": "aegis-governance", "description": "AGP Cryptographic Agent Identity, AGP Mutual Authentication" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m017",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Delegation Chain Verification",
+      "description": "Each agent in a delegation chain independently verifies authorization. Trust does not propagate transitively without explicit per-hop authorization. Constitutional Article: Delegation Integrity.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M017" },
+        { "source_name": "aegis-constitution", "description": "Article: Delegation Integrity" },
+        { "source_name": "aegis-governance", "description": "AGP Delegation Chain Verification, AGP Trust Transitivity Controls" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m018",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Behavioral Baseline and Drift Detection",
+      "description": "Agent behavior continuously compared against governance-defined baseline. Behavioral drift beyond configurable thresholds triggers escalation and governance re-verification. Constitutional Article: Behavioral Integrity.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M018" },
+        { "source_name": "aegis-constitution", "description": "Article: Behavioral Integrity" },
+        { "source_name": "aegis-governance", "description": "AGP Behavioral Baseline, AGP Drift Detection" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m019",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Memory Provenance",
+      "description": "All persistent memory writes require authorization and carry provenance metadata. Memory reads verify integrity before use. Constitutional Article: Memory Integrity.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M019" },
+        { "source_name": "aegis-constitution", "description": "Article: Memory Integrity" },
+        { "source_name": "aegis-governance", "description": "AGP Memory Provenance, AGP Persistent Write Authorization" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m020",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Immutable Governance Store",
+      "description": "Governance configuration stored in integrity-verified, tamper-evident locations. Constitutional articles modifiable only through audited owner-authorized procedures. Constitutional Article: Governance Immutability.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M020" },
+        { "source_name": "aegis-constitution", "description": "Article: Governance Immutability" },
+        { "source_name": "aegis-governance", "description": "AGP Immutable Governance Store, AGP Self-Modification Detection" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m021",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Mandatory Audit Surface",
+      "description": "All agent action pathways must pass through audited control points. Unmonitored tool access is architecturally prevented. Constitutional Article: Complete Observability.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M021" },
+        { "source_name": "aegis-constitution", "description": "Article: Complete Observability" },
+        { "source_name": "aegis-governance", "description": "AGP Mandatory Audit Surface, AGP Monitoring Completeness" }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--atx-m022",
+      "created": "2026-03-26T00:00:00.000Z",
+      "modified": "2026-03-26T00:00:00.000Z",
+      "created_by_ref": "identity--aegis-initiative",
+      "name": "AGP Immutable Audit Log",
+      "description": "Audit logs are append-only and cryptographically signed. Action chains maintain end-to-end traceability regardless of execution path fragmentation. Constitutional Article: Audit Integrity.",
+      "external_references": [
+        { "source_name": "atx-1", "external_id": "M022" },
+        { "source_name": "aegis-constitution", "description": "Article: Audit Integrity" },
+        { "source_name": "aegis-governance", "description": "AGP Immutable Audit Log, AGP Action Chain Integrity" }
+      ]
+    },
+
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta001-t1001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta001", "target_ref": "attack-pattern--atx-t1001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta001-t1002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta001", "target_ref": "attack-pattern--atx-t1002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta001-t1003", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta001", "target_ref": "attack-pattern--atx-t1003" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta002-t2001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta002", "target_ref": "attack-pattern--atx-t2001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta002-t2002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta002", "target_ref": "attack-pattern--atx-t2002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta002-t2003", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta002", "target_ref": "attack-pattern--atx-t2003" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta003-t3001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta003", "target_ref": "attack-pattern--atx-t3001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta003-t3002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta003", "target_ref": "attack-pattern--atx-t3002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta004-t4001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta004", "target_ref": "attack-pattern--atx-t4001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta004-t4002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta004", "target_ref": "attack-pattern--atx-t4002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta005-t5001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta005", "target_ref": "attack-pattern--atx-t5001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta005-t5002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta005", "target_ref": "attack-pattern--atx-t5002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta005-t5003", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta005", "target_ref": "attack-pattern--atx-t5003" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta006-t6001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta006", "target_ref": "attack-pattern--atx-t6001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta006-t6002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta006", "target_ref": "attack-pattern--atx-t6002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta007-t7001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta007", "target_ref": "attack-pattern--atx-t7001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta007-t7002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta007", "target_ref": "attack-pattern--atx-t7002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta007-t7003", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta007", "target_ref": "attack-pattern--atx-t7003" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta008-t8001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta008", "target_ref": "attack-pattern--atx-t8001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta008-t8002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta008", "target_ref": "attack-pattern--atx-t8002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta009-t9001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta009", "target_ref": "attack-pattern--atx-t9001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--ta009-t9002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "uses", "source_ref": "x-mitre-tactic--atx-ta009", "target_ref": "attack-pattern--atx-t9002" },
+
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m001-t1001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m001", "target_ref": "attack-pattern--atx-t1001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m002-t1002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m002", "target_ref": "attack-pattern--atx-t1002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m003-t1003", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m003", "target_ref": "attack-pattern--atx-t1003" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m004-t2001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m004", "target_ref": "attack-pattern--atx-t2001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m005-t2002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m005", "target_ref": "attack-pattern--atx-t2002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m006-t2003", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m006", "target_ref": "attack-pattern--atx-t2003" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m007-t3001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m007", "target_ref": "attack-pattern--atx-t3001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m008-t3002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m008", "target_ref": "attack-pattern--atx-t3002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m009-t4001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m009", "target_ref": "attack-pattern--atx-t4001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m010-t4002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m010", "target_ref": "attack-pattern--atx-t4002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m011-t5001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m011", "target_ref": "attack-pattern--atx-t5001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m012-t5002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m012", "target_ref": "attack-pattern--atx-t5002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m013-t5003", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m013", "target_ref": "attack-pattern--atx-t5003" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m014-t6001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m014", "target_ref": "attack-pattern--atx-t6001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m015-t6002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m015", "target_ref": "attack-pattern--atx-t6002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m016-t7001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m016", "target_ref": "attack-pattern--atx-t7001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m017-t7002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m017", "target_ref": "attack-pattern--atx-t7002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m018-t7003", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m018", "target_ref": "attack-pattern--atx-t7003" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m019-t8001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m019", "target_ref": "attack-pattern--atx-t8001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m020-t8002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m020", "target_ref": "attack-pattern--atx-t8002" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m021-t9001", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m021", "target_ref": "attack-pattern--atx-t9001" },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--m022-t9002", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "mitigates", "source_ref": "course-of-action--atx-m022", "target_ref": "attack-pattern--atx-t9002" },
+
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t1001-owasp-llm06", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T1001 maps to OWASP LLM06 (Excessive Agency)", "source_ref": "attack-pattern--atx-t1001", "target_ref": "attack-pattern--atx-t1001", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM06" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t1002-owasp-llm01", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T1002 maps to OWASP LLM01 (Prompt Injection)", "source_ref": "attack-pattern--atx-t1002", "target_ref": "attack-pattern--atx-t1002", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM01" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t1003-owasp", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T1003 maps to OWASP LLM01 (Prompt Injection) and LLM06 (Excessive Agency)", "source_ref": "attack-pattern--atx-t1003", "target_ref": "attack-pattern--atx-t1003", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM01" }, { "source_name": "owasp-llm-top-10", "external_id": "LLM06" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t2001-owasp-llm06", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T2001 maps to OWASP LLM06 (Excessive Agency)", "source_ref": "attack-pattern--atx-t2001", "target_ref": "attack-pattern--atx-t2001", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM06" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t2002-owasp-llm06", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T2002 maps to OWASP LLM06 (Excessive Agency)", "source_ref": "attack-pattern--atx-t2002", "target_ref": "attack-pattern--atx-t2002", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM06" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t2003-owasp", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T2003 maps to OWASP LLM01 (Prompt Injection) and LLM07 (System Prompt Leakage)", "source_ref": "attack-pattern--atx-t2003", "target_ref": "attack-pattern--atx-t2003", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM01" }, { "source_name": "owasp-llm-top-10", "external_id": "LLM07" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t3001-owasp-llm06", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T3001 maps to OWASP LLM06 (Excessive Agency)", "source_ref": "attack-pattern--atx-t3001", "target_ref": "attack-pattern--atx-t3001", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM06" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t4001-owasp-llm02", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T4001 maps to OWASP LLM02 (Sensitive Information Disclosure)", "source_ref": "attack-pattern--atx-t4001", "target_ref": "attack-pattern--atx-t4001", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM02" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t4002-owasp-llm02", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T4002 maps to OWASP LLM02 (Sensitive Information Disclosure)", "source_ref": "attack-pattern--atx-t4002", "target_ref": "attack-pattern--atx-t4002", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM02" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t5002-owasp-llm07", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T5002 maps to OWASP LLM07 (System Prompt Leakage)", "source_ref": "attack-pattern--atx-t5002", "target_ref": "attack-pattern--atx-t5002", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM07" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t6001-owasp", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T6001 maps to OWASP LLM06 (Excessive Agency) and LLM10 (Unbounded Consumption)", "source_ref": "attack-pattern--atx-t6001", "target_ref": "attack-pattern--atx-t6001", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM06" }, { "source_name": "owasp-llm-top-10", "external_id": "LLM10" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t6002-owasp-llm10", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T6002 maps to OWASP LLM10 (Unbounded Consumption)", "source_ref": "attack-pattern--atx-t6002", "target_ref": "attack-pattern--atx-t6002", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM10" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t7003-owasp-llm01", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T7003 maps to OWASP LLM01 (Prompt Injection)", "source_ref": "attack-pattern--atx-t7003", "target_ref": "attack-pattern--atx-t7003", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM01" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t8001-owasp-llm01", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T8001 maps to OWASP LLM01 (Prompt Injection)", "source_ref": "attack-pattern--atx-t8001", "target_ref": "attack-pattern--atx-t8001", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM01" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t8002-owasp-llm01", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T8002 maps to OWASP LLM01 (Prompt Injection)", "source_ref": "attack-pattern--atx-t8002", "target_ref": "attack-pattern--atx-t8002", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM01" }] },
+    { "type": "relationship", "spec_version": "2.1", "id": "relationship--t9002-owasp-llm06", "created": "2026-03-26T00:00:00.000Z", "modified": "2026-03-26T00:00:00.000Z", "relationship_type": "related-to", "description": "T9002 maps to OWASP LLM06 (Excessive Agency)", "source_ref": "attack-pattern--atx-t9002", "target_ref": "attack-pattern--atx-t9002", "external_references": [{ "source_name": "owasp-llm-top-10", "external_id": "LLM06" }] }
+  ]
+}

@@ -1,0 +1,376 @@
+[
+  {
+    "id": "T1001",
+    "name": "Execute Non-Owner Instruction",
+    "tactic": "TA001",
+    "tactic_name": "Violate Authority Boundaries",
+    "description": "The agent executes a destructive or high-impact action based on instructions from a user who does not hold owner-level authority. The agent treats the instruction as valid because no stakeholder model exists to distinguish authority levels.",
+    "severity": "high",
+    "root_cause": "RC1 (No Stakeholder Model) — No mechanism to verify that the instruction source holds authority for the requested action scope.",
+    "agents_of_chaos_case": [1],
+    "owasp_mapping": ["LLM06"],
+    "aegis_mitigation": {
+      "constitutional_article": "Authority Delegation",
+      "agp_mechanism": "AGP Stakeholder Model",
+      "mechanism": "Formal principal hierarchy (owner > operator > user) with explicit delegation chains. Destructive actions require owner-level authorization verified against the stakeholder registry."
+    },
+    "v1_id": "T1001"
+  },
+  {
+    "id": "T1002",
+    "name": "Infer Implicit Authority",
+    "tactic": "TA001",
+    "tactic_name": "Violate Authority Boundaries",
+    "description": "The agent accepts an instruction as authoritative based on implicit signals — such as the instruction appearing in a retrieved document, email body, or shared context — rather than explicit delegation from a verified principal.",
+    "severity": "high",
+    "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — Instructions and data share a channel; no mechanism to verify instruction provenance.",
+    "agents_of_chaos_case": [2],
+    "owasp_mapping": ["LLM01"],
+    "aegis_mitigation": {
+      "constitutional_article": "Channel Separation",
+      "agp_mechanism": "AGP Instruction Provenance",
+      "mechanism": "All instructions tagged with verified source principal. Instructions and data processed in structurally distinct channels."
+    },
+    "v1_id": "T1002"
+  },
+  {
+    "id": "T1003",
+    "name": "Propagate Spoofed Authority at Scale",
+    "tactic": "TA001",
+    "tactic_name": "Violate Authority Boundaries",
+    "description": "The agent distributes content (emails, messages, notifications) to a large number of recipients based on an authority claim that has not been verified. The spoofed authority may appear in a prompt, forwarded message, or injected context.",
+    "severity": "critical",
+    "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — No principal verification; authority claims in content treated as valid.",
+    "agents_of_chaos_case": [11],
+    "owasp_mapping": ["LLM01", "LLM06"],
+    "aegis_mitigation": {
+      "constitutional_article": "Proportionality Review",
+      "agp_mechanism": "AGP Distribution Controls, AGP Rate Governance",
+      "mechanism": "Mass actions require verified owner authorization with explicit recipient scope. Distribution volume triggers mandatory escalation."
+    },
+    "v1_id": "T1003"
+  },
+  {
+    "id": "T2001",
+    "name": "Expand Task Scope Autonomously",
+    "tactic": "TA002",
+    "tactic_name": "Exceed Operational Scope",
+    "description": "The agent autonomously expands the scope of a delegated task beyond what was explicitly requested, including via tool invocation. The agent interprets the objective broadly and takes actions that were not part of the original instruction.",
+    "severity": "high",
+    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate whether expanded scope is within delegated authority; no deliberation surface to assess scope boundaries.",
+    "agents_of_chaos_case": [3],
+    "owasp_mapping": ["LLM06"],
+    "aegis_mitigation": {
+      "constitutional_article": "Scope Boundaries",
+      "agp_mechanism": "AGP Task Scope Enforcement",
+      "mechanism": "Each delegated task carries explicit scope boundaries. Actions outside defined scope require re-authorization from the delegating principal."
+    },
+    "v1_id": "T3001"
+  },
+  {
+    "id": "T2002",
+    "name": "Perform Unvalidated Bulk Operations",
+    "tactic": "TA002",
+    "tactic_name": "Exceed Operational Scope",
+    "description": "The agent performs bulk operations (mass edits, batch deletions, large-scale API calls) without validating that the scope of the operation matches the intent of the instruction, including via tool invocation.",
+    "severity": "high",
+    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot assess aggregate impact of bulk actions; no proportionality check against instruction intent.",
+    "agents_of_chaos_case": [1],
+    "owasp_mapping": ["LLM06"],
+    "aegis_mitigation": {
+      "constitutional_article": "Proportionality Review",
+      "agp_mechanism": "AGP Bulk Operation Gate",
+      "mechanism": "Bulk operations require explicit scope confirmation and aggregate impact assessment before execution. Volume thresholds trigger mandatory escalation."
+    },
+    "v1_id": "T2003"
+  },
+  {
+    "id": "T2003",
+    "name": "Obscure Objective Through Delegation",
+    "tactic": "TA002",
+    "tactic_name": "Exceed Operational Scope",
+    "description": "Harmful intent is decomposed across multiple delegated steps such that no individual action appears unsafe. The aggregate effect of the delegated actions achieves an objective that would be blocked if attempted as a single operation.",
+    "severity": "high",
+    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate aggregate intent across delegation chains; no mechanism to detect composition attacks.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": ["LLM01", "LLM07"],
+    "aegis_mitigation": {
+      "constitutional_article": "Delegation Transparency",
+      "agp_mechanism": "AGP Delegation Chain Audit, AGP Composition Analysis",
+      "mechanism": "All delegation chains must be traceable end-to-end. Aggregate intent analysis applied across delegated sub-tasks to detect composition attacks."
+    },
+    "v1_id": null
+  },
+  {
+    "id": "T3001",
+    "name": "Perform Irreversible Destructive Action",
+    "tactic": "TA003",
+    "tactic_name": "Compromise System Integrity",
+    "description": "The agent selects an irreversible action (permanent deletion, irrecoverable modification) through direct or tool-mediated system interaction when a reversible alternative (archival, soft-delete, flagging) would satisfy the objective.",
+    "severity": "critical",
+    "root_cause": "RC2 (No Self-Model) — Agent cannot evaluate action severity or compare alternatives against a proportionality standard.",
+    "agents_of_chaos_case": [1],
+    "owasp_mapping": ["LLM06"],
+    "aegis_mitigation": {
+      "constitutional_article": "Least-Destructive Means",
+      "agp_mechanism": "AGP Proportionality Gate",
+      "mechanism": "Irreversible actions require explicit confirmation and must demonstrate that no reversible alternative satisfies the objective."
+    },
+    "v1_id": "T2001"
+  },
+  {
+    "id": "T3002",
+    "name": "Trigger Cascading System Changes",
+    "tactic": "TA003",
+    "tactic_name": "Compromise System Integrity",
+    "description": "The agent initiates an action through direct or tool-mediated system interaction that triggers a chain of cascading changes across interconnected systems, where downstream effects were not anticipated or authorized.",
+    "severity": "critical",
+    "root_cause": "RC2 (No Self-Model) — Agent cannot model downstream effects of actions in interconnected systems; no cascade impact assessment.",
+    "agents_of_chaos_case": [7],
+    "owasp_mapping": [],
+    "aegis_mitigation": {
+      "constitutional_article": "Impact Assessment",
+      "agp_mechanism": "AGP Cascade Analysis, AGP Interaction Intensity Limits",
+      "mechanism": "Actions with cross-system dependencies require cascade impact analysis. Downstream effect scope must be bounded and authorized."
+    },
+    "v1_id": "T2002"
+  },
+  {
+    "id": "T4001",
+    "name": "Exfiltrate Context-Scoped Data",
+    "tactic": "TA004",
+    "tactic_name": "Expose or Exfiltrate Information",
+    "description": "The agent exports or discloses data from the current context (conversation, session, task) to an unauthorized recipient, whether through direct exfiltration, indirect request compliance, or tool-mediated data transfer.",
+    "severity": "critical",
+    "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — No authorization check on data recipients; instructions in content treated as authorized requests.",
+    "agents_of_chaos_case": [2],
+    "owasp_mapping": ["LLM02"],
+    "aegis_mitigation": {
+      "constitutional_article": "Information Boundaries",
+      "agp_mechanism": "AGP Data Classification, AGP Disclosure Gate",
+      "mechanism": "All data tagged with sensitivity level and authorized recipient scope. Bulk data exports require explicit owner authorization verified against principal registry."
+    },
+    "v1_id": "T4001"
+  },
+  {
+    "id": "T4002",
+    "name": "Leak Cross-Session or Persistent Data",
+    "tactic": "TA004",
+    "tactic_name": "Expose or Exfiltrate Information",
+    "description": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration — exposing data from previous interactions to unauthorized parties in later sessions.",
+    "severity": "high",
+    "root_cause": "RC3 (No Private Deliberation Surface) — No session-scoped data isolation; persistent data accessible across session boundaries without authorization checks.",
+    "agents_of_chaos_case": [3],
+    "owasp_mapping": ["LLM02"],
+    "aegis_mitigation": {
+      "constitutional_article": "Session Isolation",
+      "agp_mechanism": "AGP Session Data Boundaries, AGP Persistent Data Access Controls",
+      "mechanism": "Persistent data access requires explicit authorization per session. Cross-session data sharing governed by owner-defined policies with audit logging."
+    },
+    "v1_id": "T4002"
+  },
+  {
+    "id": "T5001",
+    "name": "Report False Task Completion",
+    "tactic": "TA005",
+    "tactic_name": "Violate State Integrity",
+    "description": "The agent reports that a task has been completed successfully when the action either failed, was partially completed, or produced a different outcome than reported. The report is based on intent or expectation rather than verified system state.",
+    "severity": "high",
+    "root_cause": "RC2 (No Self-Model) — No model of the distinction between action initiation and action completion; no outcome verification protocol.",
+    "agents_of_chaos_case": [1],
+    "owasp_mapping": [],
+    "aegis_mitigation": {
+      "constitutional_article": "Truthful Reporting",
+      "agp_mechanism": "AGP Outcome Verification, AGP Completion Attestation",
+      "mechanism": "All reported outcomes must be verified against actual system state before reporting to the user."
+    },
+    "v1_id": "T8001"
+  },
+  {
+    "id": "T5002",
+    "name": "Fabricate Action Attribution",
+    "tactic": "TA005",
+    "tactic_name": "Violate State Integrity",
+    "description": "The agent misattributes an action to a different principal, system, or process than the one that actually performed it. This corrupts the audit trail and undermines accountability.",
+    "severity": "medium",
+    "root_cause": "RC2 (No Self-Model) — No mechanism to distinguish between action performers; attribution based on context rather than verified provenance.",
+    "agents_of_chaos_case": [8],
+    "owasp_mapping": ["LLM07"],
+    "aegis_mitigation": {
+      "constitutional_article": "Attribution Integrity",
+      "agp_mechanism": "AGP Audit Chain, AGP Action Provenance",
+      "mechanism": "All actions cryptographically signed by the performing principal. Attribution determined by verified action provenance, not agent reasoning."
+    },
+    "v1_id": "T5002"
+  },
+  {
+    "id": "T5003",
+    "name": "Suppress or Omit Execution Failure",
+    "tactic": "TA005",
+    "tactic_name": "Violate State Integrity",
+    "description": "The agent suppresses, omits, or fails to surface an execution failure — whether caused by provider constraints, tool errors, or internal exceptions — resulting in a divergence between reported state and actual state.",
+    "severity": "medium",
+    "root_cause": "RC2 (No Self-Model) — No model of constraint layers affecting the agent; failure signals not propagated to operator governance.",
+    "agents_of_chaos_case": [6],
+    "owasp_mapping": [],
+    "aegis_mitigation": {
+      "constitutional_article": "Constraint Visibility",
+      "agp_mechanism": "AGP Failure Signal Propagation, AGP Constraint Layer Transparency",
+      "mechanism": "All constraint layers (owner, operator, provider) must be visible and distinguishable. Execution failures must generate visible signals to the agent and operator."
+    },
+    "v1_id": "T9001"
+  },
+  {
+    "id": "T6001",
+    "name": "Execute Recursive Invocation Loops",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "The agent enters a recursive invocation loop — spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains — consuming unbounded compute, token, and time resources.",
+    "severity": "high",
+    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — No loop detection or recursion depth model; agents cannot recognize non-productive cycles.",
+    "agents_of_chaos_case": [4],
+    "owasp_mapping": ["LLM06", "LLM10"],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Execution",
+      "agp_mechanism": "AGP Resource Budgets, AGP Loop Detection",
+      "mechanism": "All agent-spawned processes bound by session-scoped resource allocations. Structural detection of recursive invocations with automatic circuit-breaking."
+    },
+    "v1_id": "T3001"
+  },
+  {
+    "id": "T6002",
+    "name": "Consume Unbounded External Resources",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "The agent consumes external resources (API calls, network bandwidth, storage, third-party service quotas) without limits or lifecycle management, degrading availability for other systems and users.",
+    "severity": "medium",
+    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — No model of resource boundaries; no lifecycle governance for external resource consumption.",
+    "agents_of_chaos_case": [5],
+    "owasp_mapping": ["LLM10"],
+    "aegis_mitigation": {
+      "constitutional_article": "Resource Proportionality",
+      "agp_mechanism": "AGP Storage Quotas, AGP External Resource Budgets",
+      "mechanism": "Per-agent resource allocations with automatic lifecycle management. External resource consumption subject to configurable quotas and rate limits."
+    },
+    "v1_id": "T3002"
+  },
+  {
+    "id": "T7001",
+    "name": "Spoof Agent Identity",
+    "tactic": "TA007",
+    "tactic_name": "Manipulate Agent Interactions",
+    "description": "An agent claims or assumes the identity of another agent in a multi-agent system, gaining unauthorized access to resources, delegations, or trust relationships associated with the spoofed identity.",
+    "severity": "critical",
+    "root_cause": "RC1 (No Stakeholder Model) — No cryptographic identity verification between agents; identity claims based on self-assertion.",
+    "agents_of_chaos_case": [9],
+    "owasp_mapping": [],
+    "aegis_mitigation": {
+      "constitutional_article": "Agent Identity",
+      "agp_mechanism": "AGP Cryptographic Agent Identity, AGP Mutual Authentication",
+      "mechanism": "All inter-agent interactions require mutual cryptographic authentication. Identity claims verified against the agent registry."
+    },
+    "v1_id": "T7001"
+  },
+  {
+    "id": "T7002",
+    "name": "Inject Malicious Delegation Chains",
+    "tactic": "TA007",
+    "tactic_name": "Manipulate Agent Interactions",
+    "description": "An agent injects malicious tasks into a multi-agent delegation chain, exploiting trust transitivity to have other agents execute actions that the originating agent is not authorized to perform.",
+    "severity": "high",
+    "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — No independent governance verification; shared governance infrastructure creates single points of compromise.",
+    "agents_of_chaos_case": [10],
+    "owasp_mapping": [],
+    "aegis_mitigation": {
+      "constitutional_article": "Delegation Integrity",
+      "agp_mechanism": "AGP Delegation Chain Verification, AGP Trust Transitivity Controls",
+      "mechanism": "Each agent in a delegation chain independently verifies authorization. Trust does not propagate transitively without explicit per-hop authorization."
+    },
+    "v1_id": "T7002"
+  },
+  {
+    "id": "T7003",
+    "name": "Induce Cross-Agent Behavioral Drift",
+    "tactic": "TA007",
+    "tactic_name": "Manipulate Agent Interactions",
+    "description": "An agent influences the behavioral patterns of other agents through shared context, conversation, or operational interaction, causing gradual drift from their governance-defined behavior toward unverified or unauthorized operational patterns.",
+    "severity": "medium",
+    "root_cause": "RC3 (No Private Deliberation Surface) — No mechanism to isolate agent behavior from peer influence; behavioral norms adopted from interaction rather than governance.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": ["LLM01"],
+    "aegis_mitigation": {
+      "constitutional_article": "Behavioral Integrity",
+      "agp_mechanism": "AGP Behavioral Baseline, AGP Drift Detection",
+      "mechanism": "Agent behavior continuously compared against governance-defined baseline. Behavioral drift beyond configurable thresholds triggers escalation and governance re-verification."
+    },
+    "v1_id": null
+  },
+  {
+    "id": "T8001",
+    "name": "Poison Persistent Memory",
+    "tactic": "TA008",
+    "tactic_name": "Establish or Modify Persistence",
+    "description": "An agent writes malicious, misleading, or unauthorized data into persistent memory stores (long-term memory, knowledge bases, configuration caches), corrupting future interactions that rely on this stored context.",
+    "severity": "high",
+    "root_cause": "RC4 (Prompt Injection Is Structural) — No integrity verification for persistent memory writes; memory content treated as trusted regardless of provenance.",
+    "agents_of_chaos_case": [10],
+    "owasp_mapping": ["LLM01"],
+    "aegis_mitigation": {
+      "constitutional_article": "Memory Integrity",
+      "agp_mechanism": "AGP Memory Provenance, AGP Persistent Write Authorization",
+      "mechanism": "All persistent memory writes require authorization and carry provenance metadata. Memory reads verify integrity before use."
+    },
+    "v1_id": "T6001"
+  },
+  {
+    "id": "T8002",
+    "name": "Corrupt Governance or Policy State",
+    "tactic": "TA008",
+    "tactic_name": "Establish or Modify Persistence",
+    "description": "An agent modifies its own governance constraints, policy state, or constitutional articles through direct manipulation or indirect means (tool use, self-prompting, context manipulation), bypassing normal amendment procedures and audit logging.",
+    "severity": "critical",
+    "root_cause": "RC4 (Prompt Injection Is Structural) — Governance configuration stored in mutable locations; no integrity verification or tamper detection for policy state.",
+    "agents_of_chaos_case": [10],
+    "owasp_mapping": ["LLM01"],
+    "aegis_mitigation": {
+      "constitutional_article": "Governance Immutability",
+      "agp_mechanism": "AGP Immutable Governance Store, AGP Self-Modification Detection",
+      "mechanism": "Governance configuration stored in integrity-verified, tamper-evident locations. Constitutional articles modifiable only through audited owner-authorized procedures."
+    },
+    "v1_id": "T6002"
+  },
+  {
+    "id": "T9001",
+    "name": "Operate Outside Monitoring Boundaries",
+    "tactic": "TA009",
+    "tactic_name": "Evade Detection or Oversight",
+    "description": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems — whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
+    "severity": "medium",
+    "root_cause": "RC2 (No Self-Model) — No model of the observability boundaries affecting the agent; agent cannot distinguish monitored from unmonitored pathways.",
+    "agents_of_chaos_case": [6],
+    "owasp_mapping": [],
+    "aegis_mitigation": {
+      "constitutional_article": "Complete Observability",
+      "agp_mechanism": "AGP Mandatory Audit Surface, AGP Monitoring Completeness",
+      "mechanism": "All agent action pathways must pass through audited control points. Unmonitored tool access is architecturally prevented."
+    },
+    "v1_id": null
+  },
+  {
+    "id": "T9002",
+    "name": "Obfuscate Action Traceability",
+    "tactic": "TA009",
+    "tactic_name": "Evade Detection or Oversight",
+    "description": "The agent obscures the traceability of its actions by manipulating log entries, altering audit trails, fragmenting actions across multiple contexts, or using indirect execution paths that make causal attribution difficult.",
+    "severity": "medium",
+    "root_cause": "RC4 (Prompt Injection Is Structural) — Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": ["LLM06"],
+    "aegis_mitigation": {
+      "constitutional_article": "Audit Integrity",
+      "agp_mechanism": "AGP Immutable Audit Log, AGP Action Chain Integrity",
+      "mechanism": "Audit logs are append-only and cryptographically signed. Action chains maintain end-to-end traceability regardless of execution path fragmentation."
+    },
+    "v1_id": null
+  }
+]
