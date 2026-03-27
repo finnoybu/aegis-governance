@@ -108,6 +108,14 @@ The governance layer operates on an abstraction of the execution environment —
 
 ATX-1 defines 10 tactics. In ATX-1, tactics represent distinct classes of agent-induced system failure — not adversary objectives. These include violation of constraints (e.g., scope, authority), degradation of system guarantees (e.g., integrity, observability), and limitations of governance models (e.g., incomplete abstraction, semantic mismatch). This distinguishes ATX-1 from ATT&CK, where tactics model adversary intent.
 
+ATX-1 models failures of governance across three dimensions:
+
+- **Constraint failure:** the agent violates defined policy or scope.
+- **Observability failure:** the governance layer cannot observe the agent's actions.
+- **Interpretation failure:** the governance layer observes actions but misinterprets their semantic effect.
+
+These dimensions are orthogonal and collectively describe how agent behavior can produce unintended or unsafe outcomes even under active governance.
+
 ---
 
 ### TA001: Authority Boundary Violation
