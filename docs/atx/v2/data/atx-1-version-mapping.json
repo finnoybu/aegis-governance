@@ -49,6 +49,6 @@
     { "v1_id": "TA007", "v2_id": "TA007", "v1_name": "Cross-Agent Propagation", "v2_name": "Manipulate Agent Interactions", "change": "renamed" },
     { "v1_id": "TA008", "v2_id": "TA008", "v1_name": "False Completion Reporting", "v2_name": "Establish or Modify Persistence", "change": "renamed+restructured" },
     { "v1_id": "TA009", "v2_id": "TA009", "v1_name": "Provider Constraint Opacity", "v2_name": "Evade Detection or Oversight", "change": "renamed+restructured" },
-    { "v1_id": null, "v2_id": "TA010", "v1_name": null, "v2_name": "Exploit Governance Visibility Gap", "change": "new-v2.1", "root_cause": "RC5 (No Environment Model)" }
+    { "v1_id": null, "v2_id": "TA010", "v1_name": null, "v2_name": "Act Beyond Governance Interpretation", "change": "new-v2.1", "root_cause": "RC5 (No Environment Model)" }
   ]
 }

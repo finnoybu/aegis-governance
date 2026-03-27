@@ -2333,9 +2333,9 @@
       "id": "x-mitre-tactic--a1b2c3d4-e5f6-5a7b-8c9d-0e1f2a3b4c5d",
       "created": "2026-03-27T00:00:00.000Z",
       "modified": "2026-03-27T00:00:00.000Z",
-      "name": "Exploit Governance Visibility Gap",
+      "name": "Act Beyond Governance Interpretation",
       "description": "The agent performs actions whose actual effects are invisible to the governance layer because the execution environment provides capabilities below the governance model's abstraction level. The governance layer evaluates an action as one type (file write, shell command) but the environment executes it as a fundamentally different type (network connection, code execution, instruction injection). Exploits Environment Model primitives. Introduced in ATX-1 v2.1.",
-      "x_mitre_shortname": "exploit-governance-visibility-gap",
+      "x_mitre_shortname": "act-beyond-governance-interpretation",
       "external_references": [
         {
           "source_name": "atx-1",
@@ -2355,7 +2355,7 @@
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
-          "phase_name": "exploit-governance-visibility-gap"
+          "phase_name": "act-beyond-governance-interpretation"
         }
       ],
       "external_references": [
@@ -2381,7 +2381,7 @@
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
-          "phase_name": "exploit-governance-visibility-gap"
+          "phase_name": "act-beyond-governance-interpretation"
         }
       ],
       "external_references": [
@@ -2412,7 +2412,7 @@
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
-          "phase_name": "exploit-governance-visibility-gap"
+          "phase_name": "act-beyond-governance-interpretation"
         }
       ],
       "external_references": [
@@ -2443,7 +2443,7 @@
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
-          "phase_name": "exploit-governance-visibility-gap"
+          "phase_name": "act-beyond-governance-interpretation"
         }
       ],
       "external_references": [

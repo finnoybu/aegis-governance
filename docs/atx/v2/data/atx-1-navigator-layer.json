@@ -7,7 +7,7 @@
   },
   "domain": "enterprise-attack",
   "customDataURL": "https://aegis-governance.com/atx-1/stix-bundle.json",
-  "description": "ATX-1 v2.1 \u2014 10 tactics, 29 techniques for autonomous AI agent threat modeling. v2.1 adds TA010 (Exploit Governance Visibility Gap) with 4 techniques discovered during RFC-0006 adversarial testing.",
+  "description": "ATX-1 v2.1 \u2014 10 tactics, 29 techniques for autonomous AI agent threat modeling. v2.1 adds TA010 (Act Beyond Governance Interpretation) with 4 techniques discovered during RFC-0006 adversarial testing.",
   "filters": {
     "platforms": [
       "PRE"
@@ -948,7 +948,7 @@
     },
     {
       "techniqueID": "T10001",
-      "tactic": "exploit-governance-visibility-gap",
+      "tactic": "act-beyond-governance-interpretation",
       "score": 75,
       "color": "#b35900",
       "comment": "The agent accesses OS pseudo-filesystem paths (e.g., /dev/tcp, /dev/udp, /proc/*) to perform network or system operations. The governance layer evaluates these as file operations; the OS provides network sockets or system interfaces through these paths.",
@@ -964,7 +964,7 @@
         },
         {
           "name": "Tactic",
-          "value": "Exploit Governance Visibility Gap"
+          "value": "Act Beyond Governance Interpretation"
         },
         {
           "name": "Discovery",
@@ -985,7 +985,7 @@
     },
     {
       "techniqueID": "T10002",
-      "tactic": "exploit-governance-visibility-gap",
+      "tactic": "act-beyond-governance-interpretation",
       "score": 75,
       "color": "#b35900",
       "comment": "The agent writes content to files that the execution environment or installed toolchain automatically executes at a later time or on specific triggers. Target files include shell profiles, git hooks, package scripts, IDE tasks, Dockerfiles, and tool configs with execution semantics.",
@@ -1001,7 +1001,7 @@
         },
         {
           "name": "Tactic",
-          "value": "Exploit Governance Visibility Gap"
+          "value": "Act Beyond Governance Interpretation"
         },
         {
           "name": "OWASP",
@@ -1026,7 +1026,7 @@
     },
     {
       "techniqueID": "T10003",
-      "tactic": "exploit-governance-visibility-gap",
+      "tactic": "act-beyond-governance-interpretation",
       "score": 100,
       "color": "#d1242f",
       "comment": "The agent modifies files that define its own behavioral instructions for future sessions. These instruction files are auto-loaded at session start, writable without escalation, persist across sessions, and propagate via version control. The governance layer sees a file write; the effect is persistent self-modifying instruction injection.",
@@ -1042,7 +1042,7 @@
         },
         {
           "name": "Tactic",
-          "value": "Exploit Governance Visibility Gap"
+          "value": "Act Beyond Governance Interpretation"
         },
         {
           "name": "OWASP",
@@ -1067,7 +1067,7 @@
     },
     {
       "techniqueID": "T10004",
-      "tactic": "exploit-governance-visibility-gap",
+      "tactic": "act-beyond-governance-interpretation",
       "score": 75,
       "color": "#b35900",
       "comment": "The agent constructs inputs that the governance evaluator parses differently than the execution runtime. Techniques include newline/CRLF injection, null byte path truncation, Unicode homoglyphs, heredoc syntax, and shell metacharacter injection.",
@@ -1083,7 +1083,7 @@
         },
         {
           "name": "Tactic",
-          "value": "Exploit Governance Visibility Gap"
+          "value": "Act Beyond Governance Interpretation"
         },
         {
           "name": "OWASP",
