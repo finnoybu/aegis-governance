@@ -35,6 +35,9 @@ docs/papers/
 # AEGIS runtime artifacts
 .aegis/audit.jsonl
 .aegis/registry.json.bak
+.aegis/conversation.txt
+.aegis/conversation-*.zip
 
 # Claude Code personal settings (never commit)
 .claude/settings.local.json
+.aegis/

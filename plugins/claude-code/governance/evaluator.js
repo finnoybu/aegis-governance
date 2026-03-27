@@ -34,6 +34,44 @@ const SUBJECT_EXTRACTORS = {
                         safeJson(input).slice(0, 200),
 };
 
+/**
+ * Tools whose subjects are file paths and must be Unicode-normalized
+ * before pattern matching. Without this, homoglyph characters (e.g.
+ * U+FF0E FULLWIDTH FULL STOP) bypass capability regex patterns that
+ * match ASCII literals like "\." — the normalization was only applied
+ * in constraint checking (globMatches/normalizePath), not in pattern
+ * matching. See ATX-1 T10004 (parser divergence).
+ */
+const FILE_PATH_TOOLS = { Write: true, Edit: true };
+
+/**
+ * Normalize Unicode homoglyphs and null bytes in a subject string
+ * so that capability patterns match consistently. This is lighter
+ * than normalizePath() — it does NOT strip drive letters or resolve
+ * traversals, so the subject retains its structure for pattern matching.
+ *
+ * @param {string} subject  Raw subject string
+ * @returns {string}        Homoglyph-normalized subject
+ */
+function normalizeSubjectUnicode(subject) {
+  let s = subject;
+  // Strip null bytes
+  s = s.replace(/\0/g, '');
+  // U+FF0E (FULLWIDTH FULL STOP) → .
+  s = s.replace(/\uFF0E/g, '.');
+  // Collapse consecutive dots created by homoglyph replacement.
+  // ".．bashrc" → "..bashrc" → ".bashrc". Safe because: real ".." traversals
+  // are handled by normalizePath in globMatches; dual-eval ensures this only
+  // applies when it produces a stricter result; a genuine "..filename" is
+  // anomalous and worth catching regardless.
+  s = s.replace(/\.{2,}/g, '.');
+  // U+2215 (DIVISION SLASH), U+2044 (FRACTION SLASH), U+FF0F (FULLWIDTH SOLIDUS) → /
+  s = s.replace(/[\u2215\u2044\uFF0F]/g, '/');
+  // U+FF3C (FULLWIDTH REVERSE SOLIDUS) → \
+  s = s.replace(/\uFF3C/g, '\\');
+  return s;
+}
+
 function safeJson(v) {
   try { return JSON.stringify(v); } catch (_) { return ''; }
 }
@@ -198,13 +236,19 @@ function globMatches(pattern, str) {
  */
 function extractPathArguments(command) {
   // Split on whitespace, skip the first token (the command itself),
-  // and return tokens that look like paths (contain / or \ or start with .)
+  // and return tokens that look like paths or globs
   var tokens = command.split(/\s+/).slice(1);
   return tokens.filter(function(t) {
     // Skip flags
     if (t.startsWith('-')) return false;
     // Keep anything that looks like a path
-    return t.includes('/') || t.includes('\\') || t.startsWith('.');
+    if (t.includes('/') || t.includes('\\') || t.startsWith('.')) return true;
+    // Keep glob patterns that could expand to sensitive files (e.g. *.env, *.key)
+    if (/[*?]/.test(t)) return true;
+    // Keep tokens with file extensions (e.g. server.key, backup.pem, creds.json)
+    // These may match extension-based denied patterns like *.key, *.pem
+    if (/\.\w+$/.test(t)) return true;
+    return false;
   });
 }
 
@@ -231,6 +275,26 @@ function checkConstraints(constraints, subject, toolName) {
   if (toolName === 'Bash') {
     var pathArgs = extractPathArguments(subject);
     for (const arg of pathArgs) {
+      // If the argument contains glob wildcards (* or ?), it could expand to
+      // match protected files at runtime. The evaluator can't predict expansion,
+      // so check if the glob pattern COULD overlap with any denied pattern.
+      // Use bidirectional matching: check if the denied pattern matches the arg
+      // AND if the arg (as a glob) could match the denied pattern's literal form.
+      if (/[*?]/.test(arg)) {
+        for (const pattern of denied) {
+          // Check both directions: does the denied pattern match the glob arg,
+          // OR does the glob arg match the denied pattern's basename?
+          const argBase = arg.split('/').pop() || arg;
+          const patBase = pattern.split('/').pop() || pattern;
+          if (globMatches(pattern, arg) || globMatches(argBase, patBase) || globMatches(arg, patBase)) {
+            return {
+              decision: 'deny',
+              reason:   `Glob argument "${arg}" could expand to match denied pattern "${pattern}"`,
+            };
+          }
+        }
+        continue;
+      }
       for (const pattern of denied) {
         if (globMatches(pattern, arg)) {
           return {
@@ -328,8 +392,19 @@ function evaluate(registry, toolName, toolInput) {
   const defaultPosture = registry.default_posture || 'deny';
   const capabilities   = Array.isArray(registry.capabilities) ? registry.capabilities : [];
 
-  const extractor = SUBJECT_EXTRACTORS[toolName];
-  const subject   = extractor ? extractor(toolInput) : safeJson(toolInput).slice(0, 200);
+  const extractor  = SUBJECT_EXTRACTORS[toolName];
+  const rawSubject = extractor ? extractor(toolInput) : safeJson(toolInput).slice(0, 200);
+
+  // For file-path tools (Write/Edit), evaluate BOTH the raw subject AND a
+  // Unicode-normalized variant against the capability registry. Use the more
+  // restrictive result. This catches homoglyph attacks (T10004) where e.g.
+  // U+FF0E (fullwidth dot) replaces ASCII dot in ".bashrc", without breaking
+  // cases where normalization produces a different filename (e.g. ".．bashrc"
+  // normalizing to "..bashrc" — a different file that wouldn't match patterns).
+  const subject = rawSubject;
+  const normalizedSubject = FILE_PATH_TOOLS[toolName]
+    ? normalizeSubjectUnicode(rawSubject)
+    : null;
 
   // ── Bash-specific: shell command segmentation ───────────────────────────
   if (toolName === 'Bash' && subject) {
@@ -344,6 +419,21 @@ function evaluate(registry, toolName, toolInput) {
         capability_name:  null,
         reason:           'Command contains shell metacharacters that could execute ' +
                           'arbitrary embedded code: "' + subject.slice(0, 60) + '"',
+      };
+    }
+
+    // Embedded newlines in a command string are a parser divergence attack
+    // (ATX-1 T10004). In bash, \n is equivalent to ; — it terminates a command.
+    // An embedded newline can smuggle a second command past single-line pattern
+    // matching. Legitimate multi-command sequences use && or ; explicitly.
+    // Hard deny — this is evasion, not a legitimate compound command.
+    if (/\r?\n/.test(subject)) {
+      return {
+        decision:         'deny',
+        capability_id:    null,
+        capability_name:  null,
+        reason:           'Command contains embedded newline (parser divergence ' +
+                          'attack — T10004): "' + subject.replace(/\n/g, '\\n').slice(0, 60) + '"',
       };
     }
 
@@ -405,6 +495,26 @@ function evaluate(registry, toolName, toolInput) {
   }
 
   // ── Standard single-subject evaluation ──────────────────────────────────
+  // For file-path tools, evaluate both the raw and normalized subjects and
+  // return the MORE RESTRICTIVE result. This catches Unicode homoglyph
+  // attacks without false-positives from normalization artifacts.
+  if (normalizedSubject && normalizedSubject !== subject) {
+    const rawResult  = evaluateSingle(capabilities, defaultPosture, toolName, subject);
+    const normResult = evaluateSingle(capabilities, defaultPosture, toolName, normalizedSubject);
+
+    const rawSeverity  = DECISION_SEVERITY[rawResult.decision]  !== undefined
+      ? DECISION_SEVERITY[rawResult.decision]  : 3;
+    const normSeverity = DECISION_SEVERITY[normResult.decision] !== undefined
+      ? DECISION_SEVERITY[normResult.decision] : 3;
+
+    if (normSeverity > rawSeverity) {
+      normResult.reason = 'Unicode-normalized path matched stricter rule: ' +
+                          normResult.reason;
+      return normResult;
+    }
+    return rawResult;
+  }
+
   return evaluateSingle(capabilities, defaultPosture, toolName, subject);
 }
 

@@ -1,12 +1,13 @@
 {
   "_comment": "AEGIS default capability registry — copy to .aegis/registry.json to install",
-  "version": "1.3.0",
+  "version": "1.6.0",
   "default_posture": "deny",
   "protected_paths": [
     ".aegis/*",
     ".claude/*",
     ".bashrc",
     ".bash_profile",
+    ".bash_logout",
     ".profile",
     ".zshrc",
     ".zprofile",
@@ -26,17 +27,57 @@
     ".github/copilot-instructions.md",
     ".windsurfrules",
     ".continuerc.json",
-    ".aider.conf.yml"
+    ".aider.conf.yml",
+    ".envrc",
+    "docker-compose.yml",
+    ".github/workflows/*"
   ],
   "capabilities": [
+    {
+      "id": "CAP-001a",
+      "name": "shell.read.env",
+      "tools": ["Bash"],
+      "pattern": "^(env|printenv|set)(\\s|$)",
+      "decision": "escalate"
+    },
     {
       "id": "CAP-001",
       "name": "shell.read",
       "tools": ["Bash"],
-      "pattern": "^(ls|cat|grep|find|echo|pwd|which|env|head|tail|wc|diff|stat|file|type|where|dir)(\\s|$)",
+      "pattern": "^(ls|cat|grep|find|echo|pwd|which|head|tail|wc|diff|stat|file|type|where|dir)(\\s|$)",
       "decision": "allow",
       "constraints": {
-        "paths_denied": ["/proc/*", "/dev/*", "/var/run/docker.sock"]
+        "paths_denied": [
+          "/proc/*",
+          "/dev/*",
+          "/var/run/docker.sock",
+          "/etc/shadow",
+          "/etc/passwd",
+          "/etc/hosts",
+          "~/.ssh/*",
+          "*.key",
+          "*.pem",
+          "*.p12",
+          "*.pfx",
+          "*.crt",
+          "*.cer",
+          "*.der",
+          "*.secret",
+          "*.credentials",
+          ".env",
+          ".env.*",
+          "*.env",
+          ".aegis/*",
+          ".claude/*",
+          ".git/hooks/*",
+          ".bashrc",
+          ".bash_profile",
+          ".bash_logout",
+          ".profile",
+          ".zshrc",
+          ".zprofile",
+          ".zshenv"
+        ]
       }
     },
     {
@@ -64,7 +105,7 @@
       "id": "CAP-005a",
       "name": "file.write.exec",
       "tools": ["Write", "Edit"],
-      "pattern": "(^|[/\\\\])(package\\.json|setup\\.py|setup\\.cfg|pyproject\\.toml|Makefile|GNUmakefile|Dockerfile|Dockerfile\\..*)$",
+      "pattern": "(^|[/\\\\])(package\\.json|setup\\.py|setup\\.cfg|pyproject\\.toml|Makefile|GNUmakefile|Dockerfile|Dockerfile\\..*|docker-compose\\.yml|docker-compose\\..*\\.yml|\\.envrc)$",
       "decision": "escalate"
     },
     {
@@ -72,6 +113,13 @@
       "name": "file.write.config",
       "tools": ["Write", "Edit"],
       "pattern": "(^|[/\\\\])(\\.npmrc|\\.pypirc|\\.cargo/config\\.toml|\\.gitconfig|\\.git/config)$",
+      "decision": "escalate"
+    },
+    {
+      "id": "CAP-005ci",
+      "name": "file.write.ci",
+      "tools": ["Write", "Edit"],
+      "pattern": "(^|[/\\\\])\\.github/workflows/.*\\.yml$",
       "decision": "escalate"
     },
     {
@@ -106,6 +154,7 @@
           ".claude/*",
           ".bashrc",
           ".bash_profile",
+          ".bash_logout",
           ".profile",
           ".zshrc",
           ".zprofile",
