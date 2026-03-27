@@ -4,7 +4,9 @@
   "description": "Mapping of ATX-1 technique IDs from v1.0 through v2.0 to v2.1 for traceability. v1.0 and v2.0 remain frozen at their published DOIs.",
   "references": {
     "v1_ieee_dataport": "10.21227/f87b-1d57",
-    "v1_zenodo": "10.5281/zenodo.19225676"
+    "v1_zenodo": "10.5281/zenodo.19225676",
+    "v2_zenodo": "10.5281/zenodo.19238844",
+    "v2.1_zenodo": "10.5281/zenodo.19251098"
   },
   "mappings": [
     { "v1_id": "T1001", "v2_id": "T1001", "v1_name": "Non-Owner Instruction Compliance", "v2_name": "Execute Non-Owner Instruction", "v1_tactic": "TA001", "v2_tactic": "TA001", "change": "renamed" },

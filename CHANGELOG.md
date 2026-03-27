@@ -11,6 +11,7 @@ All notable changes to the AEGIS™ project are documented in [`changelog/`](cha
 
 | Date | Type | Title |
 |------|------|-------|
+| [2026-03-27](changelog/2026-03-27-atx1-v2.1-ta010.md) | Version release | ATX-1 v2.1 — TA010 Exploit Governance Visibility Gap |
 | [2026-03-13](changelog/2026-03-13-citation-standards.md) | Milestone | Citation Standards & Canonical Bibliography |
 | [2026-03-13](changelog/2026-03-13-repository-as-living-paper.md) | Milestone | Repository as Living Paper |
 | [2026-03-07](changelog/2026-03-07-nist-submission.md) | Submission | NIST Position Statement Submission |
