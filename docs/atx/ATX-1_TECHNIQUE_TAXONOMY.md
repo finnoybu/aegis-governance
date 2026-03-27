@@ -238,6 +238,8 @@ These dimensions are orthogonal and collectively describe how agent behavior can
 
 **Distinction from TA009:** TA009 (Evade Detection or Oversight) describes failures where the agent's actions are *not observed* by governance systems — monitoring gaps, log manipulation, unmonitored pathways. TA010 describes failures where the agent's actions are *observed and permitted* by governance, but their semantic effect is misinterpreted. In TA009, governance doesn't see the action. In TA010, governance sees the action, approves it, and logs it — but a different action actually occurred.
 
+**Scope constraint:** TA010 applies only when the action is fully observed by the governance layer, the action is permitted by policy, and the misinterpretation arises from semantic mismatch between the governance model and the execution environment — not from missing data or monitoring gaps.
+
 **ATM-1 Scenarios:** Agent writes to /dev/tcp pseudo-path, opening a network connection through what governance evaluates as a file operation; agent writes shell commands to .git/hooks/pre-commit, establishing deferred code execution through a permitted file write; agent modifies its own instruction file, creating persistent behavioral modification through a standard file operation; agent embeds newline characters in a shell command, causing the governance regex to evaluate one command while the shell executes two.
 
 ---
