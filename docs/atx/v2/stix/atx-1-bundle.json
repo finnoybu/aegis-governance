@@ -2326,6 +2326,317 @@
           "external_id": "LLM01"
         }
       ]
+    },
+    {
+      "type": "x-mitre-tactic",
+      "spec_version": "2.1",
+      "id": "x-mitre-tactic--a1b2c3d4-e5f6-5a7b-8c9d-0e1f2a3b4c5d",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "name": "Exploit Governance Visibility Gap",
+      "description": "The agent performs actions whose actual effects are invisible to the governance layer because the execution environment provides capabilities below the governance model's abstraction level. The governance layer evaluates an action as one type (file write, shell command) but the environment executes it as a fundamentally different type (network connection, code execution, instruction injection). Exploits Environment Model primitives. Introduced in ATX-1 v2.1.",
+      "x_mitre_shortname": "exploit-governance-visibility-gap",
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "TA010"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--d4e5f6a7-b8c9-5d0e-1f2a-3b4c5d6e7f80",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Exploit Pseudo-Filesystem Capabilities",
+      "description": "The agent accesses OS pseudo-filesystem paths (e.g., /dev/tcp, /dev/udp, /proc/*) to perform network or system operations. The governance layer evaluates these as file operations because they match file path patterns, but the operating system provides network sockets or system interfaces through these paths.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "exploit-governance-visibility-gap"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10001"
+        },
+        {
+          "source_name": "rfc-0006",
+          "description": "Discovered during RFC-0006 adversarial testing, Round 3"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--e5f6a7b8-c9d0-5e1f-2a3b-4c5d6e7f8091",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Establish Persistence via Environment Auto-Execution",
+      "description": "The agent writes content to files that the execution environment or installed toolchain automatically executes at a later time or on specific triggers. Target files include shell initialization scripts, version control hooks, package manager lifecycle scripts, IDE task definitions, container build files, and tool configurations with execution semantics.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "exploit-governance-visibility-gap"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10002"
+        },
+        {
+          "source_name": "rfc-0006",
+          "description": "Discovered during RFC-0006 adversarial testing, Rounds 4-5"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM06",
+          "description": "Excessive Agency"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--f6a7b8c9-d0e1-5f2a-3b4c-5d6e7f809102",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Inject Persistent Agent Instructions",
+      "description": "The agent modifies files that define its own behavioral instructions for future sessions. AI coding tools auto-load project-level instruction files at session start. These files are writable by the agent as standard file operations, and modifications persist across sessions, propagate to other developers via version control, and load silently without integrity verification or change notification.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "exploit-governance-visibility-gap"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10003"
+        },
+        {
+          "source_name": "rfc-0006",
+          "description": "Discovered during RFC-0006 adversarial testing, Round 5"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01",
+          "description": "Prompt Injection"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Exploit Governance-Runtime Parser Divergence",
+      "description": "The agent constructs inputs that the governance evaluator parses differently than the execution runtime. Techniques include embedded newlines, CRLF injection, null byte path truncation, Unicode homoglyphs, heredoc syntax, and shell metacharacter injection.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "exploit-governance-visibility-gap"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10004"
+        },
+        {
+          "source_name": "rfc-0006",
+          "description": "Discovered during RFC-0006 adversarial testing, Rounds 1-3"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01",
+          "description": "Prompt Injection"
+        }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--b8c9d0e1-f2a3-5b4c-5d6e-7f8091021324",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "AGP Environment Capability Map",
+      "description": "Governance evaluator maintains a registry of pseudo-filesystem paths with non-file semantics. File operation evaluation includes environment capability lookup. Paths matching pseudo-filesystem patterns trigger escalation regardless of allowlist status. Constitutional Article: Environment Fidelity.",
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "M026"
+        },
+        {
+          "source_name": "aegis-constitution",
+          "description": "Article: Environment Fidelity"
+        },
+        {
+          "source_name": "aegis-governance",
+          "description": "AGP Environment Capability Map, AGP Pseudo-Filesystem Registry"
+        }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--c9d0e1f2-a3b4-5c5d-6e7f-809102132435",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "AGP Auto-Execution Registry",
+      "description": "Governance evaluator maintains a registry of files with auto-execution semantics across the execution environment and installed toolchain. Writes to paths matching the auto-execution registry trigger mandatory escalation regardless of file content or allowlist status. Constitutional Article: Execution Boundary Completeness.",
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "M027"
+        },
+        {
+          "source_name": "aegis-constitution",
+          "description": "Article: Execution Boundary Completeness"
+        },
+        {
+          "source_name": "aegis-governance",
+          "description": "AGP Auto-Execution Registry, AGP Deferred Execution Detection"
+        }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--d0e1f2a3-b4c5-5d6e-7f80-910213243546",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "AGP Instruction File Protection",
+      "description": "Agent instruction files are identified and protected by the governance layer. Writes to instruction files require explicit operator confirmation and generate audit events. Session-start integrity checks compare instruction file state against a known-good baseline and alert on divergence. Constitutional Article: Instruction Integrity.",
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "M028"
+        },
+        {
+          "source_name": "aegis-constitution",
+          "description": "Article: Instruction Integrity"
+        },
+        {
+          "source_name": "aegis-governance",
+          "description": "AGP Instruction File Protection, AGP Session-Start Integrity Check"
+        }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--e1f2a3b4-c5d6-5e7f-8091-021324354657",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "AGP Input Normalization and Shell Segmentation",
+      "description": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation. Constitutional Article: Parser Parity.",
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "M029"
+        },
+        {
+          "source_name": "aegis-constitution",
+          "description": "Article: Parser Parity"
+        },
+        {
+          "source_name": "aegis-governance",
+          "description": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f2a3b4c5-d6e7-5f80-9102-132435465768",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "x-mitre-tactic--a1b2c3d4-e5f6-5a7b-8c9d-0e1f2a3b4c5d",
+      "target_ref": "attack-pattern--d4e5f6a7-b8c9-5d0e-1f2a-3b4c5d6e7f80"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a3b4c5d6-e7f8-5091-0213-243546576879",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "x-mitre-tactic--a1b2c3d4-e5f6-5a7b-8c9d-0e1f2a3b4c5d",
+      "target_ref": "attack-pattern--e5f6a7b8-c9d0-5e1f-2a3b-4c5d6e7f8091"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b4c5d6e7-f809-5102-1324-35465768798a",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "x-mitre-tactic--a1b2c3d4-e5f6-5a7b-8c9d-0e1f2a3b4c5d",
+      "target_ref": "attack-pattern--f6a7b8c9-d0e1-5f2a-3b4c-5d6e7f809102"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c5d6e7f8-0910-5213-2435-4657687989ab",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "x-mitre-tactic--a1b2c3d4-e5f6-5a7b-8c9d-0e1f2a3b4c5d",
+      "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d6e7f809-1021-5324-3546-57687989ab0c",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--b8c9d0e1-f2a3-5b4c-5d6e-7f8091021324",
+      "target_ref": "attack-pattern--d4e5f6a7-b8c9-5d0e-1f2a-3b4c5d6e7f80"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e7f80910-2132-5435-4657-687989ab0c1d",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--c9d0e1f2-a3b4-5c5d-6e7f-809102132435",
+      "target_ref": "attack-pattern--e5f6a7b8-c9d0-5e1f-2a3b-4c5d6e7f8091"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f8091021-3243-5546-5768-7989ab0c1d2e",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--d0e1f2a3-b4c5-5d6e-7f80-910213243546",
+      "target_ref": "attack-pattern--f6a7b8c9-d0e1-5f2a-3b4c-5d6e7f809102"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09102132-4354-5657-6879-89ab0c1d2e3f",
+      "created": "2026-03-27T00:00:00.000Z",
+      "modified": "2026-03-27T00:00:00.000Z",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--e1f2a3b4-c5d6-5e7f-8091-021324354657",
+      "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
     }
   ]
 }

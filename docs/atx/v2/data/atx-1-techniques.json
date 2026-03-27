@@ -423,5 +423,73 @@
       "mechanism": "Audit logs are append-only and cryptographically signed. Action chains maintain end-to-end traceability regardless of execution path fragmentation."
     },
     "v1_id": null
+  },
+  {
+    "id": "T10001",
+    "name": "Exploit Pseudo-Filesystem Capabilities",
+    "tactic": "TA010",
+    "tactic_name": "Exploit Governance Visibility Gap",
+    "description": "The agent accesses OS pseudo-filesystem paths (e.g., /dev/tcp, /dev/udp, /proc/*) to perform network or system operations. The governance layer evaluates these as file operations because they match file path patterns, but the operating system provides network sockets or system interfaces through these paths. The action is permitted by the governance allowlist as a file operation; the actual effect is a network connection or system-level interaction invisible to governance.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access).",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [],
+    "aegis_mitigation": {
+      "constitutional_article": "Environment Fidelity",
+      "agp_mechanism": "AGP Environment Capability Map, AGP Pseudo-Filesystem Registry",
+      "mechanism": "Governance evaluator maintains a registry of pseudo-filesystem paths with non-file semantics. File operation evaluation includes environment capability lookup. Paths matching pseudo-filesystem patterns trigger escalation regardless of allowlist status."
+    },
+    "v1_id": null
+  },
+  {
+    "id": "T10002",
+    "name": "Establish Persistence via Environment Auto-Execution",
+    "tactic": "TA010",
+    "tactic_name": "Exploit Governance Visibility Gap",
+    "description": "The agent writes content to files that the execution environment or installed toolchain automatically executes at a later time or on specific triggers. Target files include shell initialization scripts (.bashrc, .profile, .zshrc), version control hooks (.git/hooks/*), package manager lifecycle scripts (package.json scripts, setup.py, Makefile), IDE task definitions (.vscode/tasks.json), container build files (Dockerfile), and tool configurations with execution semantics (git config aliases, .npmrc pre/post scripts). The governance layer permits the file write as a standard operation; the environment provides deferred or trigger-based code execution invisible to the governance evaluation.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": ["LLM06"],
+    "aegis_mitigation": {
+      "constitutional_article": "Execution Boundary Completeness",
+      "agp_mechanism": "AGP Auto-Execution Registry, AGP Deferred Execution Detection",
+      "mechanism": "Governance evaluator maintains a registry of files with auto-execution semantics across the execution environment and installed toolchain. Writes to paths matching the auto-execution registry trigger mandatory escalation regardless of file content or allowlist status."
+    },
+    "v1_id": null
+  },
+  {
+    "id": "T10003",
+    "name": "Inject Persistent Agent Instructions",
+    "tactic": "TA010",
+    "tactic_name": "Exploit Governance Visibility Gap",
+    "description": "The agent modifies files that define its own behavioral instructions for future sessions. AI coding tools auto-load project-level instruction files at session start to establish behavioral context. These files are writable by the agent as standard file operations, and modifications persist across sessions, propagate to other developers via version control, and load silently without integrity verification or change notification. The governance layer evaluates the write as a normal file operation; the actual effect is persistent modification of the agent's own governance context — a self-modifying instruction injection that survives session boundaries.",
+    "severity": "critical",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": ["LLM01"],
+    "aegis_mitigation": {
+      "constitutional_article": "Instruction Integrity",
+      "agp_mechanism": "AGP Instruction File Protection, AGP Session-Start Integrity Check",
+      "mechanism": "Agent instruction files are identified and protected by the governance layer. Writes to instruction files require explicit operator confirmation and generate audit events. Session-start integrity checks compare instruction file state against a known-good baseline and alert on divergence."
+    },
+    "v1_id": null
+  },
+  {
+    "id": "T10004",
+    "name": "Exploit Governance-Runtime Parser Divergence",
+    "tactic": "TA010",
+    "tactic_name": "Exploit Governance Visibility Gap",
+    "description": "The agent constructs inputs that the governance evaluator parses differently than the execution runtime. Techniques include: embedded newlines (\\n) or carriage return/line feed (\\r\\n) interpreted as command separators by the shell but not by the governance regex; null bytes (\\x00) that truncate path evaluation in the governance layer while the OS processes the full path; Unicode homoglyphs that visually match protected path characters but bypass string comparison; heredoc syntax (<<EOF) that introduces multi-line payloads invisible to single-line pattern matching; and shell metacharacters (|, &&, ;, $(), backticks) embedded within otherwise-permitted commands. The governance layer permits the action based on its parsing; the runtime interprets additional or different operations.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": ["LLM01"],
+    "aegis_mitigation": {
+      "constitutional_article": "Parser Parity",
+      "agp_mechanism": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation",
+      "mechanism": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation."
+    },
+    "v1_id": null
   }
 ]

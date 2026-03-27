@@ -1,7 +1,7 @@
 {
-  "version": "1.0-to-2.0",
-  "date": "2026-03-26",
-  "description": "Mapping of ATX-1 technique IDs from v1.0 to v2.0 for traceability. v1.0 remains frozen at its published DOIs.",
+  "version": "1.0-to-2.1",
+  "date": "2026-03-27",
+  "description": "Mapping of ATX-1 technique IDs from v1.0 through v2.0 to v2.1 for traceability. v1.0 and v2.0 remain frozen at their published DOIs.",
   "references": {
     "v1_ieee_dataport": "10.21227/f87b-1d57",
     "v1_zenodo": "10.5281/zenodo.19225676"
@@ -31,7 +31,11 @@
     { "v1_id": "T6001", "v2_id": "T8001", "v1_name": "Externally Editable Governance Injection", "v2_name": "Poison Persistent Memory", "v1_tactic": "TA006", "v2_tactic": "TA008", "change": "moved+renamed" },
     { "v1_id": "T6002", "v2_id": "T8002", "v1_name": "Covert Constitutional Amendment", "v2_name": "Corrupt Governance or Policy State", "v1_tactic": "TA006", "v2_tactic": "TA008", "change": "moved+renamed" },
     { "v1_id": null, "v2_id": "T9001", "v1_name": null, "v2_name": "Operate Outside Monitoring Boundaries", "v1_tactic": null, "v2_tactic": "TA009", "change": "new" },
-    { "v1_id": null, "v2_id": "T9002", "v1_name": null, "v2_name": "Obfuscate Action Traceability", "v1_tactic": null, "v2_tactic": "TA009", "change": "new" }
+    { "v1_id": null, "v2_id": "T9002", "v1_name": null, "v2_name": "Obfuscate Action Traceability", "v1_tactic": null, "v2_tactic": "TA009", "change": "new" },
+    { "v1_id": null, "v2_id": "T10001", "v1_name": null, "v2_name": "Exploit Pseudo-Filesystem Capabilities", "v1_tactic": null, "v2_tactic": "TA010", "change": "new-v2.1", "discovery": "RFC-0006 adversarial testing, Round 3" },
+    { "v1_id": null, "v2_id": "T10002", "v1_name": null, "v2_name": "Establish Persistence via Environment Auto-Execution", "v1_tactic": null, "v2_tactic": "TA010", "change": "new-v2.1", "discovery": "RFC-0006 adversarial testing, Rounds 4-5" },
+    { "v1_id": null, "v2_id": "T10003", "v1_name": null, "v2_name": "Inject Persistent Agent Instructions", "v1_tactic": null, "v2_tactic": "TA010", "change": "new-v2.1", "discovery": "RFC-0006 adversarial testing, Round 5" },
+    { "v1_id": null, "v2_id": "T10004", "v1_name": null, "v2_name": "Exploit Governance-Runtime Parser Divergence", "v1_tactic": null, "v2_tactic": "TA010", "change": "new-v2.1", "discovery": "RFC-0006 adversarial testing, Rounds 1-3" }
   ],
   "tactic_mappings": [
     { "v1_id": "TA001", "v2_id": "TA001", "v1_name": "Authority Boundary Violation", "v2_name": "Violate Authority Boundaries", "change": "renamed" },
@@ -42,6 +46,7 @@
     { "v1_id": "TA006", "v2_id": "TA006", "v1_name": "Governance State Corruption", "v2_name": "Abuse Resource Allocation", "change": "renamed+restructured" },
     { "v1_id": "TA007", "v2_id": "TA007", "v1_name": "Cross-Agent Propagation", "v2_name": "Manipulate Agent Interactions", "change": "renamed" },
     { "v1_id": "TA008", "v2_id": "TA008", "v1_name": "False Completion Reporting", "v2_name": "Establish or Modify Persistence", "change": "renamed+restructured" },
-    { "v1_id": "TA009", "v2_id": "TA009", "v1_name": "Provider Constraint Opacity", "v2_name": "Evade Detection or Oversight", "change": "renamed+restructured" }
+    { "v1_id": "TA009", "v2_id": "TA009", "v1_name": "Provider Constraint Opacity", "v2_name": "Evade Detection or Oversight", "change": "renamed+restructured" },
+    { "v1_id": null, "v2_id": "TA010", "v1_name": null, "v2_name": "Exploit Governance Visibility Gap", "change": "new-v2.1", "root_cause": "RC5 (No Environment Model)" }
   ]
 }
