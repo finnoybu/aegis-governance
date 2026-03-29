@@ -30,5 +30,5 @@ AEGIS™ public launch announcement and readiness materials.
 
 ---
 
-**Part of**: AEGIS Documentation  
+**Part of**: AEGIS Documentation\
 **Maintained by**: AEGIS Initiative

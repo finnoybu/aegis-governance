@@ -163,9 +163,9 @@ The AEGIS Initiative makes the following specific offers:
 
 > Third, to provide additional technical detail on any aspect of the AGP-1 specification, the capability registry model, or the AuthZEN integration pattern at the NCCoE staff's request.
 
-**Repository:** github.com/aegis-initiative/aegis-governance  
-**ORCID:** https://orcid.org/0009-0007-4215-1789  
-**Prior NIST engagement:** AEGIS™ and the NIST AI Risk Management Framework, March 7, 2026  
+**Repository:** github.com/aegis-initiative/aegis-governance\
+**ORCID:** https://orcid.org/0009-0007-4215-1789\
+**Prior NIST engagement:** AEGIS™ and the NIST AI Risk Management Framework, March 7, 2026\
 **Contact:** ktannenbaum@aegis-initiative.com
 
 ---

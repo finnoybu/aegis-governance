@@ -2,8 +2,8 @@
 
 ### Architectural Enforcement & Governance of Intelligent Systems
 
-Version: 0.1  
-Status: Draft  
+Version: 0.1\
+Status: Draft\
 Effective Date: March 5, 2026
 
 ---
@@ -343,11 +343,11 @@ The governance runtime operates as an embedded component within an AI platform.
     └───────────┘
 ```
 
-**Use Case:** Single AI agent, development/testing, small-scale deployment  
-**Latency:** <5ms (in-process)  
-**Scalability:** Limited to process resources  
-**Complexity:** Low  
-**Benefits:** Simple deployment, minimal infrastructure, fast evaluation  
+**Use Case:** Single AI agent, development/testing, small-scale deployment\
+**Latency:** <5ms (in-process)\
+**Scalability:** Limited to process resources\
+**Complexity:** Low\
+**Benefits:** Simple deployment, minimal infrastructure, fast evaluation\
 **Limitations:** No shared governance across agents, single point of failure
 
 ---
@@ -373,11 +373,11 @@ AEGIS operates as a sidecar service alongside each AI agent.
                   └──────────────────────────────┘
 ```
 
-**Use Case:** Multiple AI agents, Kubernetes environments, independent scaling  
-**Latency:** 5-10ms (network call)  
-**Scalability:** Scales independently per agent  
-**Complexity:** Medium  
-**Benefits:** Agent isolation, independent scaling, fault tolerance  
+**Use Case:** Multiple AI agents, Kubernetes environments, independent scaling\
+**Latency:** 5-10ms (network call)\
+**Scalability:** Scales independently per agent\
+**Complexity:** Medium\
+**Benefits:** Agent isolation, independent scaling, fault tolerance\
 **Limitations:** Duplicated runtime instances, configuration drift risk
 
 ---
@@ -414,11 +414,11 @@ A shared AEGIS runtime cluster governs multiple AI agents.
 └──────────┘  └──────────┘  └──────────┘
 ```
 
-**Use Case:** Enterprise deployment, multiple agents, high availability required  
-**Latency:** 10-15ms (network + evaluation)  
-**Scalability:** Horizontal scaling of runtime cluster  
-**Complexity:** High  
-**Benefits:** Centralized policy management, consistent governance, HA/DR, shared intelligence  
+**Use Case:** Enterprise deployment, multiple agents, high availability required\
+**Latency:** 10-15ms (network + evaluation)\
+**Scalability:** Horizontal scaling of runtime cluster\
+**Complexity:** High\
+**Benefits:** Centralized policy management, consistent governance, HA/DR, shared intelligence\
 **Limitations:** Network latency, potential bottleneck, requires infrastructure expertise
 
 ---
@@ -962,5 +962,5 @@ Together these documents define the complete AEGIS™ governance architecture.
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

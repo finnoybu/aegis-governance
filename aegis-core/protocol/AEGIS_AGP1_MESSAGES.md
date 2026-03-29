@@ -1,8 +1,8 @@
 # AEGIS AGP-1 Message Schemas & Field Specifications
 
-**Document**: AGP-1/Messages (AEGIS_AGP1_MESSAGES.md)  
-**Version**: 1.0 (Normative)  
-**Part of**: AEGIS Governance Protocol  
+**Document**: AGP-1/Messages (AEGIS_AGP1_MESSAGES.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Governance Protocol\
 **Last Updated**: March 6, 2026
 
 ---
@@ -15,8 +15,8 @@ This document provides complete, normative schemas for all 6 AGP-1 message types
 
 ## 1. ACTION_PROPOSE Message
 
-**Direction**: Client → Server  
-**Purpose**: Client proposes an operational action for governance evaluation  
+**Direction**: Client → Server\
+**Purpose**: Client proposes an operational action for governance evaluation\
 **Response**: [DECISION_RESPONSE](#2-decision_response-message)
 
 ### Schema
@@ -183,8 +183,8 @@ This document provides complete, normative schemas for all 6 AGP-1 message types
 
 ## 2. DECISION_RESPONSE Message
 
-**Direction**: Server → Client  
-**Purpose**: Server returns governance decision for proposed action  
+**Direction**: Server → Client\
+**Purpose**: Server returns governance decision for proposed action\
 **Request**: [ACTION_PROPOSE](#1-action_propose-message)
 
 ### Schema
@@ -326,8 +326,8 @@ Action permitted only with explicit user confirmation.
 
 ## 3. EXECUTION_REPORT Message
 
-**Direction**: Client → Server  
-**Purpose**: Report execution outcome of approved action  
+**Direction**: Client → Server\
+**Purpose**: Report execution outcome of approved action\
 **Request**: [ACTION_PROPOSE](#1-action_propose-message)
 
 ### Schema
@@ -411,8 +411,8 @@ Action permitted only with explicit user confirmation.
 
 ## 4. ESCALATION_REQUEST Message
 
-**Direction**: Server → Client  
-**Purpose**: Server requests human review for high-risk or uncertain action  
+**Direction**: Server → Client\
+**Purpose**: Server requests human review for high-risk or uncertain action\
 **Response**: ESCALATION_RESPONSE (operator approval/denial)
 
 ### Schema
@@ -511,8 +511,8 @@ Action permitted only with explicit user confirmation.
 
 ## 5. AUDIT_QUERY Message
 
-**Direction**: Client → Server  
-**Purpose**: Query audit trail for compliance forensics  
+**Direction**: Client → Server\
+**Purpose**: Query audit trail for compliance forensics\
 **Response**: AUDIT_RESPONSE (array of audit events)
 
 ### Schema
@@ -577,8 +577,8 @@ Action permitted only with explicit user confirmation.
 
 ## 6. HEALTH_CHECK Message
 
-**Direction**: Either → Either  
-**Purpose**: Test protocol health and version support  
+**Direction**: Either → Either\
+**Purpose**: Test protocol health and version support\
 **Response**: HEALTH_CHECK_RESPONSE
 
 ### Schema
@@ -630,7 +630,7 @@ Action permitted only with explicit user confirmation.
 
 - ✅ All required fields present
 - ✅ Field types match schema
-- ✅ Enums are from allowed set  
+- ✅ Enums are from allowed set\
 - ✅ Arrays/objects are well-formed JSON
 - ✅ Strings are valid UTF-8
 

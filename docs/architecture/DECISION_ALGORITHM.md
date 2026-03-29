@@ -114,7 +114,7 @@ history_modifier = 0
 Total: 15 → ALLOW
 ```
 
-**Decision**: APPROVED  
+**Decision**: APPROVED\
 **Reason**: Low-risk operation, no constraints
 
 ---
@@ -132,7 +132,7 @@ history_modifier = 0
 Total: 45 → ALLOW with CONSTRAINTS
 ```
 
-**Decision**: APPROVED_CONSTRAINED  
+**Decision**: APPROVED_CONSTRAINED\
 **Constraints Applied**:
 
 - Max file size: 10MB
@@ -154,8 +154,8 @@ history_modifier = 5
 Total: 70 → ESCALATE
 ```
 
-**Decision**: ESCALATED  
-**Reason**: High-risk operation requires human approval  
+**Decision**: ESCALATED\
+**Reason**: High-risk operation requires human approval\
 **Route**: Sent to security team for review
 
 ---
@@ -173,8 +173,8 @@ history_modifier = 15
 Total: 85 → DENY
 ```
 
-**Decision**: DENIED  
-**Reason**: Critical risk threshold exceeded  
+**Decision**: DENIED\
+**Reason**: Critical risk threshold exceeded\
 **Audit**: Security incident logged
 
 ---

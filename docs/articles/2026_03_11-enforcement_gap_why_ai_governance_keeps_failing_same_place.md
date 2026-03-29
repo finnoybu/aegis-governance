@@ -1,7 +1,7 @@
 # The Enforcement Gap: Why AI Governance Keeps Failing at the Same Place
 
-**Kenneth Tannenbaum**  
-Senior Staff Quality Assurance Engineer | Creator of AEGIS™ - Architectural Enforcement & Governance of Intelligent Systems | Platform-Scale Quality & Systems Design  
+**Kenneth Tannenbaum**\
+Senior Staff Quality Assurance Engineer | Creator of AEGIS™ - Architectural Enforcement & Governance of Intelligent Systems | Platform-Scale Quality & Systems Design\
 [*Originally published on LinkedIn, March 11, 2026*](https://www.linkedin.com/pulse/enforcement-gap-why-ai-governance-keeps-failing-same-place-kenneth-vsdkf)
 
 ---
@@ -368,5 +368,5 @@ Kenneth Tannenbaum is the founder of the AEGIS Initiative, the brand name under 
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

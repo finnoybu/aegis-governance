@@ -26,8 +26,8 @@ Each stage builds on the previous stage and introduces additional capabilities.
 
 # Current Status
 
-**Active Stage:** Stage 1 — Architecture Publication  
-**Version:** 0.1.0 (Draft)  
+**Active Stage:** Stage 1 — Architecture Publication\
+**Version:** 0.1.0 (Draft)\
 **Last Updated:** March 5, 2026
 
 ## Stage 1 Progress
@@ -115,8 +115,8 @@ None.
 
 ## Estimated Timeline
 
-**Status:** Near completion (95%)  
-**Target Completion:** Q2 2026  
+**Status:** Near completion (95%)\
+**Target Completion:** Q2 2026\
 **Critical Path:** AGP Protocol expansion, RFC specifications
 
 ## Risks & Mitigation
@@ -182,8 +182,8 @@ Define the operational architecture required to implement AEGIS™ governance en
 
 ## Estimated Timeline
 
-**Duration:** 1–2 months of design iteration  
-**Target Start:** Q2 2026  
+**Duration:** 1–2 months of design iteration\
+**Target Start:** Q2 2026\
 **Target Completion:** Q3 2026
 
 ## Risks & Mitigation
@@ -252,8 +252,8 @@ Develop the first working reference implementation of the AEGIS™ governance ru
 
 ## Estimated Timeline
 
-**Duration:** 2–4 months of implementation  
-**Target Start:** Q3 2026  
+**Duration:** 2–4 months of implementation\
+**Target Start:** Q3 2026\
 **Target Completion:** Q4 2026
 
 ## Risks & Mitigation
@@ -320,8 +320,8 @@ Encourage adoption of the AEGIS Governance Protocol across AI frameworks and inf
 
 ## Estimated Timeline
 
-**Duration:** 6–12 months of ecosystem development  
-**Target Start:** Q4 2026  
+**Duration:** 6–12 months of ecosystem development\
+**Target Start:** Q4 2026\
 **Target Completion:** Q2-Q3 2027
 
 ## Risks & Mitigation
@@ -391,8 +391,8 @@ Deploy the AEGIS Governance Federation Network (GFN) to enable distributed gover
 
 ## Estimated Timeline
 
-**Duration:** 12–24 months of federation development  
-**Target Start:** Q3 2027  
+**Duration:** 12–24 months of federation development\
+**Target Start:** Q3 2027\
 **Target Completion:** Q3-Q4 2028
 
 ## Risks & Mitigation
@@ -430,5 +430,5 @@ If successful, AEGIS™ could evolve into a widely adopted governance standard s
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

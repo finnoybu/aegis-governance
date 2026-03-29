@@ -8,8 +8,8 @@
 
 # AEGIS Governance Federation Network
 
-**Document Pack Status**: Normative  
-**Version**: 1.1  
+**Document Pack Status**: Normative\
+**Version**: 1.1\
 **Last Updated**: March 15, 2026
 
 ---
@@ -134,7 +134,7 @@ Consumers detect gaps and request backfill. Signature-based replay protection pr
 2. AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md – deployment topology and operational requirements
 3. AEGIS_GFN1_TRUST_MODEL.md – trust evaluation and audit properties
 
-**Time**: ~30 minutes  
+**Time**: ~30 minutes\
 **Outcome**: Understanding federation architecture, trust model, and operational implications
 
 ### Path 2: Protocol Implementation (Protocol Engineers)
@@ -144,7 +144,7 @@ Consumers detect gaps and request backfill. Signature-based replay protection pr
 3. AEGIS_GFN1_GOVERNANCE_FEEDS.md – feed mechanics, subscription, versioning
 4. AEGIS_GFN1_SCHEMA.md – detailed event schemas (reference)
 
-**Time**: ~90 minutes  
+**Time**: ~90 minutes\
 **Outcome**: Ability to implement federation endpoints and event handling
 
 ### Path 3: Deploy and Operate (Operations Engineers)
@@ -154,7 +154,7 @@ Consumers detect gaps and request backfill. Signature-based replay protection pr
 3. AEGIS_GFN1_TRUST_MODEL.md – identity setup, key rotation, trust configuration
 4. AEGIS_GFN1_GOVERNANCE_NETWORK.md – federation endpoints, load balancing
 
-**Time**: ~60 minutes  
+**Time**: ~60 minutes\
 **Outcome**: Ability to deploy and configure a federation node
 
 ### Path 4: Threat Analysis (Security Teams)
@@ -164,7 +164,7 @@ Consumers detect gaps and request backfill. Signature-based replay protection pr
 3. AEGIS_GFN1_GOVERNANCE_NETWORK.md – protocol attack surface
 4. AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md – isolation and containment
 
-**Time**: ~45 minutes  
+**Time**: ~45 minutes\
 **Outcome**: Understanding federation security model and threat landscape
 
 ---
@@ -216,11 +216,11 @@ Event acceptance is deterministic:
 
 The AEGIS Governance Federation Network extends single-node governance with:
 
-✅ **Distributed Intelligence Sharing** – cryptographically signed governance signals across trust boundaries  
-✅ **Autonomous Decision Making** – federated nodes retain full authority over their own governance  
-✅ **Provable Trust** – multi-factor trust scoring with auditable evidence  
-✅ **Replay Protection** – immutable, sequenced events with signature verification  
-✅ **Operational Independence** – graceful fallback to local governance if federation unavailable  
+✅ **Distributed Intelligence Sharing** – cryptographically signed governance signals across trust boundaries\
+✅ **Autonomous Decision Making** – federated nodes retain full authority over their own governance\
+✅ **Provable Trust** – multi-factor trust scoring with auditable evidence\
+✅ **Replay Protection** – immutable, sequenced events with signature verification\
+✅ **Operational Independence** – graceful fallback to local governance if federation unavailable\
 
 The federation model is especially valuable for:
 

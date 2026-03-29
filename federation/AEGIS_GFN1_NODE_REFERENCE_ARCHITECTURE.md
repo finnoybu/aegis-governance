@@ -969,7 +969,7 @@ graph LR
 5. Replays missed events from ~5 minute window
 6. Accepts client connections after evidence store consistency verified
 
-**RTO**: 30-60 seconds  
+**RTO**: 30-60 seconds\
 **RPO**: 0 (shared storage) or 5 minutes (periodic sync mode)
 
 ---
@@ -1029,7 +1029,7 @@ graph TB
 4. Remaining nodes re-balance event processing
 5. Failed node removed from federation subscriptions
 
-**RTO**: 5-10 seconds  
+**RTO**: 5-10 seconds\
 **RPO**: 0 (synchronous replication for critical data)
 
 ---

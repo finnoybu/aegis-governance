@@ -451,5 +451,5 @@ The one remaining gap (roadmap issues) is an administrative detail that is bette
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

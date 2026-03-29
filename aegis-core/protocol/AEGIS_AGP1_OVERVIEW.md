@@ -1,8 +1,8 @@
 # AEGIS AGP-1 Protocol Overview & Design Principles
 
-**Document**: AGP-1/Overview (AEGIS_AGP1_OVERVIEW.md)  
-**Version**: 1.0 (Normative)  
-**Part of**: AEGIS Governance Protocol  
+**Document**: AGP-1/Overview (AEGIS_AGP1_OVERVIEW.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Governance Protocol\
 **Last Updated**: March 6, 2026
 
 ---
@@ -17,7 +17,7 @@ The AEGIS Governance Protocol (AGP-1) defines the **request-response contract** 
 Every operational action proposal passes through this protocol, receiving a deterministic decision:
 
 - **ALLOW**: Action permitted (possibly with constraints)
-- **DENY**: Action forbidden  
+- **DENY**: Action forbidden\
 - **ESCALATE**: Requires human review
 - **REQUIRE_CONFIRMATION**: Requires explicit user consent
 

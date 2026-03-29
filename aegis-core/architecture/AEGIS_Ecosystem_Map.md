@@ -2,8 +2,8 @@
 
 ### Architectural Enforcement & Governance of Intelligent Systems
 
-Version: 0.1  
-Status: Draft  
+Version: 0.1\
+Status: Draft\
 Effective Date: March 5, 2026
 
 ---
@@ -370,8 +370,8 @@ The federation network allows organizations to coordinate responses to emerging 
 └────────────────────────────────────────┘
 ```
 
-**Use Case:** Single organization, no federation  
-**Benefits:** Simple, no external dependencies  
+**Use Case:** Single organization, no federation\
+**Benefits:** Simple, no external dependencies\
 **Limitations:** No threat intelligence sharing
 
 ---
@@ -398,8 +398,8 @@ The federation network allows organizations to coordinate responses to emerging 
               └──────────────────────────────────────────┘
 ```
 
-**Use Case:** Multiple orgs sharing threat intelligence  
-**Benefits:** Collective defense, early threat detection  
+**Use Case:** Multiple orgs sharing threat intelligence\
+**Benefits:** Collective defense, early threat detection\
 **Limitations:** Requires trust framework, privacy considerations
 
 ---
@@ -428,8 +428,8 @@ The federation network allows organizations to coordinate responses to emerging 
                   └────────────────┘
 ```
 
-**Use Case:** Global enterprise, data sovereignty requirements  
-**Benefits:** Regional data compliance, low latency  
+**Use Case:** Global enterprise, data sovereignty requirements\
+**Benefits:** Regional data compliance, low latency\
 **Limitations:** Policy synchronization complexity
 
 ---
@@ -490,5 +490,5 @@ By enforcing governance at the architecture layer, AEGIS ensures that intelligen
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

@@ -1,15 +1,15 @@
 # RFC-0005: Reference Deployment Patterns
 
 **RFC:** RFC-0005
-**Status:** Draft  
-**Version:** 0.1.0  
-**Created:** 2026-03-07  
-**Updated:** 2026-03-08  
-**Author:** Kenneth Tannenbaum, Finnoybu IP LLC  
-**Repository:** aegis-governance  
-**Target milestone:** Q2 2026  
-**Supersedes:** None  
-**Superseded by:** None  
+**Status:** Draft\
+**Version:** 0.1.0\
+**Created:** 2026-03-07\
+**Updated:** 2026-03-08\
+**Author:** Kenneth Tannenbaum, Finnoybu IP LLC\
+**Repository:** aegis-governance\
+**Target milestone:** Q2 2026\
+**Supersedes:** None\
+**Superseded by:** None\
 
 ---
 
@@ -149,5 +149,5 @@ RDP-03 is the recommended starting point for new implementations. RDP-01 is the 
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

@@ -1,9 +1,9 @@
 # AEGIS AGP-1 Policy Evaluation & Capability Resolution
 
-**Document**: AGP-1/Policy (AEGIS_AGP1_POLICY_EVALUATION.md)  
-**Version**: 1.0 (Normative)  
-**Part of**: AEGIS Governance Protocol  
-**References**: RFC-0003 (Capability Registry)  
+**Document**: AGP-1/Policy (AEGIS_AGP1_POLICY_EVALUATION.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Governance Protocol\
+**References**: RFC-0003 (Capability Registry)\
 **Last Updated**: March 6, 2026
 
 ---

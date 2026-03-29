@@ -1,16 +1,16 @@
 # RFC-0004: AEGIS Governance Event Model
 
-**RFC:** RFC-0004  
+**RFC:** RFC-0004\
 **Status:** Final (v1.0)
 **Frozen:** 2026-03-26
 **Version:** 0.4
-**Created:** 2026-03-05  
-**Updated:** 2026-03-15  
-**Author:** AEGIS Initiative, Finnoybu IP LLC  
-**Repository:** aegis-governance  
-**Target milestone:** v1.0  
-**Supersedes:** None  
-**Superseded by:** None  
+**Created:** 2026-03-05\
+**Updated:** 2026-03-15\
+**Author:** AEGIS Initiative, Finnoybu IP LLC\
+**Repository:** aegis-governance\
+**Target milestone:** v1.0\
+**Supersedes:** None\
+**Superseded by:** None\
 
 ---
 
@@ -101,9 +101,9 @@ AEGIS runtime trust operates through two structurally separate mechanisms. These
 
 #### 5.2 Threat Detection Layer
 
-**AEGIS layer:** Engine (Layer 3 — Runtime Enforcement)  
-**Timescale:** Immediate (event-driven)  
-**Decision type:** Binary — block or pass  
+**AEGIS layer:** Engine (Layer 3 — Runtime Enforcement)\
+**Timescale:** Immediate (event-driven)\
+**Decision type:** Binary — block or pass\
 **Score:** None. This layer does not produce a score.
 
 The Threat Detection Layer evaluates agent behavior against evidence of active threat. When a threat is detected, the agent is blocked at the execution boundary. No prior operational history, reputation score, or accumulated trust modifies this outcome.
@@ -127,9 +127,9 @@ Implementations MUST enforce:
 
 #### 5.3 Reputation Layer
 
-**AEGIS layer:** Schema (Layer 2 — Policy Definitions and Risk Classifications)  
-**Timescale:** Longitudinal (accumulated over operational history)  
-**Decision type:** Graduated — informs autonomy expansion, approval latency, and capability range  
+**AEGIS layer:** Schema (Layer 2 — Policy Definitions and Risk Classifications)\
+**Timescale:** Longitudinal (accumulated over operational history)\
+**Decision type:** Graduated — informs autonomy expansion, approval latency, and capability range\
 **Score:** Operational reliability score, range [0.0, 1.0]
 
 The Reputation Layer tracks an agent's operational reliability over time. Consistent performance earns higher autonomy, faster approvals, and expanded operational range. The Reputation Layer is a governed attribute: it is policy-readable and informs Schema-layer decisions.
@@ -223,7 +223,7 @@ Agent reputation bootstrap — the initial score assigned to a newly registered 
 - [ ] Should the event model define a standard backfill request protocol?
 - [ ] How should the Reputation Layer handle agents that have never triggered a Threat Detection event — absence of detections versus no operational history yet? This is the agent-runtime equivalent of the federation question about nodes that have never published circumvention reports.
 
-> **Closed:** *Should trust scores be published as governance attestation events, creating a recursive trust signal loop?*  
+> **Closed:** *Should trust scores be published as governance attestation events, creating a recursive trust signal loop?*\
 > **Resolution:** No. Publishing trust scores as governance attestation events would allow reputation signals to circulate through the federation and potentially influence Engine-layer decisions at remote nodes, violating the non-override constraint defined in §5.4. Trust scores are local, Schema-layer state. They are auditable within a node but are not federation events.
 
 ---
@@ -249,5 +249,5 @@ The two-layer trust separation model defined in §5 — specifically the archite
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

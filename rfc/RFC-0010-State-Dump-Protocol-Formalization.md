@@ -1,15 +1,15 @@
 # RFC-0010: State Dump Protocol Formalization
 
-**RFC**: RFC-0010  
-**Status:** Placeholder  
-**Version:** 0.0.1  
-**Created:** 2026-03-15  
-**Updated:** 2026-03-15  
-**Author:** Ken Tannenbaum, AEGIS Initiative  
-**Repository:** aegis-governance  
-**Target milestone:** TBD  
-**Supersedes:** State Dump Protocol sub-spec (partial — see Motivation)  
-**Superseded by:** None  
+**RFC**: RFC-0010\
+**Status:** Placeholder\
+**Version:** 0.0.1\
+**Created:** 2026-03-15\
+**Updated:** 2026-03-15\
+**Author:** Ken Tannenbaum, AEGIS Initiative\
+**Repository:** aegis-governance\
+**Target milestone:** TBD\
+**Supersedes:** State Dump Protocol sub-spec (partial — see Motivation)\
+**Superseded by:** None\
 
 ---
 
@@ -122,5 +122,5 @@ Reference implementations to consult during drafting:
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

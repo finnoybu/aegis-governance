@@ -40,7 +40,7 @@ Files:
 - AEGIS_wordmark.svg
 - AEGIS_wordmark.png
 
-README header uses the wordmark.  
+README header uses the wordmark.\
 Repository avatar uses the shield icon.
 
 ---
@@ -288,7 +288,7 @@ Recommended workflows:
 
 Documents reference:
 
-AEGIS™ and “Capability without constraint is not intelligence™”  
+AEGIS™ and “Capability without constraint is not intelligence™”\
 are trademarks of Finnoybu IP LLC.
 
 Planned website footer:
@@ -334,5 +334,5 @@ This represents a complete __AEGIS Specification v0.1 architecture release__.
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

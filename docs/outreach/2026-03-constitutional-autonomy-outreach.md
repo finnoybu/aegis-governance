@@ -66,8 +66,8 @@ This outreach was initiated following review of Mr. Agbemabiese's paper on Const
 
 ---
 
-**Constitutional Autonomy Paper:**  
-W. Torgbi Agbemabiese, "Toward Constitutional Autonomy in AI Systems: A Theoretical Framework for Aligned Agentic Intelligence," *IEEE Access*, vol. 14, pp. 11385-11402, 2026, doi: 10.1109/ACCESS.2026.3654907.  
+**Constitutional Autonomy Paper:**\
+W. Torgbi Agbemabiese, "Toward Constitutional Autonomy in AI Systems: A Theoretical Framework for Aligned Agentic Intelligence," *IEEE Access*, vol. 14, pp. 11385-11402, 2026, doi: 10.1109/ACCESS.2026.3654907.\
 **IEEE Xplore:** <https://ieeexplore.ieee.org/document/11354471>
 
 **Keywords:** Agentic systems, AI alignment, AI governance, artificial general intelligence, constitutional AI, long-horizon autonomy, runtime validation, sociotechnical validation, theoretical framework

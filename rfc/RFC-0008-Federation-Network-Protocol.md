@@ -1,15 +1,15 @@
 # RFC-0008: Federation Network Protocol
 
 **RFC:** RFC-0008
-**Status:** Placeholder  
-**Version:** 0.0.1  
-**Created:** 2026-03-08  
-**Updated:** 2026-03-08  
-**Author:** AEGIS Initiative, Finnoybu IP LLC  
-**Repository:** aegis-governance  
-**Target milestone:** TBD  
-**Supersedes:** None  
-**Superseded by:** None  
+**Status:** Placeholder\
+**Version:** 0.0.1\
+**Created:** 2026-03-08\
+**Updated:** 2026-03-08\
+**Author:** AEGIS Initiative, Finnoybu IP LLC\
+**Repository:** aegis-governance\
+**Target milestone:** TBD\
+**Supersedes:** None\
+**Superseded by:** None\
 
 ---
 
@@ -37,5 +37,5 @@ Note: The governance event envelope and payload schemas are already defined in R
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

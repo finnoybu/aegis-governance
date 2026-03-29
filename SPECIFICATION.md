@@ -416,11 +416,11 @@ The AEGIS Initiative maintains open governance principles:
 
 ## Governance Architecture Layers
 
-📚 **Layer 1** — **Principles & Vision**: The "why" — what problems does AEGIS solve, what principles guide it  
-🏗️ **Layer 2** — **Architecture & Design**: The "how" — reference architecture, components, threat model  
-📋 **Layer 3** — **Protocol & Data**: The "formats" — how systems communicate, message structures  
-⚙️ **Layer 4** — **Implementation**: The "building blocks" — working code, patterns, integrations  
-🌐 **Layer 5** — **Federation**: The "scale" — multi-org governance sharing and intelligence  
+📚 **Layer 1** — **Principles & Vision**: The "why" — what problems does AEGIS solve, what principles guide it\
+🏗️ **Layer 2** — **Architecture & Design**: The "how" — reference architecture, components, threat model\
+📋 **Layer 3** — **Protocol & Data**: The "formats" — how systems communicate, message structures\
+⚙️ **Layer 4** — **Implementation**: The "building blocks" — working code, patterns, integrations\
+🌐 **Layer 5** — **Federation**: The "scale" — multi-org governance sharing and intelligence\
 
 ---
 
@@ -450,5 +450,5 @@ AIAgent → AGP-1 Protocol → Schemas → Governance Runtime → Audit Trail
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

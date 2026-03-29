@@ -10,7 +10,7 @@
 
 This directory contains **supporting documentation**, **architectural design artifacts**, and **historical context** for the AEGIS governance framework.
 
-> **For normative specifications**, see [`../aegis-core/`](../aegis-core/README.md)  
+> **For normative specifications**, see [`../aegis-core/`](../aegis-core/README.md)\
 > **For implementation code**, see [`../aegis-runtime/`](../aegis-runtime/)
 
 ---
@@ -86,7 +86,7 @@ Early design documents and evolution context.
 - [**AEGIS_Governance_Federation_Network.yaml**](history/AEGIS_Governance_Federation_Network.yaml) — GFN design (YAML)
 - [**AEGIS_Federated_Governance_Network_AT_Protocol.yaml**](history/AEGIS_Federated_Governance_Network_AT_Protocol.yaml) — AT Protocol integration (YAML)
 
-> **Note**: These are **historical artifacts** showing the evolution of AEGIS design thinking.  
+> **Note**: These are **historical artifacts** showing the evolution of AEGIS design thinking.\
 > For current normative specifications, refer to [`../aegis-core/`](../aegis-core/README.md).
 
 ### `announcements/` — Public Announcements
