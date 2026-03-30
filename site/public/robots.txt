@@ -1,32 +1,12 @@
 # AEGIS Governance Data — aegis-governance.com
-# This site serves machine-readable governance artifacts.
-# All content is intended for programmatic consumption.
+# Default deny. Machine-readable data explicitly allowed.
+# The .well-known/aegis/ and /atx-1/ endpoints are open for AI consumption.
+# Site HTML and source are not for scraping or training.
 
 User-agent: *
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Bytespider
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: meta-externalagent
-Allow: /
+Disallow: /
+Allow: /.well-known/
+Allow: /atx-1/
+Allow: /schemas/
 
 Sitemap: https://aegis-governance.com/sitemap.xml
