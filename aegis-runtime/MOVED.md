@@ -1,10 +1,10 @@
-# Runtime Moved
+# Runtime Removed — See aegis-core
 
-The AEGIS governance runtime has been migrated to its permanent home:
+The AEGIS governance runtime has been permanently migrated per **RFC-0015** (Runtime Consolidation).
 
-**Repository:** <https://github.com/aegis-initiative/aegis-core>
-**Package:** `aegis-core-py` (in `core-py/`)
+**Canonical location:** <https://github.com/aegis-initiative/aegis-core> (`core-py/`)
+**Package:** `aegis-core`
 
-The runtime was originally developed here during the specification phase. It now lives in aegis-core, which is the designated implementation repository.
+The source code, tests, and documentation that previously lived here were removed to eliminate drift between copies. Only this notice and the LICENSE remain.
 
-All existing tests, documentation, and functionality have been preserved.
+**RFC-0015:** [RFC-0015-Runtime-Consolidation.md](../rfc/RFC-0015-Runtime-Consolidation.md)
