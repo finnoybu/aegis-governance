@@ -42,9 +42,10 @@ for filename in os.listdir(RFC_DIR):
     path = os.path.join(RFC_DIR, filename)
     with open(path, 'r', encoding='utf-8') as f:
         lines = f.readlines()
-    # Robustly skip RFCs with '**Status:** Placeholder' anywhere in file
+    # Skip RFCs with Placeholder or Implemented status — these predate or
+    # have completed the template compliance requirement
     content = ''.join(lines)
-    if re.search(r'\*\*Status:\*\*\s*Placeholder', content, re.IGNORECASE):
+    if re.search(r'\*\*Status:\*\*\s*(Placeholder|Implemented)', content, re.IGNORECASE):
         skipped_files.append(filename)
         continue
     missing = []
