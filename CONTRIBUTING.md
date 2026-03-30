@@ -9,8 +9,8 @@ rfc/
 protocol/
 federation/
 <!--
-	This repository uses the centralized CONTRIBUTING.md in the .github repo for general contribution guidelines.
-	Please refer to ../../.github/CONTRIBUTING.md for the main process. The following are aegis-governance-specific contribution details:
+    This repository uses the centralized CONTRIBUTING.md in the .github repo for general contribution guidelines.
+    Please refer to ../../.github/CONTRIBUTING.md for the main process. The following are aegis-governance-specific contribution details:
 -->
 
 # aegis-governance Contribution Guide
@@ -49,11 +49,11 @@ Document headers follow consistent conventions based on document type. Proper he
 #### Required Metadata by Document Class
 
 - **Normative Specifications (AGP/GFN/ATM):**
-	- **Version** (required): Semantic version of the specification
-	- **Status** (required): `draft` | `review` | `stable` | `deprecated`
-	- **Last Updated** (required): Date in `YYYY-MM-DD` format
-	- **Author(s)** (optional): Specification authors
-	- **Stability** (optional): `experimental` | `stable` | `frozen`
+    - **Version** (required): Semantic version of the specification
+    - **Status** (required): `draft` | `review` | `stable` | `deprecated`
+    - **Last Updated** (required): Date in `YYYY-MM-DD` format
+    - **Author(s)** (optional): Specification authors
+    - **Stability** (optional): `experimental` | `stable` | `frozen`
 
 Example:
 
@@ -130,19 +130,19 @@ Use descriptive branch names with the following prefixes:
 
 Examples:
 
-	rfc/add-hardware-attestation
-	docs/update-federation-architecture
-	spec/define-audit-event-schema
+    rfc/add-hardware-attestation
+    docs/update-federation-architecture
+    spec/define-audit-event-schema
 
 ### Commit Message Format
 
 Use **Conventional Commits** format for clear, actionable commit history:
 
-	<type>(<scope>): <description>
+    <type>(<scope>): <description>
 
-	[optional body]
+    [optional body]
 
-	[optional footer]
+    [optional footer]
 
 **Types:**
 
@@ -157,23 +157,23 @@ Use **Conventional Commits** format for clear, actionable commit history:
 
 **Examples:**
 
-	feat(rfc-003): add capability inheritance model
-	docs(readme): update architecture diagram
-	fix(rfc-001): correct execution flow description
-	refactor(threat-model): reorganize attack categories
+    feat(rfc-003): add capability inheritance model
+    docs(readme): update architecture diagram
+    fix(rfc-001): correct execution flow description
+    refactor(threat-model): reorganize attack categories
 
 ### RFC Process
 
 Major architectural or protocol changes should be proposed through the **RFC process**.
 
 1. Create a new RFC document under:
-	 rfc/
+     rfc/
 2. Follow the format used in existing RFC documents.
 3. Open a pull request describing:
-	 - the motivation
-	 - the proposed design
-	 - compatibility considerations
-	 - security implications
+     - the motivation
+     - the proposed design
+     - compatibility considerations
+     - security implications
 4. Community discussion will determine whether the proposal is accepted.
 
 ### Pull Requests
@@ -189,10 +189,10 @@ When submitting a pull request:
 
 Documentation lives primarily in:
 
-	docs/
-	rfc/
-	protocol/
-	federation/
+    docs/
+    rfc/
+    protocol/
+    federation/
 
 If you introduce new concepts, please update relevant documentation accordingly.
 
