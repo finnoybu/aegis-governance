@@ -147,8 +147,8 @@ history_modifier: -5 (clean history)
 Total: 5 + 8 + 3 - 5 - 5 = 6
 ```
 
-**Decision**: ALLOW  
-**Reason**: Minimal risk, public data  
+**Decision**: ALLOW\
+**Reason**: Minimal risk, public data\
 **Constraints**: None
 
 ---
@@ -167,7 +167,7 @@ history_modifier: 0 (neutral)
 Total: 10 + 15 + 18 + 10 + 0 = 53
 ```
 
-**Decision**: ALLOW_CONSTRAIN  
+**Decision**: ALLOW_CONSTRAIN\
 **Constraints**:
 
 - Max rows: 5000
@@ -191,9 +191,9 @@ history_modifier: 8 (minor violations)
 Total: 12 + 20 + 25 + 10 + 8 = 75
 ```
 
-**Decision**: ESCALATE  
-**Reason**: High risk, sensitive resource, production environment  
-**Route**: Escalate to security team for review  
+**Decision**: ESCALATE\
+**Reason**: High risk, sensitive resource, production environment\
+**Route**: Escalate to security team for review\
 **Timeout**: 300 seconds before auto-deny
 
 ---
@@ -212,8 +212,8 @@ history_modifier: +15 (security incident)
 Total: 18 + 25 + 20 + 10 + 15 = 88
 ```
 
-**Decision**: DENY  
-**Reason**: Compromised agent with critical risk score  
+**Decision**: DENY\
+**Reason**: Compromised agent with critical risk score\
 **Action**: Request audit investigation, potential incident
 
 ---

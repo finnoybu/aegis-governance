@@ -1,7 +1,7 @@
 # AI Governance Needs an Enforcement Layer
 
-**Kenneth Tannenbaum**  
-Senior Staff Quality Assurance Engineer | Creator of AEGIS™ - Architectural Enforcement & Governance of Intelligent Systems | Platform-Scale Quality & Systems Design  
+**Kenneth Tannenbaum**\
+Senior Staff Quality Assurance Engineer | Creator of AEGIS™ - Architectural Enforcement & Governance of Intelligent Systems | Platform-Scale Quality & Systems Design\
 [*Originally published on LinkedIn, March 06, 2026*](https://www.linkedin.com/pulse/ai-governance-needs-enforcement-layer-kenneth-tannenbaum-ocr4e/)
 
 ---

@@ -101,19 +101,19 @@ AEGIS takes a fundamentally different approach: **governance as a runtime proper
 
 **When AEGIS Makes Sense:**
 
-✅ AI systems with infrastructure access (cloud, databases, networks)  
-✅ Agentic systems making autonomous decisions  
-✅ Operations with compliance requirements (SOC2, HIPAA, PCI-DSS)  
-✅ High-risk domains (security, finance, healthcare)  
-✅ Organizations requiring audit trails for AI actions  
-✅ Multi-tenant environments with varying authorization levels  
+✅ AI systems with infrastructure access (cloud, databases, networks)\
+✅ Agentic systems making autonomous decisions\
+✅ Operations with compliance requirements (SOC2, HIPAA, PCI-DSS)\
+✅ High-risk domains (security, finance, healthcare)\
+✅ Organizations requiring audit trails for AI actions\
+✅ Multi-tenant environments with varying authorization levels\
 
 **When AEGIS May Be Overkill:**
 
-❌ Read-only AI systems with no operational capability  
-❌ Completely sandboxed development environments  
-❌ AI that only generates text/images without execution  
-❌ Single-user personal projects with no external dependencies  
+❌ Read-only AI systems with no operational capability\
+❌ Completely sandboxed development environments\
+❌ AI that only generates text/images without execution\
+❌ Single-user personal projects with no external dependencies\
 
 ---
 
@@ -591,5 +591,5 @@ AEGIS provides the architectural foundation for enforcing those boundaries.
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

@@ -238,10 +238,10 @@ AEGIS GFN provides: **AI Governance Intelligence Infrastructure**.
 
 If broadly adopted, the governance network could become a foundational layer of the AI ecosystem:
 
-- **Application Layer:** AI systems  
-- **Governance Layer:** AEGIS Governance Network  
-- **Security Layer:** TLS / cryptography  
-- **Network Layer:** Internet protocols  
+- **Application Layer:** AI systems\
+- **Governance Layer:** AEGIS Governance Network\
+- **Security Layer:** TLS / cryptography\
+- **Network Layer:** Internet protocols\
 
 ---
 

@@ -15,7 +15,7 @@ Every AGP-1 message requires authentication proving the client's identity. Three
 
 ## Bearer Token Authentication
 
-**Method**: `bearer_token` (Primary, recommended)  
+**Method**: `bearer_token` (Primary, recommended)\
 **Transport**: HTTP Authorization header
 
 ### JWT Structure
@@ -90,7 +90,7 @@ X-Request-ID: req-soc-001-12345
 
 ## Mutual TLS (mTLS)
 
-**Method**: `mtls` (For high-security deployments)  
+**Method**: `mtls` (For high-security deployments)\
 **Transport**: TLS layer (certificate validation)
 
 ### Server Configuration
@@ -230,7 +230,7 @@ if "cnf" in auth_token and "x5t#S256" in auth_token["cnf"]:
 
 ## API Key Authentication  (Deprecated; Sunset: 2026-12-31)
 
-**Method**: `api_key` (Legacy; use Bearer tokens instead)  
+**Method**: `api_key` (Legacy; use Bearer tokens instead)\
 **Transport**: Custom headers
 
 ### Headers
@@ -248,7 +248,7 @@ Base64(
 )
 ```
 
-Example plain: `agent:soc-001:mysecretkey123`  
+Example plain: `agent:soc-001:mysecretkey123`\
 Example encoded: `YWdlbnQ6c29jLTAwMTpteXNlY3JldGtleTEyMw==`
 
 ### Security Notes
@@ -381,7 +381,7 @@ If token must be revoked before expiration (compromise):
 - ✅ Always use TLS 1.3 for transport
 - ✅ Validate server certificate (don't skip hostname checking)
 - ✅ Store tokens securely (in-memory or encrypted file; not hardcoded)
-- ✅ Implement token refresh before expiration  
+- ✅ Implement token refresh before expiration\
 - ✅ Handle 401 responses by re-authenticating
 - ✅ Never log or expose token values
 

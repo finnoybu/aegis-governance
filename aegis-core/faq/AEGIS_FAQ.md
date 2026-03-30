@@ -640,5 +640,5 @@ AEGIS™ complements traditional access control by adding a **governance layer s
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

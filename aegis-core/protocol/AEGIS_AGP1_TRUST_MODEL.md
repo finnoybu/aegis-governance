@@ -1,9 +1,9 @@
 # AEGIS AGP-1 Trust Model & Actor Reputation
 
-**Document**: AGP-1/Trust (AEGIS_AGP1_TRUST_MODEL.md)  
-**Version**: 1.0 (Normative)  
-**Part of**: AEGIS Governance Protocol  
-**References**: AGP-1/Risk, GFN-1/Nodes  
+**Document**: AGP-1/Trust (AEGIS_AGP1_TRUST_MODEL.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Governance Protocol\
+**References**: AGP-1/Risk, GFN-1/Nodes\
 **Last Updated**: March 6, 2026
 
 ---

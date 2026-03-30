@@ -62,8 +62,8 @@ Real Security Operations Center (SOC) agent investigation workflow examples.
 - Investigation capability governance
 - Cross-system coordination with AEGIS
 
-**Status:** 🚧 In development  
-**Expected:** Post-announcement community contributions  
+**Status:** 🚧 In development\
+**Expected:** Post-announcement community contributions\
 **Contribute:** Create an issue with the `roadmap` and `implementation` labels
 
 ---
@@ -78,8 +78,8 @@ Cloud and infrastructure automation examples demonstrating AEGIS governance of i
 - Multi-cloud automation scenarios
 - Change approval governance
 
-**Status:** 🚧 In development  
-**Expected:** Post-announcement community contributions  
+**Status:** 🚧 In development\
+**Expected:** Post-announcement community contributions\
 **Contribute:** Create an issue with the `roadmap` and `implementation` labels
 
 ---

@@ -1,9 +1,9 @@
 # AEGIS AGP-1 Risk Scoring & Decision Thresholds
 
-**Document**: AGP-1/Risk (AEGIS_AGP1_RISK_SCORING.md)  
-**Version**: 1.0 (Normative)  
-**Part of**: AEGIS Governance Protocol  
-**References**: AGP-1/Trust, GFN-1/Nodes  
+**Document**: AGP-1/Risk (AEGIS_AGP1_RISK_SCORING.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Governance Protocol\
+**References**: AGP-1/Trust, GFN-1/Nodes\
 **Last Updated**: March 6, 2026
 
 ---
@@ -47,7 +47,7 @@ risk_historical = clamp(risk_historical, 0.0, 10.0)
 - 50 failures / 100 attempts → risk = 5.0 (problematic)
 - 100 failures / 100 attempts → risk = 10.0 (always fails)
 
-**Data Source**: Audit log EXECUTION_REPORT messages  
+**Data Source**: Audit log EXECUTION_REPORT messages\
 **Lookback**: Last 24 hours (or 100 events minimum, whichever larger)
 
 ### Factor 2: Actor Reputation/Trust Score (Weight: 0.25)
@@ -66,7 +66,7 @@ risk_actor = (1.0 - actor_trust_score) × 10.0
 - trust_score 0.50 (moderate) → risk = 5.0
 - trust_score 0.10 (low trust) → risk = 9.0
 
-**Data Source**: Trust evaluator (from federation trust model)  
+**Data Source**: Trust evaluator (from federation trust model)\
 **Update Frequency**: Hourly; cached with TTL
 
 ### Factor 3: Capability Sensitivity (Weight: 0.20)
@@ -98,7 +98,7 @@ risk_capability = clamp(risk_capability, 0.0, 10.0)
 - `infrastructure.modify_policy` (baseline 8.0) in production → risk = 20.0 → clamped to 10.0
 - `data.delete` (baseline 9.0) in production with delete scope → risk = 9.0 × 2.0 = 10.0
 
-**Data Source**: Capability Registry definition  
+**Data Source**: Capability Registry definition\
 **Static**: Does not change per request
 
 ### Factor 4: Behavioral Anomaly (Weight: 0.15)
@@ -132,7 +132,7 @@ risk_anomaly = anomaly_score × 10.0
 - Actor normally makes 10 API calls/day; now making 1000 → anomaly_score = 0.95 → risk = 9.5
 - Actor never queried production; suddenly does → anomaly_score = 0.8 → risk = 8.0
 
-**Data Source**: Audit logs (EXECUTION_REPORT historical data)  
+**Data Source**: Audit logs (EXECUTION_REPORT historical data)\
 **Lookback**: Last 30 days; requires at least 10 baseline actions
 **Bootstrap**: If no history, anomaly_score = 0.0 (assume normal for new actors)
 
@@ -165,7 +165,7 @@ function computeFederationRisk(action):
 - 3 incident reports from different sources → risk = 6.0
 - 5+ incident reports → risk = 10.0 (clamped)
 
-**Data Source**: Federation governance feeds (AGP-1 on other nodes)  
+**Data Source**: Federation governance feeds (AGP-1 on other nodes)\
 **Lookback**: Last 24 hours; weighted by signal freshness (newer = higher weight)
 **Trust**: Only count signals from nodes with trust_score ≥ 0.6
 

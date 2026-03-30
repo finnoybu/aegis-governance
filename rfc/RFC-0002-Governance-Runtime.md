@@ -4,13 +4,13 @@
 **Status:** Final (v1.0)
 **Frozen:** 2026-03-26
 **Version:** 0.2
-**Created:** 2026-03-05  
-**Updated:** 2026-03-06  
-**Author:** AEGIS Initiative, Finnoybu IP LLC  
-**Repository:** aegis-governance  
-**Target milestone:** v1.0  
-**Supersedes:** None  
-**Superseded by:** None  
+**Created:** 2026-03-05\
+**Updated:** 2026-03-06\
+**Author:** AEGIS Initiative, Finnoybu IP LLC\
+**Repository:** aegis-governance\
+**Target milestone:** v1.0\
+**Supersedes:** None\
+**Superseded by:** None\
 
 ---
 
@@ -237,5 +237,5 @@ Implementers should begin with the API surface and state model. Performance targ
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

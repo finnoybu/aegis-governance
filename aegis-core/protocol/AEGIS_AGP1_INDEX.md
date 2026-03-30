@@ -291,9 +291,9 @@ A client implementation MUST:
 
 ## Document Maintenance
 
-**Last Updated**: March 5, 2026  
-**Maintained By**: AEGIS Initiative  
-**Review Cycle**: Quarterly (every 3 months)  
+**Last Updated**: March 5, 2026\
+**Maintained By**: AEGIS Initiative\
+**Review Cycle**: Quarterly (every 3 months)\
 **Next Review**: June 5, 2026
 
 ---

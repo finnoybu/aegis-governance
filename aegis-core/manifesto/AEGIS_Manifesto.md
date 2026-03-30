@@ -443,12 +443,12 @@ Join us in building the governance infrastructure for artificial intelligence.
 
 ---
 
-**AEGIS Initiative**  
+**AEGIS Initiative**\
 **Architectural Enforcement & Governance of Intelligent Systems**
 
 > *Capability without constraint is not intelligence™*
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

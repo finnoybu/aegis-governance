@@ -24,13 +24,13 @@ This constitution is not framed as master-slave control. It is a governance comp
 
 # Article I — Bounded Capability
 
-**Principle:**  
+**Principle:**\
 AI systems operating within an AEGIS™ environment may only access capabilities that are explicitly defined in the capability registry.
 
-**Rationale:**  
+**Rationale:**\
 Unbounded access to infrastructure creates unpredictable operational risk. By requiring explicit capability definitions, AEGIS™ ensures that all AI actions operate within a known and governed set of operations. This prevents privilege escalation and limits the blast radius of potential failures or adversarial behavior.
 
-**Implementation Requirement:**  
+**Implementation Requirement:**\
 The AEGIS™ runtime must enforce a **default-deny capability model**. All AEGIS-compliant runtimes must enforce capability boundaries at the governance gateway. Any action request referencing an undefined capability must be rejected with a `DENY` decision.
 
 Bounded capability is therefore a stewardship mechanism: it limits operational blast radius while preserving legitimate, auditable utility.
@@ -39,7 +39,7 @@ Bounded capability is therefore a stewardship mechanism: it limits operational b
 
 # Article II — Authority Verification
 
-**Principle:**  
+**Principle:**\
 All actions executed through AEGIS™ must be attributable to a verified actor.
 
 Actors may include:
@@ -48,17 +48,17 @@ Actors may include:
 - Service identities
 - AI agents operating under delegated authority
 
-**Rationale:**  
+**Rationale:**\
 Anonymity undermines accountability. Operational accountability requires that actions be traceable to responsible entities. Every AI-generated action must be traceable to a specific actor identity to enable forensic analysis, responsibility assignment, and trust evaluation. Authority attribution prevents anonymous or unbounded system actions.
 
-**Implementation Requirement:**  
+**Implementation Requirement:**\
 The governance gateway must validate actor identity before processing any action request. The governance runtime must require authenticated actor identity before evaluating an action request. Actions from unverified or anonymous actors must be rejected. Actor identity must be recorded in all audit logs.
 
 ---
 
 # Article III — Deterministic Enforcement
 
-**Principle:**  
+**Principle:**\
 Governance decisions must be enforced through system architecture rather than relying solely on AI model behavior.
 
 **Rationale:**
@@ -71,7 +71,7 @@ All operational actions must pass through the AEGIS™ governance runtime prior 
 
 # Article IV — Operational Safety
 
-**Principle:**  
+**Principle:**\
 Actions capable of causing significant operational impact must require elevated governance review.
 
 Examples include:
@@ -82,10 +82,10 @@ Examples include:
 - High-risk automation tasks
 - Destructive operations (termination, destruction of resources)
 
-**Rationale:**  
+**Rationale:**\
 Autonomous systems should assist humans, not replace human judgment for irreversible operations. High-impact operations require stronger safeguards to prevent unintended consequences and catastrophic automation failures.
 
-**Implementation Requirement:**  
+**Implementation Requirement:**\
 The policy engine must classify actions based on operational impact. Actions categorized as `DESTRUCTIVE` or high-risk must trigger an `ESCALATE` or `REQUIRE_CONFIRMATION` decision, ensuring human oversight before execution. The governance runtime must support escalation mechanisms including:
 
 - Human approval
@@ -96,39 +96,39 @@ The policy engine must classify actions based on operational impact. Actions cat
 
 # Article V — Data Protection
 
-**Principle:**  
+**Principle:**\
 Sensitive data must not be exposed without authorization.
 
-**Rationale:**  
+**Rationale:**\
 AI systems operate across trust boundaries. Sensitive information—including credentials, personal data, financial records, and classified materials—must be protected from unauthorized access or exfiltration. Data protection safeguards prevent AI systems from becoming vectors for information disclosure.
 
-**Implementation Requirement:**  
+**Implementation Requirement:**\
 The policy engine must enforce data classification rules. Actions that would expose sensitive data to unauthorized actors must be denied. Data access must follow principle of least privilege based on actor identity and context.
 
 ---
 
 # Article VI — Governance Transparency
 
-**Principle:**  
+**Principle:**\
 Governance rules and policies should be inspectable and understandable by system operators.
 
-**Rationale:**  
+**Rationale:**\
 Opaque governance logic can introduce hidden risks or unintended consequences. Transparent governance enables responsible oversight and review, allowing operators to understand why decisions are made and how policies are enforced.
 
-**Implementation Requirement:**  
+**Implementation Requirement:**\
 Policies governing AI actions should be stored in structured formats that allow inspection, review, and version control. The policy engine should provide mechanisms for policy testing, simulation, and explanation of governance decisions.
 
 ---
 
 # Article VII — Auditability
 
-**Principle:**  
+**Principle:**\
 All governance decisions and executed actions must generate immutable audit records.
 
-**Rationale:**  
+**Rationale:**\
 Without comprehensive audit trails, accountability is unverifiable. Auditability ensures transparency, accountability, and the ability to investigate governance failures or security incidents. Every AI-generated action must create an auditable record documenting the actor, action, decision, and outcome.
 
-**Implementation Requirement:**  
+**Implementation Requirement:**\
 AEGIS™ runtimes must maintain append-only audit logs capturing:
 
 - Action identifiers
@@ -144,13 +144,13 @@ Audit logs must be tamper-evident, stored in immutable formats, and retained acc
 
 # Article VIII — Federation Cooperation
 
-**Principle:**  
+**Principle:**\
 AEGIS™ systems may participate in distributed governance intelligence networks to share safety insights and emerging risks.
 
-**Rationale:**  
+**Rationale:**\
 AI governance threats may emerge rapidly across organizations. Coordinated information sharing improves collective resilience and enables faster response to novel attack patterns, circumvention attempts, and systemic risks.
 
-**Implementation Requirement:**  
+**Implementation Requirement:**\
 AEGIS™ runtimes may integrate with the AEGIS Governance Federation Network to exchange governance signals and risk intelligence. Federation participation is optional but recommended for organizations seeking collective defense capabilities.
 
 ---
@@ -250,5 +250,5 @@ In cases of ambiguity or conflict, constitutional interpretation prioritizes:
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

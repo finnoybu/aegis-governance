@@ -1,11 +1,11 @@
 # AEGIS™ and the Council of Europe Framework Convention on Artificial Intelligence
 
-**Document**: `docs/position-papers/cets225/FinnoybuIPLLC-AEGIS-CETS225-Positioning-2026-03.md`  
-**Version**: 0.1 (Living — not submitted)  
-**Status**: Active — update as ratification progresses  
-**Created**: 2026-03-15  
+**Document**: `docs/position-papers/cets225/FinnoybuIPLLC-AEGIS-CETS225-Positioning-2026-03.md`\
+**Version**: 0.1 (Living — not submitted)\
+**Status**: Active — update as ratification progresses\
+**Created**: 2026-03-15\
 **Updated**: 2026-03-15 
-**Author**: AEGIS Initiative, Finnoybu IP LLC  
+**Author**: AEGIS Initiative, Finnoybu IP LLC\
 **Part of**: AEGIS Position Papers
 
 > **NOTE — LIVING DOCUMENT**: Unlike the NIST AI RMF position paper, this document is not

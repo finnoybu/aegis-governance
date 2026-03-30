@@ -52,7 +52,7 @@ Position papers should use a consistent header format that balances internal doc
 ---
 ```
 
-**Required fields**: Document, Version, Part of, Date, Submitted to, Status, Steward  
+**Required fields**: Document, Version, Part of, Date, Submitted to, Status, Steward\
 **Optional fields**: Docket Number (for formal submissions), subtitle, tagline
 
 ## Current Organizations
@@ -83,10 +83,10 @@ When adding position papers:
 
 ---
 
-**Part of**: AEGIS Documentation  
+**Part of**: AEGIS Documentation\
 **Maintained by**: AEGIS Initiative
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

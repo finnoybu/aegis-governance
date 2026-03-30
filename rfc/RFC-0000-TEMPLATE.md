@@ -1,15 +1,15 @@
 # RFC-XXXX: [Title]
 
 **RFC:** RFC number (e.g., RFC-0004)
-**Status:** Draft | Proposed | Accepted | Implemented | Superseded  
-**Version:** 0.1.0  
-**Created:** YYYY-MM-DD  
-**Updated:** YYYY-MM-DD  
-**Author:** [Name], [Organization]  
-**Repository:** [aegis-governance | aegis-runtime | aegis-systems]  
-**Target milestone:** [Q1/Q2/Q3/Q4 YYYY | None]  
-**Supersedes:** [RFC-XXXX | None]  
-**Superseded by:** [RFC-XXXX | None]  
+**Status:** Draft | Proposed | Accepted | Implemented | Superseded\
+**Version:** 0.1.0\
+**Created:** YYYY-MM-DD\
+**Updated:** YYYY-MM-DD\
+**Author:** [Name], [Organization]\
+**Repository:** [aegis-governance | aegis-runtime | aegis-systems]\
+**Target milestone:** [Q1/Q2/Q3/Q4 YYYY | None]\
+**Supersedes:** [RFC-XXXX | None]\
+**Superseded by:** [RFC-XXXX | None]\
 
 ---
 
@@ -116,5 +116,5 @@ How will we know this RFC has been successfully implemented? Define observable, 
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*
