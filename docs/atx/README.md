@@ -18,6 +18,7 @@ This directory contains the ATX-1 technique taxonomy, a structured adversarial k
 - [v2/data/atx-1-navigator-layer.json](v2/data/atx-1-navigator-layer.json) — ATT&CK Navigator layer
 - [v2/data/atx-1-version-mapping.json](v2/data/atx-1-version-mapping.json) — Version mapping (v1.0 → v2.1)
 - [v2/data/atx-1-atm1-mapping.json](v2/data/atx-1-atm1-mapping.json) — ATX-1 ↔ ATM-1 mapping
+- [v2/data/atx-1-validation-aegis-core.json](v2/data/atx-1-validation-aegis-core.json) — aegis-core red/blue team validation results
 
 ### Frozen v1.0 Data
 
@@ -114,10 +115,11 @@ The `v2/data/atx-1-regulatory-crossref.json` maps each technique to:
 
 ## Empirical Foundation
 
-ATX-1 is grounded in two empirical sources:
+ATX-1 is grounded in three empirical sources:
 
 1. **Agents of Chaos** (Shapira et al., arXiv:2602.20021, 2026) — 11 failure modes across live agentic AI deployments. Techniques T1001-T9002.
 2. **RFC-0006 Adversarial Testing** (AEGIS Initiative, 2026-03-26) — 5 rounds of white-box adversarial testing against the AEGIS Claude Code governance plugin. Techniques T10001-T10004 (TA010).
+3. **aegis-core Red/Blue Team Validation** (AEGIS Initiative, 2026-03-30) — 4 rounds of adversarial red/blue team testing against the aegis-core Python reference implementation. 68 security tests, 24 findings, 25/29 techniques exercised. All findings mapped to existing techniques with zero taxonomy gaps, empirically validating the ATX-1 v2.1 taxonomy. See [v2/data/atx-1-validation-aegis-core.json](v2/data/atx-1-validation-aegis-core.json).
 
 ## Live Data Endpoints
 
