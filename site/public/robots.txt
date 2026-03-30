@@ -1,12 +1,12 @@
 # AEGIS Governance Data — aegis-governance.com
-# Default deny. Machine-readable data explicitly allowed.
-# The .well-known/aegis/ and /atx-1/ endpoints are open for AI consumption.
-# Site HTML and source are not for scraping or training.
+# Default deny. Machine-readable data explicitly allowed for AI consumption and training.
+# Site HTML and source are not for scraping.
 
 User-agent: *
+Content-Signal: search=yes,ai-train=yes
 Disallow: /
 Allow: /.well-known/
 Allow: /atx-1/
 Allow: /schemas/
 
-Sitemap: https://aegis-governance.com/sitemap.xml
+# AI consumers: data catalog at /.well-known/aegis/manifest.json
