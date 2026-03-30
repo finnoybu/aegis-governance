@@ -235,7 +235,8 @@
     "Dockerfiles",
     "klrc",
     "CONIN",
-    "Unvalidated"
+    "Unvalidated",
+    "setuptools"
   ],
   "ignorePaths": [
     "archive/**",
