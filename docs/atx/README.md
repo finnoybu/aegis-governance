@@ -9,7 +9,7 @@ This directory contains the ATX-1 technique taxonomy, a structured adversarial k
 
 - [ATX-1_TECHNIQUE_TAXONOMY.md](ATX-1_TECHNIQUE_TAXONOMY.md) — Full technique taxonomy document (human-readable)
 
-### Machine-Readable Formats (v2)
+### Machine-Readable Formats
 
 - [v2/stix/atx-1-bundle.json](v2/stix/atx-1-bundle.json) — Complete STIX 2.1 Bundle with all ATX-1 objects
 - [v2/schema/atx-technique.schema.json](v2/schema/atx-technique.schema.json) — JSON Schema for ATX-1 technique definitions
