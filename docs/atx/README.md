@@ -3,7 +3,7 @@
 This directory contains the ATX-1 technique taxonomy, a structured adversarial knowledge base for agentic AI actor behavior.
 
 **Current version:** v2.2 (2026-04-01) — 10 tactics, 29 techniques, 29 sub-techniques, 5 root causes\
-**DOI:** *(reserved — minted on release)*
+**DOI:** [10.5281/zenodo.19483999](https://doi.org/10.5281/zenodo.19483999)
 
 **Previous versions (frozen at published DOIs):**
 
