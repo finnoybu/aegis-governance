@@ -3,8 +3,17 @@
   "artifact": "ATX-1-MAP",
   "version": "0.2",
   "generated": "2026-04-01",
-  "description": "Mapping of ATX-1 v2.0 techniques to ATM-1 attack vectors, controls, and detection signals (v0.2: bumped for ATX-1 v2.2 release; TA010 technique mappings deferred to follow-up — see ACF-1 entries for control coverage.)",
+  "description": "Mapping of ATX-1 techniques to ATM-1 attack vectors, controls, and detection signals. Aligned with ATX-1 v2.2.",
   "license": "CC-BY-SA-4.0",
+  "coverage": {
+    "atx_version": "2.2",
+    "covered_tactics": ["TA001", "TA002", "TA003", "TA004", "TA005", "TA006", "TA007", "TA008", "TA009"],
+    "deferred": {
+      "tactics": ["TA010"],
+      "techniques": ["T10001", "T10002", "T10003", "T10004"],
+      "reason": "TA010 (Bypass Governance Controls) technique-level ATM-1 vector mappings deferred to v0.3. Control coverage for TA010 is provided via ACF-1 entries; see aegis-governance/docs/acf for the ACF-1 catalog."
+    }
+  },
   "mappings": [
     {
       "atx_id": "T1001",

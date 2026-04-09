@@ -3,7 +3,7 @@
   "artifact": "ATX-1-VALIDATION",
   "version": "1.1",
   "generated": "2026-03-30",
-  "description": "Empirical validation of ATX-1 v2.1 against aegis-core reference implementation via adversarial red/blue team testing",
+  "description": "Empirical validation of ATX-1 v2.1 baseline (10 tactics, 29 top-level techniques) against aegis-core reference implementation via adversarial red/blue team testing. Note: v2.2 sub-techniques under T9002 and T10001–T10004 are catalog refinements derived from the same adversarial corpus and inherit this validation; a dedicated v2.2 sub-technique revalidation pass is planned for the next release.",
   "license": "CC-BY-SA-4.0",
   "doi": "10.5281/zenodo.19342905",
   "doi_all_versions": "10.5281/zenodo.19342904",

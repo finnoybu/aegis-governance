@@ -23,7 +23,7 @@ This directory contains the ATX-1 technique taxonomy, a structured adversarial k
 - [v2/data/atx-1-techniques.json](v2/data/atx-1-techniques.json) — All 29 techniques as structured JSON
 - [v2/data/atx-1-regulatory-crossref.json](v2/data/atx-1-regulatory-crossref.json) — Regulatory cross-reference matrix
 - [v2/data/atx-1-navigator-layer.json](v2/data/atx-1-navigator-layer.json) — ATT&CK Navigator layer
-- [v2/data/atx-1-version-mapping.json](v2/data/atx-1-version-mapping.json) — Version mapping (v1.0 → v2.1)
+- [v2/data/atx-1-version-mapping.json](v2/data/atx-1-version-mapping.json) — Version mapping (v1.0 → v2.2)
 - [v2/data/atx-1-atm1-mapping.json](v2/data/atx-1-atm1-mapping.json) — ATX-1 ↔ ATM-1 mapping
 - [v2/data/atx-1-validation-aegis-core.json](v2/data/atx-1-validation-aegis-core.json) — aegis-core red/blue team validation results
 
