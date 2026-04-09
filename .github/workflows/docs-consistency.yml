@@ -4,9 +4,13 @@ on:
   push:
     paths:
       - '**/*.md'
+      - 'scripts/validate-doc-headers.py'
+      - '.github/workflows/docs-consistency.yml'
   pull_request:
     paths:
       - '**/*.md'
+      - 'scripts/validate-doc-headers.py'
+      - '.github/workflows/docs-consistency.yml'
 
 jobs:
   consistency-check:
@@ -14,6 +18,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
 
       - name: Check for inconsistent phrases
         run: |
@@ -34,3 +43,6 @@ jobs:
             exit 1
           fi
           echo '✅ Documentation consistency checks passed.'
+
+      - name: Validate spec doc header metadata
+        run: python scripts/validate-doc-headers.py
