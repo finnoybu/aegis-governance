@@ -1,0 +1,50 @@
+\documentclass[11pt]{letter}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\signature{Kenneth Tannenbaum\\AEGIS Initiative\\ktannenbaum@aegis-initiative.com\\ORCID: 0009-0007-4215-1789\\IEEE Member \#102220161}
+
+\address{Kenneth Tannenbaum\\AEGIS Initiative\\Lovettsville, VA 20180, USA}
+
+\begin{document}
+
+\begin{letter}{Prof.\ Dusit Niyato, Editor-in-Chief\\Guest Editors of the Special Issue\\IEEE Transactions on Network Science and Engineering\\Special Issue: Secure, Trustworthy, and Autonomous Intelligent\\Edge Networking with Agentic AI}
+
+\opening{Dear Prof.\ Niyato and Guest Editors,}
+
+I am submitting the manuscript ``AEGIS: Reference Monitor--Based Governance with Federated Trust for Autonomous Edge AI Agents'' for consideration in the Special Issue on Secure, Trustworthy, and Autonomous Intelligent Edge Networking with Agentic AI.
+
+\textbf{Resubmission at the Editor-in-Chief's invitation.} This manuscript was originally submitted on 8~April~2026 as TNSEJL-2026-04-1062 and received an editorial-office decision on the same day citing scope mismatch. I subsequently wrote to Prof.\ Niyato on 9~April~2026, with copies to the Special Issue Guest Editors, providing a section-by-section mapping of the manuscript to the published Call for Papers topics. Prof.\ Niyato kindly responded the same day inviting resubmission to the system, and this submission is filed in direct response to that invitation. I respectfully request that the Guest Editors be afforded the opportunity to evaluate the manuscript against the Special Issue's published scope.
+
+\textbf{Disclosure regarding cover letter framing.} In good faith and with full transparency, I note that the contribution paragraphs below (Problem, Contribution, Evaluation) have been reframed in this resubmission to lead with the manuscript's network science and engineering contributions --- the network-resident enforcement architecture, the GFN-1 federated trust protocol, network-layer performance measurements, and partition behavior --- rather than with the AI-governance vocabulary used in the original submission's cover letter. The manuscript itself is substantively unchanged: the same architecture, the same protocol specification, the same five-node edge testbed, the same measurements, and the same threat dataset. Only the framing of the contribution has been adjusted in this letter to better serve the Special Issue's network and edge audience and to directly address the scope concern raised in the original editorial decision.
+
+\textbf{Topic Coverage.} The manuscript addresses seven of the topics published in the Call for Papers, with section-level evidence:
+
+\begin{itemize}
+\item \emph{Security, privacy, and trust frameworks for agentic AI in edge networks} --- \S IV (four-layer governance stack; reference monitor architecture).
+\item \emph{Decentralized trust and accountability in edge agent systems, leveraging distributed ledger technologies and provenance mechanisms} --- \S V (GFN-1 federated trust protocol; hash-chained tamper-evident audit).
+\item \emph{Detection and mitigation of malicious coordination or collusion among distributed edge agents} --- \S III.C (TA007 collusion taxonomy), \S V.E (Sybil resistance), \S V.F (game-theoretic equilibrium analysis).
+\item \emph{Resilient networking and communication protocols for trustworthy agent collaboration under dynamic and adversarial conditions} --- \S VII.F, Experiment~E4 (100\% governance availability under network partition).
+\item \emph{Ethical, regulatory, and governance aspects of autonomous edge-deployed agents} --- \S VI (NIST AI RMF, EU AI Act, and NCCoE alignment).
+\item \emph{Trustworthy decision-making and reasoning in agentic edge AI, ensuring explainability, verifiability, and resilience against manipulative inputs} --- \S VII.C and \S VII.G (adversarial workload evaluation across five attack classes; 100/100 failure-class replay against documented production incidents).
+\item \emph{Datasets, measurements, and benchmarks for security, privacy, and trust evaluation in agentic edge networks} --- \S VII (five-node edge testbed; ATX-1 threat taxonomy published as STIX 2.1, DOI 10.21227/7c9p-6150).
+\end{itemize}
+
+\textbf{The Problem.} Edge networks increasingly host autonomous software agents that execute consequential actions on networked infrastructure --- calling APIs across service boundaries, modifying state on remote nodes, commanding actuators, and coordinating with other agents over the network. Existing trust and security frameworks for edge networks were designed for human operators or for deterministic services, not for autonomous decision-makers whose action set is bounded only by their tool access. The result is a \emph{network-layer accountability gap}: actions traverse the network, take effect, and propagate consequences, but no protocol-level mechanism verifies that the originating agent held authority for the action it requested. The {\it Agents of Chaos} study (Shapira et~al., 2026) measured this gap empirically across production deployments and documented a class of failures that are invisible to the application layer and unreachable by the model layer.
+
+\textbf{The Contribution.} This paper presents a network-resident enforcement architecture and a federated trust protocol for edge networks that host autonomous agents. The enforcement element is a deterministic reference monitor placed at the agent action boundary --- between the agent's reasoning process and the network requests it issues --- applying Anderson's reference monitor properties and Saltzer--Schroeder design principles to a new class of network endpoint. On top of this, we specify GFN-1 (Governance Federation Network protocol v1), a peer-to-peer trust protocol that enables edge nodes to share governance intelligence without centralized authority, using hash-chained tamper-evident audit, threshold signatures, and a game-theoretic Sybil-resistance equilibrium. The paper additionally contributes ATX-1, a STIX 2.1 threat taxonomy of 10 tactics, 29 techniques, and 29 sub-techniques that gives the edge networking community a reproducible benchmark for evaluating trust systems against autonomous-agent threat models.
+
+\textbf{Evaluation.} The architecture is evaluated on a five-node edge testbed using resource-constrained hardware profiles representative of operational edge deployments, with three measurement dimensions: (1)~\emph{network-layer performance} --- sub-8~ms governance decision latency under normal workloads with zero errors across the testbed; (2)~\emph{federation behavior} --- GFN-1 convergence with Sybil detection across nodes, and demonstrated 100\% governance availability under network partition (Experiment~E4); and (3)~\emph{adversarial workload} --- a live multi-agent deployment in which seven autonomous agents with unrestricted tool access serve as a realistic adversarial load generator for the network's enforcement layer, with two ungoverned agents forming the control group and confirming that the same network-layer attacks remained exploitable in the absence of the proposed enforcement architecture. Together, these measurements characterize the proposed system as a network protocol and runtime, not as an AI alignment technique.
+
+\textbf{Distinction from companion work.} This submission is distinct from a companion paper currently under review at IEEE Computer (manuscript COMSI-2026-03-0087; preprint DOI: 10.5281/zenodo.19223924), which is a vision/position piece on the architectural governance argument. The TNSE submission is a full systems paper with empirical evaluation, live adversarial laboratory, and federation protocol specification---none of which appear in the Computer submission. The two papers do not share substantive text; the contributions are deliberately partitioned.
+
+\textbf{Open Artifacts.} All specifications, source code, threat taxonomy dataset (DOI: 10.21227/7c9p-6150 -- ATX-1 v2.2, current; supersedes 10.21227/015v-9641 referenced in the original submission), and the governance runtime (DOI: 10.5281/zenodo.19355478) are published under open licenses for reproducibility.
+
+This manuscript has not been published elsewhere and is not under consideration by any other journal. I am prepared to address any reviewer feedback the Guest Editors may direct to the work, and the Special Issue submission deadline of 15~April~2026 remains open.
+
+I am grateful to Prof.\ Niyato for the opportunity to bring this work to the Guest Editors' attention.
+
+\closing{Respectfully submitted,}
+
+\end{letter}
+\end{document}
