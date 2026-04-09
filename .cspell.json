@@ -245,6 +245,7 @@
     "**/node_modules/**",
     "**/dist/**",
     "docs/position-papers/**/FinnoybuIPLLC-*.md",
-    "docs/position-papers/**/submission/**"
+    "docs/position-papers/**/submission/**",
+    "docs/position-papers/ieee-tnse-2026/**"
   ]
 }
