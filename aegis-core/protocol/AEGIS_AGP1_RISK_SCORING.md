@@ -441,8 +441,8 @@ test_case: "high_risk_production_at_3am"
 
 ## Next Steps
 
-- [AEGIS_AGP1_FLOWS.md](./AEGIS_AGP1_FLOWS.md) - Complete decision flows with risk thresholds
-- [AEGIS_AGP1_ERROR_HANDLING.md](./AEGIS_AGP1_ERROR_HANDLING.md) - Error codes and retry logic
+- [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md) - Complete decision flows with risk thresholds
+- [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md) - Error codes and retry logic
 
 ---
 

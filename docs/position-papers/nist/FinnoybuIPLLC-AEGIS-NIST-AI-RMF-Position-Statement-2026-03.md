@@ -273,7 +273,7 @@ AEGIS™ was developed through active human-AI collaboration, with strategic dir
 
 ## References and Resources
 
-- NIST AI Risk Management Framework (AI RMF 1.0) — [nist.gov](https://www.nist.gov/system/files/documents/2023/01/26/NIST_AI_RMF_1.0.pdf)
+- NIST AI Risk Management Framework (AI RMF 1.0) — [nist.gov](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
 - AEGIS Governance Repository — [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)
 - AEGIS Constitution — [aegissystems.app](https://aegissystems.app)
 - AEGIS Manifesto — [aegis-core/manifesto](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/manifesto/AEGIS_Manifesto.md)

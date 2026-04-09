@@ -1359,8 +1359,8 @@ Detailed configuration schema document available in accompanying `AEGIS_NODE_CON
 
 - [AEGIS_GFN1_TRUST_MODEL.md](./AEGIS_GFN1_TRUST_MODEL.md) - Trust scoring and bootstrap mechanisms
 - [AEGIS_Governance_Event_Model.md](../rfc/RFC-0004-Governance-Event-Model.md) - Event envelope schemas
-- [AEGIS_Governance_Protocol_AGP1.md](../aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) - Wire protocol specification
-- [AEGIS_Constitution.md](../docs/05_AEGIS_Constitution.md) - Governance principles
+- [AEGIS_AGP1_INDEX.md](../aegis-core/protocol/AEGIS_AGP1_INDEX.md) - Wire protocol specification
+- [AEGIS Constitution](https://aegis-constitution.com) - Governance principles
 
 ---
 

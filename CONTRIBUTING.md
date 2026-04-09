@@ -9,13 +9,13 @@ rfc/
 protocol/
 federation/
 <!--
-    This repository uses the centralized CONTRIBUTING.md in the .github repo for general contribution guidelines.
-    Please refer to ../../.github/CONTRIBUTING.md for the main process. The following are aegis-governance-specific contribution details:
+    This repository uses repo-local contribution guidelines.
+    The following are aegis-governance-specific contribution details.
 -->
 
 # aegis-governance Contribution Guide
 
-For general contribution guidelines, see the [central CONTRIBUTING.md](../../.github/CONTRIBUTING.md).
+For general contribution guidelines, see the sections below.
 
 ## Repository-Specific Guidelines
 

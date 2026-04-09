@@ -368,9 +368,9 @@ All trust calculations are logged:
 
 ## Next Steps
 
-- [AGP1_PolicyLanguage.md](./AGP1_PolicyLanguage.md) - Policy rules that use trust scores
+- [AEGIS_AGP1_POLICY_EVALUATION.md](./AEGIS_AGP1_POLICY_EVALUATION.md) - Policy rules that use trust scores
 - [AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md) - Complete risk scoring calculations
-- [AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md](../federation/AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md) - Trust evaluator component
+- [AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md](../../federation/AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md) - Trust evaluator component
 
 ---
 

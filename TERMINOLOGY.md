@@ -409,7 +409,7 @@ AGP (currently AGP-1) defines message structures for:
 
 **Related Terms:** [Governance Runtime](#governance-runtime), [Action](#action), [Governance Decision](#governance-decision)
 
-**RFC Specification:** [RFC-0001: AEGIS Architecture](rfc/RFC-0001.md) defines AGP message format and protocol flow.
+**RFC Specification:** [RFC-0001: AEGIS Architecture](rfc/RFC-0001-AEGIS-Architecture.md) defines AGP message format and protocol flow.
 
 ---
 

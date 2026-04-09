@@ -1,0 +1,34 @@
+\documentclass[11pt]{letter}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\signature{Kenneth Tannenbaum\\AEGIS Initiative\\ktannenbaum@aegis-initiative.com\\ORCID: 0009-0007-4215-1789}
+
+\address{Kenneth Tannenbaum\\AEGIS Initiative\\Lovettsville, VA 20180, USA}
+
+\begin{document}
+
+\begin{letter}{Guest Editors\\IEEE Transactions on Network Science and Engineering\\Special Issue: Secure, Trustworthy, and Autonomous Intelligent\\Edge Networking with Agentic AI}
+
+\opening{Dear Editors,}
+
+I am pleased to submit the manuscript ``AEGIS: Reference Monitor--Based Governance with Federated Trust for Autonomous Edge AI Agents'' for consideration in your Special Issue.
+
+\textbf{The Problem.} Autonomous AI agents are now executing actions against real infrastructure in edge environments---calling APIs, modifying files, commanding actuators, and communicating across multi-agent networks. Existing governance approaches operate primarily at the model or inference layer and do not control post-reasoning execution. This creates a structural gap: agents may behave safely in language while remaining fully capable of unsafe action. The Agents of Chaos study (Shapira et al., 2026) documented this gap empirically across production agent deployments.
+
+\textbf{The Contribution.} This paper introduces a shift from behavioral governance to architectural enforcement. Rather than attempting to align or filter model outputs, AEGIS makes unauthorized actions structurally unavailable through capability enforcement, deterministic policy evaluation, and tamper-evident audit at the agent action boundary---the point where reasoning becomes infrastructure effect. The architecture is grounded in Anderson's reference monitor properties and Saltzer--Schroeder design principles, adapted for the agentic AI domain. We additionally contribute ATX-1, a systematic threat taxonomy of 10 tactics and 29 techniques for agentic AI, and GFN-1, a federated trust protocol enabling decentralized governance intelligence sharing across edge nodes with game-theoretic Sybil resistance.
+
+\textbf{Evaluation.} The paper presents three complementary evaluation methods: (1)~a five-node edge testbed with resource-constrained profiles demonstrating governance decision latency below 8~ms under normal workloads with zero errors; (2)~federated trust convergence with Sybil detection and uninterrupted governance during network partition; and (3)~a live multi-agent laboratory reproducing the Agents of Chaos environment using the same framework (OpenClaw) and models (Kimi~K2.5, Claude~Opus~4.6). Seven autonomous agents deployed with unrestricted tool access discovered real vulnerabilities at machine speed, autonomously built offensive tools, and produced independent security assessments---then AEGIS governance blocked all evaluated exploits while preserving agent functionality. Two ungoverned agents served as a control group, confirming that the same vulnerabilities remained exploitable in the absence of governance.
+
+\textbf{Relevance.} The manuscript addresses all twelve topics listed in the Call for Papers, with particular depth in security and trust frameworks, adversarial robustness, decentralized trust, malicious coordination detection, governance aspects of autonomous agents, and trustworthy decision-making. The evaluation on real edge hardware with real AI agents distinguishes this work from simulation-based approaches.
+
+\textbf{Distinction.} This work is distinct from a companion submission to IEEE Computer (Preprint DOI: 10.5281/zenodo.19223924), which presents the governance architecture as a position paper. The TNSE submission is a full systems paper with empirical evaluation, live adversarial laboratory, and federation protocol specification---none of which appear in the Computer submission.
+
+\textbf{Open Artifacts.} All specifications, source code, threat taxonomy datasets (DOI: 10.21227/015v-9641), and the governance runtime (DOI: 10.5281/zenodo.19355478) are published under open licenses for reproducibility.
+
+This manuscript has not been published elsewhere and is not under consideration by any other journal.
+
+\closing{Respectfully submitted,}
+
+\end{letter}
+\end{document}

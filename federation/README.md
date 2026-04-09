@@ -236,8 +236,8 @@ The federation model is especially valuable for:
 For detailed specifications, see:
 
 - **Architecture & Security**: See [../docs/architecture](../docs/architecture) and [../rfc](../rfc)
-- **Runtime API**: See [AGP-1 Protocol](../aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md)
-- **Threat Model**: See [../docs/architecture/THREAT_BOUNDARIES.md](../docs/architecture/THREAT_BOUNDARIES.md)
+- **Runtime API**: See [AGP-1 Protocol](../aegis-core/protocol/AEGIS_AGP1_INDEX.md)
+- **Threat Model**: See [../docs/architecture/TRUST_BOUNDARIES.md](../docs/architecture/TRUST_BOUNDARIES.md)
 
 ---
 

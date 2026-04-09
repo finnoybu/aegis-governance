@@ -507,7 +507,7 @@ Ready to explore AEGIS governance? Follow this learning path:
 
 ## Step 5: Review Threat Model
 
-- **Read:** [AEGIS Threat Model](../threat-model/AEGIS_Threat_Model.md) — Understand attack vectors
+- **Read:** [AEGIS Threat Model](../threat-model/AEGIS_ATM1_INDEX.md) — Understand attack vectors
 - **Review:** STRIDE-based threat analysis and mitigation strategies
 - **Key Takeaway:** Governance must defend against adversarial behavior
 
@@ -541,7 +541,7 @@ Ready to explore AEGIS governance? Follow this learning path:
 | Learn the architecture | [Reference Architecture](../architecture/AEGIS_Reference_Architecture.md) |
 | See integration examples | [FAQ](../faq/AEGIS_FAQ.md) |
 | Understand principles | [Constitution](../constitution/AEGIS_Constitution.md) |
-| Assess security | [Threat Model](../threat-model/AEGIS_Threat_Model.md) |
+| Assess security | [Threat Model](../threat-model/AEGIS_ATM1_INDEX.md) |
 | Plan adoption | [FAQ - Adoption Model](../faq/AEGIS_FAQ.md#aegis-adoption-model) |
 | Join the community | [GitHub Discussions](https://github.com/aegis-initiative/aegis-governance/discussions) |
 
