@@ -1,15 +1,21 @@
 > **Document**: FinnoybuIPLLC-AEGIS-IEEE-DataDescriptions-ATX1-ThreatMatrix-2026.md\
-> **Version**: 0.3 (DRAFT)\
+> **Version**: 0.4 (final, as submitted)\
 > **Part of**: AEGIS Position Papers\
 > **Target Venue**: IEEE Data Descriptions\
 > **Article Type**: Descriptor\
 > **Author**: Kenneth Tannenbaum (AEGIS Initiative)\
 > **ORCID**: 0009-0007-4215-1789\
 > **Preprint DOI**: 10.5281/zenodo.19223924\
-> **Dataset DOI**: 10.21227/f87b-1d57
+> **Dataset DOI (as submitted)**: 10.21227/f87b-1d57 (ATX-1 v1.0)
 >
-> **DRAFT — NOT YET SUBMITTED**
-> This document is a working draft for submission to IEEE Data Descriptions.
+> **STATUS — UNDER REVIEW (Submitted 2026-03-26)**\
+> Submitted to IEEE Data Descriptions on 2026-03-26 as v0.4 (final). Manuscript ID: **DATA-00033-2026**. Currently under editorial review (verified 2026-04-09 via IEEE Author Portal).
+> Canonical submission artifact: [`submission/atx1-descriptor.tex`](submission/atx1-descriptor.tex) (LaTeX) and the accompanying PDF.
+> This markdown is the human-readable working copy of that submission and intentionally describes ATX-1 **v1.0** (9 tactics, 20 techniques) — the dataset state at submission time.
+>
+> **POST-SUBMISSION NOTE**\
+> The ATX-1 dataset has since evolved. The current release is **v2.2** (10 tactics, 29 techniques, 29 sub-techniques) with DOI [10.21227/7c9p-6150](https://doi.org/10.21227/7c9p-6150) on IEEE DataPort and [10.5281/zenodo.19483999](https://doi.org/10.5281/zenodo.19483999) on Zenodo. See [`docs/atx/README.md`](../../atx/README.md) for current state. This descriptor remains frozen at v1.0 to match the submitted record; a follow-on descriptor for v2.x is planned separately.
+>
 > Everything above this line is internal metadata and will not appear in the submission.
 
 ---
@@ -188,7 +194,7 @@ All storage locations serve identical file content under the Apache 2.0 license.
 
 ATX-1 v1.0 derives its technique definitions primarily from the *Agents of Chaos* study [4], with the core findings corroborated by independent research on multi-agent vulnerabilities [11], cross-domain security challenges [12], and governed system failure modes [13]. While the technique catalog may not be exhaustive, the convergence of multiple research groups on the same failure patterns provides confidence in the taxonomy's coverage of the dominant threat classes. Future versions will incorporate additional empirical sources as the field of agentic AI governance matures.
 
-The severity ratings reflect the authors' assessment based on the documented case studies and are not derived from a quantitative risk model. Organizations should calibrate severity ratings to their specific deployment context.
+The severity ratings reflect the author's assessment based on the documented case studies and are not derived from a quantitative risk model. Organizations should calibrate severity ratings to their specific deployment context.
 
 ### Extensibility
 

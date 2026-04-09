@@ -7,7 +7,8 @@ Authoritative record of all AEGIS publications, datasets, and persistent identif
 | Title | Venue | Status | Manuscript ID | DOI | Date |
 |---|---|---|---|---|---|
 | AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents | IEEE Computer (SI: AI Governance and Compliance) | Under Review | COMSI-2026-03-0087 | — | 2026-03-25 |
-| Descriptor: AEGIS Threat Matrix for Agentic AI Systems (ATX-1) | IEEE Data Descriptions | Submitted | — | — | 2026-03-26 |
+| Descriptor: AEGIS Threat Matrix for Agentic AI Systems (ATX-1) | IEEE Data Descriptions | Under Review | DATA-00033-2026 | — | 2026-03-26 |
+| AEGIS: Reference Monitor–Based Governance with Federated Trust for Autonomous Edge AI Agents | IEEE TNSE (SI: Secure, Trustworthy, and Autonomous Intelligent Edge Networking with Agentic AI) | Resubmitted at EIC invitation (orig. desk-rejected 2026-04-08; appeal granted 2026-04-09) | 213562c7-09ca-4b49-bdab-aca9c091fdf6 (new); TNSEJL-2026-04-1062 (original) | — | 2026-04-09 |
 | AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents (Preprint) | Zenodo | Published | — | [10.5281/zenodo.19223924](https://doi.org/10.5281/zenodo.19223924) | 2026-03-25 |
 
 ## Position Papers & Submissions
@@ -17,6 +18,12 @@ Authoritative record of all AEGIS publications, datasets, and persistent identif
 | AEGIS Governance Architecture — NIST AI RMF Position Statement | NIST | Submitted | 2026-03-07 |
 | AEGIS NCCoE AI Agent Identity & Authorization Response | NCCoE | Submitted | 2026-03-22 |
 | AEGIS CETS225 Positioning | CETS225 | Submitted | 2026-03 |
+
+## Books & Ebooks
+
+| Title | Publisher | DOI | Date |
+|---|---|---|---|
+| Governing the Action Boundary: An open architecture for autonomous AI agents | AEGIS Initiative · Finnoybu IP LLC | [10.5281/zenodo.19489150](https://zenodo.org/records/19489150) | 2026-04-09 |
 
 ## Datasets
 
