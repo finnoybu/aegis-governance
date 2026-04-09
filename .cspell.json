@@ -242,7 +242,15 @@
     "cursorrules",
     "windsurfrules",
     "continuerc",
-    "subshell"
+    "subshell",
+    "AGAP",
+    "agap",
+    "aegisfederation",
+    "overclaiming",
+    "underclaiming",
+    "Overclaimed",
+    "Solana",
+    "permissioned"
   ],
   "ignorePaths": [
     "archive/**",
