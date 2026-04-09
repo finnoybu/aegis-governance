@@ -19,3 +19,4 @@ ignores:
   - "**/node_modules/**"
   - "docs/position-papers/**/FinnoybuIPLLC-*.md"  # frozen submitted papers
   - "docs/position-papers/**/submission/**"         # frozen submission artifacts
+  - "docs/position-papers/ieee-tnse-2026/**"        # draft paper in active editing

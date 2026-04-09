@@ -311,4 +311,4 @@ header("X-Signature") = base64url(signature)
 ## Next Steps
 
 - [AEGIS_AGP1_AUTHENTICATION.md](./AEGIS_AGP1_AUTHENTICATION.md) - OAuth, JWT, mTLS details
-- [AGP1_Flows.md](./AGP1_Flows.md) - Full protocol flows and diagrams
+- [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md) - Full protocol flows and diagrams

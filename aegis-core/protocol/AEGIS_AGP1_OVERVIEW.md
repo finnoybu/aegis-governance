@@ -296,7 +296,7 @@ Continue reading:
 
 1. **[AEGIS_AGP1_MESSAGES.md](./AEGIS_AGP1_MESSAGES.md)** - Exact message schemas and field specifications
 2. **[AEGIS_AGP1_AUTHENTICATION.md](./AEGIS_AGP1_AUTHENTICATION.md)** - How to authenticate as a client
-3. **[AGP1_Flows.md](./AGP1_Flows.md)** - Visual protocol flows and state machines
+3. **[AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md)** - Visual protocol flows and state machines
 
 ---
 

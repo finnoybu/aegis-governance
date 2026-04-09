@@ -112,7 +112,7 @@ Remove all Python source files and test files from `aegis-governance/aegis-runti
 
 **Retain:**
 - `aegis-runtime/MOVED.md` — Updated to reference this RFC
-- `aegis-runtime/README.md` — Replaced with a short redirect notice referencing this RFC and linking to `aegis-core`
+- `https://github.com/aegis-initiative/aegis-core` — Replaced with a short redirect notice referencing this RFC and linking to `aegis-core`
 
 ### Phase 3 — Remove aegis-platform/deploy/aegis/ Copy
 
@@ -243,7 +243,7 @@ PRs 2 and 3 can be opened in parallel. PR 4 depends on PR 3 being merged (CI che
 ### Known Issues to Address During Implementation
 
 - `aegis-platform/deploy/aegis/__pycache__/` contains committed `.pyc` files. These should be removed and `.gitignore` updated.
-- `aegis-governance/aegis-runtime/README.md` contains duplicated git clone blocks and a stray `*** End Patch` artifact (line 227). The replacement redirect notice resolves this.
+- `aegis-governance/https://github.com/aegis-initiative/aegis-core` contains duplicated git clone blocks and a stray `*** End Patch` artifact (line 227). The replacement redirect notice resolves this.
 - `aegis-governance/pyproject.toml` at the repo root defines an `aegis-governance` package. Verify it does not declare `aegis-runtime` as a sub-package or dependency.
 
 ### Dependencies

@@ -399,8 +399,8 @@ If token must be revoked before expiration (compromise):
 
 ## Next Steps
 
-- [AGP1_PolicyEvaluation.md](./AGP1_PolicyEvaluation.md) - Capability and policy evaluation
-- [AGP1_Flows.md](./AGP1_Flows.md) - Complete protocol flows
+- [AEGIS_AGP1_POLICY_EVALUATION.md](./AEGIS_AGP1_POLICY_EVALUATION.md) - Capability and policy evaluation
+- [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md) - Complete protocol flows
 
 ---
 

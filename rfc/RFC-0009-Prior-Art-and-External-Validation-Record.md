@@ -81,8 +81,8 @@ immutable public anchor (GitHub commit, Discussion URL, or RFC publication date)
 | Four-layer enforcement stack (Doctrine/Schema/Engine/Platform) | TBD | TBD | TBD |
 | Execution boundary as primary authorization point | TBD | TBD | TBD |
 | Append-only audit trail requirement | TBD | TBD | TBD |
-| Agent runtime trust — two-mechanism separation model | 2026-03-15 | RFC-0004 v0.4 §5 | <https://github.com/orgs/aegis-initiative/discussions/82> |
-| Non-override constraint (reputation never overrides threat detection) | 2026-03-15 | RFC-0004 v0.4 §5.4 | <https://github.com/orgs/aegis-initiative/discussions/82> |
+| Agent runtime trust — two-mechanism separation model | 2026-03-15 | RFC-0004 v0.4 §5 | GitHub Discussion #82 (archived) |
+| Non-override constraint (reputation never overrides threat detection) | 2026-03-15 | RFC-0004 v0.4 §5.4 | GitHub Discussion #82 (archived) |
 | Cryptographic agent registration at Doctrine layer | TBD | TBD | TBD |
 | Authority capture at proposal time, re-validation at commit | TBD | TBD | TBD |
 | Federation publisher trust model | TBD | GFN-1 §3.7 | TBD |
@@ -97,7 +97,7 @@ normative source audit.*
 
 **Contact:** Nathan Freestone (@EloraTaurus)\
 **Project:** The Elora Taurus Project — <https://elorataurus.com>\
-**Prior Art Record:** <https://elorataurus.com/prior-art.html> (first published 2026-03-09)\
+**Prior Art Record:** maintained by Nathan Freestone (first published 2026-03-09; record provided directly via project channel)\
 **Permission:** Explicit — granted 2026-03-15 to reference and incorporate all three
 patterns into AEGIS spec and IEEE paper.
 
@@ -107,7 +107,7 @@ problem inward. Both systems independently concluded that inference output canno
 carry its own authorization, governance cannot share compute boundary with what it
 governs, and audit trails must be append-only, hash-linked, and forensically replayable.
 
-**Elora public milestones** (from <https://elorataurus.com/prior-art.html>):
+**Elora public milestones** (from prior art record provided by Nathan Freestone):
 
 | Milestone | Date | Commit Fingerprint |
 |---|---|---|
@@ -148,7 +148,7 @@ State Dump Protocol sub-spec.*
 **Contact:** Mattijs Moens\
 **Project:** Sovereign Shield — <https://sovereignshield.io>\
 **License:** BSL 1.1 on engine/repo code — commercial use requires license\
-**Citable artifact:** <https://github.com/orgs/aegis-initiative/discussions/82> (posted 2026-03-15)
+**Citable artifact:** GitHub Discussion #82, aegis-initiative org (archived 2026-03-15)
 
 Mattijs Moens independently identified the structural flaw in RFC-0004 v0.3 and
 proposed the two-layer separation model: security and reputation must never share
@@ -250,11 +250,11 @@ No breaking changes. No deprecations.
 - RFC-0004 v0.4 — Runtime Trust Model (two-mechanism separation)
 - GFN-1 — `aegis-governance/federation/AEGIS_GFN1_TRUST_MODEL.md`
 - normative-source-audit.yaml — audit scope and sequencing
-- Elora Taurus prior art record — <https://elorataurus.com/prior-art.html>
+- Elora Taurus prior art record — provided by Nathan Freestone (Elora Taurus Project)
 - GitHub Discussion #73 — <https://github.com/aegis-initiative/aegis-governance/discussions/73>
 - GitHub Discussion #74 — <https://github.com/aegis-initiative/aegis-governance/discussions/74>
 - GitHub Discussion #75 — <https://github.com/aegis-initiative/aegis-governance/discussions/75>
-- GitHub Discussion #82 — <https://github.com/orgs/aegis-initiative/discussions/82>
+- GitHub Discussion #82 — aegis-initiative org (archived 2026-03-15)
 - *Agents of Chaos* — arXiv:2602.20021
 - NIST AI RMF 1.0 — <https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf>
 - RFC 6962 (Certificate Transparency) — <https://datatracker.ietf.org/doc/html/rfc6962>

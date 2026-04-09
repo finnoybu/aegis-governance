@@ -110,7 +110,7 @@ The Governance Federation Network relies on:
 - Cryptographic signature validation
 - Trust decisions by node operators
 
-Review the [Federation Trust Model](federation/AEGIS_TRUST_MODEL.md) for details.
+Review the [Federation Trust Model](federation/AEGIS_GFN1_TRUST_MODEL.md) for details.
 
 ---
 

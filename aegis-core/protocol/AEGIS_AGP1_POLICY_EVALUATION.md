@@ -446,7 +446,7 @@ Results:
 ## Next Steps
 
 - [AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md) - Risk calculation and decision thresholds
-- [AEGIS_AGP1_FLOWS.md](./AEGIS_AGP1_FLOWS.md) - Complete protocol flows with policy evaluation
+- [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md) - Complete protocol flows with policy evaluation
 
 ---
 

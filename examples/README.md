@@ -188,11 +188,11 @@ See [`../CONTRIBUTING.md`](../CONTRIBUTING.md) for full guidelines.
 **Specifications:**
 - [AGP-1 Protocol](../aegis-core/protocol/AEGIS_AGP1_INDEX.md)
 - [Capability Schema](../aegis-core/schemas/capability/)
-- [Policy Schema](../aegis-core/schemas/policy/)
+- [Policy Schema](../aegis-core/schemas/governance/)
 
 **Runtime:**
 - [Reference Runtime](../aegis-runtime/)
-- [Runtime API](../aegis-runtime/README.md)
+- [Runtime API](https://github.com/aegis-initiative/aegis-core)
 
 ---
 
@@ -204,4 +204,4 @@ See [`../CONTRIBUTING.md`](../CONTRIBUTING.md) for full guidelines.
 
 ---
 
-**Navigation**: [← Back to Repository Root](../README.md) | [→ Runtime Documentation](../aegis-runtime/README.md) | [→ Specifications](../aegis-core/README.md)
+**Navigation**: [← Back to Repository Root](../README.md) | [→ Runtime Documentation](https://github.com/aegis-initiative/aegis-core) | [→ Specifications](../aegis-core/README.md)

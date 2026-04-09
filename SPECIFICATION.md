@@ -34,8 +34,8 @@ Changes in one layer may require updates in dependent layers. Protocol changes (
 | Constitution | aegis-core/constitution/AEGIS_Constitution.md | 2026-03-06 |
 | System Overview | aegis-core/overview/AEGIS_System_Overview.md | 2026-03-06 |
 | Reference Architecture | aegis-core/architecture/AEGIS_Reference_Architecture.md | 2026-03-06 |
-| Threat Model | aegis-core/threat-model/AEGIS_Threat_Model.md | 2026-03-06 |
-| AGP-1 Protocol | aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md | 2026-03-06 |
+| Threat Model | aegis-core/threat-model/AEGIS_ATM1_INDEX.md | 2026-03-06 |
+| AGP-1 Protocol | aegis-core/protocol/AEGIS_AGP1_INDEX.md | 2026-03-06 |
 | Federation | federation/ | 2026-03-06 |
 | RFC Directory | rfc/ | 2026-03-06 |
 
@@ -132,10 +132,10 @@ Changes in one layer may require updates in dependent layers. Protocol changes (
 | Your Goal | Read First | Then Read | Implementation Support |
 |---|---|---|---|
 | Understand AEGIS concept | [Manifesto](aegis-core/manifesto/AEGIS_Manifesto.md) | [System Overview](aegis-core/overview/AEGIS_System_Overview.md) | [FAQ](aegis-core/faq/AEGIS_FAQ.md) |
-| Evaluate governance model | [System Overview](aegis-core/overview/AEGIS_System_Overview.md) | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | [Threat Model](aegis-core/threat-model/AEGIS_Threat_Model.md) |
-| Design implementation | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) | [Schemas](aegis-core/schemas/) |
-| Build governance runtime | [Reference Runtime](aegis-runtime/) | [RFC-0002 (TBD)](rfc/RFC-0002.md) | [Integration Examples](examples/) |
-| Deploy federation | [Federation Architecture](federation/) | [RFC-0004 (TBD)](rfc/RFC-0004.md) | [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md) |
+| Evaluate governance model | [System Overview](aegis-core/overview/AEGIS_System_Overview.md) | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | [Threat Model](aegis-core/threat-model/AEGIS_ATM1_INDEX.md) |
+| Design implementation | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | [AGP-1 Protocol](aegis-core/protocol/AEGIS_AGP1_INDEX.md) | [Schemas](aegis-core/schemas/) |
+| Build governance runtime | [Reference Runtime](aegis-runtime/) | [RFC-0002 (TBD)](rfc/RFC-0002-Governance-Runtime.md) | [Integration Examples](examples/) |
+| Deploy federation | [Federation Architecture](federation/) | [RFC-0004 (TBD)](rfc/RFC-0004-Governance-Event-Model.md) | [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md) |
 
 ---
 
@@ -157,7 +157,7 @@ Changes in one layer may require updates in dependent layers. Protocol changes (
 
 1. Read [System Overview](aegis-core/overview/AEGIS_System_Overview.md) — Architecture overview
 2. Review [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) — Detailed design
-3. Study [Threat Model](aegis-core/threat-model/AEGIS_Threat_Model.md) — Security analysis
+3. Study [Threat Model](aegis-core/threat-model/AEGIS_ATM1_INDEX.md) — Security analysis
 4. Explore [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md) — Component interactions
 
 ### I want to implement AEGIS governance
@@ -165,8 +165,8 @@ Changes in one layer may require updates in dependent layers. Protocol changes (
 **Best for:** Developers, DevOps, runtime implementers
 
 1. Read [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) — Complete architecture
-2. Study [RFC-0002: Governance Runtime](rfc/RFC-0002.md) — Runtime specification (pending)
-3. Review [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) — Protocol definition
+2. Study [RFC-0002: Governance Runtime](rfc/RFC-0002-Governance-Runtime.md) — Runtime specification (pending)
+3. Review [AGP-1 Protocol](aegis-core/protocol/AEGIS_AGP1_INDEX.md) — Protocol definition
 4. Explore [Reference Runtime](aegis-runtime/) — Working implementation
 5. Review [Integration Examples](examples/) — Framework integrations
 
@@ -175,7 +175,7 @@ Changes in one layer may require updates in dependent layers. Protocol changes (
 **Best for:** Operations, enterprise architects
 
 1. Read [Federation Architecture](federation/) — Federation network design
-2. Review [RFC-0004: Governance Event Model](rfc/RFC-0004.md) — Event schema (pending)
+2. Review [RFC-0004: Governance Event Model](rfc/RFC-0004-Governance-Event-Model.md) — Event schema (pending)
 3. Study [Reference Architecture: Federation](aegis-core/architecture/AEGIS_Reference_Architecture.md#federation-integration) — Integration guidance
 
 ### I want to join the AEGIS community
@@ -201,8 +201,8 @@ The AEGIS specification is organized across five layers, from foundational princ
 | FAQ & Adoption Model | 3-level maturity model and common questions | [AEGIS FAQ](aegis-core/faq/AEGIS_FAQ.md) | 1 | ✅ v0.1 |
 | Reference Architecture | Deployment patterns, performance targets, security architecture, integration guidance | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | 2 | ✅ v0.1 |
 | Ecosystem Map | Component interactions, data flows, deployment topologies | [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md) | 2 | ✅ v0.1 |
-| Threat Model | Security analysis, attack vectors, risk mitigation | [Threat Model](aegis-core/threat-model/AEGIS_Threat_Model.md) | 2 | ✅ v0.1 |
-| AGP-1 Protocol | Message structures for AI-governance runtime interaction | [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) | 3 | ✅ v0.1 |
+| Threat Model | Security analysis, attack vectors, risk mitigation | [Threat Model](aegis-core/threat-model/AEGIS_ATM1_INDEX.md) | 2 | ✅ v0.1 |
+| AGP-1 Protocol | Message structures for AI-governance runtime interaction | [AGP-1 Protocol](aegis-core/protocol/AEGIS_AGP1_INDEX.md) | 3 | ✅ v0.1 |
 | AGP Schemas | Protocol message schemas and validation rules | [Schemas: AGP](aegis-core/schemas/agp/) | 3 | ✅ v0.1 |
 | Capability Schemas | Capability registry definitions and structures | [Schemas: Capability](aegis-core/schemas/capability/) | 3 | ✅ v0.1 |
 | Governance Schemas | Governance event structures and event model | [Schemas: Governance](aegis-core/schemas/governance/) | 3 | ✅ v0.1 |
@@ -211,10 +211,10 @@ The AEGIS specification is organized across five layers, from foundational princ
 | Reference Runtime | Working implementation of governance runtime components | [AEGIS Runtime](aegis-runtime/) | 4 | 🔄 In Progress |
 | Integration Examples | Pattern implementations for LangChain, CrewAI, AutoGPT, OpenAI | [Examples](examples/) | 4 | ✅ v0.1 |
 | Federation Architecture | Multi-org governance intelligence sharing and policy federation | [Federation](federation/) | 5 | ✅ v0.1 |
-| RFC-0001 | Complete AEGIS Architecture specification | [RFC-0001](rfc/RFC-0001.md) | 2 | ✅ v0.1 |
-| RFC-0002 | Governance Runtime specification | [RFC-0002](rfc/RFC-0002.md) | 4 | 🔄 Pending |
-| RFC-0003 | Capability Registry specification | [RFC-0003](rfc/RFC-0003.md) | 3 | 🔄 Pending |
-| RFC-0004 | Governance Event Model specification | [RFC-0004](rfc/RFC-0004.md) | 5 | 🔄 Pending |
+| RFC-0001 | Complete AEGIS Architecture specification | [RFC-0001](rfc/RFC-0001-AEGIS-Architecture.md) | 2 | ✅ v0.1 |
+| RFC-0002 | Governance Runtime specification | [RFC-0002](rfc/RFC-0002-Governance-Runtime.md) | 4 | 🔄 Pending |
+| RFC-0003 | Capability Registry specification | [RFC-0003](rfc/RFC-0003-Capability-Registry.md) | 3 | 🔄 Pending |
+| RFC-0004 | Governance Event Model specification | [RFC-0004](rfc/RFC-0004-Governance-Event-Model.md) | 5 | 🔄 Pending |
 
 ---
 
@@ -231,11 +231,11 @@ The AEGIS specification is organized across five layers, from foundational princ
 
 - How does AEGIS work technically? → [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md)
 - What are the components? → [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md)
-- What security properties does it have? → [Threat Model](aegis-core/threat-model/AEGIS_Threat_Model.md)
+- What security properties does it have? → [Threat Model](aegis-core/threat-model/AEGIS_ATM1_INDEX.md)
 
 **Layer 3 — Protocol & Data** (Understand the formats)
 
-- How do systems communicate? → [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md)
+- How do systems communicate? → [AGP-1 Protocol](aegis-core/protocol/AEGIS_AGP1_INDEX.md)
 - What data structures are used? → [Schemas](aegis-core/schemas/)
 
 **Layer 4 — Implementation** (Build governance runtime)
@@ -253,7 +253,7 @@ The AEGIS specification is organized across five layers, from foundational princ
 
 The **AEGIS Governance Protocol (AGP)** defines how AI agents interact with the governance runtime.
 
-**Protocol Specification:** [AGP-1 Governance Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) (Layer 3)
+**Protocol Specification:** [AGP-1 Governance Protocol](aegis-core/protocol/AEGIS_AGP1_INDEX.md) (Layer 3)
 
 The protocol defines message structures for:
 
@@ -266,10 +266,10 @@ The protocol defines message structures for:
 
 | RFC | Title | Layer | Status | Target |
 |-----|-------|-------|--------|--------|
-| [RFC-0001](rfc/RFC-0001.md) | AEGIS Architecture | 2 | ✅ v0.1 | v0.1 Final |
-| [RFC-0002](rfc/RFC-0002.md) | Governance Runtime | 4 | 🔄 In Progress | Q2 2026 |
-| [RFC-0003](rfc/RFC-0003.md) | Capability Registry | 3 | 🔄 In Progress | Q2 2026 |
-| [RFC-0004](rfc/RFC-0004.md) | Governance Event Model | 5 | 🔄 In Progress | Q2 2026 |
+| [RFC-0001](rfc/RFC-0001-AEGIS-Architecture.md) | AEGIS Architecture | 2 | ✅ v0.1 | v0.1 Final |
+| [RFC-0002](rfc/RFC-0002-Governance-Runtime.md) | Governance Runtime | 4 | 🔄 In Progress | Q2 2026 |
+| [RFC-0003](rfc/RFC-0003-Capability-Registry.md) | Capability Registry | 3 | 🔄 In Progress | Q2 2026 |
+| [RFC-0004](rfc/RFC-0004-Governance-Event-Model.md) | Governance Event Model | 5 | 🔄 In Progress | Q2 2026 |
 
 ---
 

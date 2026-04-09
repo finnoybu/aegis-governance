@@ -67,7 +67,7 @@ Documents include:
 - AEGIS_Manifesto.md
 - AEGIS_System_Overview.md
 - AEGIS_Reference_Architecture.md
-- AEGIS_Threat_Model.md
+- AEGIS_ATM1_INDEX.md
 - AEGIS_Ecosystem_Map.md
 - AEGIS_Roadmap.md
 - AEGIS_FAQ.md
@@ -166,8 +166,8 @@ Files:
 - AEGIS_ATPROTO_GOVERNANCE_NETWORK.md
 - AEGIS_ATPROTO_SCHEMA.md
 - AEGIS_GOVERNANCE_FEEDS.md
-- AEGIS_NODE_REFERENCE_ARCHITECTURE.md
-- AEGIS_TRUST_MODEL.md
+- AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md
+- AEGIS_GFN1_TRUST_MODEL.md
 
 ---
 
