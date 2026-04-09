@@ -1,7 +1,7 @@
 {
-  "version": "1.0-to-2.1",
-  "date": "2026-03-27",
-  "description": "Mapping of ATX-1 technique IDs from v1.0 through v2.0 to v2.1 for traceability. v1.0 and v2.0 remain frozen at their published DOIs.",
+  "version": "1.0-to-2.2",
+  "date": "2026-04-01",
+  "description": "Mapping of ATX-1 technique IDs from v1.0 through v2.1 to v2.2 for traceability. v1.0, v2.0, and v2.1 remain frozen at their published DOIs. v2.2 introduces 29 sub-techniques (T####.###) under T9002, T10001, T10002, T10003, and T10004 — no v2.1 techniques were renamed, moved, or removed.",
   "references": {
     "v1_ieee_dataport": "10.21227/f87b-1d57",
     "v1_zenodo": "10.5281/zenodo.19225676",

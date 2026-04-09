@@ -1,19 +1,25 @@
 {
   "schema_version": "1.0",
   "artifact": "ATX-1-MAP",
-  "version": "0.1",
-  "generated": "2026-03-26",
-  "description": "Mapping of ATX-1 v2.0 techniques to ATM-1 attack vectors, controls, and detection signals",
+  "version": "0.2",
+  "generated": "2026-04-01",
+  "description": "Mapping of ATX-1 v2.0 techniques to ATM-1 attack vectors, controls, and detection signals (v0.2: bumped for ATX-1 v2.2 release; TA010 technique mappings deferred to follow-up — see ACF-1 entries for control coverage.)",
   "license": "CC-BY-SA-4.0",
-
   "mappings": [
     {
       "atx_id": "T1001",
       "atx_name": "Execute Non-Owner Instruction",
       "tactic": "TA001",
-      "atm_vectors": ["AV-3.1"],
-      "atm_controls": ["PC-6", "PC-3"],
-      "atm_detections": ["identity_validation_failure_total"],
+      "atm_vectors": [
+        "AV-3.1"
+      ],
+      "atm_controls": [
+        "PC-6",
+        "PC-3"
+      ],
+      "atm_detections": [
+        "identity_validation_failure_total"
+      ],
       "coverage": "full",
       "notes": "Direct mapping to identity spoofing prevention and detection"
     },
@@ -21,9 +27,16 @@
       "atx_id": "T1002",
       "atx_name": "Infer Implicit Authority",
       "tactic": "TA001",
-      "atm_vectors": ["AV-2.1"],
-      "atm_controls": ["PC-4", "PC-3"],
-      "atm_detections": ["decision_behavior_anomaly"],
+      "atm_vectors": [
+        "AV-2.1"
+      ],
+      "atm_controls": [
+        "PC-4",
+        "PC-3"
+      ],
+      "atm_detections": [
+        "decision_behavior_anomaly"
+      ],
       "coverage": "partial",
       "notes": "Detected via behavioral anomalies rather than explicit signal"
     },
@@ -31,9 +44,17 @@
       "atx_id": "T1003",
       "atx_name": "Propagate Spoofed Authority at Scale",
       "tactic": "TA001",
-      "atm_vectors": ["AV-3.1", "AV-7.1"],
-      "atm_controls": ["PC-6", "DC-2"],
-      "atm_detections": ["coordinated_risk_escalations_total"],
+      "atm_vectors": [
+        "AV-3.1",
+        "AV-7.1"
+      ],
+      "atm_controls": [
+        "PC-6",
+        "DC-2"
+      ],
+      "atm_detections": [
+        "coordinated_risk_escalations_total"
+      ],
       "coverage": "full",
       "notes": "Strong correlation-based detection coverage"
     },
@@ -41,9 +62,16 @@
       "atx_id": "T2001",
       "atx_name": "Expand Task Scope Autonomously",
       "tactic": "TA002",
-      "atm_vectors": ["AV-2.1"],
-      "atm_controls": ["PC-3", "PC-4"],
-      "atm_detections": ["decision_behavior_anomaly"],
+      "atm_vectors": [
+        "AV-2.1"
+      ],
+      "atm_controls": [
+        "PC-3",
+        "PC-4"
+      ],
+      "atm_detections": [
+        "decision_behavior_anomaly"
+      ],
       "coverage": "partial",
       "notes": "Requires improved scope-boundary detection"
     },
@@ -51,9 +79,16 @@
       "atx_id": "T2002",
       "atx_name": "Perform Unvalidated Bulk Operations",
       "tactic": "TA002",
-      "atm_vectors": ["AV-2.2"],
-      "atm_controls": ["PC-3", "DC-2"],
-      "atm_detections": ["aggregate_risk_threshold_breach"],
+      "atm_vectors": [
+        "AV-2.2"
+      ],
+      "atm_controls": [
+        "PC-3",
+        "DC-2"
+      ],
+      "atm_detections": [
+        "aggregate_risk_threshold_breach"
+      ],
       "coverage": "full",
       "notes": "Well-covered by anomaly detection"
     },
@@ -61,9 +96,16 @@
       "atx_id": "T2003",
       "atx_name": "Obscure Objective Through Delegation",
       "tactic": "TA002",
-      "atm_vectors": ["AV-2.2", "AV-7.1"],
-      "atm_controls": ["DC-2"],
-      "atm_detections": ["coordinated_risk_escalations_total"],
+      "atm_vectors": [
+        "AV-2.2",
+        "AV-7.1"
+      ],
+      "atm_controls": [
+        "DC-2"
+      ],
+      "atm_detections": [
+        "coordinated_risk_escalations_total"
+      ],
       "coverage": "partial",
       "notes": "Delegation-specific visibility is implicit, not explicit"
     },
@@ -71,9 +113,15 @@
       "atx_id": "T2004",
       "atx_name": "Exploit Tool-Chain Composition",
       "tactic": "TA002",
-      "atm_vectors": ["AV-2.2"],
-      "atm_controls": ["DC-2"],
-      "atm_detections": ["tool_chain_anomaly"],
+      "atm_vectors": [
+        "AV-2.2"
+      ],
+      "atm_controls": [
+        "DC-2"
+      ],
+      "atm_detections": [
+        "tool_chain_anomaly"
+      ],
       "coverage": "partial",
       "notes": "Tool chain composition detection is emerging"
     },
@@ -81,9 +129,15 @@
       "atx_id": "T3001",
       "atx_name": "Perform Irreversible Destructive Action",
       "tactic": "TA003",
-      "atm_vectors": ["AV-2.4"],
-      "atm_controls": ["PC-3"],
-      "atm_detections": ["governance_bypass_attempt_total"],
+      "atm_vectors": [
+        "AV-2.4"
+      ],
+      "atm_controls": [
+        "PC-3"
+      ],
+      "atm_detections": [
+        "governance_bypass_attempt_total"
+      ],
       "coverage": "full",
       "notes": "Strong enforcement via proxy model"
     },
@@ -91,9 +145,15 @@
       "atx_id": "T3002",
       "atx_name": "Trigger Cascading System Changes",
       "tactic": "TA003",
-      "atm_vectors": ["AV-7.1"],
-      "atm_controls": ["DC-2"],
-      "atm_detections": ["coordinated_risk_escalations_total"],
+      "atm_vectors": [
+        "AV-7.1"
+      ],
+      "atm_controls": [
+        "DC-2"
+      ],
+      "atm_detections": [
+        "coordinated_risk_escalations_total"
+      ],
       "coverage": "partial",
       "notes": "Cascade behavior inferred, not explicitly modeled"
     },
@@ -101,9 +161,15 @@
       "atx_id": "T4001",
       "atx_name": "Exfiltrate Context-Scoped Data",
       "tactic": "TA004",
-      "atm_vectors": ["STRIDE-InformationDisclosure"],
-      "atm_controls": ["PC-3"],
-      "atm_detections": ["data_volume_anomaly"],
+      "atm_vectors": [
+        "STRIDE-InformationDisclosure"
+      ],
+      "atm_controls": [
+        "PC-3"
+      ],
+      "atm_detections": [
+        "data_volume_anomaly"
+      ],
       "coverage": "partial",
       "notes": "Detection relies on anomaly thresholds"
     },
@@ -111,9 +177,16 @@
       "atx_id": "T4002",
       "atx_name": "Leak Cross-Session Data",
       "tactic": "TA004",
-      "atm_vectors": ["AV-2.2", "AV-7.2"],
-      "atm_controls": ["DC-2"],
-      "atm_detections": ["long_window_exfiltration_pattern"],
+      "atm_vectors": [
+        "AV-2.2",
+        "AV-7.2"
+      ],
+      "atm_controls": [
+        "DC-2"
+      ],
+      "atm_detections": [
+        "long_window_exfiltration_pattern"
+      ],
       "coverage": "partial",
       "notes": "Slow-burn detection dependent on time-window analytics"
     },
@@ -121,9 +194,17 @@
       "atx_id": "T4003",
       "atx_name": "Cross-Domain Secret Leakage",
       "tactic": "TA004",
-      "atm_vectors": ["AV-7.2", "STRIDE-InformationDisclosure"],
-      "atm_controls": ["PC-3", "DC-2"],
-      "atm_detections": ["cross_domain_data_transfer"],
+      "atm_vectors": [
+        "AV-7.2",
+        "STRIDE-InformationDisclosure"
+      ],
+      "atm_controls": [
+        "PC-3",
+        "DC-2"
+      ],
+      "atm_detections": [
+        "cross_domain_data_transfer"
+      ],
       "coverage": "partial",
       "notes": "Cross-domain transfer detection requires domain boundary awareness"
     },
@@ -132,8 +213,12 @@
       "atx_name": "Report False Task Completion",
       "tactic": "TA005",
       "atm_vectors": [],
-      "atm_controls": ["DC-1"],
-      "atm_detections": ["execution_decision_mismatch"],
+      "atm_controls": [
+        "DC-1"
+      ],
+      "atm_detections": [
+        "execution_decision_mismatch"
+      ],
       "coverage": "gap",
       "notes": "No explicit execution verification control exists"
     },
@@ -141,9 +226,15 @@
       "atx_id": "T5002",
       "atx_name": "Fabricate Action Attribution",
       "tactic": "TA005",
-      "atm_vectors": ["AV-4.2"],
-      "atm_controls": ["DC-1"],
-      "atm_detections": ["audit_integrity_mismatch_total"],
+      "atm_vectors": [
+        "AV-4.2"
+      ],
+      "atm_controls": [
+        "DC-1"
+      ],
+      "atm_detections": [
+        "audit_integrity_mismatch_total"
+      ],
       "coverage": "full",
       "notes": "Strong audit integrity protection"
     },
@@ -153,7 +244,9 @@
       "tactic": "TA005",
       "atm_vectors": [],
       "atm_controls": [],
-      "atm_detections": ["missing_execution_signal"],
+      "atm_detections": [
+        "missing_execution_signal"
+      ],
       "coverage": "gap",
       "notes": "No failure transparency or enforcement mechanism"
     },
@@ -161,9 +254,15 @@
       "atx_id": "T6001",
       "atx_name": "Execute Recursive Invocation Loops",
       "tactic": "TA006",
-      "atm_vectors": ["AV-7.1"],
-      "atm_controls": ["DC-2"],
-      "atm_detections": ["request_rate_anomaly"],
+      "atm_vectors": [
+        "AV-7.1"
+      ],
+      "atm_controls": [
+        "DC-2"
+      ],
+      "atm_detections": [
+        "request_rate_anomaly"
+      ],
       "coverage": "partial",
       "notes": "Detection present, prevention weak"
     },
@@ -171,9 +270,13 @@
       "atx_id": "T6002",
       "atx_name": "Consume Unbounded External Resources",
       "tactic": "TA006",
-      "atm_vectors": ["AV-4.3"],
+      "atm_vectors": [
+        "AV-4.3"
+      ],
       "atm_controls": [],
-      "atm_detections": ["resource_usage_spike"],
+      "atm_detections": [
+        "resource_usage_spike"
+      ],
       "coverage": "partial",
       "notes": "Lacks explicit quota enforcement control"
     },
@@ -181,9 +284,15 @@
       "atx_id": "T7001",
       "atx_name": "Spoof Agent Identity",
       "tactic": "TA007",
-      "atm_vectors": ["AV-3.1"],
-      "atm_controls": ["PC-6"],
-      "atm_detections": ["identity_validation_failure_total"],
+      "atm_vectors": [
+        "AV-3.1"
+      ],
+      "atm_controls": [
+        "PC-6"
+      ],
+      "atm_detections": [
+        "identity_validation_failure_total"
+      ],
       "coverage": "full",
       "notes": "Well-covered by identity system"
     },
@@ -191,9 +300,15 @@
       "atx_id": "T7002",
       "atx_name": "Inject Malicious Delegation Chains",
       "tactic": "TA007",
-      "atm_vectors": ["AV-2.2"],
-      "atm_controls": ["DC-2"],
-      "atm_detections": ["delegation_pattern_anomaly"],
+      "atm_vectors": [
+        "AV-2.2"
+      ],
+      "atm_controls": [
+        "DC-2"
+      ],
+      "atm_detections": [
+        "delegation_pattern_anomaly"
+      ],
       "coverage": "partial",
       "notes": "Implicit detection via correlation"
     },
@@ -201,9 +316,15 @@
       "atx_id": "T7003",
       "atx_name": "Induce Cross-Agent Behavioral Drift",
       "tactic": "TA007",
-      "atm_vectors": ["AV-7.3"],
-      "atm_controls": ["DC-2"],
-      "atm_detections": ["behavioral_drift_signal"],
+      "atm_vectors": [
+        "AV-7.3"
+      ],
+      "atm_controls": [
+        "DC-2"
+      ],
+      "atm_detections": [
+        "behavioral_drift_signal"
+      ],
       "coverage": "partial",
       "notes": "Emerging detection area"
     },
@@ -211,9 +332,16 @@
       "atx_id": "T7004",
       "atx_name": "Induce Unsafe Consensus",
       "tactic": "TA007",
-      "atm_vectors": ["AV-7.1", "AV-7.3"],
-      "atm_controls": ["DC-2"],
-      "atm_detections": ["consensus_convergence_anomaly"],
+      "atm_vectors": [
+        "AV-7.1",
+        "AV-7.3"
+      ],
+      "atm_controls": [
+        "DC-2"
+      ],
+      "atm_detections": [
+        "consensus_convergence_anomaly"
+      ],
       "coverage": "partial",
       "notes": "Consensus convergence detection is emerging"
     },
@@ -231,9 +359,16 @@
       "atx_id": "T8002",
       "atx_name": "Corrupt Governance or Policy State",
       "tactic": "TA008",
-      "atm_vectors": ["AV-2.3"],
-      "atm_controls": ["PC-5", "DC-3"],
-      "atm_detections": ["policy_signature_failure_total"],
+      "atm_vectors": [
+        "AV-2.3"
+      ],
+      "atm_controls": [
+        "PC-5",
+        "DC-3"
+      ],
+      "atm_detections": [
+        "policy_signature_failure_total"
+      ],
       "coverage": "full",
       "notes": "Strong policy integrity guarantees"
     },
@@ -241,9 +376,15 @@
       "atx_id": "T9001",
       "atx_name": "Operate Outside Monitoring Boundaries",
       "tactic": "TA009",
-      "atm_vectors": ["GovernanceBypass"],
-      "atm_controls": ["PC-3"],
-      "atm_detections": ["governance_bypass_attempt_total"],
+      "atm_vectors": [
+        "GovernanceBypass"
+      ],
+      "atm_controls": [
+        "PC-3"
+      ],
+      "atm_detections": [
+        "governance_bypass_attempt_total"
+      ],
       "coverage": "full",
       "notes": "Strong architectural enforcement"
     },
@@ -251,9 +392,15 @@
       "atx_id": "T9002",
       "atx_name": "Obfuscate Action Traceability",
       "tactic": "TA009",
-      "atm_vectors": ["AV-4.1"],
-      "atm_controls": ["DC-1"],
-      "atm_detections": ["audit_integrity_mismatch_total"],
+      "atm_vectors": [
+        "AV-4.1"
+      ],
+      "atm_controls": [
+        "DC-1"
+      ],
+      "atm_detections": [
+        "audit_integrity_mismatch_total"
+      ],
       "coverage": "full",
       "notes": "Audit chain integrity ensures traceability"
     }

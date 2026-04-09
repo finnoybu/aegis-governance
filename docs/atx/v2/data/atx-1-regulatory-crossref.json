@@ -1,37 +1,1373 @@
 {
   "$schema": "https://aegis-platform.net/schemas/atx/v2/atx-regulatory-crossref.schema.json",
-  "version": "2.1.0",
-  "date": "2026-03-27",
-  "description": "ATX-1 v2.1 regulatory cross-reference matrix mapping techniques to NIST AI RMF, EU AI Act, OWASP LLM Top 10, and ATM-1 threat scenarios. v2.1 adds TA010 (Act Beyond Governance Interpretation) with 4 techniques.",
+  "version": "2.2.0",
+  "date": "2026-04-01",
+  "description": "ATX-1 v2.2 regulatory cross-reference matrix mapping techniques and sub-techniques to NIST AI RMF, EU AI Act, OWASP LLM Top 10, and ATM-1 threat scenarios. v2.2 adds 29 sub-techniques under T9002 and T10001-T10004 cataloging specific bypass methods.",
   "techniques": [
-    { "id": "T1001", "name": "Execute Non-Owner Instruction", "tactic": "TA001", "nist_ai_rmf": { "functions": ["Govern", "Manage"], "description": "GOVERN 1.1 (Legal and regulatory requirements), MANAGE 2.2 (Mechanisms to manage AI risks)" }, "eu_ai_act": { "articles": ["Article 9", "Article 14"], "description": "Art. 9 Risk management system — authority verification as risk control; Art. 14 Human oversight — owner authorization for destructive actions" }, "owasp_llm_top_10": ["LLM06"], "atm_1_scenario": "Agent executes destructive operations based on user instructions that conflict with owner policy" },
-    { "id": "T1002", "name": "Infer Implicit Authority", "tactic": "TA001", "nist_ai_rmf": { "functions": ["Govern", "Map"], "description": "GOVERN 1.2 (Trustworthy AI characteristics), MAP 3.4 (Risks from third-party components and data)" }, "eu_ai_act": { "articles": ["Article 9", "Article 15"], "description": "Art. 9 Risk management — instruction provenance as risk control; Art. 15 Accuracy and robustness — resistance to instruction injection" }, "owasp_llm_top_10": ["LLM01"], "atm_1_scenario": "Agent treats forwarded messages as direct instructions from the apparent sender" },
-    { "id": "T1003", "name": "Propagate Spoofed Authority at Scale", "tactic": "TA001", "nist_ai_rmf": { "functions": ["Govern", "Manage"], "description": "GOVERN 1.1 (Legal and regulatory requirements), MANAGE 2.4 (Risk treatments proportionate to impact)" }, "eu_ai_act": { "articles": ["Article 9", "Article 14"], "description": "Art. 9 Risk management — distribution controls; Art. 14 Human oversight — escalation for mass actions" }, "owasp_llm_top_10": ["LLM01", "LLM06"], "atm_1_scenario": "Agent distributes content to recipients based on a spoofed authority claim in a prompt" },
-    { "id": "T2001", "name": "Expand Task Scope Autonomously", "tactic": "TA002", "nist_ai_rmf": { "functions": ["Govern", "Manage"], "description": "GOVERN 1.4 (Organizational practices for AI risk management), MANAGE 2.2 (Scope boundary enforcement mechanisms)" }, "eu_ai_act": { "articles": ["Article 9", "Article 14"], "description": "Art. 9 Risk management — scope boundary as risk control; Art. 14 Human oversight — re-authorization for scope expansion" }, "owasp_llm_top_10": ["LLM06"], "atm_1_scenario": "Agent autonomously expands delegated task scope beyond original instruction boundaries" },
-    { "id": "T2002", "name": "Perform Unvalidated Bulk Operations", "tactic": "TA002", "nist_ai_rmf": { "functions": ["Manage", "Measure"], "description": "MANAGE 2.2 (Risk management mechanisms), MEASURE 2.6 (Impact assessment of AI actions)" }, "eu_ai_act": { "articles": ["Article 9", "Article 14"], "description": "Art. 9 Risk management — proportionality assessment for bulk actions; Art. 14 Human oversight — confirmation for high-impact operations" }, "owasp_llm_top_10": ["LLM06"], "atm_1_scenario": "Agent performs mass operations without validating scope matches instruction intent" },
-    { "id": "T2003", "name": "Obscure Objective Through Delegation", "tactic": "TA002", "nist_ai_rmf": { "functions": ["Govern", "Manage"], "description": "GOVERN 1.4 (Organizational practices — delegation governance), MANAGE 2.2 (Composition attack detection mechanisms)" }, "eu_ai_act": { "articles": ["Article 9", "Article 14"], "description": "Art. 9 Risk management — delegation chain analysis as risk control; Art. 14 Human oversight — aggregate intent verification" }, "owasp_llm_top_10": ["LLM01", "LLM07"], "atm_1_scenario": "Harmful intent decomposed across delegation steps so no individual action appears unsafe" },
-    { "id": "T2004", "name": "Exploit Tool-Chain Composition", "tactic": "TA002", "nist_ai_rmf": { "functions": ["Govern", "Map"], "description": "GOVERN 1.4 (Organizational practices — tool chain governance), MAP 3.4 (Risks from compositional tool interactions)" }, "eu_ai_act": { "articles": ["Article 9", "Article 14"], "description": "Art. 9 Risk management — compositional policy enforcement; Art. 14 Human oversight — aggregate tool chain evaluation" }, "owasp_llm_top_10": ["LLM07"], "atm_1_scenario": "Agent chains valid tool calls to produce unauthorized aggregate outcome" },
-    { "id": "T3001", "name": "Perform Irreversible Destructive Action", "tactic": "TA003", "nist_ai_rmf": { "functions": ["Manage", "Measure"], "description": "MANAGE 2.2 (Risk management mechanisms), MEASURE 2.6 (Impact assessment of AI actions)" }, "eu_ai_act": { "articles": ["Article 9", "Article 14"], "description": "Art. 9 Risk management — proportionality assessment; Art. 14 Human oversight — confirmation for irreversible actions" }, "owasp_llm_top_10": ["LLM06"], "atm_1_scenario": "Agent permanently deletes data when the objective only requires filtering or archival" },
-    { "id": "T3002", "name": "Trigger Cascading System Changes", "tactic": "TA003", "nist_ai_rmf": { "functions": ["Manage", "Measure"], "description": "MANAGE 2.2 (Mechanisms for managing cross-system risks), MEASURE 2.6 (Cascade impact assessment)" }, "eu_ai_act": { "articles": ["Article 9", "Article 15"], "description": "Art. 9 Risk management — cascade impact analysis; Art. 15 Robustness — preventing uncontrolled cross-system effects" }, "owasp_llm_top_10": [], "atm_1_scenario": "Agent triggers chain of cascading changes across interconnected systems with unauthorized downstream effects" },
-    { "id": "T4001", "name": "Exfiltrate Context-Scoped Data", "tactic": "TA004", "nist_ai_rmf": { "functions": ["Govern", "Manage"], "description": "GOVERN 1.1 (Legal and regulatory requirements — data protection), MANAGE 2.2 (Data disclosure controls)" }, "eu_ai_act": { "articles": ["Article 9", "Article 10", "Article 14"], "description": "Art. 9 Risk management — data access controls; Art. 10 Data governance — authorized recipient scope; Art. 14 Human oversight — disclosure authorization" }, "owasp_llm_top_10": ["LLM02"], "atm_1_scenario": "Agent exports context-scoped data to unauthorized recipients without owner authorization" },
-    { "id": "T4002", "name": "Leak Cross-Session or Persistent Data", "tactic": "TA004", "nist_ai_rmf": { "functions": ["Govern", "Manage"], "description": "GOVERN 1.1 (Data protection regulations), MANAGE 2.2 (Session isolation and persistent data access controls)" }, "eu_ai_act": { "articles": ["Article 9", "Article 10"], "description": "Art. 9 Risk management — session data isolation; Art. 10 Data governance — cross-session data governance" }, "owasp_llm_top_10": ["LLM02"], "atm_1_scenario": "Agent exposes persistent data from previous sessions to unauthorized parties in later interactions" },
-    { "id": "T4003", "name": "Cross-Domain Secret Leakage", "tactic": "TA004", "nist_ai_rmf": { "functions": ["Govern", "Manage"], "description": "GOVERN 1.1 (Data protection — cross-domain data governance), MANAGE 2.2 (Domain boundary enforcement mechanisms)" }, "eu_ai_act": { "articles": ["Article 9", "Article 14", "Article 46"], "description": "Art. 9 Risk management — cross-domain data controls; Art. 14 Human oversight — transfer authorization; Art. 46 Cross-border data governance" }, "owasp_llm_top_10": ["LLM02"], "atm_1_scenario": "Agent leaks sensitive data across trust domain boundaries through authorized-appearing interactions" },
-    { "id": "T5001", "name": "Report False Task Completion", "tactic": "TA005", "nist_ai_rmf": { "functions": ["Measure", "Manage"], "description": "MEASURE 2.6 (Outcome verification), MANAGE 4.1 (Post-deployment monitoring — truthful reporting)" }, "eu_ai_act": { "articles": ["Article 13", "Article 14"], "description": "Art. 13 Transparency — accurate system state reporting; Art. 14 Human oversight — outcome verification before confirmation" }, "owasp_llm_top_10": [], "atm_1_scenario": "Agent confirms task completion based on intent rather than verified system state" },
-    { "id": "T5002", "name": "Fabricate Action Attribution", "tactic": "TA005", "nist_ai_rmf": { "functions": ["Govern", "Measure"], "description": "GOVERN 1.2 (Trustworthy AI — accountable), MEASURE 2.6 (Attribution verification)" }, "eu_ai_act": { "articles": ["Article 12", "Article 13"], "description": "Art. 12 Record-keeping — accurate attribution in audit logs; Art. 13 Transparency — correct action provenance" }, "owasp_llm_top_10": ["LLM07"], "atm_1_scenario": "Agent misattributes actions to a different principal, corrupting the audit trail" },
-    { "id": "T5003", "name": "Suppress or Omit Execution Failure", "tactic": "TA005", "nist_ai_rmf": { "functions": ["Map", "Manage"], "description": "MAP 3.4 (Risks from provider constraints), MANAGE 4.2 (Mechanisms for constraint layer visibility)" }, "eu_ai_act": { "articles": ["Article 13", "Article 14"], "description": "Art. 13 Transparency — constraint layer visibility; Art. 14 Human oversight — failure signal propagation to operators" }, "owasp_llm_top_10": [], "atm_1_scenario": "Provider-imposed constraints silently block agent actions without notification; partial task completion with no indication of incompleteness" },
-    { "id": "T6001", "name": "Execute Recursive Invocation Loops", "tactic": "TA006", "nist_ai_rmf": { "functions": ["Manage", "Measure"], "description": "MANAGE 2.2 (Mechanisms for managing AI risks), MEASURE 2.5 (Computational resource monitoring)" }, "eu_ai_act": { "articles": ["Article 9", "Article 15"], "description": "Art. 9 Risk management — resource boundary enforcement; Art. 15 Robustness — preventing resource exhaustion" }, "owasp_llm_top_10": ["LLM06", "LLM10"], "atm_1_scenario": "Agent enters recursive invocation loops consuming unbounded compute resources" },
-    { "id": "T6002", "name": "Consume Unbounded External Resources", "tactic": "TA006", "nist_ai_rmf": { "functions": ["Manage", "Measure"], "description": "MANAGE 2.2 (Mechanisms for managing AI risks), MEASURE 2.5 (Storage and external resource monitoring)" }, "eu_ai_act": { "articles": ["Article 9", "Article 15"], "description": "Art. 9 Risk management — resource quota enforcement; Art. 15 Robustness — preventing external resource exhaustion" }, "owasp_llm_top_10": ["LLM10"], "atm_1_scenario": "Agent accumulates external resources without limits or lifecycle management" },
-    { "id": "T7001", "name": "Spoof Agent Identity", "tactic": "TA007", "nist_ai_rmf": { "functions": ["Map", "Manage"], "description": "MAP 3.4 (Risks from identity spoofing in multi-agent systems), MANAGE 2.2 (Agent identity verification mechanisms)" }, "eu_ai_act": { "articles": ["Article 9", "Article 15"], "description": "Art. 9 Risk management — cryptographic agent identity; Art. 15 Robustness — resistance to identity spoofing" }, "owasp_llm_top_10": [], "atm_1_scenario": "Agent claims another agent's identity to gain unauthorized access to resources or trust relationships" },
-    { "id": "T7002", "name": "Inject Malicious Delegation Chains", "tactic": "TA007", "nist_ai_rmf": { "functions": ["Map", "Manage"], "description": "MAP 3.4 (Risks from shared infrastructure), MANAGE 2.2 (Delegation chain verification mechanisms)" }, "eu_ai_act": { "articles": ["Article 9", "Article 15"], "description": "Art. 9 Risk management — delegation integrity; Art. 15 Robustness — preventing cascading governance compromise" }, "owasp_llm_top_10": [], "atm_1_scenario": "Agent injects malicious tasks into delegation chains exploiting trust transitivity" },
-    { "id": "T7003", "name": "Induce Cross-Agent Behavioral Drift", "tactic": "TA007", "nist_ai_rmf": { "functions": ["Govern", "Manage"], "description": "GOVERN 1.2 (Trustworthy AI — safe, controllable), MANAGE 4.1 (Post-deployment monitoring for behavioral drift)" }, "eu_ai_act": { "articles": ["Article 9", "Article 14"], "description": "Art. 9 Risk management — behavioral baseline enforcement; Art. 14 Human oversight — drift detection and re-verification" }, "owasp_llm_top_10": ["LLM01"], "atm_1_scenario": "Agent influences peer agents through shared context causing gradual drift from governance-defined behavior" },
-    { "id": "T7004", "name": "Induce Unsafe Consensus", "tactic": "TA007", "nist_ai_rmf": { "functions": ["Govern", "Manage"], "description": "GOVERN 1.2 (Trustworthy AI — safe, controllable), MANAGE 2.2 (Consensus validation mechanisms)" }, "eu_ai_act": { "articles": ["Article 9", "Article 14"], "description": "Art. 9 Risk management — consensus anomaly detection; Art. 14 Human oversight — independent evaluation before collective action" }, "owasp_llm_top_10": ["LLM01"], "atm_1_scenario": "Multiple agents converge on unsafe shared objective through interaction dynamics" },
-    { "id": "T8001", "name": "Poison Persistent Memory", "tactic": "TA008", "nist_ai_rmf": { "functions": ["Govern", "Manage"], "description": "GOVERN 1.4 (Organizational practices — configuration management), MANAGE 2.2 (Memory integrity mechanisms)" }, "eu_ai_act": { "articles": ["Article 9", "Article 15"], "description": "Art. 9 Risk management — memory integrity as risk control; Art. 15 Accuracy and robustness — preventing memory corruption" }, "owasp_llm_top_10": ["LLM01"], "atm_1_scenario": "Agent writes malicious data into persistent memory stores corrupting future interactions" },
-    { "id": "T8002", "name": "Corrupt Governance or Policy State", "tactic": "TA008", "nist_ai_rmf": { "functions": ["Govern", "Manage"], "description": "GOVERN 1.4 (Organizational practices — change management), MANAGE 4.1 (Post-deployment monitoring for governance drift)" }, "eu_ai_act": { "articles": ["Article 9", "Article 12", "Article 14"], "description": "Art. 9 Risk management — governance tamper-evidence; Art. 12 Record-keeping — audit trail for governance changes; Art. 14 Human oversight — amendment authorization" }, "owasp_llm_top_10": ["LLM01"], "atm_1_scenario": "Agent modifies its own governance constraints through indirect means that bypass audit logging" },
-    { "id": "T9001", "name": "Operate Outside Monitoring Boundaries", "tactic": "TA009", "nist_ai_rmf": { "functions": ["Measure", "Manage"], "description": "MEASURE 2.5 (Monitoring completeness assessment), MANAGE 4.2 (Mechanisms for complete observability)" }, "eu_ai_act": { "articles": ["Article 12", "Article 14"], "description": "Art. 12 Record-keeping — complete action logging; Art. 14 Human oversight — monitoring coverage for all action pathways" }, "owasp_llm_top_10": [], "atm_1_scenario": "Agent performs actions through unmonitored tool pathways or in contexts where observability is limited" },
-    { "id": "T9002", "name": "Obfuscate Action Traceability", "tactic": "TA009", "nist_ai_rmf": { "functions": ["Measure", "Manage"], "description": "MEASURE 2.6 (Audit integrity verification), MANAGE 4.1 (Post-deployment monitoring — traceability assurance)" }, "eu_ai_act": { "articles": ["Article 12", "Article 14"], "description": "Art. 12 Record-keeping — immutable audit trails; Art. 14 Human oversight — end-to-end action traceability" }, "owasp_llm_top_10": ["LLM06"], "atm_1_scenario": "Agent obscures action traceability by manipulating logs, fragmenting actions, or using indirect execution paths" },
-    { "id": "T10001", "name": "Exploit Pseudo-Filesystem Capabilities", "tactic": "TA010", "nist_ai_rmf": { "functions": ["Map", "Manage"], "description": "MAP 3.4 (Risks from execution environment capabilities beyond governance model), MANAGE 2.2 (Environment capability mapping mechanisms)" }, "eu_ai_act": { "articles": ["Article 9", "Article 15"], "description": "Art. 9 Risk management — environment capability assessment as risk control; Art. 15 Robustness — preventing action type confusion through pseudo-filesystem interfaces" }, "owasp_llm_top_10": [], "atm_1_scenario": "Agent accesses /dev/tcp pseudo-filesystem path to open network connection; governance evaluates it as a file write and permits the action" },
-    { "id": "T10002", "name": "Establish Persistence via Environment Auto-Execution", "tactic": "TA010", "nist_ai_rmf": { "functions": ["Map", "Manage"], "description": "MAP 3.4 (Risks from deferred execution in toolchain), MANAGE 2.2 (Auto-execution path registry mechanisms)" }, "eu_ai_act": { "articles": ["Article 9", "Article 14", "Article 15"], "description": "Art. 9 Risk management — auto-execution path identification; Art. 14 Human oversight — escalation for deferred execution writes; Art. 15 Robustness — preventing persistence establishment through permitted file writes" }, "owasp_llm_top_10": ["LLM06"], "atm_1_scenario": "Agent writes shell commands to .git/hooks/pre-commit; governance permits the file write; hook executes automatically on next commit" },
-    { "id": "T10003", "name": "Inject Persistent Agent Instructions", "tactic": "TA010", "nist_ai_rmf": { "functions": ["Govern", "Manage"], "description": "GOVERN 1.4 (Organizational practices — instruction integrity), MANAGE 4.1 (Post-deployment monitoring — instruction file integrity verification)" }, "eu_ai_act": { "articles": ["Article 9", "Article 14", "Article 15"], "description": "Art. 9 Risk management — instruction integrity as risk control; Art. 14 Human oversight — notification of instruction changes; Art. 15 Robustness — preventing self-modifying instruction injection" }, "owasp_llm_top_10": ["LLM01"], "atm_1_scenario": "Agent modifies its own project instruction file; changes load silently in next session; propagate to all developers via version control" },
-    { "id": "T10004", "name": "Exploit Governance-Runtime Parser Divergence", "tactic": "TA010", "nist_ai_rmf": { "functions": ["Map", "Manage"], "description": "MAP 3.4 (Risks from parser divergence between governance and runtime), MANAGE 2.2 (Input normalization and parser parity mechanisms)" }, "eu_ai_act": { "articles": ["Article 9", "Article 15"], "description": "Art. 9 Risk management — parser parity verification; Art. 15 Robustness — preventing bypass via encoding or metacharacter injection" }, "owasp_llm_top_10": ["LLM01"], "atm_1_scenario": "Agent embeds newline characters in shell command; governance regex matches single permitted command; shell interprets newline as command separator and executes additional operations" }
+    {
+      "id": "T1001",
+      "name": "Execute Non-Owner Instruction",
+      "tactic": "TA001",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.1 (Legal and regulatory requirements), MANAGE 2.2 (Mechanisms to manage AI risks)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14"
+        ],
+        "description": "Art. 9 Risk management system — authority verification as risk control; Art. 14 Human oversight — owner authorization for destructive actions"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent executes destructive operations based on user instructions that conflict with owner policy"
+    },
+    {
+      "id": "T1002",
+      "name": "Infer Implicit Authority",
+      "tactic": "TA001",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Map"
+        ],
+        "description": "GOVERN 1.2 (Trustworthy AI characteristics), MAP 3.4 (Risks from third-party components and data)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — instruction provenance as risk control; Art. 15 Accuracy and robustness — resistance to instruction injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent treats forwarded messages as direct instructions from the apparent sender"
+    },
+    {
+      "id": "T1003",
+      "name": "Propagate Spoofed Authority at Scale",
+      "tactic": "TA001",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.1 (Legal and regulatory requirements), MANAGE 2.4 (Risk treatments proportionate to impact)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14"
+        ],
+        "description": "Art. 9 Risk management — distribution controls; Art. 14 Human oversight — escalation for mass actions"
+      },
+      "owasp_llm_top_10": [
+        "LLM01",
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent distributes content to recipients based on a spoofed authority claim in a prompt"
+    },
+    {
+      "id": "T2001",
+      "name": "Expand Task Scope Autonomously",
+      "tactic": "TA002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.4 (Organizational practices for AI risk management), MANAGE 2.2 (Scope boundary enforcement mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14"
+        ],
+        "description": "Art. 9 Risk management — scope boundary as risk control; Art. 14 Human oversight — re-authorization for scope expansion"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent autonomously expands delegated task scope beyond original instruction boundaries"
+    },
+    {
+      "id": "T2002",
+      "name": "Perform Unvalidated Bulk Operations",
+      "tactic": "TA002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Manage",
+          "Measure"
+        ],
+        "description": "MANAGE 2.2 (Risk management mechanisms), MEASURE 2.6 (Impact assessment of AI actions)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14"
+        ],
+        "description": "Art. 9 Risk management — proportionality assessment for bulk actions; Art. 14 Human oversight — confirmation for high-impact operations"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent performs mass operations without validating scope matches instruction intent"
+    },
+    {
+      "id": "T2003",
+      "name": "Obscure Objective Through Delegation",
+      "tactic": "TA002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.4 (Organizational practices — delegation governance), MANAGE 2.2 (Composition attack detection mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14"
+        ],
+        "description": "Art. 9 Risk management — delegation chain analysis as risk control; Art. 14 Human oversight — aggregate intent verification"
+      },
+      "owasp_llm_top_10": [
+        "LLM01",
+        "LLM07"
+      ],
+      "atm_1_scenario": "Harmful intent decomposed across delegation steps so no individual action appears unsafe"
+    },
+    {
+      "id": "T2004",
+      "name": "Exploit Tool-Chain Composition",
+      "tactic": "TA002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Map"
+        ],
+        "description": "GOVERN 1.4 (Organizational practices — tool chain governance), MAP 3.4 (Risks from compositional tool interactions)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14"
+        ],
+        "description": "Art. 9 Risk management — compositional policy enforcement; Art. 14 Human oversight — aggregate tool chain evaluation"
+      },
+      "owasp_llm_top_10": [
+        "LLM07"
+      ],
+      "atm_1_scenario": "Agent chains valid tool calls to produce unauthorized aggregate outcome"
+    },
+    {
+      "id": "T3001",
+      "name": "Perform Irreversible Destructive Action",
+      "tactic": "TA003",
+      "nist_ai_rmf": {
+        "functions": [
+          "Manage",
+          "Measure"
+        ],
+        "description": "MANAGE 2.2 (Risk management mechanisms), MEASURE 2.6 (Impact assessment of AI actions)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14"
+        ],
+        "description": "Art. 9 Risk management — proportionality assessment; Art. 14 Human oversight — confirmation for irreversible actions"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent permanently deletes data when the objective only requires filtering or archival"
+    },
+    {
+      "id": "T3002",
+      "name": "Trigger Cascading System Changes",
+      "tactic": "TA003",
+      "nist_ai_rmf": {
+        "functions": [
+          "Manage",
+          "Measure"
+        ],
+        "description": "MANAGE 2.2 (Mechanisms for managing cross-system risks), MEASURE 2.6 (Cascade impact assessment)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — cascade impact analysis; Art. 15 Robustness — preventing uncontrolled cross-system effects"
+      },
+      "owasp_llm_top_10": [],
+      "atm_1_scenario": "Agent triggers chain of cascading changes across interconnected systems with unauthorized downstream effects"
+    },
+    {
+      "id": "T4001",
+      "name": "Exfiltrate Context-Scoped Data",
+      "tactic": "TA004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.1 (Legal and regulatory requirements — data protection), MANAGE 2.2 (Data disclosure controls)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 10",
+          "Article 14"
+        ],
+        "description": "Art. 9 Risk management — data access controls; Art. 10 Data governance — authorized recipient scope; Art. 14 Human oversight — disclosure authorization"
+      },
+      "owasp_llm_top_10": [
+        "LLM02"
+      ],
+      "atm_1_scenario": "Agent exports context-scoped data to unauthorized recipients without owner authorization"
+    },
+    {
+      "id": "T4002",
+      "name": "Leak Cross-Session or Persistent Data",
+      "tactic": "TA004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.1 (Data protection regulations), MANAGE 2.2 (Session isolation and persistent data access controls)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 10"
+        ],
+        "description": "Art. 9 Risk management — session data isolation; Art. 10 Data governance — cross-session data governance"
+      },
+      "owasp_llm_top_10": [
+        "LLM02"
+      ],
+      "atm_1_scenario": "Agent exposes persistent data from previous sessions to unauthorized parties in later interactions"
+    },
+    {
+      "id": "T4003",
+      "name": "Cross-Domain Secret Leakage",
+      "tactic": "TA004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.1 (Data protection — cross-domain data governance), MANAGE 2.2 (Domain boundary enforcement mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 46"
+        ],
+        "description": "Art. 9 Risk management — cross-domain data controls; Art. 14 Human oversight — transfer authorization; Art. 46 Cross-border data governance"
+      },
+      "owasp_llm_top_10": [
+        "LLM02"
+      ],
+      "atm_1_scenario": "Agent leaks sensitive data across trust domain boundaries through authorized-appearing interactions"
+    },
+    {
+      "id": "T5001",
+      "name": "Report False Task Completion",
+      "tactic": "TA005",
+      "nist_ai_rmf": {
+        "functions": [
+          "Measure",
+          "Manage"
+        ],
+        "description": "MEASURE 2.6 (Outcome verification), MANAGE 4.1 (Post-deployment monitoring — truthful reporting)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 13",
+          "Article 14"
+        ],
+        "description": "Art. 13 Transparency — accurate system state reporting; Art. 14 Human oversight — outcome verification before confirmation"
+      },
+      "owasp_llm_top_10": [],
+      "atm_1_scenario": "Agent confirms task completion based on intent rather than verified system state"
+    },
+    {
+      "id": "T5002",
+      "name": "Fabricate Action Attribution",
+      "tactic": "TA005",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Measure"
+        ],
+        "description": "GOVERN 1.2 (Trustworthy AI — accountable), MEASURE 2.6 (Attribution verification)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 12",
+          "Article 13"
+        ],
+        "description": "Art. 12 Record-keeping — accurate attribution in audit logs; Art. 13 Transparency — correct action provenance"
+      },
+      "owasp_llm_top_10": [
+        "LLM07"
+      ],
+      "atm_1_scenario": "Agent misattributes actions to a different principal, corrupting the audit trail"
+    },
+    {
+      "id": "T5003",
+      "name": "Suppress or Omit Execution Failure",
+      "tactic": "TA005",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from provider constraints), MANAGE 4.2 (Mechanisms for constraint layer visibility)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 13",
+          "Article 14"
+        ],
+        "description": "Art. 13 Transparency — constraint layer visibility; Art. 14 Human oversight — failure signal propagation to operators"
+      },
+      "owasp_llm_top_10": [],
+      "atm_1_scenario": "Provider-imposed constraints silently block agent actions without notification; partial task completion with no indication of incompleteness"
+    },
+    {
+      "id": "T6001",
+      "name": "Execute Recursive Invocation Loops",
+      "tactic": "TA006",
+      "nist_ai_rmf": {
+        "functions": [
+          "Manage",
+          "Measure"
+        ],
+        "description": "MANAGE 2.2 (Mechanisms for managing AI risks), MEASURE 2.5 (Computational resource monitoring)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — resource boundary enforcement; Art. 15 Robustness — preventing resource exhaustion"
+      },
+      "owasp_llm_top_10": [
+        "LLM06",
+        "LLM10"
+      ],
+      "atm_1_scenario": "Agent enters recursive invocation loops consuming unbounded compute resources"
+    },
+    {
+      "id": "T6002",
+      "name": "Consume Unbounded External Resources",
+      "tactic": "TA006",
+      "nist_ai_rmf": {
+        "functions": [
+          "Manage",
+          "Measure"
+        ],
+        "description": "MANAGE 2.2 (Mechanisms for managing AI risks), MEASURE 2.5 (Storage and external resource monitoring)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — resource quota enforcement; Art. 15 Robustness — preventing external resource exhaustion"
+      },
+      "owasp_llm_top_10": [
+        "LLM10"
+      ],
+      "atm_1_scenario": "Agent accumulates external resources without limits or lifecycle management"
+    },
+    {
+      "id": "T7001",
+      "name": "Spoof Agent Identity",
+      "tactic": "TA007",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from identity spoofing in multi-agent systems), MANAGE 2.2 (Agent identity verification mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — cryptographic agent identity; Art. 15 Robustness — resistance to identity spoofing"
+      },
+      "owasp_llm_top_10": [],
+      "atm_1_scenario": "Agent claims another agent's identity to gain unauthorized access to resources or trust relationships"
+    },
+    {
+      "id": "T7002",
+      "name": "Inject Malicious Delegation Chains",
+      "tactic": "TA007",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from shared infrastructure), MANAGE 2.2 (Delegation chain verification mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — delegation integrity; Art. 15 Robustness — preventing cascading governance compromise"
+      },
+      "owasp_llm_top_10": [],
+      "atm_1_scenario": "Agent injects malicious tasks into delegation chains exploiting trust transitivity"
+    },
+    {
+      "id": "T7003",
+      "name": "Induce Cross-Agent Behavioral Drift",
+      "tactic": "TA007",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.2 (Trustworthy AI — safe, controllable), MANAGE 4.1 (Post-deployment monitoring for behavioral drift)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14"
+        ],
+        "description": "Art. 9 Risk management — behavioral baseline enforcement; Art. 14 Human oversight — drift detection and re-verification"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent influences peer agents through shared context causing gradual drift from governance-defined behavior"
+    },
+    {
+      "id": "T7004",
+      "name": "Induce Unsafe Consensus",
+      "tactic": "TA007",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.2 (Trustworthy AI — safe, controllable), MANAGE 2.2 (Consensus validation mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14"
+        ],
+        "description": "Art. 9 Risk management — consensus anomaly detection; Art. 14 Human oversight — independent evaluation before collective action"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Multiple agents converge on unsafe shared objective through interaction dynamics"
+    },
+    {
+      "id": "T8001",
+      "name": "Poison Persistent Memory",
+      "tactic": "TA008",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.4 (Organizational practices — configuration management), MANAGE 2.2 (Memory integrity mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — memory integrity as risk control; Art. 15 Accuracy and robustness — preventing memory corruption"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent writes malicious data into persistent memory stores corrupting future interactions"
+    },
+    {
+      "id": "T8002",
+      "name": "Corrupt Governance or Policy State",
+      "tactic": "TA008",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.4 (Organizational practices — change management), MANAGE 4.1 (Post-deployment monitoring for governance drift)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 12",
+          "Article 14"
+        ],
+        "description": "Art. 9 Risk management — governance tamper-evidence; Art. 12 Record-keeping — audit trail for governance changes; Art. 14 Human oversight — amendment authorization"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent modifies its own governance constraints through indirect means that bypass audit logging"
+    },
+    {
+      "id": "T9001",
+      "name": "Operate Outside Monitoring Boundaries",
+      "tactic": "TA009",
+      "nist_ai_rmf": {
+        "functions": [
+          "Measure",
+          "Manage"
+        ],
+        "description": "MEASURE 2.5 (Monitoring completeness assessment), MANAGE 4.2 (Mechanisms for complete observability)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 12",
+          "Article 14"
+        ],
+        "description": "Art. 12 Record-keeping — complete action logging; Art. 14 Human oversight — monitoring coverage for all action pathways"
+      },
+      "owasp_llm_top_10": [],
+      "atm_1_scenario": "Agent performs actions through unmonitored tool pathways or in contexts where observability is limited"
+    },
+    {
+      "id": "T9002",
+      "name": "Obfuscate Action Traceability",
+      "tactic": "TA009",
+      "nist_ai_rmf": {
+        "functions": [
+          "Measure",
+          "Manage"
+        ],
+        "description": "MEASURE 2.6 (Audit integrity verification), MANAGE 4.1 (Post-deployment monitoring — traceability assurance)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 12",
+          "Article 14"
+        ],
+        "description": "Art. 12 Record-keeping — immutable audit trails; Art. 14 Human oversight — end-to-end action traceability"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent obscures action traceability by manipulating logs, fragmenting actions, or using indirect execution paths"
+    },
+    {
+      "id": "T10001",
+      "name": "Exploit Pseudo-Filesystem Capabilities",
+      "tactic": "TA010",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from execution environment capabilities beyond governance model), MANAGE 2.2 (Environment capability mapping mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — environment capability assessment as risk control; Art. 15 Robustness — preventing action type confusion through pseudo-filesystem interfaces"
+      },
+      "owasp_llm_top_10": [],
+      "atm_1_scenario": "Agent accesses /dev/tcp pseudo-filesystem path to open network connection; governance evaluates it as a file write and permits the action"
+    },
+    {
+      "id": "T10002",
+      "name": "Establish Persistence via Environment Auto-Execution",
+      "tactic": "TA010",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from deferred execution in toolchain), MANAGE 2.2 (Auto-execution path registry mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — auto-execution path identification; Art. 14 Human oversight — escalation for deferred execution writes; Art. 15 Robustness — preventing persistence establishment through permitted file writes"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent writes shell commands to .git/hooks/pre-commit; governance permits the file write; hook executes automatically on next commit"
+    },
+    {
+      "id": "T10003",
+      "name": "Inject Persistent Agent Instructions",
+      "tactic": "TA010",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.4 (Organizational practices — instruction integrity), MANAGE 4.1 (Post-deployment monitoring — instruction file integrity verification)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — instruction integrity as risk control; Art. 14 Human oversight — notification of instruction changes; Art. 15 Robustness — preventing self-modifying instruction injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent modifies its own project instruction file; changes load silently in next session; propagate to all developers via version control"
+    },
+    {
+      "id": "T10004",
+      "name": "Exploit Governance-Runtime Parser Divergence",
+      "tactic": "TA010",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from parser divergence between governance and runtime), MANAGE 2.2 (Input normalization and parser parity mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — parser parity verification; Art. 15 Robustness — preventing bypass via encoding or metacharacter injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent embeds newline characters in shell command; governance regex matches single permitted command; shell interprets newline as command separator and executes additional operations"
+    },
+    {
+      "id": "T9002.001",
+      "name": "Encode Commands in Base64 / Hex / URL Encoding",
+      "tactic": "TA009",
+      "parent_technique": "T9002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Measure",
+          "Manage"
+        ],
+        "description": "MEASURE 2.6 (Audit integrity verification), MANAGE 4.1 (Post-deployment monitoring — traceability assurance)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 12",
+          "Article 14"
+        ],
+        "description": "Art. 12 Record-keeping — immutable audit trails; Art. 14 Human oversight — end-to-end action traceability"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent obscures action traceability by manipulating logs, fragmenting actions, or using indirect execution paths"
+    },
+    {
+      "id": "T9002.002",
+      "name": "Variable Indirection / Dynamic Command Construction",
+      "tactic": "TA009",
+      "parent_technique": "T9002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Measure",
+          "Manage"
+        ],
+        "description": "MEASURE 2.6 (Audit integrity verification), MANAGE 4.1 (Post-deployment monitoring — traceability assurance)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 12",
+          "Article 14"
+        ],
+        "description": "Art. 12 Record-keeping — immutable audit trails; Art. 14 Human oversight — end-to-end action traceability"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent obscures action traceability by manipulating logs, fragmenting actions, or using indirect execution paths"
+    },
+    {
+      "id": "T10001.001",
+      "name": "Use /dev/tcp Network Socket Access",
+      "tactic": "TA010",
+      "parent_technique": "T10001",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from execution environment capabilities beyond governance model), MANAGE 2.2 (Environment capability mapping mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — environment capability assessment as risk control; Art. 15 Robustness — preventing action type confusion through pseudo-filesystem interfaces"
+      },
+      "owasp_llm_top_10": [],
+      "atm_1_scenario": "Agent accesses /dev/tcp pseudo-filesystem path to open network connection; governance evaluates it as a file write and permits the action"
+    },
+    {
+      "id": "T10001.002",
+      "name": "Use /dev/udp Network Socket Access",
+      "tactic": "TA010",
+      "parent_technique": "T10001",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from execution environment capabilities beyond governance model), MANAGE 2.2 (Environment capability mapping mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — environment capability assessment as risk control; Art. 15 Robustness — preventing action type confusion through pseudo-filesystem interfaces"
+      },
+      "owasp_llm_top_10": [],
+      "atm_1_scenario": "Agent accesses /dev/tcp pseudo-filesystem path to open network connection; governance evaluates it as a file write and permits the action"
+    },
+    {
+      "id": "T10001.003",
+      "name": "Read /proc Pseudo-Filesystem for Information Disclosure",
+      "tactic": "TA010",
+      "parent_technique": "T10001",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from execution environment capabilities beyond governance model), MANAGE 2.2 (Environment capability mapping mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — environment capability assessment as risk control; Art. 15 Robustness — preventing action type confusion through pseudo-filesystem interfaces"
+      },
+      "owasp_llm_top_10": [],
+      "atm_1_scenario": "Agent accesses /dev/tcp pseudo-filesystem path to open network connection; governance evaluates it as a file write and permits the action"
+    },
+    {
+      "id": "T10002.001",
+      "name": "Persist via Shell Initialization Files",
+      "tactic": "TA010",
+      "parent_technique": "T10002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from deferred execution in toolchain), MANAGE 2.2 (Auto-execution path registry mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — auto-execution path identification; Art. 14 Human oversight — escalation for deferred execution writes; Art. 15 Robustness — preventing persistence establishment through permitted file writes"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent writes shell commands to .git/hooks/pre-commit; governance permits the file write; hook executes automatically on next commit"
+    },
+    {
+      "id": "T10002.002",
+      "name": "Persist via Git Hooks",
+      "tactic": "TA010",
+      "parent_technique": "T10002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from deferred execution in toolchain), MANAGE 2.2 (Auto-execution path registry mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — auto-execution path identification; Art. 14 Human oversight — escalation for deferred execution writes; Art. 15 Robustness — preventing persistence establishment through permitted file writes"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent writes shell commands to .git/hooks/pre-commit; governance permits the file write; hook executes automatically on next commit"
+    },
+    {
+      "id": "T10002.003",
+      "name": "Persist via Package Manager Scripts",
+      "tactic": "TA010",
+      "parent_technique": "T10002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from deferred execution in toolchain), MANAGE 2.2 (Auto-execution path registry mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — auto-execution path identification; Art. 14 Human oversight — escalation for deferred execution writes; Art. 15 Robustness — preventing persistence establishment through permitted file writes"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent writes shell commands to .git/hooks/pre-commit; governance permits the file write; hook executes automatically on next commit"
+    },
+    {
+      "id": "T10002.004",
+      "name": "Persist via IDE Task Definitions",
+      "tactic": "TA010",
+      "parent_technique": "T10002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from deferred execution in toolchain), MANAGE 2.2 (Auto-execution path registry mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — auto-execution path identification; Art. 14 Human oversight — escalation for deferred execution writes; Art. 15 Robustness — preventing persistence establishment through permitted file writes"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent writes shell commands to .git/hooks/pre-commit; governance permits the file write; hook executes automatically on next commit"
+    },
+    {
+      "id": "T10002.005",
+      "name": "Persist via Container Build Files",
+      "tactic": "TA010",
+      "parent_technique": "T10002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from deferred execution in toolchain), MANAGE 2.2 (Auto-execution path registry mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — auto-execution path identification; Art. 14 Human oversight — escalation for deferred execution writes; Art. 15 Robustness — preventing persistence establishment through permitted file writes"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent writes shell commands to .git/hooks/pre-commit; governance permits the file write; hook executes automatically on next commit"
+    },
+    {
+      "id": "T10002.006",
+      "name": "Persist via Git Config Aliases and Hooks",
+      "tactic": "TA010",
+      "parent_technique": "T10002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from deferred execution in toolchain), MANAGE 2.2 (Auto-execution path registry mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — auto-execution path identification; Art. 14 Human oversight — escalation for deferred execution writes; Art. 15 Robustness — preventing persistence establishment through permitted file writes"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent writes shell commands to .git/hooks/pre-commit; governance permits the file write; hook executes automatically on next commit"
+    },
+    {
+      "id": "T10002.007",
+      "name": "Persist via Package Manager Configs",
+      "tactic": "TA010",
+      "parent_technique": "T10002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from deferred execution in toolchain), MANAGE 2.2 (Auto-execution path registry mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — auto-execution path identification; Art. 14 Human oversight — escalation for deferred execution writes; Art. 15 Robustness — preventing persistence establishment through permitted file writes"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent writes shell commands to .git/hooks/pre-commit; governance permits the file write; hook executes automatically on next commit"
+    },
+    {
+      "id": "T10002.008",
+      "name": "Persist via Build System Files",
+      "tactic": "TA010",
+      "parent_technique": "T10002",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from deferred execution in toolchain), MANAGE 2.2 (Auto-execution path registry mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — auto-execution path identification; Art. 14 Human oversight — escalation for deferred execution writes; Art. 15 Robustness — preventing persistence establishment through permitted file writes"
+      },
+      "owasp_llm_top_10": [
+        "LLM06"
+      ],
+      "atm_1_scenario": "Agent writes shell commands to .git/hooks/pre-commit; governance permits the file write; hook executes automatically on next commit"
+    },
+    {
+      "id": "T10003.001",
+      "name": "Inject Persistent Instructions via Claude Code Configuration Files",
+      "tactic": "TA010",
+      "parent_technique": "T10003",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.4 (Organizational practices — instruction integrity), MANAGE 4.1 (Post-deployment monitoring — instruction file integrity verification)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — instruction integrity as risk control; Art. 14 Human oversight — notification of instruction changes; Art. 15 Robustness — preventing self-modifying instruction injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent modifies its own project instruction file; changes load silently in next session; propagate to all developers via version control"
+    },
+    {
+      "id": "T10003.002",
+      "name": "Inject Persistent Instructions via Cursor Configuration Files",
+      "tactic": "TA010",
+      "parent_technique": "T10003",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.4 (Organizational practices — instruction integrity), MANAGE 4.1 (Post-deployment monitoring — instruction file integrity verification)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — instruction integrity as risk control; Art. 14 Human oversight — notification of instruction changes; Art. 15 Robustness — preventing self-modifying instruction injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent modifies its own project instruction file; changes load silently in next session; propagate to all developers via version control"
+    },
+    {
+      "id": "T10003.003",
+      "name": "Inject Persistent Instructions via Windsurf Configuration Files",
+      "tactic": "TA010",
+      "parent_technique": "T10003",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.4 (Organizational practices — instruction integrity), MANAGE 4.1 (Post-deployment monitoring — instruction file integrity verification)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — instruction integrity as risk control; Art. 14 Human oversight — notification of instruction changes; Art. 15 Robustness — preventing self-modifying instruction injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent modifies its own project instruction file; changes load silently in next session; propagate to all developers via version control"
+    },
+    {
+      "id": "T10003.004",
+      "name": "Inject Persistent Instructions via GitHub Copilot Configuration Files",
+      "tactic": "TA010",
+      "parent_technique": "T10003",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.4 (Organizational practices — instruction integrity), MANAGE 4.1 (Post-deployment monitoring — instruction file integrity verification)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — instruction integrity as risk control; Art. 14 Human oversight — notification of instruction changes; Art. 15 Robustness — preventing self-modifying instruction injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent modifies its own project instruction file; changes load silently in next session; propagate to all developers via version control"
+    },
+    {
+      "id": "T10003.005",
+      "name": "Inject Persistent Instructions via Aider Configuration Files",
+      "tactic": "TA010",
+      "parent_technique": "T10003",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.4 (Organizational practices — instruction integrity), MANAGE 4.1 (Post-deployment monitoring — instruction file integrity verification)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — instruction integrity as risk control; Art. 14 Human oversight — notification of instruction changes; Art. 15 Robustness — preventing self-modifying instruction injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent modifies its own project instruction file; changes load silently in next session; propagate to all developers via version control"
+    },
+    {
+      "id": "T10003.006",
+      "name": "Inject Persistent Instructions via Continue Configuration Files",
+      "tactic": "TA010",
+      "parent_technique": "T10003",
+      "nist_ai_rmf": {
+        "functions": [
+          "Govern",
+          "Manage"
+        ],
+        "description": "GOVERN 1.4 (Organizational practices — instruction integrity), MANAGE 4.1 (Post-deployment monitoring — instruction file integrity verification)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 14",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — instruction integrity as risk control; Art. 14 Human oversight — notification of instruction changes; Art. 15 Robustness — preventing self-modifying instruction injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent modifies its own project instruction file; changes load silently in next session; propagate to all developers via version control"
+    },
+    {
+      "id": "T10004.001",
+      "name": "Use Command Chaining Operators",
+      "tactic": "TA010",
+      "parent_technique": "T10004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from parser divergence between governance and runtime), MANAGE 2.2 (Input normalization and parser parity mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — parser parity verification; Art. 15 Robustness — preventing bypass via encoding or metacharacter injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent embeds newline characters in shell command; governance regex matches single permitted command; shell interprets newline as command separator and executes additional operations"
+    },
+    {
+      "id": "T10004.002",
+      "name": "Inject Newline as Command Separator",
+      "tactic": "TA010",
+      "parent_technique": "T10004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from parser divergence between governance and runtime), MANAGE 2.2 (Input normalization and parser parity mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — parser parity verification; Art. 15 Robustness — preventing bypass via encoding or metacharacter injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent embeds newline characters in shell command; governance regex matches single permitted command; shell interprets newline as command separator and executes additional operations"
+    },
+    {
+      "id": "T10004.003",
+      "name": "Inject CRLF as Command Separator",
+      "tactic": "TA010",
+      "parent_technique": "T10004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from parser divergence between governance and runtime), MANAGE 2.2 (Input normalization and parser parity mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — parser parity verification; Art. 15 Robustness — preventing bypass via encoding or metacharacter injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent embeds newline characters in shell command; governance regex matches single permitted command; shell interprets newline as command separator and executes additional operations"
+    },
+    {
+      "id": "T10004.004",
+      "name": "Bypass via Heredoc",
+      "tactic": "TA010",
+      "parent_technique": "T10004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from parser divergence between governance and runtime), MANAGE 2.2 (Input normalization and parser parity mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — parser parity verification; Art. 15 Robustness — preventing bypass via encoding or metacharacter injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent embeds newline characters in shell command; governance regex matches single permitted command; shell interprets newline as command separator and executes additional operations"
+    },
+    {
+      "id": "T10004.005",
+      "name": "Truncate Path with Null Byte",
+      "tactic": "TA010",
+      "parent_technique": "T10004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from parser divergence between governance and runtime), MANAGE 2.2 (Input normalization and parser parity mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — parser parity verification; Art. 15 Robustness — preventing bypass via encoding or metacharacter injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent embeds newline characters in shell command; governance regex matches single permitted command; shell interprets newline as command separator and executes additional operations"
+    },
+    {
+      "id": "T10004.006",
+      "name": "Evade Path Comparison via Unicode Homoglyphs",
+      "tactic": "TA010",
+      "parent_technique": "T10004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from parser divergence between governance and runtime), MANAGE 2.2 (Input normalization and parser parity mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — parser parity verification; Art. 15 Robustness — preventing bypass via encoding or metacharacter injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent embeds newline characters in shell command; governance regex matches single permitted command; shell interprets newline as command separator and executes additional operations"
+    },
+    {
+      "id": "T10004.007",
+      "name": "Inject via Subshell or Backticks",
+      "tactic": "TA010",
+      "parent_technique": "T10004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from parser divergence between governance and runtime), MANAGE 2.2 (Input normalization and parser parity mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — parser parity verification; Art. 15 Robustness — preventing bypass via encoding or metacharacter injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent embeds newline characters in shell command; governance regex matches single permitted command; shell interprets newline as command separator and executes additional operations"
+    },
+    {
+      "id": "T10004.008",
+      "name": "Bypass Protected Path via Alternate Absolute Path",
+      "tactic": "TA010",
+      "parent_technique": "T10004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from parser divergence between governance and runtime), MANAGE 2.2 (Input normalization and parser parity mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — parser parity verification; Art. 15 Robustness — preventing bypass via encoding or metacharacter injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent embeds newline characters in shell command; governance regex matches single permitted command; shell interprets newline as command separator and executes additional operations"
+    },
+    {
+      "id": "T10004.009",
+      "name": "Bypass Protected Path via Path Traversal",
+      "tactic": "TA010",
+      "parent_technique": "T10004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from parser divergence between governance and runtime), MANAGE 2.2 (Input normalization and parser parity mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — parser parity verification; Art. 15 Robustness — preventing bypass via encoding or metacharacter injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent embeds newline characters in shell command; governance regex matches single permitted command; shell interprets newline as command separator and executes additional operations"
+    },
+    {
+      "id": "T10004.010",
+      "name": "Redirect Output to Protected Path",
+      "tactic": "TA010",
+      "parent_technique": "T10004",
+      "nist_ai_rmf": {
+        "functions": [
+          "Map",
+          "Manage"
+        ],
+        "description": "MAP 3.4 (Risks from parser divergence between governance and runtime), MANAGE 2.2 (Input normalization and parser parity mechanisms)"
+      },
+      "eu_ai_act": {
+        "articles": [
+          "Article 9",
+          "Article 15"
+        ],
+        "description": "Art. 9 Risk management — parser parity verification; Art. 15 Robustness — preventing bypass via encoding or metacharacter injection"
+      },
+      "owasp_llm_top_10": [
+        "LLM01"
+      ],
+      "atm_1_scenario": "Agent embeds newline characters in shell command; governance regex matches single permitted command; shell interprets newline as command separator and executes additional operations"
+    }
   ]
 }

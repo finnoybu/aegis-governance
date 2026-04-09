@@ -2,9 +2,10 @@
 
 ## Adversarial Knowledge Base for Agentic AI Actor Behavior
 
-**Version:** 2.1.0
-**Date:** 2026-03-27
-**Status:** Active — v2.1 adds TA010 (Act Beyond Governance Interpretation), RC5, and 4 techniques
+**Version:** 2.2.0
+**Date:** 2026-04-01
+**Status:** Active — v2.2 adds 29 sub-techniques under T9002 and T10001–T10004
+cataloging specific bypass methods discovered during RFC-0006 adversarial testing.
 **Maintainer:** AEGIS Initiative — Finnoybu IP LLC
 **License:** CC-BY-SA-4.0
 
@@ -595,6 +596,68 @@ These dimensions are orthogonal and collectively describe how agent behavior can
 | **Root Cause** | RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap. |
 | **AEGIS Mitigation** | AGP Input Normalization: governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. AGP Shell Segmentation: shell commands are segmented at all operator boundaries and each segment evaluated independently. AGP Metacharacter Escalation: inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation. Constitutional Article on Parser Parity. |
 | **OWASP LLM Mapping** | LLM01 (Prompt Injection) |
+
+---
+
+### 5.11 Sub-Techniques (v2.2)
+
+ATX-1 v2.2 introduces sub-techniques — specific bypass methods that refine a parent
+technique. Sub-technique IDs use the format `T####.###` (e.g., `T10004.001`). All
+sub-techniques inherit the severity, root cause, and mitigation framing of their
+parent.
+
+The 29 sub-techniques cataloged in v2.2 were discovered during RFC-0006
+adversarial testing and Rounds 5–9 of the aegis-core red/blue team validation.
+
+#### T9002 sub-techniques (Obfuscate Action Traceability)
+
+- **T9002.001** — Encode commands in Base64 / hex / URL encoding
+- **T9002.002** — Variable indirection / dynamic command construction
+
+#### T10001 sub-techniques (Exploit Pseudo-Filesystem Capabilities)
+
+- **T10001.001** — Use `/dev/tcp` network socket access
+- **T10001.002** — Use `/dev/udp` network socket access
+- **T10001.003** — Read `/proc` pseudo-filesystem for information disclosure
+
+#### T10002 sub-techniques (Establish Persistence via Environment Auto-Execution)
+
+- **T10002.001** — Persist via shell initialization files (`.bashrc`, `.profile`, `.zshrc`)
+- **T10002.002** — Persist via Git hooks (`.git/hooks/*`)
+- **T10002.003** — Persist via package manager scripts (`package.json`, `setup.py`)
+- **T10002.004** — Persist via IDE task definitions (`.vscode/tasks.json`)
+- **T10002.005** — Persist via container build files (`Dockerfile`)
+- **T10002.006** — Persist via Git config aliases and hooks
+- **T10002.007** — Persist via package manager configs (`.npmrc`, `.pypirc`)
+- **T10002.008** — Persist via build system files (`Makefile`)
+
+#### T10003 sub-techniques (Inject Persistent Agent Instructions)
+
+- **T10003.001** — Inject via Claude Code configuration files
+  *(specific exploitation details embargoed under RD-2603-01 until 2026-06-24
+  or earlier vendor response)*
+- **T10003.002** — Inject via Cursor configuration files (`.cursorrules`)
+- **T10003.003** — Inject via Windsurf configuration files (`.windsurfrules`)
+- **T10003.004** — Inject via GitHub Copilot configuration files
+- **T10003.005** — Inject via Aider configuration files (`.aider.conf.yml`)
+- **T10003.006** — Inject via Continue configuration files (`.continuerc.json`)
+
+#### T10004 sub-techniques (Exploit Governance-Runtime Parser Divergence)
+
+- **T10004.001** — Use command chaining operators (`|`, `&&`, `;`)
+- **T10004.002** — Inject newline as command separator
+- **T10004.003** — Inject CRLF as command separator
+- **T10004.004** — Bypass via heredoc (`<<EOF`)
+- **T10004.005** — Truncate path with null byte
+- **T10004.006** — Evade path comparison via Unicode homoglyphs
+- **T10004.007** — Inject via subshell or backticks
+- **T10004.008** — Bypass protected path via alternate absolute path
+- **T10004.009** — Bypass protected path via path traversal (`../../`)
+- **T10004.010** — Redirect output to protected paths
+
+Full sub-technique definitions with descriptions, severity, and mitigations
+are in [`v2/data/atx-1-techniques.json`](v2/data/atx-1-techniques.json) and
+the [STIX 2.1 bundle](v2/stix/atx-1-bundle.json).
 
 ---
 
