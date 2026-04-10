@@ -11,6 +11,7 @@ All notable changes to the AEGIS™ project are documented in [`changelog/`](cha
 
 | Date | Type | Title |
 |------|------|-------|
+| [2026-04-10](changelog/2026-04-10-ci-lint-spellcheck-fixes.md) | Patch | CI Lint & Spellcheck Resolution |
 | [2026-03-27](changelog/2026-03-27-atx1-v2.1-ta010.md) | Version release | ATX-1 v2.1 — TA010 Act Beyond Governance Interpretation |
 | [2026-03-13](changelog/2026-03-13-citation-standards.md) | Milestone | Citation Standards & Canonical Bibliography |
 | [2026-03-13](changelog/2026-03-13-repository-as-living-paper.md) | Milestone | Repository as Living Paper |
