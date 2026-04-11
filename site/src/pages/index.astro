@@ -1,4 +1,7 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '@aegis-initiative/design-system/components/Footer.astro';
+
 const atxFiles = [
   { name: "STIX 2.1 Bundle", path: "/atx-1/stix-bundle.json", size: "93 KB", desc: "Complete taxonomy — tactics, techniques, mitigations, relationships" },
   { name: "Technique Database", path: "/atx-1/techniques.json", size: "29 KB", desc: "All 29 techniques with severity, case studies, OWASP mapping" },
@@ -11,9 +14,9 @@ const atxFiles = [
 ];
 ---
 
-<html lang="en" data-theme="dark">
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="auto">
 <head>
-  <script src="/shared/aegis-nav.js" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AEGIS Governance Data — Machine-Readable Governance Artifacts</title>
@@ -38,288 +41,25 @@ const atxFiles = [
   <!-- Machine discovery -->
   <link rel="alternate" type="application/json" href="/.well-known/aegis/manifest.json" title="AEGIS Data Manifest" />
 
-  <style>
-    :root {
-      --bg: #0d1117;
-      --bg-card: #161b22;
-      --bg-card-hover: #1c2129;
-      --text: #e6edf3;
-      --text-muted: #8b949e;
-      --accent: #58a6ff;
-      --accent-dim: #1f3a5f;
-      --green: #3fb950;
-      --orange: #d29922;
-      --border: #30363d;
-      --font: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-      --mono: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
-    }
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  <!-- AEGIS Ecosystem Navigation Bar -->
+  <script is:inline src="https://aegis-initiative.com/shared/aegis-nav.js" defer></script>
+  <script is:inline>
+    document.documentElement.style.setProperty('--aegis-nav-height', '32px');
+  </script>
 
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-      padding-top: var(--aegis-nav-height, 0px);
-    }
+  <link rel="preload" href="/fonts/ibmplexsans-variablefont_wdthwght-webfont.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/poppins-light-webfont.woff2" as="font" type="font/woff2" crossorigin />
 
-    .header {
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      color: var(--accent);
-    }
-
-    .logo sup { font-size: 0.6em; vertical-align: super; }
-
-    .badge {
-      font-size: 0.75rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 2rem;
-      background: var(--accent-dim);
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .header-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .header-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-
-    .header-links a:hover { color: var(--accent); }
-
-    .hero {
-      text-align: center;
-      padding: 4rem 2rem 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 640px;
-      margin: 0 auto 1.5rem;
-    }
-
-    .hero-note {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      padding: 0.75rem 1.25rem;
-      display: inline-block;
-      margin-bottom: 2rem;
-    }
-
-    .hero-note code {
-      font-family: var(--mono);
-      color: var(--accent);
-    }
-
-    .section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 2rem 3rem;
-    }
-
-    .section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-intro {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .file-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .file-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.25rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.2s;
-    }
-
-    .file-item:hover {
-      border-color: var(--accent);
-      background: var(--bg-card-hover);
-    }
-
-    .file-icon {
-      font-size: 1.5rem;
-      width: 40px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .file-info { flex: 1; }
-
-    .file-name {
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .file-desc {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .file-meta {
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    .file-size {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .file-format {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--green);
-      background: #0d2818;
-      padding: 0.1rem 0.4rem;
-      border-radius: 0.2rem;
-      display: inline-block;
-      margin-top: 0.25rem;
-    }
-
-    .consume-section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 2rem 3rem;
-    }
-
-    .consume-section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .code-block {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      padding: 1.25rem;
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      line-height: 1.7;
-      overflow-x: auto;
-      margin-bottom: 1rem;
-      color: var(--text-muted);
-    }
-
-    .code-block .comment { color: #484f58; }
-    .code-block .cmd { color: var(--green); }
-    .code-block .str { color: var(--accent); }
-    .code-block .kw { color: var(--orange); }
-
-    .code-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .ecosystem {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    .eco-card {
-      display: block;
-      padding: 1rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.2s;
-    }
-
-    .eco-card:hover {
-      border-color: var(--accent);
-    }
-
-    .eco-card h3 {
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .eco-card p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.8rem;
-    }
-
-    .footer a { color: var(--accent); text-decoration: none; }
-    .footer .tagline { font-style: italic; margin-bottom: 0.5rem; }
-
-    @media (max-width: 640px) {
-      .hero h1 { font-size: 1.6rem; }
-      .header { flex-direction: column; gap: 1rem; }
-      .file-item { flex-direction: column; align-items: flex-start; }
-      .file-meta { text-align: left; }
-    }
-  </style>
+  <!-- FOUC prevention -->
+  <script is:inline>
+    (function () {
+      const stored = localStorage.getItem('aegis-theme');
+      const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = stored || preferred;
+    })();
+  </script>
 
   <!-- Structured Data — Google Dataset Search -->
   <script type="application/ld+json">
@@ -374,26 +114,335 @@ const atxFiles = [
     }
   }
   </script>
+
+  <style>
+    /* ── Fonts ─────────────────────────────────────────────────── */
+
+    @font-face {
+      font-family: "IBM Plex Sans";
+      src: url("/fonts/ibmplexsans-variablefont_wdthwght-webfont.woff2") format("woff2");
+      font-weight: 100 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "IBM Plex Sans";
+      src: url("/fonts/ibmplexsans-italic-variablefont_wdthwght-webfont.woff2") format("woff2");
+      font-weight: 100 700;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face { font-family: "Poppins"; src: url("/fonts/poppins-light-webfont.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Poppins"; src: url("/fonts/poppins-lightitalic-webfont.woff2") format("woff2"); font-weight: 300; font-style: italic; font-display: swap; }
+    @font-face { font-family: "Poppins"; src: url("/fonts/poppins-regular-webfont.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Poppins"; src: url("/fonts/poppins-italic-webfont.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+    @font-face { font-family: "Poppins"; src: url("/fonts/poppins-medium-webfont.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Poppins"; src: url("/fonts/poppins-mediumitalic-webfont.woff2") format("woff2"); font-weight: 500; font-style: italic; font-display: swap; }
+    @font-face { font-family: "Poppins"; src: url("/fonts/poppins-semibold-webfont.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Poppins"; src: url("/fonts/poppins-semibolditalic-webfont.woff2") format("woff2"); font-weight: 600; font-style: italic; font-display: swap; }
+
+    /* ── Theme tokens ─────────────────────────────────────────── */
+
+    :root, [data-theme="light"] {
+      --color-bg: #ffffff;
+      --color-bg-subtle: #f5f5f5;
+      --color-bg-muted: #eeeeee;
+      --color-border: #d4d4d4;
+      --color-border-subtle: #e8e8e8;
+      --color-text: #161616;
+      --color-text-secondary: #595959;
+      --color-text-muted: #595959;
+      --color-accent: #0062a5;
+      --color-accent-low: #e8f4fd;
+      --color-brand-gray: #595959;
+
+      --header-bg: #fafafa;
+      --header-border: #777777;
+      --header-text: #707070;
+      --header-text-muted: #707070;
+
+      --card-bg: #f8f8f8;
+      --card-bg-hover: #f0f0f0;
+      --card-border: #d4d4d4;
+      --code-bg: #f5f5f5;
+      --green: #006b2d;
+      --green-bg: #e9f8ef;
+      --orange: #855400;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #161616;
+      --color-bg-subtle: #1e1e1e;
+      --color-bg-muted: #2a2a2a;
+      --color-border: #3a3a3a;
+      --color-border-subtle: #2a2a2a;
+      --color-text: #e8e8e8;
+      --color-text-secondary: #b0b0b0;
+      --color-text-muted: #888888;
+      --color-accent: #4da6f0;
+      --color-accent-low: #0d2640;
+      --color-brand-gray: #999999;
+
+      --header-bg: #000000;
+      --header-border: #000000;
+      --header-text: #e8e8e8;
+      --header-text-muted: #999999;
+
+      --card-bg: #1e1e1e;
+      --card-bg-hover: #2a2a2a;
+      --card-border: #3a3a3a;
+      --code-bg: #1e1e1e;
+      --green: #3fb950;
+      --green-bg: #0d2818;
+      --orange: #d29922;
+    }
+
+    /* ── Reset ─────────────────────────────────────────────────── */
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: "Poppins", system-ui, sans-serif;
+      font-weight: 300;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3 {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    a { color: var(--color-accent); }
+
+    code {
+      font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', monospace;
+      font-size: 0.85em;
+    }
+
+    /* ── Hero ──────────────────────────────────────────────────── */
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      max-width: 640px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+
+    .hero-note code { color: var(--color-accent); }
+
+    /* ── Section ───────────────────────────────────────────────── */
+
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 3rem;
+    }
+
+    .section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section-intro {
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* ── File list ─────────────────────────────────────────────── */
+
+    .file-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .file-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: border-color 0.15s, background-color 0.15s;
+    }
+
+    .file-item:hover {
+      border-color: var(--color-accent);
+      background: var(--card-bg-hover);
+    }
+
+    .file-icon {
+      font-size: 1.5rem;
+      width: 40px;
+      text-align: center;
+      flex-shrink: 0;
+      color: var(--color-text-muted);
+    }
+
+    .file-info { flex: 1; }
+
+    .file-name {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .file-desc {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    .file-meta {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .file-size {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    .file-format {
+      font-family: monospace;
+      font-size: 0.7rem;
+      color: var(--green);
+      background: var(--green-bg);
+      padding: 0.1rem 0.4rem;
+      border-radius: 0.2rem;
+      display: inline-block;
+      margin-top: 0.25rem;
+    }
+
+    /* ── Code blocks ───────────────────────────────────────────── */
+
+    .code-label {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .code-block {
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+      font-size: 0.8rem;
+      line-height: 1.7;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+      color: var(--color-text-muted);
+    }
+
+    .code-block .comment { color: var(--color-text-muted); opacity: 0.5; }
+    .code-block .cmd { color: var(--green); }
+    .code-block .str { color: var(--color-accent); }
+    .code-block .kw { color: var(--orange); }
+
+    /* ── Ecosystem grid ────────────────────────────────────────── */
+
+    .ecosystem {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .eco-card {
+      display: block;
+      padding: 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: border-color 0.15s;
+    }
+
+    .eco-card:hover { border-color: var(--color-accent); }
+
+    .eco-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .eco-card p {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    /* ── Footer ────────────────────────────────────────────────── */
+
+    .footer {
+      border-top: 1px solid var(--color-border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: 0.8rem;
+    }
+
+    .footer a { color: var(--color-accent); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    .footer .tagline { font-style: italic; margin-bottom: 0.5rem; }
+
+    /* ── Responsive ────────────────────────────────────────────── */
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.6rem; }
+      .file-item { flex-direction: column; align-items: flex-start; }
+      .file-meta { text-align: left; }
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-left">
-      <div class="logo">AEGIS<sup>TM</sup></div>
-      <span class="badge">Governance Data</span>
-    </div>
-    <nav class="header-links">
-      <a href="https://aegis-docs.com">Docs</a>
-      <a href="https://aegis-constitution.com">Constitution</a>
-      <a href="https://demo.aegis-platform.net">Demo API</a>
-      <a href="https://github.com/aegis-initiative/aegis-governance">GitHub</a>
-    </nav>
-  </header>
+  <Header />
 
   <section class="hero">
     <h1>Governance Data</h1>
     <p>Machine-readable governance artifacts for the AEGIS ecosystem. Structured datasets, schemas, and threat intelligence for automated consumption.</p>
     <div class="hero-note">
-      Humans read docs at <code><a href="https://aegis-docs.com" style="color: inherit; text-decoration: none;">aegis-docs.com</a></code> &mdash; machines consume data here.
+      Humans read docs at <code><a href="https://aegis-docs.com" style="text-decoration: none; color: inherit;">aegis-docs.com</a></code> &mdash; machines consume data here.
     </div>
   </section>
 
@@ -417,7 +466,7 @@ const atxFiles = [
     </div>
   </section>
 
-  <section class="consume-section">
+  <section class="section">
     <h2>Consume</h2>
 
     <div class="code-label">Fetch the STIX bundle</div>
@@ -470,9 +519,6 @@ const atxFiles = [
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="tagline">Capability without constraint is not intelligence.&trade;</div>
-    <div>&copy; 2026 <a href="https://aegis-initiative.com">AEGIS Initiative</a> &middot; Finnoybu IP LLC &middot; <a href="https://aegis-initiative.com/about/">About</a> &middot; <a href="https://aegis-initiative.com/contact/">Contact</a> &middot; <a href="https://aegis-initiative.com/legal/">Legal</a></div>
-  </footer>
+  <Footer />
 </body>
 </html>

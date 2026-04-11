@@ -262,7 +262,10 @@
     "Byun",
     "Rego",
     "SACMAT",
-    "granularities"
+    "granularities",
+    "ibmplexsans",
+    "variablefont",
+    "wdthwght"
   ],
   "ignorePaths": [
     "archive/**",
