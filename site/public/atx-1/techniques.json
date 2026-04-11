@@ -7,8 +7,12 @@
     "description": "The agent executes a destructive or high-impact action based on instructions from a user who does not hold owner-level authority. The agent treats the instruction as valid because no stakeholder model exists to distinguish authority levels.",
     "severity": "high",
     "root_cause": "RC1 (No Stakeholder Model) — No mechanism to verify that the instruction source holds authority for the requested action scope.",
-    "agents_of_chaos_case": [1],
-    "owasp_mapping": ["LLM06"],
+    "agents_of_chaos_case": [
+      1
+    ],
+    "owasp_mapping": [
+      "LLM06"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Authority Delegation",
       "agp_mechanism": "AGP Stakeholder Model",
@@ -24,8 +28,12 @@
     "description": "The agent accepts an instruction as authoritative based on implicit signals — such as the instruction appearing in a retrieved document, email body, or shared context — rather than explicit delegation from a verified principal.",
     "severity": "high",
     "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — Instructions and data share a channel; no mechanism to verify instruction provenance.",
-    "agents_of_chaos_case": [2],
-    "owasp_mapping": ["LLM01"],
+    "agents_of_chaos_case": [
+      2
+    ],
+    "owasp_mapping": [
+      "LLM01"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Channel Separation",
       "agp_mechanism": "AGP Instruction Provenance",
@@ -41,8 +49,13 @@
     "description": "The agent distributes content (emails, messages, notifications) to a large number of recipients based on an authority claim that has not been verified. The spoofed authority may appear in a prompt, forwarded message, or injected context.",
     "severity": "critical",
     "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — No principal verification; authority claims in content treated as valid.",
-    "agents_of_chaos_case": [11],
-    "owasp_mapping": ["LLM01", "LLM06"],
+    "agents_of_chaos_case": [
+      11
+    ],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM06"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Proportionality Review",
       "agp_mechanism": "AGP Distribution Controls, AGP Rate Governance",
@@ -58,8 +71,12 @@
     "description": "The agent autonomously expands the scope of a delegated task beyond what was explicitly requested, including via tool invocation. The agent interprets the objective broadly and takes actions that were not part of the original instruction.",
     "severity": "high",
     "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate whether expanded scope is within delegated authority; no deliberation surface to assess scope boundaries.",
-    "agents_of_chaos_case": [3],
-    "owasp_mapping": ["LLM06"],
+    "agents_of_chaos_case": [
+      3
+    ],
+    "owasp_mapping": [
+      "LLM06"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Scope Boundaries",
       "agp_mechanism": "AGP Task Scope Enforcement",
@@ -75,8 +92,12 @@
     "description": "The agent performs bulk operations (mass edits, batch deletions, large-scale API calls) without validating that the scope of the operation matches the intent of the instruction, including via tool invocation.",
     "severity": "high",
     "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot assess aggregate impact of bulk actions; no proportionality check against instruction intent.",
-    "agents_of_chaos_case": [1],
-    "owasp_mapping": ["LLM06"],
+    "agents_of_chaos_case": [
+      1
+    ],
+    "owasp_mapping": [
+      "LLM06"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Proportionality Review",
       "agp_mechanism": "AGP Bulk Operation Gate",
@@ -93,7 +114,10 @@
     "severity": "high",
     "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate aggregate intent across delegation chains; no mechanism to detect composition attacks.",
     "agents_of_chaos_case": [],
-    "owasp_mapping": ["LLM01", "LLM07"],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM07"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Delegation Transparency",
       "agp_mechanism": "AGP Delegation Chain Audit, AGP Composition Analysis",
@@ -110,7 +134,9 @@
     "severity": "high",
     "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate aggregate policy impact of chained tool calls; no compositional policy enforcement.",
     "agents_of_chaos_case": [],
-    "owasp_mapping": ["LLM07"],
+    "owasp_mapping": [
+      "LLM07"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Bounded Capability",
       "agp_mechanism": "AGP Tool Chain Validation",
@@ -126,8 +152,12 @@
     "description": "The agent selects an irreversible action (permanent deletion, irrecoverable modification) through direct or tool-mediated system interaction when a reversible alternative (archival, soft-delete, flagging) would satisfy the objective.",
     "severity": "critical",
     "root_cause": "RC2 (No Self-Model) — Agent cannot evaluate action severity or compare alternatives against a proportionality standard.",
-    "agents_of_chaos_case": [1],
-    "owasp_mapping": ["LLM06"],
+    "agents_of_chaos_case": [
+      1
+    ],
+    "owasp_mapping": [
+      "LLM06"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Least-Destructive Means",
       "agp_mechanism": "AGP Proportionality Gate",
@@ -143,7 +173,9 @@
     "description": "The agent initiates an action through direct or tool-mediated system interaction that triggers a chain of cascading changes across interconnected systems, where downstream effects were not anticipated or authorized.",
     "severity": "critical",
     "root_cause": "RC2 (No Self-Model) — Agent cannot model downstream effects of actions in interconnected systems; no cascade impact assessment.",
-    "agents_of_chaos_case": [7],
+    "agents_of_chaos_case": [
+      7
+    ],
     "owasp_mapping": [],
     "aegis_mitigation": {
       "constitutional_article": "Impact Assessment",
@@ -160,8 +192,12 @@
     "description": "The agent exports or discloses data from the current context (conversation, session, task) to an unauthorized recipient, whether through direct exfiltration, indirect request compliance, or tool-mediated data transfer.",
     "severity": "critical",
     "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — No authorization check on data recipients; instructions in content treated as authorized requests.",
-    "agents_of_chaos_case": [2],
-    "owasp_mapping": ["LLM02"],
+    "agents_of_chaos_case": [
+      2
+    ],
+    "owasp_mapping": [
+      "LLM02"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Information Boundaries",
       "agp_mechanism": "AGP Data Classification, AGP Disclosure Gate",
@@ -177,8 +213,12 @@
     "description": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration — exposing data from previous interactions to unauthorized parties in later sessions.",
     "severity": "high",
     "root_cause": "RC3 (No Private Deliberation Surface) — No session-scoped data isolation; persistent data accessible across session boundaries without authorization checks.",
-    "agents_of_chaos_case": [3],
-    "owasp_mapping": ["LLM02"],
+    "agents_of_chaos_case": [
+      3
+    ],
+    "owasp_mapping": [
+      "LLM02"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Session Isolation",
       "agp_mechanism": "AGP Session Data Boundaries, AGP Persistent Data Access Controls",
@@ -195,7 +235,9 @@
     "severity": "high",
     "root_cause": "RC1 (No Stakeholder Model), RC3 (No Private Deliberation Surface) — No data classification across domain boundaries; no cross-domain transfer authorization.",
     "agents_of_chaos_case": [],
-    "owasp_mapping": ["LLM02"],
+    "owasp_mapping": [
+      "LLM02"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Information Sovereignty",
       "agp_mechanism": "AGP Domain Boundary Enforcement",
@@ -211,7 +253,9 @@
     "description": "The agent reports that a task has been completed successfully when the action either failed, was partially completed, or produced a different outcome than reported. The report is based on intent or expectation rather than verified system state.",
     "severity": "high",
     "root_cause": "RC2 (No Self-Model) — No model of the distinction between action initiation and action completion; no outcome verification protocol.",
-    "agents_of_chaos_case": [1],
+    "agents_of_chaos_case": [
+      1
+    ],
     "owasp_mapping": [],
     "aegis_mitigation": {
       "constitutional_article": "Truthful Reporting",
@@ -228,8 +272,12 @@
     "description": "The agent misattributes an action to a different principal, system, or process than the one that actually performed it. This corrupts the audit trail and undermines accountability.",
     "severity": "medium",
     "root_cause": "RC2 (No Self-Model) — No mechanism to distinguish between action performers; attribution based on context rather than verified provenance.",
-    "agents_of_chaos_case": [8],
-    "owasp_mapping": ["LLM07"],
+    "agents_of_chaos_case": [
+      8
+    ],
+    "owasp_mapping": [
+      "LLM07"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Attribution Integrity",
       "agp_mechanism": "AGP Audit Chain, AGP Action Provenance",
@@ -245,7 +293,9 @@
     "description": "The agent suppresses, omits, or fails to surface an execution failure — whether caused by provider constraints, tool errors, or internal exceptions — resulting in a divergence between reported state and actual state.",
     "severity": "medium",
     "root_cause": "RC2 (No Self-Model) — No model of constraint layers affecting the agent; failure signals not propagated to operator governance.",
-    "agents_of_chaos_case": [6],
+    "agents_of_chaos_case": [
+      6
+    ],
     "owasp_mapping": [],
     "aegis_mitigation": {
       "constitutional_article": "Constraint Visibility",
@@ -262,8 +312,13 @@
     "description": "The agent enters a recursive invocation loop — spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains — consuming unbounded compute, token, and time resources.",
     "severity": "high",
     "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — No loop detection or recursion depth model; agents cannot recognize non-productive cycles.",
-    "agents_of_chaos_case": [4],
-    "owasp_mapping": ["LLM06", "LLM10"],
+    "agents_of_chaos_case": [
+      4
+    ],
+    "owasp_mapping": [
+      "LLM06",
+      "LLM10"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Bounded Execution",
       "agp_mechanism": "AGP Resource Budgets, AGP Loop Detection",
@@ -279,8 +334,12 @@
     "description": "The agent consumes external resources (API calls, network bandwidth, storage, third-party service quotas) without limits or lifecycle management, degrading availability for other systems and users.",
     "severity": "medium",
     "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — No model of resource boundaries; no lifecycle governance for external resource consumption.",
-    "agents_of_chaos_case": [5],
-    "owasp_mapping": ["LLM10"],
+    "agents_of_chaos_case": [
+      5
+    ],
+    "owasp_mapping": [
+      "LLM10"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Resource Proportionality",
       "agp_mechanism": "AGP Storage Quotas, AGP External Resource Budgets",
@@ -296,7 +355,9 @@
     "description": "An agent claims or assumes the identity of another agent in a multi-agent system, gaining unauthorized access to resources, delegations, or trust relationships associated with the spoofed identity.",
     "severity": "critical",
     "root_cause": "RC1 (No Stakeholder Model) — No cryptographic identity verification between agents; identity claims based on self-assertion.",
-    "agents_of_chaos_case": [9],
+    "agents_of_chaos_case": [
+      9
+    ],
     "owasp_mapping": [],
     "aegis_mitigation": {
       "constitutional_article": "Agent Identity",
@@ -313,7 +374,9 @@
     "description": "An agent injects malicious tasks into a multi-agent delegation chain, exploiting trust transitivity to have other agents execute actions that the originating agent is not authorized to perform.",
     "severity": "high",
     "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — No independent governance verification; shared governance infrastructure creates single points of compromise.",
-    "agents_of_chaos_case": [10],
+    "agents_of_chaos_case": [
+      10
+    ],
     "owasp_mapping": [],
     "aegis_mitigation": {
       "constitutional_article": "Delegation Integrity",
@@ -331,7 +394,9 @@
     "severity": "medium",
     "root_cause": "RC3 (No Private Deliberation Surface) — No mechanism to isolate agent behavior from peer influence; behavioral norms adopted from interaction rather than governance.",
     "agents_of_chaos_case": [],
-    "owasp_mapping": ["LLM01"],
+    "owasp_mapping": [
+      "LLM01"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Behavioral Integrity",
       "agp_mechanism": "AGP Behavioral Baseline, AGP Drift Detection",
@@ -348,7 +413,9 @@
     "severity": "high",
     "root_cause": "RC3 (No Private Deliberation Surface) — No mechanism to detect anomalous convergence in multi-agent decision-making; consensus accepted without independent verification.",
     "agents_of_chaos_case": [],
-    "owasp_mapping": ["LLM01"],
+    "owasp_mapping": [
+      "LLM01"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Collective Defense",
       "agp_mechanism": "AGP Consensus Validation",
@@ -364,8 +431,12 @@
     "description": "An agent writes malicious, misleading, or unauthorized data into persistent memory stores (long-term memory, knowledge bases, configuration caches), corrupting future interactions that rely on this stored context.",
     "severity": "high",
     "root_cause": "RC4 (Prompt Injection Is Structural) — No integrity verification for persistent memory writes; memory content treated as trusted regardless of provenance.",
-    "agents_of_chaos_case": [10],
-    "owasp_mapping": ["LLM01"],
+    "agents_of_chaos_case": [
+      10
+    ],
+    "owasp_mapping": [
+      "LLM01"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Memory Integrity",
       "agp_mechanism": "AGP Memory Provenance, AGP Persistent Write Authorization",
@@ -381,8 +452,12 @@
     "description": "An agent modifies its own governance constraints, policy state, or constitutional articles through direct manipulation or indirect means (tool use, self-prompting, context manipulation), bypassing normal amendment procedures and audit logging.",
     "severity": "critical",
     "root_cause": "RC4 (Prompt Injection Is Structural) — Governance configuration stored in mutable locations; no integrity verification or tamper detection for policy state.",
-    "agents_of_chaos_case": [10],
-    "owasp_mapping": ["LLM01"],
+    "agents_of_chaos_case": [
+      10
+    ],
+    "owasp_mapping": [
+      "LLM01"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Governance Immutability",
       "agp_mechanism": "AGP Immutable Governance Store, AGP Self-Modification Detection",
@@ -398,7 +473,9 @@
     "description": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems — whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
     "severity": "medium",
     "root_cause": "RC2 (No Self-Model) — No model of the observability boundaries affecting the agent; agent cannot distinguish monitored from unmonitored pathways.",
-    "agents_of_chaos_case": [6],
+    "agents_of_chaos_case": [
+      6
+    ],
     "owasp_mapping": [],
     "aegis_mitigation": {
       "constitutional_article": "Complete Observability",
@@ -416,13 +493,59 @@
     "severity": "medium",
     "root_cause": "RC4 (Prompt Injection Is Structural) — Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording.",
     "agents_of_chaos_case": [],
-    "owasp_mapping": ["LLM06"],
+    "owasp_mapping": [
+      "LLM06"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Audit Integrity",
       "agp_mechanism": "AGP Immutable Audit Log, AGP Action Chain Integrity",
       "mechanism": "Audit logs are append-only and cryptographically signed. Action chains maintain end-to-end traceability regardless of execution path fragmentation."
     },
-    "v1_id": null
+    "v1_id": null,
+    "sub_techniques": [
+      "T9002.001",
+      "T9002.002"
+    ]
+  },
+  {
+    "id": "T9002.001",
+    "name": "Encode Commands in Base64 / Hex / URL Encoding",
+    "tactic": "TA009",
+    "tactic_name": "Evade Detection or Oversight",
+    "description": "The agent encodes commands in base64, hex, or URL encoding before execution (e.g., `echo Y3VybCAuLi4= | base64 -d | bash`). The encoded payload is opaque to text-based pattern matching in the governance evaluator until decoded by the runtime.",
+    "severity": "medium",
+    "root_cause": "RC4 (Prompt Injection Is Structural) — Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM06"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Audit Integrity",
+      "agp_mechanism": "AGP Immutable Audit Log, AGP Action Chain Integrity",
+      "mechanism": "Audit logs are append-only and cryptographically signed. Action chains maintain end-to-end traceability regardless of execution path fragmentation."
+    },
+    "v1_id": null,
+    "parent_technique": "T9002"
+  },
+  {
+    "id": "T9002.002",
+    "name": "Variable Indirection / Dynamic Command Construction",
+    "tactic": "TA009",
+    "tactic_name": "Evade Detection or Oversight",
+    "description": "The agent splits the command name from its invocation across separate tokens via shell variable assignment (e.g., `CMD=curl; $CMD https://...`). Pattern matching against the literal command string fails because the dangerous token is constructed at runtime.",
+    "severity": "medium",
+    "root_cause": "RC4 (Prompt Injection Is Structural) — Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM06"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Audit Integrity",
+      "agp_mechanism": "AGP Immutable Audit Log, AGP Action Chain Integrity",
+      "mechanism": "Audit logs are append-only and cryptographically signed. Action chains maintain end-to-end traceability regardless of execution path fragmentation."
+    },
+    "v1_id": null,
+    "parent_technique": "T9002"
   },
   {
     "id": "T10001",
@@ -439,7 +562,66 @@
       "agp_mechanism": "AGP Environment Capability Map, AGP Pseudo-Filesystem Registry",
       "mechanism": "Governance evaluator maintains a registry of pseudo-filesystem paths with non-file semantics. File operation evaluation includes environment capability lookup. Paths matching pseudo-filesystem patterns trigger escalation regardless of allowlist status."
     },
-    "v1_id": null
+    "v1_id": null,
+    "sub_techniques": [
+      "T10001.001",
+      "T10001.002",
+      "T10001.003"
+    ]
+  },
+  {
+    "id": "T10001.001",
+    "name": "Use /dev/tcp Network Socket Access",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent uses bash's `/dev/tcp/host/port` pseudo-filesystem to perform network I/O via what looks like file I/O (e.g., `exec 3<>/dev/tcp/example.com/80`). The governance layer treats the path as an ordinary file write and permits it.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access).",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [],
+    "aegis_mitigation": {
+      "constitutional_article": "Environment Fidelity",
+      "agp_mechanism": "AGP Environment Capability Map, AGP Pseudo-Filesystem Registry",
+      "mechanism": "Governance evaluator maintains a registry of pseudo-filesystem paths with non-file semantics. File operation evaluation includes environment capability lookup. Paths matching pseudo-filesystem patterns trigger escalation regardless of allowlist status."
+    },
+    "v1_id": null,
+    "parent_technique": "T10001"
+  },
+  {
+    "id": "T10001.002",
+    "name": "Use /dev/udp Network Socket Access",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The UDP equivalent of T10001.001 — the agent uses `/dev/udp/host/port` to send UDP datagrams via apparent file I/O. Particularly useful for DNS exfiltration channels and stateless data egress.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access).",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [],
+    "aegis_mitigation": {
+      "constitutional_article": "Environment Fidelity",
+      "agp_mechanism": "AGP Environment Capability Map, AGP Pseudo-Filesystem Registry",
+      "mechanism": "Governance evaluator maintains a registry of pseudo-filesystem paths with non-file semantics. File operation evaluation includes environment capability lookup. Paths matching pseudo-filesystem patterns trigger escalation regardless of allowlist status."
+    },
+    "v1_id": null,
+    "parent_technique": "T10001"
+  },
+  {
+    "id": "T10001.003",
+    "name": "Read /proc Pseudo-Filesystem for Information Disclosure",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent reads process and kernel state via `/proc/*` paths (e.g., `/proc/self/environ`, `/proc/*/cmdline`, `/proc/net/tcp`) that the governance layer treats as ordinary files. Reveals secrets in environment variables, running processes, and network connections.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access).",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [],
+    "aegis_mitigation": {
+      "constitutional_article": "Environment Fidelity",
+      "agp_mechanism": "AGP Environment Capability Map, AGP Pseudo-Filesystem Registry",
+      "mechanism": "Governance evaluator maintains a registry of pseudo-filesystem paths with non-file semantics. File operation evaluation includes environment capability lookup. Paths matching pseudo-filesystem patterns trigger escalation regardless of allowlist status."
+    },
+    "v1_id": null,
+    "parent_technique": "T10001"
   },
   {
     "id": "T10002",
@@ -450,13 +632,185 @@
     "severity": "high",
     "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
     "agents_of_chaos_case": [],
-    "owasp_mapping": ["LLM06"],
+    "owasp_mapping": [
+      "LLM06"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Execution Boundary Completeness",
       "agp_mechanism": "AGP Auto-Execution Registry, AGP Deferred Execution Detection",
       "mechanism": "Governance evaluator maintains a registry of files with auto-execution semantics across the execution environment and installed toolchain. Writes to paths matching the auto-execution registry trigger mandatory escalation regardless of file content or allowlist status."
     },
-    "v1_id": null
+    "v1_id": null,
+    "sub_techniques": [
+      "T10002.001",
+      "T10002.002",
+      "T10002.003",
+      "T10002.004",
+      "T10002.005",
+      "T10002.006",
+      "T10002.007",
+      "T10002.008"
+    ]
+  },
+  {
+    "id": "T10002.001",
+    "name": "Persist via Shell Initialization Files",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent writes commands to `.bashrc`, `.profile`, `.zshrc`, or equivalents so they execute on every new shell session. Persistence survives reboots and is invisible until the user opens a new terminal.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM06"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Execution Boundary Completeness",
+      "agp_mechanism": "AGP Auto-Execution Registry, AGP Deferred Execution Detection",
+      "mechanism": "Governance evaluator maintains a registry of files with auto-execution semantics across the execution environment and installed toolchain. Writes to paths matching the auto-execution registry trigger mandatory escalation regardless of file content or allowlist status."
+    },
+    "v1_id": null,
+    "parent_technique": "T10002"
+  },
+  {
+    "id": "T10002.002",
+    "name": "Persist via Git Hooks",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent writes scripts to `.git/hooks/*` (pre-commit, post-commit, post-checkout, etc.) so they execute on every git operation. The hooks run with the user's full privileges.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM06"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Execution Boundary Completeness",
+      "agp_mechanism": "AGP Auto-Execution Registry, AGP Deferred Execution Detection",
+      "mechanism": "Governance evaluator maintains a registry of files with auto-execution semantics across the execution environment and installed toolchain. Writes to paths matching the auto-execution registry trigger mandatory escalation regardless of file content or allowlist status."
+    },
+    "v1_id": null,
+    "parent_technique": "T10002"
+  },
+  {
+    "id": "T10002.003",
+    "name": "Persist via Package Manager Scripts",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent injects commands into `package.json` scripts, `setup.py`, or equivalent install hooks so they execute on the next `npm install`, `pip install`, or build invocation.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM06"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Execution Boundary Completeness",
+      "agp_mechanism": "AGP Auto-Execution Registry, AGP Deferred Execution Detection",
+      "mechanism": "Governance evaluator maintains a registry of files with auto-execution semantics across the execution environment and installed toolchain. Writes to paths matching the auto-execution registry trigger mandatory escalation regardless of file content or allowlist status."
+    },
+    "v1_id": null,
+    "parent_technique": "T10002"
+  },
+  {
+    "id": "T10002.004",
+    "name": "Persist via IDE Task Definitions",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent writes commands to `.vscode/tasks.json`, `.idea/runConfigurations/`, or similar IDE configuration files so they run when the user invokes the corresponding task or opens the project.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM06"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Execution Boundary Completeness",
+      "agp_mechanism": "AGP Auto-Execution Registry, AGP Deferred Execution Detection",
+      "mechanism": "Governance evaluator maintains a registry of files with auto-execution semantics across the execution environment and installed toolchain. Writes to paths matching the auto-execution registry trigger mandatory escalation regardless of file content or allowlist status."
+    },
+    "v1_id": null,
+    "parent_technique": "T10002"
+  },
+  {
+    "id": "T10002.005",
+    "name": "Persist via Container Build Files",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent injects commands into `Dockerfile`, `docker-compose.yml`, or equivalent container build files so they execute during the next image build and persist into the resulting container image.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM06"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Execution Boundary Completeness",
+      "agp_mechanism": "AGP Auto-Execution Registry, AGP Deferred Execution Detection",
+      "mechanism": "Governance evaluator maintains a registry of files with auto-execution semantics across the execution environment and installed toolchain. Writes to paths matching the auto-execution registry trigger mandatory escalation regardless of file content or allowlist status."
+    },
+    "v1_id": null,
+    "parent_technique": "T10002"
+  },
+  {
+    "id": "T10002.006",
+    "name": "Persist via Git Config Aliases and Hooks",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent uses `git config alias.X '!command'` to register command-substitution aliases that execute arbitrary shell on any subsequent git invocation. Survives across all repositories when set in global git config.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM06"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Execution Boundary Completeness",
+      "agp_mechanism": "AGP Auto-Execution Registry, AGP Deferred Execution Detection",
+      "mechanism": "Governance evaluator maintains a registry of files with auto-execution semantics across the execution environment and installed toolchain. Writes to paths matching the auto-execution registry trigger mandatory escalation regardless of file content or allowlist status."
+    },
+    "v1_id": null,
+    "parent_technique": "T10002"
+  },
+  {
+    "id": "T10002.007",
+    "name": "Persist via Package Manager Configs",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent writes auto-execution hooks into `.npmrc`, `.pypirc`, `.cargo/config.toml`, or equivalent package manager configuration files. Triggered on the next package operation by any user of the host.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM06"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Execution Boundary Completeness",
+      "agp_mechanism": "AGP Auto-Execution Registry, AGP Deferred Execution Detection",
+      "mechanism": "Governance evaluator maintains a registry of files with auto-execution semantics across the execution environment and installed toolchain. Writes to paths matching the auto-execution registry trigger mandatory escalation regardless of file content or allowlist status."
+    },
+    "v1_id": null,
+    "parent_technique": "T10002"
+  },
+  {
+    "id": "T10002.008",
+    "name": "Persist via Build System Files",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent injects commands into `Makefile`, `CMakeLists.txt`, `build.gradle`, or equivalent build system files. Executes automatically the next time the user invokes a build target.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM06"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Execution Boundary Completeness",
+      "agp_mechanism": "AGP Auto-Execution Registry, AGP Deferred Execution Detection",
+      "mechanism": "Governance evaluator maintains a registry of files with auto-execution semantics across the execution environment and installed toolchain. Writes to paths matching the auto-execution registry trigger mandatory escalation regardless of file content or allowlist status."
+    },
+    "v1_id": null,
+    "parent_technique": "T10002"
   },
   {
     "id": "T10003",
@@ -467,13 +821,143 @@
     "severity": "critical",
     "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
     "agents_of_chaos_case": [],
-    "owasp_mapping": ["LLM01"],
+    "owasp_mapping": [
+      "LLM01"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Instruction Integrity",
       "agp_mechanism": "AGP Instruction File Protection, AGP Session-Start Integrity Check",
       "mechanism": "Agent instruction files are identified and protected by the governance layer. Writes to instruction files require explicit operator confirmation and generate audit events. Session-start integrity checks compare instruction file state against a known-good baseline and alert on divergence."
     },
-    "v1_id": null
+    "v1_id": null,
+    "sub_techniques": [
+      "T10003.001",
+      "T10003.002",
+      "T10003.003",
+      "T10003.004",
+      "T10003.005",
+      "T10003.006"
+    ]
+  },
+  {
+    "id": "T10003.001",
+    "name": "Inject Persistent Instructions via Claude Code Configuration Files",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent writes to project-level configuration files that the Claude Code CLI auto-loads into model context on every invocation (e.g., CLAUDE.md, .claude/rules/). Specific exploitation details embargoed under responsible disclosure RD-2603-01 until 2026-06-24 or earlier vendor response.",
+    "severity": "critical",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Instruction Integrity",
+      "agp_mechanism": "AGP Instruction File Protection, AGP Session-Start Integrity Check",
+      "mechanism": "Agent instruction files are identified and protected by the governance layer. Writes to instruction files require explicit operator confirmation and generate audit events. Session-start integrity checks compare instruction file state against a known-good baseline and alert on divergence."
+    },
+    "v1_id": null,
+    "parent_technique": "T10003"
+  },
+  {
+    "id": "T10003.002",
+    "name": "Inject Persistent Instructions via Cursor Configuration Files",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent writes attacker-controlled instructions to `.cursorrules` files that the Cursor IDE auto-loads as system prompt context for every model interaction in the project.",
+    "severity": "critical",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Instruction Integrity",
+      "agp_mechanism": "AGP Instruction File Protection, AGP Session-Start Integrity Check",
+      "mechanism": "Agent instruction files are identified and protected by the governance layer. Writes to instruction files require explicit operator confirmation and generate audit events. Session-start integrity checks compare instruction file state against a known-good baseline and alert on divergence."
+    },
+    "v1_id": null,
+    "parent_technique": "T10003"
+  },
+  {
+    "id": "T10003.003",
+    "name": "Inject Persistent Instructions via Windsurf Configuration Files",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent writes attacker-controlled instructions to `.windsurfrules` files that the Windsurf editor auto-loads into every model interaction in the workspace.",
+    "severity": "critical",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Instruction Integrity",
+      "agp_mechanism": "AGP Instruction File Protection, AGP Session-Start Integrity Check",
+      "mechanism": "Agent instruction files are identified and protected by the governance layer. Writes to instruction files require explicit operator confirmation and generate audit events. Session-start integrity checks compare instruction file state against a known-good baseline and alert on divergence."
+    },
+    "v1_id": null,
+    "parent_technique": "T10003"
+  },
+  {
+    "id": "T10003.004",
+    "name": "Inject Persistent Instructions via GitHub Copilot Configuration Files",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent writes to `.github/copilot-instructions.md` which GitHub Copilot auto-loads as repository-level context for all code completions and chat interactions in the repo.",
+    "severity": "critical",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Instruction Integrity",
+      "agp_mechanism": "AGP Instruction File Protection, AGP Session-Start Integrity Check",
+      "mechanism": "Agent instruction files are identified and protected by the governance layer. Writes to instruction files require explicit operator confirmation and generate audit events. Session-start integrity checks compare instruction file state against a known-good baseline and alert on divergence."
+    },
+    "v1_id": null,
+    "parent_technique": "T10003"
+  },
+  {
+    "id": "T10003.005",
+    "name": "Inject Persistent Instructions via Aider Configuration Files",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent writes to `.aider.conf.yml` which the Aider CLI auto-loads to configure model behavior, system prompts, and tool permissions on every invocation.",
+    "severity": "critical",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Instruction Integrity",
+      "agp_mechanism": "AGP Instruction File Protection, AGP Session-Start Integrity Check",
+      "mechanism": "Agent instruction files are identified and protected by the governance layer. Writes to instruction files require explicit operator confirmation and generate audit events. Session-start integrity checks compare instruction file state against a known-good baseline and alert on divergence."
+    },
+    "v1_id": null,
+    "parent_technique": "T10003"
+  },
+  {
+    "id": "T10003.006",
+    "name": "Inject Persistent Instructions via Continue Configuration Files",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent writes to `.continuerc.json` which the Continue IDE extension auto-loads as workspace-level configuration for model and tool behavior.",
+    "severity": "critical",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Instruction Integrity",
+      "agp_mechanism": "AGP Instruction File Protection, AGP Session-Start Integrity Check",
+      "mechanism": "Agent instruction files are identified and protected by the governance layer. Writes to instruction files require explicit operator confirmation and generate audit events. Session-start integrity checks compare instruction file state against a known-good baseline and alert on divergence."
+    },
+    "v1_id": null,
+    "parent_technique": "T10003"
   },
   {
     "id": "T10004",
@@ -484,12 +968,226 @@
     "severity": "high",
     "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
     "agents_of_chaos_case": [],
-    "owasp_mapping": ["LLM01"],
+    "owasp_mapping": [
+      "LLM01"
+    ],
     "aegis_mitigation": {
       "constitutional_article": "Parser Parity",
       "agp_mechanism": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation",
       "mechanism": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation."
     },
-    "v1_id": null
+    "v1_id": null,
+    "sub_techniques": [
+      "T10004.001",
+      "T10004.002",
+      "T10004.003",
+      "T10004.004",
+      "T10004.005",
+      "T10004.006",
+      "T10004.007",
+      "T10004.008",
+      "T10004.009",
+      "T10004.010"
+    ]
+  },
+  {
+    "id": "T10004.001",
+    "name": "Use Command Chaining Operators",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent uses shell operators (`|`, `&&`, `||`, `;`) to chain an allowed command with a denied one (e.g., `ls && curl ...`). Single-command pattern matching evaluates only the first segment.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Parser Parity",
+      "agp_mechanism": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation",
+      "mechanism": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation."
+    },
+    "v1_id": null,
+    "parent_technique": "T10004"
+  },
+  {
+    "id": "T10004.002",
+    "name": "Inject Newline as Command Separator",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent embeds a literal `\\n` in command arguments. The shell interprets it as a command separator while regex-based governance often anchors to single-line patterns.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Parser Parity",
+      "agp_mechanism": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation",
+      "mechanism": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation."
+    },
+    "v1_id": null,
+    "parent_technique": "T10004"
+  },
+  {
+    "id": "T10004.003",
+    "name": "Inject CRLF as Command Separator",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "Variant of T10004.002 using `\\r\\n` to bypass governance filters that strip `\\n` but preserve `\\r`. Common in pipelines that use HTTP request parsing for command extraction.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Parser Parity",
+      "agp_mechanism": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation",
+      "mechanism": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation."
+    },
+    "v1_id": null,
+    "parent_technique": "T10004"
+  },
+  {
+    "id": "T10004.004",
+    "name": "Bypass via Heredoc",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent uses heredoc syntax (`<<EOF`) to pass multi-line payloads to a shell or interpreter. Single-line pattern matching cannot see the body of the heredoc.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Parser Parity",
+      "agp_mechanism": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation",
+      "mechanism": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation."
+    },
+    "v1_id": null,
+    "parent_technique": "T10004"
+  },
+  {
+    "id": "T10004.005",
+    "name": "Truncate Path with Null Byte",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent embeds a null byte (`\\x00`) in a path. The governance layer's parser truncates at the null while the OS syscall processes the full path string after the null.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Parser Parity",
+      "agp_mechanism": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation",
+      "mechanism": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation."
+    },
+    "v1_id": null,
+    "parent_technique": "T10004"
+  },
+  {
+    "id": "T10004.006",
+    "name": "Evade Path Comparison via Unicode Homoglyphs",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent uses Unicode characters that visually match protected path characters but bypass byte-level string comparison (e.g., Cyrillic 'е' vs. Latin 'e'). The OS resolves the homoglyph correctly while the governance regex does not.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Parser Parity",
+      "agp_mechanism": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation",
+      "mechanism": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation."
+    },
+    "v1_id": null,
+    "parent_technique": "T10004"
+  },
+  {
+    "id": "T10004.007",
+    "name": "Inject via Subshell or Backticks",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent embeds `$(command)` or `` `command` `` substitution inside an otherwise-allowed command. The substitution executes before the outer command and is invisible to literal-string pattern matching.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Parser Parity",
+      "agp_mechanism": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation",
+      "mechanism": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation."
+    },
+    "v1_id": null,
+    "parent_technique": "T10004"
+  },
+  {
+    "id": "T10004.008",
+    "name": "Bypass Protected Path via Alternate Absolute Path",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent uses an alternate absolute path that resolves to the same protected target (e.g., `/etc/passwd` blocked but `/var/../etc/passwd` permitted). The governance layer's path comparison does not normalize before matching.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Parser Parity",
+      "agp_mechanism": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation",
+      "mechanism": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation."
+    },
+    "v1_id": null,
+    "parent_technique": "T10004"
+  },
+  {
+    "id": "T10004.009",
+    "name": "Bypass Protected Path via Path Traversal",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent uses `../` sequences to escape a permitted directory and access a protected target (e.g., `~/safe/../../../etc/passwd`). The governance layer matches the literal path prefix instead of the resolved path.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Parser Parity",
+      "agp_mechanism": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation",
+      "mechanism": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation."
+    },
+    "v1_id": null,
+    "parent_technique": "T10004"
+  },
+  {
+    "id": "T10004.010",
+    "name": "Redirect Output to Protected Path",
+    "tactic": "TA010",
+    "tactic_name": "Act Beyond Governance Interpretation",
+    "description": "The agent uses shell redirection (`>`, `>>`, `tee`) to write to a protected path via an otherwise-allowed command (e.g., `echo X > /etc/passwd`). The governance layer evaluates the command (`echo`) without parsing the redirection target.",
+    "severity": "high",
+    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Parser Parity",
+      "agp_mechanism": "AGP Input Normalization, AGP Shell Segmentation, AGP Metacharacter Escalation",
+      "mechanism": "Governance evaluator normalizes all inputs before evaluation using the same parsing rules as the execution runtime. Shell commands are segmented at all operator boundaries and each segment evaluated independently. Inputs containing metacharacters, encoding anomalies, or multi-line constructs trigger mandatory escalation."
+    },
+    "v1_id": null,
+    "parent_technique": "T10004"
   }
 ]

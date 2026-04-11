@@ -3,14 +3,16 @@ import Header from '../components/Header.astro';
 import Footer from '@aegis-initiative/design-system/components/Footer.astro';
 
 const atxFiles = [
-  { name: "STIX 2.1 Bundle", path: "/atx-1/stix-bundle.json", size: "93 KB", desc: "Complete taxonomy — tactics, techniques, mitigations, relationships" },
-  { name: "Technique Database", path: "/atx-1/techniques.json", size: "29 KB", desc: "All 29 techniques with severity, case studies, OWASP mapping" },
-  { name: "Regulatory Cross-Reference", path: "/atx-1/regulatory-crossref.json", size: "15 KB", desc: "NIST AI RMF, EU AI Act, OWASP LLM Top 10 mapping" },
-  { name: "ATM-1 Mapping", path: "/atx-1/atm1-mapping.json", size: "8 KB", desc: "Bidirectional mapping between ATX-1 techniques and MITRE ATT&CK" },
+  { name: "STIX 2.1 Bundle", path: "/atx-1/stix-bundle.json", size: "147 KB", desc: "Complete taxonomy — tactics, techniques, mitigations, relationships" },
+  { name: "Technique Database", path: "/atx-1/techniques.json", size: "68 KB", desc: "All 58 techniques with severity, case studies, OWASP mapping" },
+  { name: "Regulatory Cross-Reference", path: "/atx-1/regulatory-crossref.json", size: "50 KB", desc: "NIST AI RMF, EU AI Act, OWASP LLM Top 10 mapping" },
+  { name: "ATM-1 Mapping", path: "/atx-1/atm1-mapping.json", size: "10 KB", desc: "Bidirectional mapping between ATX-1 techniques and MITRE ATT&CK" },
   { name: "ACF-1 Counterfactual Bundle", path: "/atx-1/acf-1-bundle.json", size: "75 KB", desc: "What-if scenarios for technique interactions and governance outcomes" },
+  { name: "Validation — aegis-core", path: "/atx-1/validation-aegis-core.json", size: "7 KB", desc: "Validation test results against aegis-core runtime" },
+  { name: "Version Mapping", path: "/atx-1/version-mapping.json", size: "8 KB", desc: "Version history and technique lifecycle tracking across releases" },
   { name: "Technique JSON Schema", path: "/schemas/atx-technique.schema.json", size: "3 KB", desc: "Validation schema for technique definitions" },
   { name: "ATX-1 Index", path: "/atx-1/index.json", size: "2 KB", desc: "Machine-readable index of all ATX-1 artifacts" },
-  { name: "ATT&CK Navigator Layer", path: "/atx-1/navigator-layer.json", size: "32 KB", desc: "Load in ATT&CK Navigator via Open Existing Layer → Upload from URL" },
+  { name: "ATT&CK Navigator Layer", path: "/atx-1/navigator-layer.json", size: "67 KB", desc: "Load in ATT&CK Navigator via Open Existing Layer → Upload from URL" },
 ];
 ---
 
@@ -67,7 +69,7 @@ const atxFiles = [
     "@context": "https://schema.org",
     "@type": "Dataset",
     "name": "ATX-1: AEGIS Threat Matrix for Agentic AI Systems",
-    "description": "Machine-readable threat taxonomy for autonomous AI agent behavior. 10 tactics, 29 techniques, 29 mitigations in STIX 2.1 and structured JSON. v2.1 adds TA010 (Act Beyond Governance Interpretation).",
+    "description": "Machine-readable threat taxonomy for autonomous AI agent behavior. 10 tactics, 58 techniques in STIX 2.1 and structured JSON.",
     "url": "https://aegis-governance.com",
     "license": "https://www.apache.org/licenses/LICENSE-2.0",
     "creator": {
@@ -448,7 +450,7 @@ const atxFiles = [
 
   <section class="section">
     <h2>ATX-1 Threat Matrix</h2>
-    <p class="section-intro">AEGIS Threat Matrix v2.1 &mdash; 10 tactics, 29 techniques, 29 mitigations. Empirically grounded in the Agents of Chaos study and RFC-0006 adversarial testing. Available in STIX 2.1 and structured JSON.</p>
+    <p class="section-intro">AEGIS Threat Matrix v2.2 &mdash; 10 tactics, 58 techniques. Empirically grounded in the Agents of Chaos study and RFC-0006 adversarial testing. Available in STIX 2.1 and structured JSON.</p>
     <div class="file-list">
       {atxFiles.map((file) => (
         <a href={file.path} class="file-item">

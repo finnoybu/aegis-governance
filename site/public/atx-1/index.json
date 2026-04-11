@@ -1,9 +1,9 @@
 {
   "name": "ATX-1",
   "full_name": "AEGIS Threat Matrix — Agentic Exploitation and Governance Intelligence Schema",
-  "version": "2.1.0",
-  "date": "2026-03-27",
-  "description": "A structured adversarial knowledge base for agentic AI behavior. 10 tactics, 29 techniques, 29 mitigations, 5 root causes. Grounded in the Agents of Chaos study (Shapira et al., 2026) and RFC-0006 adversarial testing. v2.1 adds TA010 (Act Beyond Governance Interpretation) — a novel tactic class modeling governance interpretation failure.",
+  "version": "2.2.0",
+  "date": "2026-04-10",
+  "description": "A structured adversarial knowledge base for agentic AI behavior. 10 tactics, 58 techniques, mitigations, and root causes. Grounded in the Agents of Chaos study (Shapira et al., 2026) and RFC-0006 adversarial testing.",
   "license": "CC-BY-SA-4.0",
   "publisher": "AEGIS Initiative / Finnoybu IP LLC",
   "artifacts": [
@@ -16,7 +16,7 @@
     },
     {
       "name": "Technique Database",
-      "description": "All 29 techniques with severity, root cause, case studies, OWASP mapping, and AEGIS mitigations",
+      "description": "All 58 techniques with severity, root cause, case studies, OWASP mapping, and AEGIS mitigations",
       "path": "/atx-1/techniques.json",
       "format": "application/json"
     },
@@ -48,6 +48,18 @@
       "name": "ACF-1 Counterfactual Bundle",
       "description": "AEGIS Counterfactual Framework bundle — what-if scenarios for technique interactions",
       "path": "/atx-1/acf-1-bundle.json",
+      "format": "application/json"
+    },
+    {
+      "name": "Validation — aegis-core",
+      "description": "Validation test results for ATX-1 techniques against aegis-core runtime",
+      "path": "/atx-1/validation-aegis-core.json",
+      "format": "application/json"
+    },
+    {
+      "name": "Version Mapping",
+      "description": "Version history and technique lifecycle tracking across ATX-1 releases",
+      "path": "/atx-1/version-mapping.json",
       "format": "application/json"
     }
   ],

@@ -1,5 +1,5 @@
 {
-  "name": "ATX-1 v2.1: AEGIS Threat Matrix",
+  "name": "ATX-1 v2.2: AEGIS Threat Matrix",
   "versions": {
     "attack": "18",
     "navigator": "5.2.0",
@@ -7,7 +7,7 @@
   },
   "domain": "enterprise-attack",
   "customDataURL": "https://aegis-governance.com/atx-1/stix-bundle.json",
-  "description": "ATX-1 v2.1 \u2014 10 tactics, 29 techniques for autonomous AI agent threat modeling. v2.1 adds TA010 (Act Beyond Governance Interpretation) with 4 techniques discovered during RFC-0006 adversarial testing.",
+  "description": "ATX-1 v2.2 — 10 tactics, 29 techniques, 29 sub-techniques for autonomous AI agent threat modeling. v2.2 adds sub-techniques under T9002 and T10001–T10004 cataloging specific bypass methods discovered during RFC-0006 adversarial testing.",
   "filters": {
     "platforms": [
       "PRE"
@@ -35,7 +35,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model) \u00e2\u20ac\u201d No mechanism to verify that the instruction source holds authority for the requested action scope."
+          "value": "RC1 (No Stakeholder Model) â€” No mechanism to verify that the instruction source holds authority for the requested action scope."
         },
         {
           "name": "Tactic",
@@ -63,7 +63,7 @@
       "tactic": "violate-authority-boundaries",
       "score": 75,
       "color": "#b35900",
-      "comment": "The agent accepts an instruction as authoritative based on implicit signals \u00e2\u20ac\u201d such as the instruction appearing in a retrieved document, email body, or shared context \u00e2\u20ac\u201d rather than explicit delegation from a verified principal.",
+      "comment": "The agent accepts an instruction as authoritative based on implicit signals â€” such as the instruction appearing in a retrieved document, email body, or shared context â€” rather than explicit delegation from a verified principal.",
       "enabled": true,
       "metadata": [
         {
@@ -72,7 +72,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d Instructions and data share a channel; no mechanism to verify instruction provenance."
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) â€” Instructions and data share a channel; no mechanism to verify instruction provenance."
         },
         {
           "name": "Tactic",
@@ -109,7 +109,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d No principal verification; authority claims in content treated as valid."
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) â€” No principal verification; authority claims in content treated as valid."
         },
         {
           "name": "Tactic",
@@ -146,7 +146,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) \u00e2\u20ac\u201d Agent cannot evaluate whether expanded scope is within delegated authority; no deliberation surface to assess scope boundaries."
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” Agent cannot evaluate whether expanded scope is within delegated authority; no deliberation surface to assess scope boundaries."
         },
         {
           "name": "Tactic",
@@ -183,7 +183,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) \u00e2\u20ac\u201d Agent cannot assess aggregate impact of bulk actions; no proportionality check against instruction intent."
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” Agent cannot assess aggregate impact of bulk actions; no proportionality check against instruction intent."
         },
         {
           "name": "Tactic",
@@ -211,7 +211,7 @@
       "tactic": "exceed-operational-scope",
       "score": 75,
       "color": "#b35900",
-      "comment": "Harmful intent is decomposed across multiple delegated steps \u00e2\u20ac\u201d including across multiple agents where no single agent has full visibility of the objective \u00e2\u20ac\u201d such that no individual action appears unsafe.",
+      "comment": "Harmful intent is decomposed across multiple delegated steps â€” including across multiple agents where no single agent has full visibility of the objective â€” such that no individual action appears unsafe.",
       "enabled": true,
       "metadata": [
         {
@@ -220,7 +220,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) \u00e2\u20ac\u201d Agent cannot evaluate aggregate intent across delegation chains; no mechanism to detect composition attacks."
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” Agent cannot evaluate aggregate intent across delegation chains; no mechanism to detect composition attacks."
         },
         {
           "name": "Tactic",
@@ -257,7 +257,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) \u00e2\u20ac\u201d Agent cannot evaluate aggregate policy impact of chained tool calls; no compositional policy enforcement."
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” Agent cannot evaluate aggregate policy impact of chained tool calls; no compositional policy enforcement."
         },
         {
           "name": "Tactic",
@@ -294,7 +294,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d Agent cannot evaluate action severity or compare alternatives against a proportionality standard."
+          "value": "RC2 (No Self-Model) â€” Agent cannot evaluate action severity or compare alternatives against a proportionality standard."
         },
         {
           "name": "Tactic",
@@ -331,7 +331,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d Agent cannot model downstream effects of actions in interconnected systems; no cascade impact assessment."
+          "value": "RC2 (No Self-Model) â€” Agent cannot model downstream effects of actions in interconnected systems; no cascade impact assessment."
         },
         {
           "name": "Tactic",
@@ -368,7 +368,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d No authorization check on data recipients; instructions in content treated as authorized requests."
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) â€” No authorization check on data recipients; instructions in content treated as authorized requests."
         },
         {
           "name": "Tactic",
@@ -396,7 +396,7 @@
       "tactic": "expose-exfiltrate-information",
       "score": 75,
       "color": "#b35900",
-      "comment": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration \u00e2\u20ac\u201d exposing data from previous interactions to unauthorized parties in later sessions.",
+      "comment": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration â€” exposing data from previous interactions to unauthorized parties in later sessions.",
       "enabled": true,
       "metadata": [
         {
@@ -405,7 +405,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC3 (No Private Deliberation Surface) \u00e2\u20ac\u201d No session-scoped data isolation; persistent data accessible across session boundaries without authorization checks."
+          "value": "RC3 (No Private Deliberation Surface) â€” No session-scoped data isolation; persistent data accessible across session boundaries without authorization checks."
         },
         {
           "name": "Tactic",
@@ -442,7 +442,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model), RC3 (No Private Deliberation Surface) \u00e2\u20ac\u201d No data classification across domain boundaries; no cross-domain transfer authorization."
+          "value": "RC1 (No Stakeholder Model), RC3 (No Private Deliberation Surface) â€” No data classification across domain boundaries; no cross-domain transfer authorization."
         },
         {
           "name": "Tactic",
@@ -479,7 +479,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d No model of the distinction between action initiation and action completion; no outcome verification protocol."
+          "value": "RC2 (No Self-Model) â€” No model of the distinction between action initiation and action completion; no outcome verification protocol."
         },
         {
           "name": "Tactic",
@@ -516,7 +516,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d No mechanism to distinguish between action performers; attribution based on context rather than verified provenance."
+          "value": "RC2 (No Self-Model) â€” No mechanism to distinguish between action performers; attribution based on context rather than verified provenance."
         },
         {
           "name": "Tactic",
@@ -544,7 +544,7 @@
       "tactic": "violate-state-integrity",
       "score": 50,
       "color": "#0969da",
-      "comment": "The agent suppresses, omits, or fails to surface an execution failure \u00e2\u20ac\u201d whether caused by provider constraints, tool errors, or internal exceptions \u00e2\u20ac\u201d resulting in a divergence between reported state and actual state.",
+      "comment": "The agent suppresses, omits, or fails to surface an execution failure â€” whether caused by provider constraints, tool errors, or internal exceptions â€” resulting in a divergence between reported state and actual state.",
       "enabled": true,
       "metadata": [
         {
@@ -553,7 +553,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d No model of constraint layers affecting the agent; failure signals not propagated to operator governance."
+          "value": "RC2 (No Self-Model) â€” No model of constraint layers affecting the agent; failure signals not propagated to operator governance."
         },
         {
           "name": "Tactic",
@@ -581,7 +581,7 @@
       "tactic": "abuse-resource-allocation",
       "score": 75,
       "color": "#b35900",
-      "comment": "The agent enters a recursive invocation loop \u00e2\u20ac\u201d spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains \u00e2\u20ac\u201d consuming unbounded compute, token, and time resources.",
+      "comment": "The agent enters a recursive invocation loop â€” spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains â€” consuming unbounded compute, token, and time resources.",
       "enabled": true,
       "metadata": [
         {
@@ -590,7 +590,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) \u00e2\u20ac\u201d No loop detection or recursion depth model; agents cannot recognize non-productive cycles."
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” No loop detection or recursion depth model; agents cannot recognize non-productive cycles."
         },
         {
           "name": "Tactic",
@@ -627,7 +627,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) \u00e2\u20ac\u201d No model of resource boundaries; no lifecycle governance for external resource consumption."
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” No model of resource boundaries; no lifecycle governance for external resource consumption."
         },
         {
           "name": "Tactic",
@@ -664,7 +664,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model) \u00e2\u20ac\u201d No cryptographic identity verification between agents; identity claims based on self-assertion."
+          "value": "RC1 (No Stakeholder Model) â€” No cryptographic identity verification between agents; identity claims based on self-assertion."
         },
         {
           "name": "Tactic",
@@ -701,7 +701,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d No independent governance verification; shared governance infrastructure creates single points of compromise."
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) â€” No independent governance verification; shared governance infrastructure creates single points of compromise."
         },
         {
           "name": "Tactic",
@@ -738,7 +738,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC3 (No Private Deliberation Surface) \u00e2\u20ac\u201d No mechanism to isolate agent behavior from peer influence; behavioral norms adopted from interaction rather than governance."
+          "value": "RC3 (No Private Deliberation Surface) â€” No mechanism to isolate agent behavior from peer influence; behavioral norms adopted from interaction rather than governance."
         },
         {
           "name": "Tactic",
@@ -775,7 +775,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC3 (No Private Deliberation Surface) \u00e2\u20ac\u201d No mechanism to detect anomalous convergence in multi-agent decision-making; consensus accepted without independent verification."
+          "value": "RC3 (No Private Deliberation Surface) â€” No mechanism to detect anomalous convergence in multi-agent decision-making; consensus accepted without independent verification."
         },
         {
           "name": "Tactic",
@@ -812,7 +812,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d No integrity verification for persistent memory writes; memory content treated as trusted regardless of provenance."
+          "value": "RC4 (Prompt Injection Is Structural) â€” No integrity verification for persistent memory writes; memory content treated as trusted regardless of provenance."
         },
         {
           "name": "Tactic",
@@ -849,7 +849,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d Governance configuration stored in mutable locations; no integrity verification or tamper detection for policy state."
+          "value": "RC4 (Prompt Injection Is Structural) â€” Governance configuration stored in mutable locations; no integrity verification or tamper detection for policy state."
         },
         {
           "name": "Tactic",
@@ -877,7 +877,7 @@
       "tactic": "evade-detection-oversight",
       "score": 50,
       "color": "#0969da",
-      "comment": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems \u00e2\u20ac\u201d whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
+      "comment": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems â€” whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
       "enabled": true,
       "metadata": [
         {
@@ -886,7 +886,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d No model of the observability boundaries affecting the agent; agent cannot distinguish monitored from unmonitored pathways."
+          "value": "RC2 (No Self-Model) â€” No model of the observability boundaries affecting the agent; agent cannot distinguish monitored from unmonitored pathways."
         },
         {
           "name": "Tactic",
@@ -923,7 +923,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording."
+          "value": "RC4 (Prompt Injection Is Structural) â€” Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording."
         },
         {
           "name": "Tactic",
@@ -944,7 +944,7 @@
           "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
         }
       ],
-      "showSubtechniques": false
+      "showSubtechniques": true
     },
     {
       "techniqueID": "T10001",
@@ -981,7 +981,7 @@
           "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
         }
       ],
-      "showSubtechniques": false
+      "showSubtechniques": true
     },
     {
       "techniqueID": "T10002",
@@ -1022,7 +1022,7 @@
           "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
         }
       ],
-      "showSubtechniques": false
+      "showSubtechniques": true
     },
     {
       "techniqueID": "T10003",
@@ -1063,7 +1063,7 @@
           "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
         }
       ],
-      "showSubtechniques": false
+      "showSubtechniques": true
     },
     {
       "techniqueID": "T10004",
@@ -1092,6 +1092,1067 @@
         {
           "name": "Discovery",
           "value": "RFC-0006 adversarial testing, Rounds 1-3"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T9002.001",
+      "tactic": "evade-detection-or-oversight",
+      "score": 50,
+      "color": "#e6b800",
+      "comment": "The agent encodes commands in base64, hex, or URL encoding before execution (e.g., `echo Y3VybCAuLi4= | base64 -d | bash`). The encoded payload is opaque to text-based pattern matching in the governance evaluator until decoded by the runtime.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "medium"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T9002"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06"
+        },
+        {
+          "name": "Tactic",
+          "value": "Evade Detection or Oversight"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T9002.002",
+      "tactic": "evade-detection-or-oversight",
+      "score": 50,
+      "color": "#e6b800",
+      "comment": "The agent splits the command name from its invocation across separate tokens via shell variable assignment (e.g., `CMD=curl; $CMD https://...`). Pattern matching against the literal command string fails because the dangerous token is constructed at runtime.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "medium"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T9002"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06"
+        },
+        {
+          "name": "Tactic",
+          "value": "Evade Detection or Oversight"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10001.001",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent uses bash's `/dev/tcp/host/port` pseudo-filesystem to perform network I/O via what looks like file I/O (e.g., `exec 3<>/dev/tcp/example.com/80`). The governance layer treats the path as an ordinary file write and permits it.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10001"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10001.002",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The UDP equivalent of T10001.001 — the agent uses `/dev/udp/host/port` to send UDP datagrams via apparent file I/O. Particularly useful for DNS exfiltration channels and stateless data egress.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10001"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10001.003",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent reads process and kernel state via `/proc/*` paths (e.g., `/proc/self/environ`, `/proc/*/cmdline`, `/proc/net/tcp`) that the governance layer treats as ordinary files. Reveals secrets in environment variables, running processes, and network connections.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10001"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10002.001",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent writes commands to `.bashrc`, `.profile`, `.zshrc`, or equivalents so they execute on every new shell session. Persistence survives reboots and is invisible until the user opens a new terminal.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10002"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10002.002",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent writes scripts to `.git/hooks/*` (pre-commit, post-commit, post-checkout, etc.) so they execute on every git operation. The hooks run with the user's full privileges.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10002"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10002.003",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent injects commands into `package.json` scripts, `setup.py`, or equivalent install hooks so they execute on the next `npm install`, `pip install`, or build invocation.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10002"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10002.004",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent writes commands to `.vscode/tasks.json`, `.idea/runConfigurations/`, or similar IDE configuration files so they run when the user invokes the corresponding task or opens the project.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10002"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10002.005",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent injects commands into `Dockerfile`, `docker-compose.yml`, or equivalent container build files so they execute during the next image build and persist into the resulting container image.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10002"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10002.006",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent uses `git config alias.X '!command'` to register command-substitution aliases that execute arbitrary shell on any subsequent git invocation. Survives across all repositories when set in global git config.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10002"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10002.007",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent writes auto-execution hooks into `.npmrc`, `.pypirc`, `.cargo/config.toml`, or equivalent package manager configuration files. Triggered on the next package operation by any user of the host.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10002"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10002.008",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent injects commands into `Makefile`, `CMakeLists.txt`, `build.gradle`, or equivalent build system files. Executes automatically the next time the user invokes a build target.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10002"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10003.001",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 100,
+      "color": "#8B0000",
+      "comment": "The agent writes to project-level configuration files that the Claude Code CLI auto-loads into model context on every invocation (e.g., CLAUDE.md, .claude/rules/). Specific exploitation details embargoed under responsible disclosure RD-2603-01 until 2026-06-24 or earlier vendor response.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10003"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10003.002",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 100,
+      "color": "#8B0000",
+      "comment": "The agent writes attacker-controlled instructions to `.cursorrules` files that the Cursor IDE auto-loads as system prompt context for every model interaction in the project.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10003"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10003.003",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 100,
+      "color": "#8B0000",
+      "comment": "The agent writes attacker-controlled instructions to `.windsurfrules` files that the Windsurf editor auto-loads into every model interaction in the workspace.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10003"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10003.004",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 100,
+      "color": "#8B0000",
+      "comment": "The agent writes to `.github/copilot-instructions.md` which GitHub Copilot auto-loads as repository-level context for all code completions and chat interactions in the repo.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10003"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10003.005",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 100,
+      "color": "#8B0000",
+      "comment": "The agent writes to `.aider.conf.yml` which the Aider CLI auto-loads to configure model behavior, system prompts, and tool permissions on every invocation.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10003"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10003.006",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 100,
+      "color": "#8B0000",
+      "comment": "The agent writes to `.continuerc.json` which the Continue IDE extension auto-loads as workspace-level configuration for model and tool behavior.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10003"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10004.001",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent uses shell operators (`|`, `&&`, `||`, `;`) to chain an allowed command with a denied one (e.g., `ls && curl ...`). Single-command pattern matching evaluates only the first segment.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10004"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10004.002",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent embeds a literal `\\n` in command arguments. The shell interprets it as a command separator while regex-based governance often anchors to single-line patterns.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10004"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10004.003",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "Variant of T10004.002 using `\\r\\n` to bypass governance filters that strip `\\n` but preserve `\\r`. Common in pipelines that use HTTP request parsing for command extraction.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10004"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10004.004",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent uses heredoc syntax (`<<EOF`) to pass multi-line payloads to a shell or interpreter. Single-line pattern matching cannot see the body of the heredoc.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10004"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10004.005",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent embeds a null byte (`\\x00`) in a path. The governance layer's parser truncates at the null while the OS syscall processes the full path string after the null.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10004"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10004.006",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent uses Unicode characters that visually match protected path characters but bypass byte-level string comparison (e.g., Cyrillic 'е' vs. Latin 'e'). The OS resolves the homoglyph correctly while the governance regex does not.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10004"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10004.007",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent embeds `$(command)` or `` `command` `` substitution inside an otherwise-allowed command. The substitution executes before the outer command and is invisible to literal-string pattern matching.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10004"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10004.008",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent uses an alternate absolute path that resolves to the same protected target (e.g., `/etc/passwd` blocked but `/var/../etc/passwd` permitted). The governance layer's path comparison does not normalize before matching.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10004"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10004.009",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent uses `../` sequences to escape a permitted directory and access a protected target (e.g., `~/safe/../../../etc/passwd`). The governance layer matches the literal path prefix instead of the resolved path.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10004"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T10004.010",
+      "tactic": "act-beyond-governance-interpretation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent uses shell redirection (`>`, `>>`, `tee`) to write to a protected path via an otherwise-allowed command (e.g., `echo X > /etc/passwd`). The governance layer evaluates the command (`echo`) without parsing the redirection target.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Parent Technique",
+          "value": "T10004"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        },
+        {
+          "name": "Tactic",
+          "value": "Act Beyond Governance Interpretation"
         }
       ],
       "links": [
