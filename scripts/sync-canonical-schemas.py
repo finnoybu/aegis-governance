@@ -9,12 +9,12 @@ into:
 
 It intentionally syncs only the shared cross-repository contract domains:
   - agp/
+  - aiam/
   - capability/
   - common/
   - governance/
 
 It does not modify:
-  - aiam/
   - examples/
 
 Usage:
@@ -31,7 +31,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-MIRRORED_DIRS = ("agp", "capability", "common", "governance")
+MIRRORED_DIRS = ("agp", "aiam", "capability", "common", "governance")
 
 
 @dataclass

@@ -1,0 +1,44 @@
+name: Schema Sync Check
+
+on:
+  pull_request:
+    paths:
+      - "aegis-core/schemas/**/*.json"
+      - "scripts/sync-canonical-schemas.py"
+      - ".github/workflows/schema-sync-check.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "aegis-core/schemas/**/*.json"
+      - "scripts/sync-canonical-schemas.py"
+      - ".github/workflows/schema-sync-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: schema-sync-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout aegis-governance
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          path: aegis-governance
+
+      - name: Checkout canonical aegis schemas
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          repository: aegis-initiative/aegis
+          path: aegis
+          sparse-checkout: schemas
+          token: ${{ secrets.AEGIS_CROSS_REPO_TOKEN }}
+
+      - name: Check mirror is in sync
+        working-directory: aegis-governance
+        run: python scripts/sync-canonical-schemas.py --check
