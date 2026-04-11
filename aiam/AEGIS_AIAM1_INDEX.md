@@ -141,6 +141,13 @@ IBAC strictly generalizes prior models: an RBAC policy is an IBAC triple where t
 
 ### 5.2 Schemas
 
+> **Ownership note:** The AIAM schema set currently lives in
+> `aegis-governance/aegis-core/schemas/aiam/` as a governance-owned extension.
+> Shared cross-repository contracts for the broader AEGIS ecosystem are canonically
+> owned by [`aegis/schemas/`](https://github.com/aegis-initiative/aegis/tree/main/schemas).
+> AIAM schemas should be promoted into the canonical shared schema set only after the
+> specification stabilizes enough for downstream product and SDK consumption.
+
 | Schema | Location | Description |
 |---|---|---|
 | `common.schema.json` | `aegis-core/schemas/aiam/` | Shared type definitions: ID formats, timestamps, signatures, hashes. All other schemas `$ref` into this. |

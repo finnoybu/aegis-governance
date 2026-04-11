@@ -139,7 +139,7 @@ Files:
 
 **Status**: Complete machine-readable schema suite
 
-Location: `aegis-core/schemas/`
+Location: canonical shared schema set in `aegis/schemas/` with synchronized documentation and examples in this repository
 
 Structure:
 

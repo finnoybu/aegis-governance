@@ -117,7 +117,7 @@ This `docs/` directory contains **non-normative** design documentation.
 |----------------------------------|-------------------------------|
 | AGP-1 Protocol Specification | Architecture design documents |
 | ATM-1 Threat Model | Historical white papers |
-| JSON Schemas | Risk scoring algorithms |
+| Canonical JSON Schemas (owned by `aegis`) | Risk scoring algorithms |
 | AEGIS Constitution | Implementation guidance |
 | RFC Series | Evolution artifacts |
 
@@ -138,7 +138,7 @@ This `docs/` directory contains **non-normative** design documentation.
 **For Implementation:**
 1. Read [Governance Engine Components](architecture/GOVERNANCE_ENGINE_COMPONENTS.md)
 2. Read [End-to-End Request Flow](architecture/END_TO_END_REQUEST_FLOW.md)
-3. Study schemas in [`../aegis-core/schemas/`](../aegis-core/schemas/)
+3. Study the canonical schemas in [`aegis/schemas`](https://github.com/aegis-initiative/aegis/tree/main/schemas)
 4. Explore reference runtime in [`../aegis-runtime/`](../aegis-runtime/)
 
 ---

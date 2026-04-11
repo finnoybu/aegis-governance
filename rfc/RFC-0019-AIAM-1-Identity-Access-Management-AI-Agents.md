@@ -87,7 +87,9 @@ The full AIAM-1 specification is a 12-chapter document suite located at [`aiam/`
 | Threat Model | `AEGIS_AIAM1_THREAT_MODEL.md` | Seven threat classes, ATX-1 cross-references |
 | Conformance | `AEGIS_AIAM1_CONFORMANCE.md` | 80+ requirement checklist |
 
-JSON schemas are located at `aegis-core/schemas/aiam/`:
+JSON schemas for AIAM-1 are currently located at `aegis-core/schemas/aiam/`. Shared cross-repository contracts are
+canonically owned by `aegis/schemas/`; AIAM-specific schemas in this repository should be treated as governance-owned
+extension artifacts until they are promoted into the canonical shared schema set.
 - `identity_claim.schema.json`
 - `intent_claim.schema.json`
 - `attestation_record.schema.json`

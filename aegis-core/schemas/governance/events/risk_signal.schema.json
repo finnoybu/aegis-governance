@@ -16,7 +16,9 @@
           "additionalProperties": false,
           "properties": {
             "risk_category": { "type": "string" },
-            "severity": { "type": "string", "enum": ["info", "warning", "high", "critical"] },
+            "severity": {
+              "$ref": "https://aegis-initiative.com/schemas/common/risk-level.schema.json"
+            },
             "trend": { "type": "string", "enum": ["rising", "stable", "declining"] },
             "geographic_scope": { "type": "string" },
             "related_models": {

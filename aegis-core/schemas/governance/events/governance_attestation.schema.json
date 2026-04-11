@@ -18,7 +18,7 @@
             "aegis_version": { "type": "string" },
             "risk_model": { "type": "string" },
             "compliance_profile": { "type": "string" },
-            "audit_timestamp": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$" },
+            "audit_timestamp": { "type": "string", "format": "date-time", "pattern": "Z$" },
             "auditor_identity": { "type": "string" }
           }
         }

@@ -122,6 +122,11 @@ REQUIRE_CONFIRMATION
 
 This ensures that all operational actions are subject to **deterministic governance enforcement**.
 
+The canonical editable JSON Schemas for cross-repository AEGIS contracts live in
+[`aegis`](https://github.com/aegis-initiative/aegis) under `schemas/`. Any schema copies, examples, or mirrors in this
+repository should be treated as public technical documentation or synchronized artifacts rather than an independent
+source of truth.
+
 ---
 
 # AEGIS Federation Network

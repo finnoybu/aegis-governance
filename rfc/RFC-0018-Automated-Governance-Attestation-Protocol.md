@@ -974,7 +974,7 @@ AGAP-1 is successfully implemented when:
 - AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
 - ATM-1 Threat Model — `aegis-core/threat-model/AEGIS_ATM1_INDEX.md`
 - GFN-1 Trust Model — `federation/AEGIS_GFN1_TRUST_MODEL.md`
-- Governance Attestation Schema — `aegis-core/schemas/governance/events/governance_attestation.schema.json`
+- Governance Attestation Schema — canonical shared contract in `aegis/schemas/governance/events/governance_attestation.schema.json`
 - ADR-0003 Registry Trust Model — `aegis/docs/adr/0003-registry-trust-model.md`
 - ADR-0005 Governance Federation on AT Protocol — `aegis/docs/adr/0005-governance-federation-at-protocol.md`
 - ADR-0010 Federation Monetization and Attestation Economics — `aegis/docs/adr/0010-federation-monetization-and-attestation-economics.md`

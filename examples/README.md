@@ -187,8 +187,8 @@ See [`../CONTRIBUTING.md`](../CONTRIBUTING.md) for full guidelines.
 
 **Specifications:**
 - [AGP-1 Protocol](../aegis-core/protocol/AEGIS_AGP1_INDEX.md)
-- [Capability Schema](../aegis-core/schemas/capability/)
-- [Policy Schema](../aegis-core/schemas/governance/)
+- [Canonical Capability Schemas](https://github.com/aegis-initiative/aegis/tree/main/schemas/capability)
+- [Canonical Governance Schemas](https://github.com/aegis-initiative/aegis/tree/main/schemas/governance)
 
 **Runtime:**
 - [Reference Runtime](../aegis-runtime/)

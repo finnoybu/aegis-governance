@@ -18,6 +18,33 @@
 
 This directory contains machine-validated schema definitions for AEGIS protocol and governance artifacts.
 
+## Mirror Sync
+
+Shared schema domains in this directory are synchronized from the canonical editable source in `../aegis/schemas/`
+using:
+
+```bash
+python scripts/sync-canonical-schemas.py
+```
+
+To check whether the mirror is out of sync without modifying files:
+
+```bash
+python scripts/sync-canonical-schemas.py --check
+```
+
+The mirror script updates only:
+
+- `agp/`
+- `capability/`
+- `common/`
+- `governance/`
+
+It intentionally does not modify:
+
+- `aiam/`
+- `examples/`
+
 ## Structure
 
 - `common/` reusable schema primitives
