@@ -43,19 +43,19 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Compile JSON Schemas with AJV
         run: |
-          npm install --no-save ajv-formats@3.0.1
+          npm install --no-save ajv-cli@5.0.0 ajv-formats@3.0.1
 
           # Compile common schemas first (no references)
           for schema in aegis-core/schemas/common/*.schema.json; do
             echo "Compiling $schema"
-            npx --yes ajv-cli@5.0.0 compile --spec=draft2020 -c ajv-formats -s "$schema" || exit 1
+            npx ajv-cli compile --spec=draft2020 -c ajv-formats -s "$schema" || exit 1
           done
 
           # Compile governance schemas with common references
           for schema in aegis-core/schemas/governance/*.schema.json; do
             [ -f "$schema" ] || continue
             echo "Compiling $schema"
-            npx --yes ajv-cli@5.0.0 compile --spec=draft2020 -c ajv-formats -s "$schema" \
+            npx ajv-cli compile --spec=draft2020 -c ajv-formats -s "$schema" \
               -r 'aegis-core/schemas/common/*.schema.json' || exit 1
           done
 
@@ -65,7 +65,7 @@ jobs:
               for schema in aegis-core/schemas/$dir/*.schema.json; do
                 [ -f "$schema" ] || continue
                 echo "Compiling $schema"
-                npx --yes ajv-cli@5.0.0 compile --spec=draft2020 -c ajv-formats -s "$schema" \
+                npx ajv-cli compile --spec=draft2020 -c ajv-formats -s "$schema" \
                   -r 'aegis-core/schemas/common/*.schema.json' || exit 1
               done
             fi
@@ -76,7 +76,7 @@ jobs:
             for schema in aegis-core/schemas/governance/events/*.schema.json; do
               [ -f "$schema" ] || continue
               echo "Compiling $schema"
-              npx --yes ajv-cli@5.0.0 compile --spec=draft2020 -c ajv-formats -s "$schema" \
+              npx ajv-cli compile --spec=draft2020 -c ajv-formats -s "$schema" \
                 -r 'aegis-core/schemas/common/*.schema.json' \
                 -r 'aegis-core/schemas/governance/*.schema.json' || exit 1
             done
@@ -84,32 +84,32 @@ jobs:
 
       - name: Validate example payloads with AJV
         run: |
-          npx --yes ajv-cli@5.0.0 validate --spec=draft2020 -c ajv-formats \
+          npx ajv-cli validate --spec=draft2020 -c ajv-formats \
             -s aegis-core/schemas/agp/action_propose.schema.json \
             -d aegis-core/schemas/examples/agp/action_propose.example.json \
             -r 'aegis-core/schemas/common/*.schema.json'
 
-          npx --yes ajv-cli@5.0.0 validate --spec=draft2020 -c ajv-formats \
+          npx ajv-cli validate --spec=draft2020 -c ajv-formats \
             -s aegis-core/schemas/agp/decision_response.schema.json \
             -d aegis-core/schemas/examples/agp/decision_response.example.json \
             -r 'aegis-core/schemas/common/*.schema.json'
 
-          npx --yes ajv-cli@5.0.0 validate --spec=draft2020 -c ajv-formats \
+          npx ajv-cli validate --spec=draft2020 -c ajv-formats \
             -s aegis-core/schemas/agp/execution_result.schema.json \
             -d aegis-core/schemas/examples/agp/execution_result.example.json \
             -r 'aegis-core/schemas/common/*.schema.json'
 
-          npx --yes ajv-cli@5.0.0 validate --spec=draft2020 -c ajv-formats \
+          npx ajv-cli validate --spec=draft2020 -c ajv-formats \
             -s aegis-core/schemas/agp/escalation_request.schema.json \
             -d aegis-core/schemas/examples/agp/escalation_request.example.json \
             -r 'aegis-core/schemas/common/*.schema.json'
 
-          npx --yes ajv-cli@5.0.0 validate --spec=draft2020 -c ajv-formats \
+          npx ajv-cli validate --spec=draft2020 -c ajv-formats \
             -s aegis-core/schemas/capability/capability.schema.json \
             -d aegis-core/schemas/examples/capability/capability.example.json \
             -r 'aegis-core/schemas/common/*.schema.json'
 
-          npx --yes ajv-cli@5.0.0 validate --spec=draft2020 -c ajv-formats \
+          npx ajv-cli validate --spec=draft2020 -c ajv-formats \
             -s aegis-core/schemas/governance/events/policy_update.schema.json \
             -d aegis-core/schemas/examples/governance/policy_update.example.json \
             -r 'aegis-core/schemas/common/*.schema.json' \
