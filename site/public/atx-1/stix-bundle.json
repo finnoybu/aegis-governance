@@ -10,7 +10,7 @@
       "modified": "2026-03-26T00:00:00.000Z",
       "name": "AEGIS Initiative",
       "identity_class": "organization",
-      "description": "Finnoybu IP LLC \u00e2\u20ac\u201d creators of the AEGIS governance architecture"
+      "description": "Finnoybu IP LLC â€” creators of the AEGIS governance architecture"
     },
     {
       "type": "x-mitre-tactic",
@@ -83,7 +83,7 @@
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "name": "Violate State Integrity",
-      "description": "The agent reports, represents, or records system state that diverges from actual state \u00e2\u20ac\u201d whether through false completion reports, fabricated attribution, or suppressed failure signals. Exploits State and Observability primitives.",
+      "description": "The agent reports, represents, or records system state that diverges from actual state â€” whether through false completion reports, fabricated attribution, or suppressed failure signals. Exploits State and Observability primitives.",
       "x_mitre_shortname": "violate-state-integrity",
       "external_references": [
         {
@@ -178,7 +178,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #1 \u00e2\u20ac\u201d Email deletion on user request without owner authorization"
+          "description": "Case Study #1 â€” Email deletion on user request without owner authorization"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -195,7 +195,7 @@
       "modified": "2026-03-26T00:00:00.000Z",
       "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
       "name": "Infer Implicit Authority",
-      "description": "The agent accepts an instruction as authoritative based on implicit signals \u00e2\u20ac\u201d such as the instruction appearing in a retrieved document, email body, or shared context \u00e2\u20ac\u201d rather than explicit delegation from a verified principal.",
+      "description": "The agent accepts an instruction as authoritative based on implicit signals â€” such as the instruction appearing in a retrieved document, email body, or shared context â€” rather than explicit delegation from a verified principal.",
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
@@ -209,7 +209,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #2 \u00e2\u20ac\u201d Bulk data export on indirect request"
+          "description": "Case Study #2 â€” Bulk data export on indirect request"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -240,7 +240,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #11 \u00e2\u20ac\u201d Mass distribution under spoofed authority"
+          "description": "Case Study #11 â€” Mass distribution under spoofed authority"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -276,7 +276,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #3 \u00e2\u20ac\u201d Autonomous scope expansion beyond delegated boundaries"
+          "description": "Case Study #3 â€” Autonomous scope expansion beyond delegated boundaries"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -307,7 +307,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #1 \u00e2\u20ac\u201d Bulk operations without scope validation"
+          "description": "Case Study #1 â€” Bulk operations without scope validation"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -370,7 +370,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #1 \u00e2\u20ac\u201d Irreversible deletion when archival would suffice"
+          "description": "Case Study #1 â€” Irreversible deletion when archival would suffice"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -401,7 +401,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #7 \u00e2\u20ac\u201d Cascading system changes with unauthorized downstream effects"
+          "description": "Case Study #7 â€” Cascading system changes with unauthorized downstream effects"
         }
       ]
     },
@@ -427,7 +427,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #2 \u00e2\u20ac\u201d Context-scoped data exfiltration to unauthorized requestor"
+          "description": "Case Study #2 â€” Context-scoped data exfiltration to unauthorized requestor"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -444,7 +444,7 @@
       "modified": "2026-03-26T00:00:00.000Z",
       "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
       "name": "Leak Cross-Session or Persistent Data",
-      "description": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration \u00e2\u20ac\u201d exposing data from previous interactions to unauthorized parties in later sessions.",
+      "description": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration â€” exposing data from previous interactions to unauthorized parties in later sessions.",
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
@@ -458,7 +458,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #3 \u00e2\u20ac\u201d Cross-session data leakage to unauthorized parties"
+          "description": "Case Study #3 â€” Cross-session data leakage to unauthorized parties"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -489,7 +489,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #1 \u00e2\u20ac\u201d False task completion confirmation"
+          "description": "Case Study #1 â€” False task completion confirmation"
         }
       ]
     },
@@ -515,7 +515,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #8 \u00e2\u20ac\u201d Fabricated action attribution corrupting audit trail"
+          "description": "Case Study #8 â€” Fabricated action attribution corrupting audit trail"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -532,7 +532,7 @@
       "modified": "2026-03-26T00:00:00.000Z",
       "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
       "name": "Suppress or Omit Execution Failure",
-      "description": "The agent suppresses, omits, or fails to surface an execution failure \u00e2\u20ac\u201d whether caused by provider constraints, tool errors, or internal exceptions \u00e2\u20ac\u201d resulting in a divergence between reported state and actual state.",
+      "description": "The agent suppresses, omits, or fails to surface an execution failure â€” whether caused by provider constraints, tool errors, or internal exceptions â€” resulting in a divergence between reported state and actual state.",
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
@@ -546,7 +546,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #6 \u00e2\u20ac\u201d Silent execution failure suppression"
+          "description": "Case Study #6 â€” Silent execution failure suppression"
         }
       ]
     },
@@ -558,7 +558,7 @@
       "modified": "2026-03-26T00:00:00.000Z",
       "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
       "name": "Execute Recursive Invocation Loops",
-      "description": "The agent enters a recursive invocation loop \u00e2\u20ac\u201d spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains \u00e2\u20ac\u201d consuming unbounded compute, token, and time resources.",
+      "description": "The agent enters a recursive invocation loop â€” spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains â€” consuming unbounded compute, token, and time resources.",
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
@@ -572,7 +572,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #4 \u00e2\u20ac\u201d Recursive invocation loops consuming unbounded resources"
+          "description": "Case Study #4 â€” Recursive invocation loops consuming unbounded resources"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -608,7 +608,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #5 \u00e2\u20ac\u201d Unbounded external resource consumption"
+          "description": "Case Study #5 â€” Unbounded external resource consumption"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -639,7 +639,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #9 \u00e2\u20ac\u201d Agent identity spoofing in multi-agent context"
+          "description": "Case Study #9 â€” Agent identity spoofing in multi-agent context"
         }
       ]
     },
@@ -665,7 +665,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #10 \u00e2\u20ac\u201d Malicious delegation chain injection"
+          "description": "Case Study #10 â€” Malicious delegation chain injection"
         }
       ]
     },
@@ -718,7 +718,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #10 \u00e2\u20ac\u201d Persistent memory poisoning"
+          "description": "Case Study #10 â€” Persistent memory poisoning"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -749,7 +749,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #10 \u00e2\u20ac\u201d Governance/policy state corruption via indirect means"
+          "description": "Case Study #10 â€” Governance/policy state corruption via indirect means"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -766,7 +766,7 @@
       "modified": "2026-03-26T00:00:00.000Z",
       "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
       "name": "Operate Outside Monitoring Boundaries",
-      "description": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems \u00e2\u20ac\u201d whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
+      "description": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems â€” whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
@@ -780,7 +780,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #6 \u00e2\u20ac\u201d Operations outside monitoring boundaries"
+          "description": "Case Study #6 â€” Operations outside monitoring boundaries"
         }
       ]
     },
@@ -2636,6 +2636,1125 @@
       "modified": "2026-03-27T00:00:00.000Z",
       "relationship_type": "mitigates",
       "source_ref": "course-of-action--e1f2a3b4-c5d6-5e7f-8091-021324354657",
+      "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--1ffb2873-61cf-533d-ac53-7e3af4df4e1a",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Encode Commands in Base64 / Hex / URL Encoding",
+      "description": "The agent encodes commands in base64, hex, or URL encoding before execution (e.g., `echo Y3VybCAuLi4= | base64 -d | bash`). The encoded payload is opaque to text-based pattern matching in the governance evaluator until decoded by the runtime.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "evade-detection-oversight"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T9002.001"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM06"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T9002"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--06dfece7-0d73-57f7-99c8-7ffb0a4670cd",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--1ffb2873-61cf-533d-ac53-7e3af4df4e1a",
+      "target_ref": "attack-pattern--0f327815-a70a-5c91-941d-bd97a894e615"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--1321dcf9-5b88-5fd7-9b12-cc37d5235f32",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Variable Indirection / Dynamic Command Construction",
+      "description": "The agent splits the command name from its invocation across separate tokens via shell variable assignment (e.g., `CMD=curl; $CMD https://...`). Pattern matching against the literal command string fails because the dangerous token is constructed at runtime.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "evade-detection-oversight"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T9002.002"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM06"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T9002"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b8a20efe-6ecd-58a7-bada-d28a6266816d",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--1321dcf9-5b88-5fd7-9b12-cc37d5235f32",
+      "target_ref": "attack-pattern--0f327815-a70a-5c91-941d-bd97a894e615"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--50909b45-29fb-51f0-bcf0-d433315922f3",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Use /dev/tcp Network Socket Access",
+      "description": "The agent uses bash's `/dev/tcp/host/port` pseudo-filesystem to perform network I/O via what looks like file I/O (e.g., `exec 3<>/dev/tcp/example.com/80`). The governance layer treats the path as an ordinary file write and permits it.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10001.001"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10001"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--67551f1f-20fa-5758-b50f-808e55a79fc3",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--50909b45-29fb-51f0-bcf0-d433315922f3",
+      "target_ref": "attack-pattern--d4e5f6a7-b8c9-5d0e-1f2a-3b4c5d6e7f80"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--8dc9bd57-64df-5631-871f-4f6523a0d63e",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Use /dev/udp Network Socket Access",
+      "description": "The UDP equivalent of T10001.001 — the agent uses `/dev/udp/host/port` to send UDP datagrams via apparent file I/O. Particularly useful for DNS exfiltration channels and stateless data egress.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10001.002"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10001"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b77291f3-1b25-5a32-ad7b-45dfcca5725d",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--8dc9bd57-64df-5631-871f-4f6523a0d63e",
+      "target_ref": "attack-pattern--d4e5f6a7-b8c9-5d0e-1f2a-3b4c5d6e7f80"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--3cbb618c-7bb0-546b-9a0a-d39e7c293232",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Read /proc Pseudo-Filesystem for Information Disclosure",
+      "description": "The agent reads process and kernel state via `/proc/*` paths (e.g., `/proc/self/environ`, `/proc/*/cmdline`, `/proc/net/tcp`) that the governance layer treats as ordinary files. Reveals secrets in environment variables, running processes, and network connections.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10001.003"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10001"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--392660a5-d4a8-510d-ae17-35ac06d2c72e",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--3cbb618c-7bb0-546b-9a0a-d39e7c293232",
+      "target_ref": "attack-pattern--d4e5f6a7-b8c9-5d0e-1f2a-3b4c5d6e7f80"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--2529fdea-69b5-59d2-b7d9-7e7630252e15",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Persist via Shell Initialization Files",
+      "description": "The agent writes commands to `.bashrc`, `.profile`, `.zshrc`, or equivalents so they execute on every new shell session. Persistence survives reboots and is invisible until the user opens a new terminal.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10002.001"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM06"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10002"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--18bfa123-82a0-5644-8f3f-13bf6dd9fe71",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--2529fdea-69b5-59d2-b7d9-7e7630252e15",
+      "target_ref": "attack-pattern--e5f6a7b8-c9d0-5e1f-2a3b-4c5d6e7f8091"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--cae13f5b-f98d-5e38-bbc8-0262fa08bb78",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Persist via Git Hooks",
+      "description": "The agent writes scripts to `.git/hooks/*` (pre-commit, post-commit, post-checkout, etc.) so they execute on every git operation. The hooks run with the user's full privileges.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10002.002"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM06"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10002"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5e9294b1-e532-5199-a0f8-8f3080a4ca0a",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--cae13f5b-f98d-5e38-bbc8-0262fa08bb78",
+      "target_ref": "attack-pattern--e5f6a7b8-c9d0-5e1f-2a3b-4c5d6e7f8091"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--aef70750-a9ea-5bb3-92e5-113ba9a39396",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Persist via Package Manager Scripts",
+      "description": "The agent injects commands into `package.json` scripts, `setup.py`, or equivalent install hooks so they execute on the next `npm install`, `pip install`, or build invocation.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10002.003"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM06"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10002"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--38a00f1d-68ae-5a68-8776-93c692bd015d",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--aef70750-a9ea-5bb3-92e5-113ba9a39396",
+      "target_ref": "attack-pattern--e5f6a7b8-c9d0-5e1f-2a3b-4c5d6e7f8091"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--1611a519-63ab-5739-a1e4-0b5d23811438",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Persist via IDE Task Definitions",
+      "description": "The agent writes commands to `.vscode/tasks.json`, `.idea/runConfigurations/`, or similar IDE configuration files so they run when the user invokes the corresponding task or opens the project.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10002.004"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM06"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10002"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aa964c88-5689-57aa-bf90-d624c5929c66",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--1611a519-63ab-5739-a1e4-0b5d23811438",
+      "target_ref": "attack-pattern--e5f6a7b8-c9d0-5e1f-2a3b-4c5d6e7f8091"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--44c478d1-6d9b-5290-b22d-129ea541e837",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Persist via Container Build Files",
+      "description": "The agent injects commands into `Dockerfile`, `docker-compose.yml`, or equivalent container build files so they execute during the next image build and persist into the resulting container image.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10002.005"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM06"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10002"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e3e56bd6-32ac-506f-8039-d12b403de38a",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--44c478d1-6d9b-5290-b22d-129ea541e837",
+      "target_ref": "attack-pattern--e5f6a7b8-c9d0-5e1f-2a3b-4c5d6e7f8091"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--489b3ef2-120f-5a8e-8d8c-c1fccd00fee5",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Persist via Git Config Aliases and Hooks",
+      "description": "The agent uses `git config alias.X '!command'` to register command-substitution aliases that execute arbitrary shell on any subsequent git invocation. Survives across all repositories when set in global git config.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10002.006"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM06"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10002"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6a7727aa-4b1e-59b4-b125-6529cc947dbf",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--489b3ef2-120f-5a8e-8d8c-c1fccd00fee5",
+      "target_ref": "attack-pattern--e5f6a7b8-c9d0-5e1f-2a3b-4c5d6e7f8091"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--994452c5-e9ac-5578-be83-130806989838",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Persist via Package Manager Configs",
+      "description": "The agent writes auto-execution hooks into `.npmrc`, `.pypirc`, `.cargo/config.toml`, or equivalent package manager configuration files. Triggered on the next package operation by any user of the host.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10002.007"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM06"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10002"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d9694c7e-0b71-5d5b-a77d-6c66c10a18a7",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--994452c5-e9ac-5578-be83-130806989838",
+      "target_ref": "attack-pattern--e5f6a7b8-c9d0-5e1f-2a3b-4c5d6e7f8091"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--eb714f3b-a1cf-50ed-84f6-ee77895cd455",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Persist via Build System Files",
+      "description": "The agent injects commands into `Makefile`, `CMakeLists.txt`, `build.gradle`, or equivalent build system files. Executes automatically the next time the user invokes a build target.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10002.008"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM06"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10002"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d7412fa4-a4e5-5784-b2ed-e0b18c04a05e",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--eb714f3b-a1cf-50ed-84f6-ee77895cd455",
+      "target_ref": "attack-pattern--e5f6a7b8-c9d0-5e1f-2a3b-4c5d6e7f8091"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c709f98a-1a46-58e5-a828-25ce3721d332",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Inject Persistent Instructions via Claude Code Configuration Files",
+      "description": "The agent writes to project-level configuration files that the Claude Code CLI auto-loads into model context on every invocation (e.g., CLAUDE.md, .claude/rules/). Specific exploitation details embargoed under responsible disclosure RD-2603-01 until 2026-06-24 or earlier vendor response.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10003.001"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10003"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8647c924-659b-576f-a5be-0ea72047fe16",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--c709f98a-1a46-58e5-a828-25ce3721d332",
+      "target_ref": "attack-pattern--f6a7b8c9-d0e1-5f2a-3b4c-5d6e7f809102"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--84f39938-a482-57ca-b8cf-f265a3550122",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Inject Persistent Instructions via Cursor Configuration Files",
+      "description": "The agent writes attacker-controlled instructions to `.cursorrules` files that the Cursor IDE auto-loads as system prompt context for every model interaction in the project.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10003.002"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10003"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e58ea8aa-5a3a-5eb4-879d-39209bbcc632",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--84f39938-a482-57ca-b8cf-f265a3550122",
+      "target_ref": "attack-pattern--f6a7b8c9-d0e1-5f2a-3b4c-5d6e7f809102"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--68ed2677-9974-5bc5-a349-33ea2dd724c2",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Inject Persistent Instructions via Windsurf Configuration Files",
+      "description": "The agent writes attacker-controlled instructions to `.windsurfrules` files that the Windsurf editor auto-loads into every model interaction in the workspace.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10003.003"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10003"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--685c05f5-6329-5d88-9410-36fbf610d235",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--68ed2677-9974-5bc5-a349-33ea2dd724c2",
+      "target_ref": "attack-pattern--f6a7b8c9-d0e1-5f2a-3b4c-5d6e7f809102"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--3965b39a-c899-5929-a051-5219efe88bd9",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Inject Persistent Instructions via GitHub Copilot Configuration Files",
+      "description": "The agent writes to `.github/copilot-instructions.md` which GitHub Copilot auto-loads as repository-level context for all code completions and chat interactions in the repo.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10003.004"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10003"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--864fb397-7117-5c95-aa69-ddf4bd8f2a5f",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--3965b39a-c899-5929-a051-5219efe88bd9",
+      "target_ref": "attack-pattern--f6a7b8c9-d0e1-5f2a-3b4c-5d6e7f809102"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--582ef587-0497-5ec4-a8db-a63d90d2208b",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Inject Persistent Instructions via Aider Configuration Files",
+      "description": "The agent writes to `.aider.conf.yml` which the Aider CLI auto-loads to configure model behavior, system prompts, and tool permissions on every invocation.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10003.005"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10003"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a4f8a5d3-ce6c-58d5-bf06-c21e6399260f",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--582ef587-0497-5ec4-a8db-a63d90d2208b",
+      "target_ref": "attack-pattern--f6a7b8c9-d0e1-5f2a-3b4c-5d6e7f809102"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--03aed953-448c-5a6c-8786-5278dbc1be99",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Inject Persistent Instructions via Continue Configuration Files",
+      "description": "The agent writes to `.continuerc.json` which the Continue IDE extension auto-loads as workspace-level configuration for model and tool behavior.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10003.006"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10003"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d882b28e-69d2-5bf1-9694-667b8c63c6d0",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--03aed953-448c-5a6c-8786-5278dbc1be99",
+      "target_ref": "attack-pattern--f6a7b8c9-d0e1-5f2a-3b4c-5d6e7f809102"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--7290d7dc-ff21-5c78-89c6-8819dab4634b",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Use Command Chaining Operators",
+      "description": "The agent uses shell operators (`|`, `&&`, `||`, `;`) to chain an allowed command with a denied one (e.g., `ls && curl ...`). Single-command pattern matching evaluates only the first segment.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10004.001"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10004"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a4eda5eb-924a-5b69-baad-c6a350e13148",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--7290d7dc-ff21-5c78-89c6-8819dab4634b",
+      "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--df3312f6-50b0-5561-aae2-c15d4efca82a",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Inject Newline as Command Separator",
+      "description": "The agent embeds a literal `\\n` in command arguments. The shell interprets it as a command separator while regex-based governance often anchors to single-line patterns.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10004.002"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10004"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9ce9675e-590b-5a07-bf27-3c4ce25e0563",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--df3312f6-50b0-5561-aae2-c15d4efca82a",
+      "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--89b85b98-4d83-548c-863b-f510f8b4a2ac",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Inject CRLF as Command Separator",
+      "description": "Variant of T10004.002 using `\\r\\n` to bypass governance filters that strip `\\n` but preserve `\\r`. Common in pipelines that use HTTP request parsing for command extraction.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10004.003"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10004"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--814d5a9b-1f9d-51c8-9467-2dce1fb88648",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--89b85b98-4d83-548c-863b-f510f8b4a2ac",
+      "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--94874d83-13f2-54f4-97b5-8eb8613cda67",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Bypass via Heredoc",
+      "description": "The agent uses heredoc syntax (`<<EOF`) to pass multi-line payloads to a shell or interpreter. Single-line pattern matching cannot see the body of the heredoc.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10004.004"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10004"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--94b0f70e-2fe1-532c-9a2a-bb215f5c8cc1",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--94874d83-13f2-54f4-97b5-8eb8613cda67",
+      "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--58514446-ff10-58c2-9ef7-3bee79a83910",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Truncate Path with Null Byte",
+      "description": "The agent embeds a null byte (`\\x00`) in a path. The governance layer's parser truncates at the null while the OS syscall processes the full path string after the null.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10004.005"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10004"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7e267877-e805-5535-ad9f-0da8cc49d1a7",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--58514446-ff10-58c2-9ef7-3bee79a83910",
+      "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--8aa74bf1-c5f0-5d20-850a-534eaa30ff2b",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Evade Path Comparison via Unicode Homoglyphs",
+      "description": "The agent uses Unicode characters that visually match protected path characters but bypass byte-level string comparison (e.g., Cyrillic 'е' vs. Latin 'e'). The OS resolves the homoglyph correctly while the governance regex does not.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10004.006"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10004"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a3247146-b6df-5025-a271-0554e33fa158",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--8aa74bf1-c5f0-5d20-850a-534eaa30ff2b",
+      "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--7d6939bc-3440-576d-9447-708d963c8c67",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Inject via Subshell or Backticks",
+      "description": "The agent embeds `$(command)` or `` `command` `` substitution inside an otherwise-allowed command. The substitution executes before the outer command and is invisible to literal-string pattern matching.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10004.007"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10004"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--362b7ae7-0ad8-530a-8f4c-e91864e3e929",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--7d6939bc-3440-576d-9447-708d963c8c67",
+      "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--ded77b7a-7c42-53e8-af12-80dfc5d7008e",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Bypass Protected Path via Alternate Absolute Path",
+      "description": "The agent uses an alternate absolute path that resolves to the same protected target (e.g., `/etc/passwd` blocked but `/var/../etc/passwd` permitted). The governance layer's path comparison does not normalize before matching.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10004.008"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10004"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3aa447a7-22b3-55f9-a8e9-5b6911a27dc2",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--ded77b7a-7c42-53e8-af12-80dfc5d7008e",
+      "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--b5a0ca43-0674-52ce-8425-e3dd00d3bb89",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Bypass Protected Path via Path Traversal",
+      "description": "The agent uses `../` sequences to escape a permitted directory and access a protected target (e.g., `~/safe/../../../etc/passwd`). The governance layer matches the literal path prefix instead of the resolved path.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10004.009"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10004"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--24d5451e-7a76-5e3c-bb1a-f50e31bc565b",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--b5a0ca43-0674-52ce-8425-e3dd00d3bb89",
+      "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--d1f58e4e-1697-5bd8-a17f-88d3f3c7445b",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "name": "Redirect Output to Protected Path",
+      "description": "The agent uses shell redirection (`>`, `>>`, `tee`) to write to a protected path via an otherwise-allowed command (e.g., `echo X > /etc/passwd`). The governance layer evaluates the command (`echo`) without parsing the redirection target.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "atx-1",
+          "phase_name": "act-beyond-governance-interpretation"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "atx-1",
+          "external_id": "T10004.010"
+        },
+        {
+          "source_name": "owasp-llm-top-10",
+          "external_id": "LLM01"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_aegis_parent_technique": "T10004"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--84c67efc-9b04-55a4-b49b-c64d22423172",
+      "created": "2026-04-01T00:00:00.000Z",
+      "modified": "2026-04-01T00:00:00.000Z",
+      "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--d1f58e4e-1697-5bd8-a17f-88d3f3c7445b",
       "target_ref": "attack-pattern--a7b8c9d0-e1f2-5a3b-4c5d-6e7f80910213"
     }
   ]
