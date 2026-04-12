@@ -283,7 +283,6 @@ def generate_index_summary(release_entries):
     if not api_key:
         return _fallback()
 
-    import json
     import urllib.request
 
     joined = "\n".join(release_entries)
