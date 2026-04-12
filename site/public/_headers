@@ -73,14 +73,36 @@
   Cache-Control: public, max-age=300
 
 # ─────────────────────────────────────────────────────────────
-# HTML — always revalidate
+# HTML — no explicit rule; browser heuristic caching applies
 # ─────────────────────────────────────────────────────────────
-
-# Catch-all. Applied to every path that doesn't match a more specific
-# rule above — primarily the release notes tree, the legal pages,
-# and the rendered MDX documents. `max-age=0, must-revalidate` means
-# the browser can store the response but must check with the origin
-# before serving it. This keeps edits and deletions visible within
-# seconds rather than days.
-/*
-  Cache-Control: public, max-age=0, must-revalidate
+#
+# A catch-all `/*` rule was removed here. Cloudflare Pages'
+# `_headers` file does not implement "more specific rule wins"
+# for conflicting headers — instead, it concatenates the values
+# of every matching rule into a single comma-separated header.
+#
+# With a `/*` catch-all setting `Cache-Control: public, max-age=0,
+# must-revalidate`, every fonts/*, _astro/*, favicon.svg etc.
+# response came back with BOTH the specific rule's long-lived
+# directive AND the catch-all's max-age=0 merged together, like:
+#
+#   Cache-Control: public, max-age=31536000, immutable,
+#                  public, max-age=0, must-revalidate
+#
+# Per RFC 7234, when conflicting Cache-Control directives appear
+# on a single response, the most restrictive wins. `max-age=0`
+# beats `max-age=31536000`, so fonts and fingerprinted bundles
+# were being revalidated on every request instead of cached for a
+# year. The catch-all was defeating the whole point of the
+# specific rules.
+#
+# Removing the catch-all means HTML pages fall back to Cloudflare
+# Pages' and the browser's default heuristic caching (typically
+# ~10% of the time since Last-Modified, capped around a day).
+# That's acceptable for a docs site — edits propagate within a
+# few hours rather than seconds, but nothing stays stale for days.
+#
+# If precise HTML caching becomes important, a better approach is
+# to list HTML-serving path prefixes explicitly (/constitution/*,
+# /doctrine/*, /releases/*, etc.) so they don't overlap with the
+# immutable-asset rules above.
