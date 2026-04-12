@@ -209,6 +209,7 @@ def generate_release_summary(raw_entries):
     if not api_key:
         return raw_entries[:20]
 
+    import json
     import urllib.request
 
     joined = "\n".join(raw_entries)
@@ -283,6 +284,7 @@ def generate_index_summary(release_entries):
     if not api_key:
         return _fallback()
 
+    import json
     import urllib.request
 
     joined = "\n".join(release_entries)
