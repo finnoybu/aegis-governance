@@ -1,0 +1,128 @@
+name: Nightly Release Rollup
+
+on:
+  schedule:
+    - cron: '0 5 * * *'  # 5 AM UTC daily (1 AM ET)
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  nightly-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Determine target date
+        id: date
+        run: |
+          # For nightly runs, process yesterday. For manual, process today.
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            TARGET=$(date -d 'yesterday' +'%Y-%m-%d' 2>/dev/null || date -v-1d +'%Y-%m-%d')
+          else
+            TARGET=$(date +'%Y-%m-%d')
+          fi
+          YEAR=$(date -d "$TARGET" +'%y' 2>/dev/null || date -j -f '%Y-%m-%d' "$TARGET" +'%y')
+          MONTH=$(date -d "$TARGET" +'%-m' 2>/dev/null || date -j -f '%Y-%m-%d' "$TARGET" +'%-m')
+          DAY=$(date -d "$TARGET" +'%-d' 2>/dev/null || date -j -f '%Y-%m-%d' "$TARGET" +'%-d')
+
+          echo "target=$TARGET" >> "$GITHUB_OUTPUT"
+          echo "year=$YEAR" >> "$GITHUB_OUTPUT"
+          echo "month=$MONTH" >> "$GITHUB_OUTPUT"
+          echo "day=$DAY" >> "$GITHUB_OUTPUT"
+          echo "Processing date: $TARGET"
+
+      - name: Check for daily branch
+        id: branch
+        run: |
+          YEAR="${{ steps.date.outputs.year }}"
+          MONTH="${{ steps.date.outputs.month }}"
+          DAY="${{ steps.date.outputs.day }}"
+          BRANCH="auto-releases/v${YEAR}.${MONTH}.${DAY}"
+
+          if git ls-remote --heads origin "$BRANCH" | grep -q "$BRANCH"; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+            echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+            echo "Found daily branch: $BRANCH"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "No daily branch found for $BRANCH"
+          fi
+
+      - name: Merge daily branch and run rollup
+        if: steps.branch.outputs.found == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          BRANCH="${{ steps.branch.outputs.branch }}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Merge the daily branch into current checkout
+          git fetch origin "$BRANCH"
+          git merge "origin/$BRANCH" --no-edit
+
+          # Run the nightly rollup for the target date. Passing year/month/day
+          # explicitly avoids a date-drift bug where the script's internal
+          # get_yesterday() helper disagreed with the workflow's notion of
+          # "yesterday" when the workflow fired after 06:00 UTC.
+          #
+          # Astro site lives in site/ — run the script from there so its
+          # internal paths resolve relative to the site root.
+          (cd site && python3 scripts/nightly-release.py \
+            --year "${{ steps.date.outputs.year }}" \
+            --month "${{ steps.date.outputs.month }}" \
+            --day "${{ steps.date.outputs.day }}")
+
+      - name: Create and merge PR
+        if: steps.branch.outputs.found == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          TARGET="${{ steps.date.outputs.target }}"
+          PR_BRANCH="docs/nightly-rollup-${TARGET}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Stage any rollup changes — release notes and VERSION file.
+          # Both live inside site/ for this repo.
+          git add site/src/content/docs/releases/ site/VERSION
+          if git diff --cached --quiet; then
+            echo "No additional rollup changes"
+          else
+            git commit -m "docs: nightly release rollup for ${TARGET}"
+          fi
+
+          # Create PR branch from current state (main + daily branch + rollup)
+          git checkout -b "$PR_BRANCH"
+          git push origin "$PR_BRANCH"
+
+          PR_URL=$(gh pr create \
+            --title "docs: release notes for ${TARGET}" \
+            --body "Daily release rollup — dev log, monthly summary, and index update for ${TARGET}." \
+            --base main \
+            --head "$PR_BRANCH")
+
+          echo "Created PR: $PR_URL"
+
+          # Auto-merge using PAT with admin bypass for branch protection
+          gh pr merge "$PR_URL" --squash --delete-branch --admin
+
+          echo "Merged and cleaned up PR"
+
+      - name: Clean up daily branch
+        if: steps.branch.outputs.found == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          BRANCH="${{ steps.branch.outputs.branch }}"
+          git push origin --delete "$BRANCH" 2>/dev/null || echo "Branch already deleted"
+          echo "Cleaned up $BRANCH"

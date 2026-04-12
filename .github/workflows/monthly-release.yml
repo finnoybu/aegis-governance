@@ -1,0 +1,113 @@
+name: Monthly Release
+
+on:
+  schedule:
+    - cron: '0 12 1 * *'  # Noon UTC on the 1st of each month
+  workflow_dispatch:  # Allow manual trigger for on-demand DOI minting
+
+permissions:
+  contents: write
+
+jobs:
+  monthly-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Find latest tag from previous month
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            # Manual trigger — use the latest tag overall
+            TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          else
+            # Scheduled — find latest tag from previous month
+            PREV_YEAR=$(date -d 'last month' +'%y' 2>/dev/null || date -v-1m +'%y')
+            PREV_MONTH=$(date -d 'last month' +'%-m' 2>/dev/null || date -v-1m +'%-m')
+            PREFIX="v${PREV_YEAR}.${PREV_MONTH}."
+
+            TAG=$(git tag --list "${PREFIX}*" --sort=-version:refname | head -1)
+          fi
+
+          if [ -z "$TAG" ]; then
+            echo "No tags found. Skipping release."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "Found tag: $TAG"
+          fi
+
+      - name: Check if release already exists
+        if: steps.tag.outputs.skip != 'true'
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ steps.tag.outputs.tag }}"
+          EXISTING=$(gh release view "$TAG" --json tagName --jq '.tagName' 2>/dev/null || echo "")
+          if [ -n "$EXISTING" ]; then
+            echo "Release $TAG already exists. Skipping."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Get commits for release notes
+        if: steps.tag.outputs.skip != 'true' && steps.check.outputs.skip != 'true'
+        id: commits
+        run: |
+          TAG="${{ steps.tag.outputs.tag }}"
+
+          # Find the previous release tag (not just any tag)
+          PREV_RELEASE=$(gh release list --limit 1 --json tagName --jq '.[0].tagName' 2>/dev/null || echo "")
+
+          if [ -z "$PREV_RELEASE" ]; then
+            COMMITS=$(git log --pretty=format:"- %s" "$TAG")
+          else
+            COMMITS=$(git log --pretty=format:"- %s" "${PREV_RELEASE}..${TAG}")
+          fi
+
+          # Filter out bot commits
+          FILTERED=$(echo "$COMMITS" | grep -v "^- docs: dev log entry" | grep -v "^- docs: nightly release" || echo "$COMMITS")
+
+          {
+            echo "commits<<COMMITS_EOF"
+            echo "$FILTERED"
+            echo "COMMITS_EOF"
+          } >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate release notes via Claude
+        if: steps.tag.outputs.skip != 'true' && steps.check.outputs.skip != 'true'
+        id: notes
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RAW_COMMITS: ${{ steps.commits.outputs.commits }}
+        run: |
+          # Astro site lives in site/
+          NOTES=$(cd site && python3 scripts/generate-release-notes.py)
+          {
+            echo "notes<<NOTES_EOF"
+            echo "$NOTES"
+            echo "NOTES_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        if: steps.tag.outputs.skip != 'true' && steps.check.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ steps.tag.outputs.tag }}"
+          NOTES="${{ steps.notes.outputs.notes }}"
+
+          gh release create "$TAG" \
+            --title "AEGIS™ Governance — ${TAG}" \
+            --notes "$NOTES" \
+            --latest
+
+          echo "Created release: $TAG"

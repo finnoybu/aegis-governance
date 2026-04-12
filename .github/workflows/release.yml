@@ -1,0 +1,117 @@
+name: Auto Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # Skip out-of-scope pushes so they don't pollute the development log:
+    #
+    # 1. Self-initiated runs (github-actions[bot]) — prevents loops where a
+    #    workflow commit triggers another workflow run.
+    # 2. Dependabot — dependency bumps are maintenance, not substantive
+    #    user-facing changes. Dependabot-style commit messages
+    #    (chore(deps...) / build(deps...)) are skipped regardless of who
+    #    merged the PR.
+    # 3. Meta rollup commits — the nightly release-index workflow creates
+    #    commits like "docs: release notes for YYYY-MM-DD", "docs: dev log
+    #    entry for vYY.M.D", and "docs: nightly release rollup for ...".
+    #    These are the workflow writing to its own output; including them
+    #    in the dev log creates a feedback loop of meaningless entries.
+    if: >-
+      github.actor != 'github-actions[bot]' &&
+      github.actor != 'dependabot[bot]' &&
+      !startsWith(github.event.head_commit.message, 'chore(deps') &&
+      !startsWith(github.event.head_commit.message, 'build(deps') &&
+      !startsWith(github.event.head_commit.message, 'docs: release notes for ') &&
+      !startsWith(github.event.head_commit.message, 'docs: dev log entry for ') &&
+      !startsWith(github.event.head_commit.message, 'docs: nightly release rollup')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Generate development log tag
+        id: calver
+        run: |
+          # Per-push tags are always 4-part development log tags.
+          # The 3-part release tag (vYY.M.D) is reserved for the nightly
+          # rollup at the start of the next day.
+          YEAR=$(date +'%y')
+          MONTH=$(date +'%-m')
+          DAY=$(date +'%-d')
+          BASE="v${YEAR}.${MONTH}.${DAY}"
+
+          # Start at .1 and increment until we find an unused slot.
+          COUNT=1
+          TAG="${BASE}.${COUNT}"
+          while git rev-parse "$TAG" >/dev/null 2>&1; do
+            COUNT=$((COUNT + 1))
+            TAG="${BASE}.${COUNT}"
+          done
+
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "year=$YEAR" >> "$GITHUB_OUTPUT"
+          echo "month=$MONTH" >> "$GITHUB_OUTPUT"
+          echo "day=$DAY" >> "$GITHUB_OUTPUT"
+
+      - name: Get commit info
+        id: commit
+        run: |
+          echo "hash=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+          echo "message=$(git log -1 --pretty=format:'%s')" >> "$GITHUB_OUTPUT"
+
+      - name: Create and push tag
+        run: |
+          TAG="${{ steps.calver.outputs.tag }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag "$TAG"
+          git push origin "$TAG"
+          echo "Tagged: $TAG"
+
+      - name: Append to daily dev log on auto-releases branch
+        env:
+          HASH: ${{ steps.commit.outputs.hash }}
+          MESSAGE: ${{ steps.commit.outputs.message }}
+          TAG: ${{ steps.calver.outputs.tag }}
+          YEAR: ${{ steps.calver.outputs.year }}
+          MONTH: ${{ steps.calver.outputs.month }}
+          DAY: ${{ steps.calver.outputs.day }}
+        run: |
+          BRANCH="auto-releases/v${YEAR}.${MONTH}.${DAY}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Create or switch to the daily branch
+          if git ls-remote --heads origin "$BRANCH" | grep -q "$BRANCH"; then
+            git fetch origin "$BRANCH"
+            git checkout "$BRANCH"
+            git merge main --no-edit
+          else
+            git checkout -b "$BRANCH"
+          fi
+
+          # Astro site lives in site/ — run the script from there so
+          # its internal `src/content/docs/releases/...` path resolves
+          # relative to the site root. Git commands run from repo
+          # root with the site/ prefix.
+          (cd site && python3 scripts/append-dev-log.py)
+
+          FILE="site/src/content/docs/releases/${YEAR}/${MONTH}/${DAY}.md"
+          git add "$FILE"
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: dev log entry for ${TAG}"
+            git push origin "$BRANCH"
+            echo "Pushed dev log to $BRANCH"
+          fi
