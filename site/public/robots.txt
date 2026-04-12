@@ -1,12 +1,11 @@
-# AEGIS Governance Data — aegis-governance.com
-# Default deny. Machine-readable data explicitly allowed for AI consumption and training.
-# Site HTML and source are not for scraping.
+# AEGIS Governance — aegis-governance.com
+# Specification pages and machine-readable data are open for indexing and AI consumption.
 
 User-agent: *
 Content-Signal: search=yes,ai-train=yes
-Disallow: /
-Allow: /.well-known/
-Allow: /atx-1/
-Allow: /schemas/
+Allow: /
 
 # AI consumers: data catalog at /.well-known/aegis/manifest.json
+# Specification docs: 73 pages across /foundation/, /architecture/, /protocol/,
+#   /threat-model/, /identity/, /federation/, /rfc/
+# Data downloads: /data/, /atx-1/, /schemas/

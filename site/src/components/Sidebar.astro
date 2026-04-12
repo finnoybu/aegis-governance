@@ -1,0 +1,350 @@
+---
+const pathname = Astro.url.pathname;
+
+const nav = [
+  {
+    label: 'Foundation',
+    slug: 'foundation',
+    items: [
+      { label: 'Manifesto', slug: 'foundation' },
+      { label: 'System Overview', slug: 'foundation/overview' },
+      { label: 'FAQ', slug: 'foundation/faq' },
+      { label: 'Roadmap', slug: 'foundation/roadmap' },
+    ],
+  },
+  {
+    label: 'Architecture',
+    slug: 'architecture',
+    items: [
+      { label: 'Overview', slug: 'architecture' },
+      { label: 'Reference Architecture', slug: 'architecture/reference' },
+      { label: 'Ecosystem Map', slug: 'architecture/ecosystem-map' },
+      { label: 'System Stack', slug: 'architecture/system-stack' },
+      { label: 'AI Kernel Model', slug: 'architecture/ai-kernel-model' },
+      { label: 'Reference Monitor', slug: 'architecture/reference-monitor' },
+      { label: 'Governance Engine', slug: 'architecture/engine-spec' },
+      { label: 'Engine Components', slug: 'architecture/engine-components' },
+      { label: 'Decision Algorithm', slug: 'architecture/decision-algorithm' },
+      { label: 'Request Flow', slug: 'architecture/request-flow' },
+      { label: 'Capability Model', slug: 'architecture/capability-model' },
+      { label: 'Capability Schema', slug: 'architecture/capability-schema' },
+      { label: 'Capability Flow', slug: 'architecture/capability-flow' },
+      { label: 'Policy Language', slug: 'architecture/policy-language' },
+      { label: 'Policy Matching', slug: 'architecture/policy-matching' },
+      { label: 'Risk Scoring Model', slug: 'architecture/risk-model' },
+      { label: 'Risk Algorithm', slug: 'architecture/risk-algorithm' },
+      { label: 'Trust Boundaries', slug: 'architecture/trust-boundaries' },
+      { label: 'Security Assumptions', slug: 'architecture/security-assumptions' },
+      { label: 'System Principles', slug: 'architecture/principles' },
+    ],
+  },
+  {
+    label: 'Protocol (AGP-1)',
+    slug: 'protocol',
+    items: [
+      { label: 'Specification Index', slug: 'protocol' },
+      { label: 'Protocol Overview', slug: 'protocol/overview' },
+      { label: 'Authentication', slug: 'protocol/authentication' },
+      { label: 'Messages', slug: 'protocol/messages' },
+      { label: 'Policy Evaluation', slug: 'protocol/policy-evaluation' },
+      { label: 'Risk Scoring', slug: 'protocol/risk-scoring' },
+      { label: 'Trust Model', slug: 'protocol/trust-model' },
+      { label: 'Wire Format', slug: 'protocol/wire-format' },
+    ],
+  },
+  {
+    label: 'Threat Model (ATM/ATX)',
+    slug: 'threat-model',
+    items: [
+      { label: 'ATM-1 Index', slug: 'threat-model' },
+      { label: 'Threat Actors', slug: 'threat-model/threat-actors' },
+      { label: 'Attack Vectors', slug: 'threat-model/attack-vectors' },
+      { label: 'Security Properties', slug: 'threat-model/security-properties' },
+      { label: 'Mitigations', slug: 'threat-model/mitigations' },
+      { label: 'Residual Risks', slug: 'threat-model/residual-risks' },
+      { label: 'ATX-1 Taxonomy', slug: 'threat-model/taxonomy' },
+    ],
+  },
+  {
+    label: 'Identity (AIAM-1)',
+    slug: 'identity',
+    items: [
+      { label: 'Specification Index', slug: 'identity' },
+      { label: 'Identity Model', slug: 'identity/identity' },
+      { label: 'Intent Claims', slug: 'identity/intent' },
+      { label: 'Authority (IBAC)', slug: 'identity/authority' },
+      { label: 'Capabilities', slug: 'identity/capabilities' },
+      { label: 'Delegation', slug: 'identity/delegation' },
+      { label: 'Sessions', slug: 'identity/sessions' },
+      { label: 'Attestation', slug: 'identity/attestation' },
+      { label: 'Revocation', slug: 'identity/revocation' },
+      { label: 'Interoperability', slug: 'identity/interoperability' },
+      { label: 'Threat Model', slug: 'identity/threat-model' },
+      { label: 'Conformance', slug: 'identity/conformance' },
+    ],
+  },
+  {
+    label: 'Federation (GFN-1)',
+    slug: 'federation',
+    items: [
+      { label: 'Governance Network', slug: 'federation' },
+      { label: 'Trust Model', slug: 'federation/trust-model' },
+      { label: 'Governance Feeds', slug: 'federation/feeds' },
+      { label: 'Node Architecture', slug: 'federation/node-architecture' },
+      { label: 'Schema (AT Protocol)', slug: 'federation/schema' },
+    ],
+  },
+  {
+    label: 'RFCs',
+    slug: 'rfc',
+    items: [
+      { label: 'RFC Index', slug: 'rfc' },
+      { label: 'RFC-0001 Architecture', slug: 'rfc/0001' },
+      { label: 'RFC-0002 Runtime', slug: 'rfc/0002' },
+      { label: 'RFC-0003 Capability Registry', slug: 'rfc/0003' },
+      { label: 'RFC-0004 Event Model', slug: 'rfc/0004' },
+      { label: 'RFC-0005 Deployment', slug: 'rfc/0005' },
+      { label: 'RFC-0006 Claude Code', slug: 'rfc/0006' },
+      { label: 'RFC-0009 Prior Art', slug: 'rfc/0009' },
+      { label: 'RFC-0010 State Dump', slug: 'rfc/0010' },
+      { label: 'RFC-0011 Authority', slug: 'rfc/0011' },
+      { label: 'RFC-0012 ATX-1 v2', slug: 'rfc/0012' },
+      { label: 'RFC-0013 ACF-1', slug: 'rfc/0013' },
+      { label: 'RFC-0014 Dual Licensing', slug: 'rfc/0014' },
+      { label: 'RFC-0015 Consolidation', slug: 'rfc/0015' },
+      { label: 'RFC-0016 Discovery', slug: 'rfc/0016' },
+      { label: 'RFC-0017 Commit Boundary', slug: 'rfc/0017' },
+      { label: 'RFC-0018 Attestation', slug: 'rfc/0018' },
+      { label: 'RFC-0019 AIAM-1', slug: 'rfc/0019' },
+    ],
+  },
+];
+
+function isActive(slug: string): boolean {
+  return pathname === `/${slug}/` || pathname === `/${slug}`;
+}
+
+function isGroupActive(items: { slug: string }[]): boolean {
+  return items.some(item => isActive(item.slug));
+}
+---
+
+<nav class="sidebar" id="sidebar" aria-label="Specification navigation">
+  <div class="sidebar-inner">
+    {nav.map((group) => (
+      <details class="nav-group" open={isGroupActive(group.items)}>
+        <summary class="nav-group-label">
+          <span>{group.label}</span>
+          <svg class="caret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </summary>
+        <ul class="nav-items">
+          {group.items.map((item) => (
+            <li>
+              <a href={`/${item.slug}/`} class={`nav-link ${isActive(item.slug) ? 'active' : ''}`} aria-current={isActive(item.slug) ? 'page' : undefined}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    ))}
+
+    <div class="nav-data-link">
+      <a href="/data/" class={`nav-link ${pathname.startsWith('/data') ? 'active' : ''}`}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -2px; margin-right: 0.375rem;">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Data Downloads
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile overlay -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<style>
+  .sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--color-border-subtle);
+    overflow-y: auto;
+    position: fixed;
+    top: calc(4rem + var(--aegis-nav-height, 0px));
+    left: 0;
+    height: calc(100vh - 4rem - var(--aegis-nav-height, 0px));
+    display: flex;
+    flex-direction: column;
+    z-index: 40;
+
+    /* Mobile: hidden by default */
+    display: none;
+  }
+
+  .sidebar-inner {
+    padding: 1rem 0;
+    flex: 1;
+  }
+
+  .nav-group-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    list-style: none;
+    user-select: none;
+  }
+
+  .nav-group-label::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-group-label:hover {
+    color: var(--color-accent);
+  }
+
+  .caret {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  details[open] .caret {
+    transform: rotate(180deg);
+  }
+
+  .nav-items {
+    list-style: none;
+    padding: 0.25rem 0 0.75rem;
+    margin-left: 1.25rem;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    margin-left: -1px;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent);
+    border-left-color: var(--color-text-muted);
+  }
+
+  .nav-link.active {
+    color: #ffffff;
+    background-color: var(--color-accent);
+    border-left-color: var(--color-accent);
+    font-weight: 600;
+    border-radius: 0 4px 4px 0;
+  }
+
+  :global([data-theme="dark"]) .nav-link.active {
+    color: #161616;
+  }
+
+  .nav-data-link {
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid var(--color-border-subtle);
+    margin-top: 0.5rem;
+  }
+
+  .nav-data-link .nav-link {
+    margin-left: 0;
+    border-left: none;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+  }
+
+  .nav-data-link .nav-link:hover {
+    background-color: var(--color-bg-muted);
+    border-left: none;
+  }
+
+  .nav-data-link .nav-link.active {
+    border-radius: 4px;
+    border-left: none;
+  }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 50;
+  }
+
+  /* Wide screens: show sidebar */
+  @media (min-width: 1024px) {
+    .sidebar {
+      display: flex;
+    }
+  }
+
+  /* Mobile: sidebar as drawer */
+  .sidebar.open {
+    display: flex;
+    position: fixed;
+    top: calc(4rem + var(--aegis-nav-height, 0px));
+    left: 0;
+    height: calc(100vh - 4rem - var(--aegis-nav-height, 0px));
+    z-index: 60;
+    width: min(320px, 85vw);
+  }
+
+  .sidebar-overlay.open {
+    display: block;
+  }
+</style>
+
+<script>
+  // Accordion — only one group open at a time
+  const details = document.querySelectorAll<HTMLDetailsElement>('.nav-group');
+  details.forEach((detail) => {
+    detail.addEventListener('toggle', () => {
+      if (detail.open) {
+        details.forEach((other) => {
+          if (other !== detail && other.open) other.open = false;
+        });
+      }
+    });
+  });
+
+  // Mobile drawer toggle
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+
+  function openSidebar() {
+    sidebar?.classList.add('open');
+    overlay?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    sidebar?.classList.remove('open');
+    overlay?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  overlay?.addEventListener('click', closeSidebar);
+
+  // Expose for header menu button
+  (window as any).openSidebar = openSidebar;
+  (window as any).closeSidebar = closeSidebar;
+</script>

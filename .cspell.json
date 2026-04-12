@@ -265,7 +265,14 @@
     "granularities",
     "ibmplexsans",
     "variablefont",
-    "wdthwght"
+    "wdthwght",
+    "timerange",
+    "redactable",
+    "openclaw",
+    "miscalibration",
+    "miscalibrated",
+    "codepaths",
+    "triaging"
   ],
   "ignorePaths": [
     "archive/**",

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@aegis-initiative/design-system": "^0.3.0",
+    "@astrojs/sitemap": "^3.7.2",
     "@pagefind/default-ui": "^1.5.0",
     "astro": "^6.0.8"
   }

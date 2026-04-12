@@ -1,28 +1,80 @@
 {
-  "name": "AEGIS Governance Data",
-  "description": "Machine-readable governance artifacts — datasets, schemas, and threat intelligence for the AEGIS ecosystem. 10 tactics, 29 techniques, 5 root causes.",
+  "name": "AEGIS Governance",
+  "description": "Technical governance specifications and machine-readable data for the AEGIS ecosystem. 73 specification documents across 7 domains, plus ATX-1 v2.2 threat taxonomy — 10 tactics, 58 techniques, structured in STIX 2.1 and JSON.",
   "url": "https://aegis-governance.com",
-  "version": "2.1.0",
-  "updated": "2026-03-28",
-  "license": "CC-BY-SA-4.0",
+  "version": "2.2.0",
+  "updated": "2026-04-11",
+  "license": {
+    "specifications": "CC-BY-SA-4.0",
+    "data": "CC-BY-SA-4.0",
+    "code_examples": "Apache-2.0"
+  },
   "access": "unrestricted",
-  "note": "This entire site is intended for machine consumption. All paths are open to all bots.",
+  "note": "This site serves both human-readable specification documents (HTML) and machine-readable governance data (JSON). All data endpoints are open to all bots. Spec pages are indexable by search engines.",
+  "specifications": {
+    "total": 73,
+    "domains": {
+      "foundation": {
+        "path": "/foundation/",
+        "count": 4,
+        "description": "Manifesto, system overview, FAQ, and development roadmap"
+      },
+      "architecture": {
+        "path": "/architecture/",
+        "count": 20,
+        "description": "Reference architecture, governance engine, capability model, policy language, risk scoring, trust boundaries"
+      },
+      "protocol": {
+        "path": "/protocol/",
+        "count": 8,
+        "description": "AGP-1 governance protocol suite — authentication, messages, policy evaluation, trust model, wire format"
+      },
+      "threat-model": {
+        "path": "/threat-model/",
+        "count": 7,
+        "description": "ATM-1 security analysis and ATX-1 technique taxonomy"
+      },
+      "identity": {
+        "path": "/identity/",
+        "count": 12,
+        "description": "AIAM-1 identity and access management — composite identity, IBAC, intent claims, delegation, attestation"
+      },
+      "federation": {
+        "path": "/federation/",
+        "count": 5,
+        "description": "GFN-1 governance federation network — trust model, feeds, node architecture, AT Protocol schema"
+      },
+      "rfc": {
+        "path": "/rfc/",
+        "count": 17,
+        "description": "RFC-0001 through RFC-0019 — architecture, runtime, events, deployment, identity"
+      }
+    }
+  },
   "datasets": {
     "atx-1": {
+      "version": "2.2.0",
+      "date": "2026-04-10",
       "index": "/atx-1/index.json",
       "stix_bundle": "/atx-1/stix-bundle.json",
       "techniques": "/atx-1/techniques.json",
       "regulatory_crossref": "/atx-1/regulatory-crossref.json",
       "navigator_layer": "/atx-1/navigator-layer.json",
       "atm1_mapping": "/atx-1/atm1-mapping.json",
-      "acf1_bundle": "/atx-1/acf-1-bundle.json"
+      "acf1_bundle": "/atx-1/acf-1-bundle.json",
+      "validation": "/atx-1/validation-aegis-core.json",
+      "version_mapping": "/atx-1/version-mapping.json"
     },
     "schemas": {
       "atx_technique": "/schemas/atx-technique.schema.json"
     }
   },
-  "doi": "10.5281/zenodo.19251098",
-  "citation": "K. Tannenbaum, \"AEGIS Threat Matrix (ATX-1) v2.1,\" AEGIS Initiative, 2026, doi: 10.5281/zenodo.19251098.",
+  "data_downloads": "/data/",
+  "doi": {
+    "atx1_v2.1": "10.5281/zenodo.19251098",
+    "preprint": "10.5281/zenodo.19223924"
+  },
+  "citation": "K. Tannenbaum, \"AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents,\" AEGIS Initiative, 2026, doi: 10.5281/zenodo.19223924.",
   "related_sites": {
     "documentation": "https://aegis-docs.com",
     "constitution": "https://aegis-constitution.com",

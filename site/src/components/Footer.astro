@@ -1,0 +1,105 @@
+---
+const year = new Date().getFullYear();
+const buildDate = new Date().toISOString().slice(0, 10).replace(/-/g, '.');
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-author">
+        Built and maintained by <a href="https://finnoybu.github.io/">Ken Tannenbaum</a>
+      </span>
+      <span class="footer-meta">Last updated: {buildDate}</span>
+    </div>
+    <div class="footer-right">
+      <span>&copy; {year} AEGIS Initiative. All Rights Reserved.</span>
+      <span class="footer-legal">
+        <a href="https://aegis-constitution.com/legal/">Legal</a>
+        <span class="footer-sep">|</span>
+        <a href="https://aegis-initiative.com">Initiative</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border-subtle);
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    background-color: var(--color-bg);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    align-items: center;
+    order: 2;
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    align-items: center;
+    order: 1;
+  }
+
+  .footer-author a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .footer-meta {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .footer-legal {
+    font-size: 0.8125rem;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-meta { font-size: 0.75rem; }
+    .footer-legal { font-size: 0.75rem; }
+  }
+
+  .footer-legal a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .footer-sep {
+    color: var(--color-text-muted);
+    margin: 0 0.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .footer-left {
+      align-items: flex-start;
+      order: 1;
+    }
+    .footer-right {
+      align-items: flex-end;
+      text-align: right;
+      order: 2;
+    }
+  }
+</style>

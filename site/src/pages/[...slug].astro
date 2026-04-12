@@ -1,0 +1,137 @@
+---
+import { getCollection, render } from 'astro:content';
+import DocLayout from '../layouts/DocLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import PrevNext from '../components/PrevNext.astro';
+
+// Flat navigation order — matches sidebar
+const navOrder = [
+  // Foundation
+  { slug: 'foundation', label: 'Manifesto', section: 'Foundation' },
+  { slug: 'foundation/overview', label: 'System Overview', section: 'Foundation' },
+  { slug: 'foundation/faq', label: 'FAQ', section: 'Foundation' },
+  { slug: 'foundation/roadmap', label: 'Roadmap', section: 'Foundation' },
+  // Architecture
+  { slug: 'architecture', label: 'Overview', section: 'Architecture' },
+  { slug: 'architecture/reference', label: 'Reference Architecture', section: 'Architecture' },
+  { slug: 'architecture/ecosystem-map', label: 'Ecosystem Map', section: 'Architecture' },
+  { slug: 'architecture/system-stack', label: 'System Stack', section: 'Architecture' },
+  { slug: 'architecture/ai-kernel-model', label: 'AI Kernel Model', section: 'Architecture' },
+  { slug: 'architecture/reference-monitor', label: 'Reference Monitor', section: 'Architecture' },
+  { slug: 'architecture/engine-spec', label: 'Governance Engine', section: 'Architecture' },
+  { slug: 'architecture/engine-components', label: 'Engine Components', section: 'Architecture' },
+  { slug: 'architecture/decision-algorithm', label: 'Decision Algorithm', section: 'Architecture' },
+  { slug: 'architecture/request-flow', label: 'Request Flow', section: 'Architecture' },
+  { slug: 'architecture/capability-model', label: 'Capability Model', section: 'Architecture' },
+  { slug: 'architecture/capability-schema', label: 'Capability Schema', section: 'Architecture' },
+  { slug: 'architecture/capability-flow', label: 'Capability Flow', section: 'Architecture' },
+  { slug: 'architecture/policy-language', label: 'Policy Language', section: 'Architecture' },
+  { slug: 'architecture/policy-matching', label: 'Policy Matching', section: 'Architecture' },
+  { slug: 'architecture/risk-model', label: 'Risk Scoring Model', section: 'Architecture' },
+  { slug: 'architecture/risk-algorithm', label: 'Risk Algorithm', section: 'Architecture' },
+  { slug: 'architecture/trust-boundaries', label: 'Trust Boundaries', section: 'Architecture' },
+  { slug: 'architecture/security-assumptions', label: 'Security Assumptions', section: 'Architecture' },
+  { slug: 'architecture/principles', label: 'System Principles', section: 'Architecture' },
+  // Protocol (AGP-1)
+  { slug: 'protocol', label: 'Specification Index', section: 'Protocol (AGP-1)' },
+  { slug: 'protocol/overview', label: 'Protocol Overview', section: 'Protocol (AGP-1)' },
+  { slug: 'protocol/authentication', label: 'Authentication', section: 'Protocol (AGP-1)' },
+  { slug: 'protocol/messages', label: 'Messages', section: 'Protocol (AGP-1)' },
+  { slug: 'protocol/policy-evaluation', label: 'Policy Evaluation', section: 'Protocol (AGP-1)' },
+  { slug: 'protocol/risk-scoring', label: 'Risk Scoring', section: 'Protocol (AGP-1)' },
+  { slug: 'protocol/trust-model', label: 'Trust Model', section: 'Protocol (AGP-1)' },
+  { slug: 'protocol/wire-format', label: 'Wire Format', section: 'Protocol (AGP-1)' },
+  // Threat Model (ATM/ATX)
+  { slug: 'threat-model', label: 'ATM-1 Index', section: 'Threat Model (ATM/ATX)' },
+  { slug: 'threat-model/threat-actors', label: 'Threat Actors', section: 'Threat Model (ATM/ATX)' },
+  { slug: 'threat-model/attack-vectors', label: 'Attack Vectors', section: 'Threat Model (ATM/ATX)' },
+  { slug: 'threat-model/security-properties', label: 'Security Properties', section: 'Threat Model (ATM/ATX)' },
+  { slug: 'threat-model/mitigations', label: 'Mitigations', section: 'Threat Model (ATM/ATX)' },
+  { slug: 'threat-model/residual-risks', label: 'Residual Risks', section: 'Threat Model (ATM/ATX)' },
+  { slug: 'threat-model/taxonomy', label: 'ATX-1 Taxonomy', section: 'Threat Model (ATM/ATX)' },
+  // Identity (AIAM-1)
+  { slug: 'identity', label: 'Specification Index', section: 'Identity (AIAM-1)' },
+  { slug: 'identity/identity', label: 'Identity Model', section: 'Identity (AIAM-1)' },
+  { slug: 'identity/intent', label: 'Intent Claims', section: 'Identity (AIAM-1)' },
+  { slug: 'identity/authority', label: 'Authority (IBAC)', section: 'Identity (AIAM-1)' },
+  { slug: 'identity/capabilities', label: 'Capabilities', section: 'Identity (AIAM-1)' },
+  { slug: 'identity/delegation', label: 'Delegation', section: 'Identity (AIAM-1)' },
+  { slug: 'identity/sessions', label: 'Sessions', section: 'Identity (AIAM-1)' },
+  { slug: 'identity/attestation', label: 'Attestation', section: 'Identity (AIAM-1)' },
+  { slug: 'identity/revocation', label: 'Revocation', section: 'Identity (AIAM-1)' },
+  { slug: 'identity/interoperability', label: 'Interoperability', section: 'Identity (AIAM-1)' },
+  { slug: 'identity/threat-model', label: 'Threat Model', section: 'Identity (AIAM-1)' },
+  { slug: 'identity/conformance', label: 'Conformance', section: 'Identity (AIAM-1)' },
+  // Federation (GFN-1)
+  { slug: 'federation', label: 'Governance Network', section: 'Federation (GFN-1)' },
+  { slug: 'federation/trust-model', label: 'Trust Model', section: 'Federation (GFN-1)' },
+  { slug: 'federation/feeds', label: 'Governance Feeds', section: 'Federation (GFN-1)' },
+  { slug: 'federation/node-architecture', label: 'Node Architecture', section: 'Federation (GFN-1)' },
+  { slug: 'federation/schema', label: 'Schema (AT Protocol)', section: 'Federation (GFN-1)' },
+  // RFCs
+  { slug: 'rfc', label: 'RFC Index', section: 'RFCs' },
+  { slug: 'rfc/0001', label: 'RFC-0001 Architecture', section: 'RFCs' },
+  { slug: 'rfc/0002', label: 'RFC-0002 Runtime', section: 'RFCs' },
+  { slug: 'rfc/0003', label: 'RFC-0003 Capability Registry', section: 'RFCs' },
+  { slug: 'rfc/0004', label: 'RFC-0004 Event Model', section: 'RFCs' },
+  { slug: 'rfc/0005', label: 'RFC-0005 Deployment', section: 'RFCs' },
+  { slug: 'rfc/0006', label: 'RFC-0006 Claude Code', section: 'RFCs' },
+  { slug: 'rfc/0009', label: 'RFC-0009 Prior Art', section: 'RFCs' },
+  { slug: 'rfc/0010', label: 'RFC-0010 State Dump', section: 'RFCs' },
+  { slug: 'rfc/0011', label: 'RFC-0011 Authority', section: 'RFCs' },
+  { slug: 'rfc/0012', label: 'RFC-0012 ATX-1 v2', section: 'RFCs' },
+  { slug: 'rfc/0013', label: 'RFC-0013 ACF-1', section: 'RFCs' },
+  { slug: 'rfc/0014', label: 'RFC-0014 Dual Licensing', section: 'RFCs' },
+  { slug: 'rfc/0015', label: 'RFC-0015 Consolidation', section: 'RFCs' },
+  { slug: 'rfc/0016', label: 'RFC-0016 Discovery', section: 'RFCs' },
+  { slug: 'rfc/0017', label: 'RFC-0017 Commit Boundary', section: 'RFCs' },
+  { slug: 'rfc/0018', label: 'RFC-0018 Attestation', section: 'RFCs' },
+  { slug: 'rfc/0019', label: 'RFC-0019 AIAM-1', section: 'RFCs' },
+];
+
+export async function getStaticPaths() {
+  const entries = await getCollection('docs');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const slug = entry.id;
+
+// Build breadcrumbs
+const parts = slug.split('/');
+const section = parts[0];
+const sectionLabels: Record<string, string> = {
+  foundation: 'Foundation',
+  architecture: 'Architecture',
+  protocol: 'Protocol (AGP-1)',
+  'threat-model': 'Threat Model',
+  identity: 'Identity (AIAM-1)',
+  federation: 'Federation (GFN-1)',
+  rfc: 'RFCs',
+};
+
+const breadcrumbs = [];
+if (sectionLabels[section]) {
+  if (parts.length === 1 || (parts.length === 2 && parts[1] === 'index')) {
+    breadcrumbs.push({ label: sectionLabels[section] });
+  } else {
+    breadcrumbs.push({ label: sectionLabels[section], href: `/${section}/` });
+    breadcrumbs.push({ label: entry.data.title });
+  }
+}
+
+// Compute prev/next
+const navIdx = navOrder.findIndex((n) => n.slug === slug);
+const prev = navIdx > 0 ? { label: navOrder[navIdx - 1].label, href: `/${navOrder[navIdx - 1].slug}/` } : undefined;
+const next = navIdx >= 0 && navIdx < navOrder.length - 1 ? { label: navOrder[navIdx + 1].label, href: `/${navOrder[navIdx + 1].slug}/` } : undefined;
+---
+
+<DocLayout title={entry.data.title} description={entry.data.description}>
+  {breadcrumbs.length > 0 && <Breadcrumb items={breadcrumbs} slot="breadcrumb" />}
+  <Content />
+  <PrevNext prev={prev} next={next} />
+</DocLayout>
