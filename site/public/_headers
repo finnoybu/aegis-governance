@@ -1,0 +1,86 @@
+# Cloudflare Pages response headers
+# ──────────────────────────────────
+# Per-path Cache-Control policy for aegis-constitution.com.
+#
+# Why this file exists:
+#
+#   1. Repo-as-truth. Cache policy is a behavior of the site. Site
+#      behaviors belong in the repo, not in a dashboard nobody reads.
+#      Every change is versioned, reviewable, and auditable.
+#
+#   2. Drift protection. At some point prior to 2026-04-12 a zone-level
+#      setting emitted `s-maxage=604800` (7 days) on HTML responses,
+#      with no audit trail. Deleted pages were sitting at the edge for
+#      a week after they were removed from origin. This file pins the
+#      correct policy so the same regression can't happen silently.
+#
+#   3. Granularity. Zone-level settings are global. This file sets
+#      long TTLs for fingerprinted / immutable assets (fonts,
+#      /_astro/* bundles) while keeping HTML on a short leash so
+#      edits and deletions propagate quickly.
+#
+#   4. Portability. If the site ever moves off Cloudflare Pages, this
+#      file travels with it — Netlify, Vercel, and most static hosts
+#      read the same format.
+#
+# Matching rules:
+#
+#   - Cloudflare Pages applies ALL matching rules per request and
+#     merges the header sets. For conflicting headers, the more
+#     specific rule wins. So specific patterns can safely live above
+#     the catch-all `/*`.
+
+# ─────────────────────────────────────────────────────────────
+# Long-lived immutable assets — cache for a year
+# ─────────────────────────────────────────────────────────────
+
+# Astro's fingerprinted JS/CSS bundles. Filenames include a content
+# hash, so the file at a given URL never changes. Safe to cache
+# aggressively and tell the browser not to revalidate.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Self-hosted font files. Content is stable; filenames don't change
+# between deploys.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ─────────────────────────────────────────────────────────────
+# Moderate TTLs — stable but not strictly immutable
+# ─────────────────────────────────────────────────────────────
+
+# Brand and icon assets — change rarely, cache for a day.
+/favicon.svg
+  Cache-Control: public, max-age=86400
+
+/OG_image.png
+  Cache-Control: public, max-age=86400
+
+/OG_image.svg
+  Cache-Control: public, max-age=86400
+
+# PDFs — regenerated occasionally by the print workflow.
+/*.pdf
+  Cache-Control: public, max-age=86400
+
+# ─────────────────────────────────────────────────────────────
+# Frequently-updated assets — short TTL
+# ─────────────────────────────────────────────────────────────
+
+# Pagefind search index — rebuilt on every deploy. Short TTL so
+# search index updates (new pages, removed pages) propagate fast.
+/pagefind/*
+  Cache-Control: public, max-age=300
+
+# ─────────────────────────────────────────────────────────────
+# HTML — always revalidate
+# ─────────────────────────────────────────────────────────────
+
+# Catch-all. Applied to every path that doesn't match a more specific
+# rule above — primarily the release notes tree, the legal pages,
+# and the rendered MDX documents. `max-age=0, must-revalidate` means
+# the browser can store the response but must check with the origin
+# before serving it. This keeps edits and deletions visible within
+# seconds rather than days.
+/*
+  Cache-Control: public, max-age=0, must-revalidate
