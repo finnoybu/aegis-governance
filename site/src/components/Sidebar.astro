@@ -1,7 +1,31 @@
 ---
-const pathname = Astro.url.pathname;
+/**
+ * Site-specific Sidebar wrapper.
+ * Declares the aegis-governance nav structure and delegates rendering
+ * to the shared design-system Sidebar component.
+ */
+import SharedSidebar from '@aegis-initiative/design-system/components/Sidebar.astro';
 
-const nav = [
+interface NavItem {
+  label: string;
+  slug: string;
+  items?: NavItem[];
+}
+
+// Version badge — derived from the VERSION file via readSiteVersion()
+// in astro.config.mjs, which populates AEGIS_VERSION.
+const version = import.meta.env.AEGIS_VERSION ?? 'dev';
+const isCalVer = /^v\d{2}\.\d+\.\d+/.test(version);
+let versionHref: string | undefined;
+if (isCalVer) {
+  const match = version.match(/^v(\d+)\.(\d+)\.(\d+)/);
+  if (match) {
+    const [, year, month, day] = match;
+    versionHref = `/releases/${year}/${month}/${day}`;
+  }
+}
+
+const nav: NavItem[] = [
   {
     label: 'Foundation',
     slug: 'foundation',
@@ -120,231 +144,17 @@ const nav = [
   },
 ];
 
-function isActive(slug: string): boolean {
-  return pathname === `/${slug}/` || pathname === `/${slug}`;
-}
-
-function isGroupActive(items: { slug: string }[]): boolean {
-  return items.some(item => isActive(item.slug));
-}
+const dataDownloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
 ---
 
-<nav class="sidebar" id="sidebar" aria-label="Specification navigation">
-  <div class="sidebar-inner">
-    {nav.map((group) => (
-      <details class="nav-group" open={isGroupActive(group.items)}>
-        <summary class="nav-group-label">
-          <span>{group.label}</span>
-          <svg class="caret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M6 9l6 6 6-6"/>
-          </svg>
-        </summary>
-        <ul class="nav-items">
-          {group.items.map((item) => (
-            <li>
-              <a href={`/${item.slug}/`} class={`nav-link ${isActive(item.slug) ? 'active' : ''}`} aria-current={isActive(item.slug) ? 'page' : undefined}>{item.label}</a>
-            </li>
-          ))}
-        </ul>
-      </details>
-    ))}
-
-    <div class="nav-data-link">
-      <a href="/data/" class={`nav-link ${pathname.startsWith('/data') ? 'active' : ''}`}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -2px; margin-right: 0.375rem;">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-        Data Downloads
-      </a>
-    </div>
-  </div>
-</nav>
-
-<!-- Mobile overlay -->
-<div class="sidebar-overlay" id="sidebar-overlay"></div>
-
-<style>
-  .sidebar {
-    width: 320px;
-    flex-shrink: 0;
-    background-color: var(--sidebar-bg);
-    border-right: 1px solid var(--color-border-subtle);
-    overflow-y: auto;
-    position: fixed;
-    top: calc(4rem + var(--aegis-nav-height, 0px));
-    left: 0;
-    height: calc(100vh - 4rem - var(--aegis-nav-height, 0px));
-    display: flex;
-    flex-direction: column;
-    z-index: 40;
-
-    /* Mobile: hidden by default */
-    display: none;
-  }
-
-  .sidebar-inner {
-    padding: 1rem 0;
-    flex: 1;
-  }
-
-  .nav-group-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.75rem 1.25rem;
-    cursor: pointer;
-    font-family: "IBM Plex Sans", system-ui, sans-serif;
-    font-weight: 600;
-    font-size: 0.875rem;
-    color: var(--color-text);
-    list-style: none;
-    user-select: none;
-  }
-
-  .nav-group-label::-webkit-details-marker {
-    display: none;
-  }
-
-  .nav-group-label:hover {
-    color: var(--color-accent);
-  }
-
-  .caret {
-    transition: transform 0.2s ease;
-    flex-shrink: 0;
-  }
-
-  details[open] .caret {
-    transform: rotate(180deg);
-  }
-
-  .nav-items {
-    list-style: none;
-    padding: 0.25rem 0 0.75rem;
-    margin-left: 1.25rem;
-    border-left: 1px solid var(--color-border);
-  }
-
-  .nav-link {
-    display: block;
-    padding: 0.3rem 1rem 0.3rem 1rem;
-    margin-left: -1px;
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    line-height: 1.4;
-    border-left: 2px solid transparent;
-    transition: color 0.15s, border-color 0.15s, background-color 0.15s;
-  }
-
-  .nav-link:hover {
-    color: var(--color-accent);
-    border-left-color: var(--color-text-muted);
-  }
-
-  .nav-link.active {
-    color: #ffffff;
-    background-color: var(--color-accent);
-    border-left-color: var(--color-accent);
-    font-weight: 600;
-    border-radius: 0 4px 4px 0;
-  }
-
-  :global([data-theme="dark"]) .nav-link.active {
-    color: #161616;
-  }
-
-  .nav-data-link {
-    padding: 0.75rem 1.25rem;
-    border-top: 1px solid var(--color-border-subtle);
-    margin-top: 0.5rem;
-  }
-
-  .nav-data-link .nav-link {
-    margin-left: 0;
-    border-left: none;
-    font-family: "IBM Plex Sans", system-ui, sans-serif;
-    font-weight: 600;
-    font-size: 0.875rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
-  }
-
-  .nav-data-link .nav-link:hover {
-    background-color: var(--color-bg-muted);
-    border-left: none;
-  }
-
-  .nav-data-link .nav-link.active {
-    border-radius: 4px;
-    border-left: none;
-  }
-
-  .sidebar-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 50;
-  }
-
-  /* Wide screens: show sidebar */
-  @media (min-width: 1024px) {
-    .sidebar {
-      display: flex;
-    }
-  }
-
-  /* Mobile: sidebar as drawer */
-  .sidebar.open {
-    display: flex;
-    position: fixed;
-    top: calc(4rem + var(--aegis-nav-height, 0px));
-    left: 0;
-    height: calc(100vh - 4rem - var(--aegis-nav-height, 0px));
-    z-index: 60;
-    width: min(320px, 85vw);
-  }
-
-  .sidebar-overlay.open {
-    display: block;
-  }
-</style>
-
-<script>
-  // Accordion — only one group open at a time
-  const details = document.querySelectorAll<HTMLDetailsElement>('.nav-group');
-  details.forEach((detail) => {
-    detail.addEventListener('toggle', () => {
-      if (detail.open) {
-        details.forEach((other) => {
-          if (other !== detail && other.open) other.open = false;
-        });
-      }
-    });
-  });
-
-  // Mobile drawer toggle
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('sidebar-overlay');
-
-  function openSidebar() {
-    sidebar?.classList.add('open');
-    overlay?.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeSidebar() {
-    sidebar?.classList.remove('open');
-    overlay?.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  overlay?.addEventListener('click', closeSidebar);
-
-  // Expose for header menu button
-  (window as any).openSidebar = openSidebar;
-  (window as any).closeSidebar = closeSidebar;
-</script>
+<SharedSidebar
+  nav={nav}
+  version={version}
+  versionHref={versionHref}
+  extraLink={{
+    label: 'Data Downloads',
+    href: '/data/',
+    activePrefix: '/data',
+    iconSvg: dataDownloadIcon,
+  }}
+/>

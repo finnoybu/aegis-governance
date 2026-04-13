@@ -1,4 +1,10 @@
 ---
+/**
+ * Site-specific PrevNext wrapper.
+ * Delegates to the shared design-system PrevNext (no site-specific props).
+ */
+import SharedPrevNext from '@aegis-initiative/design-system/components/PrevNext.astro';
+
 interface NavItem {
   label: string;
   href: string;
@@ -12,116 +18,4 @@ interface Props {
 const { prev, next } = Astro.props;
 ---
 
-{(prev || next) && (
-  <nav class="prev-next" aria-label="Page navigation">
-    <div class="prev-next-inner">
-      {prev ? (
-        <a href={prev.href} class="prev-next-link prev-next-prev">
-          <span class="prev-next-label">Previous</span>
-          <span class="prev-next-title">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 18l-6-6 6-6"/>
-            </svg>
-            {prev.label}
-          </span>
-        </a>
-      ) : (
-        <span />
-      )}
-      {next ? (
-        <a href={next.href} class="prev-next-link prev-next-next">
-          <span class="prev-next-label">Next</span>
-          <span class="prev-next-title">
-            {next.label}
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"/>
-            </svg>
-          </span>
-        </a>
-      ) : (
-        <span />
-      )}
-    </div>
-  </nav>
-)}
-
-<style>
-  .prev-next {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--color-border-subtle);
-  }
-
-  .prev-next-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  @media (min-width: 1024px) {
-    .prev-next-inner {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  }
-
-  .prev-next-link {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    text-decoration: none;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    transition: border-color 0.15s, background-color 0.15s;
-    width: 100%;
-  }
-
-  @media (min-width: 1024px) {
-    .prev-next-link {
-      width: 45%;
-    }
-  }
-
-  .prev-next-link:hover {
-    border-color: var(--color-accent);
-    background-color: var(--color-accent-low);
-  }
-
-  .prev-next-link:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-  }
-
-  .prev-next-prev {
-    align-items: flex-start;
-  }
-
-  .prev-next-next {
-    align-items: flex-end;
-    margin-left: auto;
-  }
-
-  .prev-next-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-text-muted);
-    font-family: "IBM Plex Sans", system-ui, sans-serif;
-  }
-
-  .prev-next-title {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: var(--color-accent);
-    font-family: "IBM Plex Sans", system-ui, sans-serif;
-  }
-
-  .prev-next-title svg {
-    flex-shrink: 0;
-  }
-</style>
+<SharedPrevNext prev={prev} next={next} />

@@ -1,4 +1,11 @@
 ---
+/**
+ * Site-specific Breadcrumb wrapper.
+ * Delegates to the shared design-system Breadcrumb with the governance
+ * home label injected.
+ */
+import SharedBreadcrumb from '@aegis-initiative/design-system/components/Breadcrumb.astro';
+
 interface BreadcrumbItem {
   label: string;
   href?: string;
@@ -11,94 +18,4 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<nav class="breadcrumb" aria-label="Breadcrumb">
-  <ol class="breadcrumb-list">
-    <li class="breadcrumb-item breadcrumb-home">
-      <a href="/">AEGIS Governance</a>
-    </li>
-    {items.map((item, i) => (
-      <li class="breadcrumb-item">
-        <svg class="breadcrumb-sep" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 18l6-6-6-6"/>
-        </svg>
-        {item.href && i < items.length - 1 ? (
-          <a href={item.href}>{item.label}</a>
-        ) : (
-          <span aria-current="page">{item.label}</span>
-        )}
-      </li>
-    ))}
-  </ol>
-</nav>
-
-<style>
-  .breadcrumb {
-    background-color: var(--color-bg);
-    color: var(--color-text-muted);
-    padding: 0.75rem 1.5rem 0;
-  }
-
-  @media (min-width: 1024px) {
-    .breadcrumb {
-      padding-left: calc(320px + 1rem);
-    }
-  }
-
-  .breadcrumb-list {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style: none;
-    gap: 0;
-    margin: 0;
-    padding: 0;
-  }
-
-  .breadcrumb-item {
-    display: flex;
-    align-items: center;
-    font-family: "IBM Plex Sans", system-ui, sans-serif;
-    font-weight: 600;
-    font-size: 0.8125rem;
-    letter-spacing: 0.02em;
-  }
-
-  .breadcrumb-item a {
-    color: var(--color-text-muted);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
-  .breadcrumb-item a:hover {
-    color: var(--color-accent);
-    text-decoration: underline;
-  }
-
-  .breadcrumb-item span {
-    color: var(--color-text);
-    font-weight: 600;
-  }
-
-  .breadcrumb-sep {
-    margin: 0 0.375rem;
-    color: var(--color-text-muted);
-    flex-shrink: 0;
-  }
-
-  .breadcrumb-home {
-    display: none;
-  }
-
-  .breadcrumb-home + .breadcrumb-item .breadcrumb-sep {
-    display: none;
-  }
-
-  @media (min-width: 560px) {
-    .breadcrumb-home {
-      display: flex;
-    }
-    .breadcrumb-home + .breadcrumb-item .breadcrumb-sep {
-      display: inline;
-    }
-  }
-</style>
+<SharedBreadcrumb items={items} homeLabel="AEGIS Governance" />
