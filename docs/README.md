@@ -156,7 +156,7 @@ See [`../CONTRIBUTING.md`](../CONTRIBUTING.md) for guidelines.
 
 ## License & Trademark
 
-- **Copyright**: © 2025 Finnoybu IP LLC. All rights reserved.
+- **Copyright**: © 2026 AEGIS Initiative. All rights reserved.
 - **License**: See [`../LICENSE`](../LICENSE)
 - **Trademark**: AEGIS™ is a trademark of Finnoybu IP LLC. See [`../TRADEMARKS.md`](../TRADEMARKS.md)
 
