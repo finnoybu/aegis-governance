@@ -61,7 +61,7 @@ Introduces the aIAM category (third IAM actor class alongside humans and service
 
 A systemic-failure taxonomy for agentic governance breakdowns. Complements OWASP Agentic Top 10 (which AGT maps to) by covering failure modes that are not adversarial attacks — broken governance loops, authorization drift, delegation compositions that individually pass but collectively violate intent. Positioned as the third column alongside MITRE ATT&CK and MITRE ATLAS.
 
-**Maturity:** v2.1 published. 10 tactics, 29 techniques, 29 sub-techniques. DOI [10.5281/zenodo.19251098](https://doi.org/10.5281/zenodo.19251098). Referenced in submissions to IEEE Computer (under review), NIST AI RMF (submission acknowledged), and NCCoE (public comment filed).
+**Maturity:** 10 tactics, 29 techniques, 29 sub-techniques. v2.2 current in the aegis-governance repository (sub-techniques added in v2.2 from RFC-0006 adversarial testing); DOI [10.5281/zenodo.19251098](https://doi.org/10.5281/zenodo.19251098) cites v2.1. Referenced in submissions to IEEE Computer (under review), NIST AI RMF (submission acknowledged), and NCCoE (public comment filed).
 
 ### GFN-1 — Governance Federation Network
 
