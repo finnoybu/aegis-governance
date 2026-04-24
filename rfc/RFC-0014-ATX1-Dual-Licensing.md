@@ -5,7 +5,7 @@
 **Version:** 0.1.0\
 **Created:** 2026-03-29\
 **Updated:** 2026-03-29\
-**Author:** Ken Tannenbaum, AEGIS Initiative / Finnoybu IP LLC\
+**Author:** Ken Tannenbaum, AEGIS Initiative / AEGIS Operations LLC\
 **Repository:** aegis-governance\
 **Target milestone:** None\
 **Supersedes:** None\
@@ -23,12 +23,12 @@ This RFC seeks retroactive authorization for a licensing change already applied 
 
 ### The Problem
 
-The ATX-1 threat taxonomy is a proprietary dataset owned by Finnoybu IP LLC. It carries DOI anchors (IEEE DataPort doi:10.21227/f87b-1d57, Zenodo doi:10.5281/zenodo.19225676, doi:10.5281/zenodo.19238844, doi:10.5281/zenodo.19251098) and has been cited in submitted papers to NIST, IEEE Computer, IEEE Data Descriptions, and NCCoE. Protecting the intellectual property rights of this dataset while making it available for public use is a legitimate and necessary concern.
+The ATX-1 threat taxonomy is a proprietary dataset owned by AEGIS Operations LLC. It carries DOI anchors (IEEE DataPort doi:10.21227/f87b-1d57, Zenodo doi:10.5281/zenodo.19225676, doi:10.5281/zenodo.19238844, doi:10.5281/zenodo.19251098) and has been cited in submitted papers to NIST, IEEE Computer, IEEE Data Descriptions, and NCCoE. Protecting the intellectual property rights of this dataset while making it available for public use is a legitimate and necessary concern.
 
 The Apache-2.0 license on the source files permits liberal redistribution, modification, and commercial use with minimal conditions (attribution and license notice). While appropriate for code contributions and internal development, this license provides insufficient protection for a proprietary dataset that is being published for public consumption — particularly one that is DOI-anchored and intended to serve as a normative reference.
 
 CC-BY-SA-4.0 provides stronger protections aligned with the dataset's intended use:
-- **Attribution required** — consumers must credit Finnoybu IP LLC and the AEGIS Initiative
+- **Attribution required** — consumers must credit AEGIS Operations LLC and the AEGIS Initiative
 - **ShareAlike** — derivative works must be distributed under the same or compatible license, preventing proprietary enclosure of the taxonomy
 - **No additional restrictions** — downstream users cannot impose terms that restrict others from exercising the licensed rights
 
@@ -43,7 +43,7 @@ This was a procedural error. The AEGIS Constitution requires that governance dec
 If the licensing change is reverted to Apache-2.0 pending formal approval:
 - The dataset would be publicly available under a permissive license that allows unrestricted commercial use, modification, and redistribution without ShareAlike protections
 - Third parties could incorporate the ATX-1 taxonomy into proprietary products without contributing modifications back
-- The IP position of Finnoybu IP LLC would be weakened during the review period
+- The IP position of AEGIS Operations LLC would be weakened during the review period
 
 Given the sensitivity of the IP ownership question, the change has been left in place pending the outcome of this RFC. This RFC acknowledges that this is itself a departure from constitutional process and requests that the community review consider both the substance of the licensing decision and the procedural violation.
 
@@ -212,4 +212,4 @@ The AEGIS Initiative holds itself to the same standards it prescribes for govern
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*

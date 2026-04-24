@@ -5,7 +5,7 @@
 **Version:** 1.0.0\
 **Created:** 2026-03-26\
 **Updated:** 2026-03-26\
-**Author:** Ken Tannenbaum, AEGIS Initiative / Finnoybu IP LLC\
+**Author:** Ken Tannenbaum, AEGIS Initiative / AEGIS Operations LLC\
 **Repository:** aegis-governance\
 **Target milestone:** Q1 2026\
 **Supersedes:** None\
@@ -267,4 +267,4 @@ The v0.1 STIX bundle is published as a companion artifact at `docs/atx/v2/acf/ac
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*

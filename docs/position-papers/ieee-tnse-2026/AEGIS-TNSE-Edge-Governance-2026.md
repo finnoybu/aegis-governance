@@ -14,7 +14,7 @@
 **Affiliation**: AEGIS Initiative, Lovettsville, Virginia, USA
 **ORCID**: 0009-0007-4215-1789
 **IEEE Member**: #102220161
-**Steward**: Finnoybu IP LLC
+**Steward**: AEGIS Operations LLC
 
 ---
 

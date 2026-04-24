@@ -12,7 +12,7 @@ Documents here address AEGIS's conformance pathway under Article 3 §1(b), which
 
 - **First Created:** March 15, 2026
 - **Status:** Living document — will be updated as ratification and implementation guidance progresses
-- **Submitted by:** AEGIS Initiative, Finnoybu IP LLC
+- **Submitted by:** AEGIS Initiative, AEGIS Operations LLC
 - **Contact:** <ktannenbaum@aegis-initiative.com>
 
 ## Convention Status

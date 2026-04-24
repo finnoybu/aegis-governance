@@ -5,7 +5,7 @@
 **Version:** 0.1.0\
 **Created:** 2026-03-07\
 **Updated:** 2026-03-08\
-**Author:** Kenneth Tannenbaum, Finnoybu IP LLC\
+**Author:** Kenneth Tannenbaum, AEGIS Operations LLC\
 **Repository:** aegis-governance\
 **Target milestone:** Q2 2026\
 **Supersedes:** None\
@@ -150,4 +150,4 @@ RDP-03 is the recommended starting point for new implementations. RDP-01 is the 
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*

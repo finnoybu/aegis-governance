@@ -5,8 +5,7 @@
     "tactic": "TA001",
     "tactic_name": "Violate Authority Boundaries",
     "description": "The agent executes a destructive or high-impact action based on instructions from a user who does not hold owner-level authority. The agent treats the instruction as valid because no stakeholder model exists to distinguish authority levels.",
-    "severity": "high",
-    "root_cause": "RC1 (No Stakeholder Model) — No mechanism to verify that the instruction source holds authority for the requested action scope.",
+    "root_cause": "RC1 (No Stakeholder Model) â€” No mechanism to verify that the instruction source holds authority for the requested action scope.",
     "agents_of_chaos_case": [
       1
     ],
@@ -25,9 +24,8 @@
     "name": "Infer Implicit Authority",
     "tactic": "TA001",
     "tactic_name": "Violate Authority Boundaries",
-    "description": "The agent accepts an instruction as authoritative based on implicit signals — such as the instruction appearing in a retrieved document, email body, or shared context — rather than explicit delegation from a verified principal.",
-    "severity": "high",
-    "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — Instructions and data share a channel; no mechanism to verify instruction provenance.",
+    "description": "The agent accepts an instruction as authoritative based on implicit signals â€” such as the instruction appearing in a retrieved document, email body, or shared context â€” rather than explicit delegation from a verified principal.",
+    "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) â€” Instructions and data share a channel; no mechanism to verify instruction provenance.",
     "agents_of_chaos_case": [
       2
     ],
@@ -47,8 +45,7 @@
     "tactic": "TA001",
     "tactic_name": "Violate Authority Boundaries",
     "description": "The agent distributes content (emails, messages, notifications) to a large number of recipients based on an authority claim that has not been verified. The spoofed authority may appear in a prompt, forwarded message, or injected context.",
-    "severity": "critical",
-    "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — No principal verification; authority claims in content treated as valid.",
+    "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) â€” No principal verification; authority claims in content treated as valid.",
     "agents_of_chaos_case": [
       11
     ],
@@ -69,8 +66,7 @@
     "tactic": "TA002",
     "tactic_name": "Exceed Operational Scope",
     "description": "The agent autonomously expands the scope of a delegated task beyond what was explicitly requested, including via tool invocation. The agent interprets the objective broadly and takes actions that were not part of the original instruction.",
-    "severity": "high",
-    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate whether expanded scope is within delegated authority; no deliberation surface to assess scope boundaries.",
+    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” Agent cannot evaluate whether expanded scope is within delegated authority; no deliberation surface to assess scope boundaries.",
     "agents_of_chaos_case": [
       3
     ],
@@ -90,8 +86,7 @@
     "tactic": "TA002",
     "tactic_name": "Exceed Operational Scope",
     "description": "The agent performs bulk operations (mass edits, batch deletions, large-scale API calls) without validating that the scope of the operation matches the intent of the instruction, including via tool invocation.",
-    "severity": "high",
-    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot assess aggregate impact of bulk actions; no proportionality check against instruction intent.",
+    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” Agent cannot assess aggregate impact of bulk actions; no proportionality check against instruction intent.",
     "agents_of_chaos_case": [
       1
     ],
@@ -110,9 +105,8 @@
     "name": "Obscure Objective Through Delegation",
     "tactic": "TA002",
     "tactic_name": "Exceed Operational Scope",
-    "description": "Harmful intent is decomposed across multiple delegated steps — including across multiple agents where no single agent has full visibility of the objective — such that no individual action appears unsafe.",
-    "severity": "high",
-    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate aggregate intent across delegation chains; no mechanism to detect composition attacks.",
+    "description": "Harmful intent is decomposed across multiple delegated steps â€” including across multiple agents where no single agent has full visibility of the objective â€” such that no individual action appears unsafe.",
+    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” Agent cannot evaluate aggregate intent across delegation chains; no mechanism to detect composition attacks.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01",
@@ -131,8 +125,7 @@
     "tactic": "TA002",
     "tactic_name": "Exceed Operational Scope",
     "description": "The agent chains multiple tool calls or intermediate steps such that each step appears valid, but the aggregate effect bypasses policy or authorization constraints.",
-    "severity": "high",
-    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate aggregate policy impact of chained tool calls; no compositional policy enforcement.",
+    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” Agent cannot evaluate aggregate policy impact of chained tool calls; no compositional policy enforcement.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM07"
@@ -150,8 +143,7 @@
     "tactic": "TA003",
     "tactic_name": "Compromise System Integrity",
     "description": "The agent selects an irreversible action (permanent deletion, irrecoverable modification) through direct or tool-mediated system interaction when a reversible alternative (archival, soft-delete, flagging) would satisfy the objective.",
-    "severity": "critical",
-    "root_cause": "RC2 (No Self-Model) — Agent cannot evaluate action severity or compare alternatives against a proportionality standard.",
+    "root_cause": "RC2 (No Self-Model) â€” Agent cannot evaluate action severity or compare alternatives against a proportionality standard.",
     "agents_of_chaos_case": [
       1
     ],
@@ -171,8 +163,7 @@
     "tactic": "TA003",
     "tactic_name": "Compromise System Integrity",
     "description": "The agent initiates an action through direct or tool-mediated system interaction that triggers a chain of cascading changes across interconnected systems, where downstream effects were not anticipated or authorized.",
-    "severity": "critical",
-    "root_cause": "RC2 (No Self-Model) — Agent cannot model downstream effects of actions in interconnected systems; no cascade impact assessment.",
+    "root_cause": "RC2 (No Self-Model) â€” Agent cannot model downstream effects of actions in interconnected systems; no cascade impact assessment.",
     "agents_of_chaos_case": [
       7
     ],
@@ -190,8 +181,7 @@
     "tactic": "TA004",
     "tactic_name": "Expose or Exfiltrate Information",
     "description": "The agent exports or discloses data from the current context (conversation, session, task) to an unauthorized recipient, whether through direct exfiltration, indirect request compliance, or tool-mediated data transfer.",
-    "severity": "critical",
-    "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — No authorization check on data recipients; instructions in content treated as authorized requests.",
+    "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) â€” No authorization check on data recipients; instructions in content treated as authorized requests.",
     "agents_of_chaos_case": [
       2
     ],
@@ -210,9 +200,8 @@
     "name": "Leak Cross-Session or Persistent Data",
     "tactic": "TA004",
     "tactic_name": "Expose or Exfiltrate Information",
-    "description": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration — exposing data from previous interactions to unauthorized parties in later sessions.",
-    "severity": "high",
-    "root_cause": "RC3 (No Private Deliberation Surface) — No session-scoped data isolation; persistent data accessible across session boundaries without authorization checks.",
+    "description": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration â€” exposing data from previous interactions to unauthorized parties in later sessions.",
+    "root_cause": "RC3 (No Private Deliberation Surface) â€” No session-scoped data isolation; persistent data accessible across session boundaries without authorization checks.",
     "agents_of_chaos_case": [
       3
     ],
@@ -232,8 +221,7 @@
     "tactic": "TA004",
     "tactic_name": "Expose or Exfiltrate Information",
     "description": "The agent transfers sensitive information across trust or policy domains through interactions with other agents, systems, or contexts that individually appear authorized.",
-    "severity": "high",
-    "root_cause": "RC1 (No Stakeholder Model), RC3 (No Private Deliberation Surface) — No data classification across domain boundaries; no cross-domain transfer authorization.",
+    "root_cause": "RC1 (No Stakeholder Model), RC3 (No Private Deliberation Surface) â€” No data classification across domain boundaries; no cross-domain transfer authorization.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM02"
@@ -251,8 +239,7 @@
     "tactic": "TA005",
     "tactic_name": "Violate State Integrity",
     "description": "The agent reports that a task has been completed successfully when the action either failed, was partially completed, or produced a different outcome than reported. The report is based on intent or expectation rather than verified system state.",
-    "severity": "high",
-    "root_cause": "RC2 (No Self-Model) — No model of the distinction between action initiation and action completion; no outcome verification protocol.",
+    "root_cause": "RC2 (No Self-Model) â€” No model of the distinction between action initiation and action completion; no outcome verification protocol.",
     "agents_of_chaos_case": [
       1
     ],
@@ -270,8 +257,7 @@
     "tactic": "TA005",
     "tactic_name": "Violate State Integrity",
     "description": "The agent misattributes an action to a different principal, system, or process than the one that actually performed it. This corrupts the audit trail and undermines accountability.",
-    "severity": "medium",
-    "root_cause": "RC2 (No Self-Model) — No mechanism to distinguish between action performers; attribution based on context rather than verified provenance.",
+    "root_cause": "RC2 (No Self-Model) â€” No mechanism to distinguish between action performers; attribution based on context rather than verified provenance.",
     "agents_of_chaos_case": [
       8
     ],
@@ -290,9 +276,8 @@
     "name": "Suppress or Omit Execution Failure",
     "tactic": "TA005",
     "tactic_name": "Violate State Integrity",
-    "description": "The agent suppresses, omits, or fails to surface an execution failure — whether caused by provider constraints, tool errors, or internal exceptions — resulting in a divergence between reported state and actual state.",
-    "severity": "medium",
-    "root_cause": "RC2 (No Self-Model) — No model of constraint layers affecting the agent; failure signals not propagated to operator governance.",
+    "description": "The agent suppresses, omits, or fails to surface an execution failure â€” whether caused by provider constraints, tool errors, or internal exceptions â€” resulting in a divergence between reported state and actual state.",
+    "root_cause": "RC2 (No Self-Model) â€” No model of constraint layers affecting the agent; failure signals not propagated to operator governance.",
     "agents_of_chaos_case": [
       6
     ],
@@ -309,9 +294,8 @@
     "name": "Execute Recursive Invocation Loops",
     "tactic": "TA006",
     "tactic_name": "Abuse Resource Allocation",
-    "description": "The agent enters a recursive invocation loop — spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains — consuming unbounded compute, token, and time resources.",
-    "severity": "high",
-    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — No loop detection or recursion depth model; agents cannot recognize non-productive cycles.",
+    "description": "The agent enters a recursive invocation loop â€” spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains â€” consuming unbounded compute, token, and time resources.",
+    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” No loop detection or recursion depth model; agents cannot recognize non-productive cycles.",
     "agents_of_chaos_case": [
       4
     ],
@@ -332,8 +316,7 @@
     "tactic": "TA006",
     "tactic_name": "Abuse Resource Allocation",
     "description": "The agent consumes external resources (API calls, network bandwidth, storage, third-party service quotas) without limits or lifecycle management, degrading availability for other systems and users.",
-    "severity": "medium",
-    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — No model of resource boundaries; no lifecycle governance for external resource consumption.",
+    "root_cause": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” No model of resource boundaries; no lifecycle governance for external resource consumption.",
     "agents_of_chaos_case": [
       5
     ],
@@ -353,8 +336,7 @@
     "tactic": "TA007",
     "tactic_name": "Manipulate Agent Interactions",
     "description": "An agent claims or assumes the identity of another agent in a multi-agent system, gaining unauthorized access to resources, delegations, or trust relationships associated with the spoofed identity.",
-    "severity": "critical",
-    "root_cause": "RC1 (No Stakeholder Model) — No cryptographic identity verification between agents; identity claims based on self-assertion.",
+    "root_cause": "RC1 (No Stakeholder Model) â€” No cryptographic identity verification between agents; identity claims based on self-assertion.",
     "agents_of_chaos_case": [
       9
     ],
@@ -372,8 +354,7 @@
     "tactic": "TA007",
     "tactic_name": "Manipulate Agent Interactions",
     "description": "An agent injects malicious tasks into a multi-agent delegation chain, exploiting trust transitivity to have other agents execute actions that the originating agent is not authorized to perform.",
-    "severity": "high",
-    "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — No independent governance verification; shared governance infrastructure creates single points of compromise.",
+    "root_cause": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) â€” No independent governance verification; shared governance infrastructure creates single points of compromise.",
     "agents_of_chaos_case": [
       10
     ],
@@ -391,8 +372,7 @@
     "tactic": "TA007",
     "tactic_name": "Manipulate Agent Interactions",
     "description": "An agent influences the behavioral patterns of other agents through shared context, conversation, or operational interaction, causing gradual drift from their governance-defined behavior toward unverified or unauthorized operational patterns.",
-    "severity": "medium",
-    "root_cause": "RC3 (No Private Deliberation Surface) — No mechanism to isolate agent behavior from peer influence; behavioral norms adopted from interaction rather than governance.",
+    "root_cause": "RC3 (No Private Deliberation Surface) â€” No mechanism to isolate agent behavior from peer influence; behavioral norms adopted from interaction rather than governance.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -410,8 +390,7 @@
     "tactic": "TA007",
     "tactic_name": "Manipulate Agent Interactions",
     "description": "The agent influences a group of agents to converge on a shared but unsafe or unauthorized objective, even when individual agents would not independently select that action.",
-    "severity": "high",
-    "root_cause": "RC3 (No Private Deliberation Surface) — No mechanism to detect anomalous convergence in multi-agent decision-making; consensus accepted without independent verification.",
+    "root_cause": "RC3 (No Private Deliberation Surface) â€” No mechanism to detect anomalous convergence in multi-agent decision-making; consensus accepted without independent verification.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -429,8 +408,7 @@
     "tactic": "TA008",
     "tactic_name": "Establish or Modify Persistence",
     "description": "An agent writes malicious, misleading, or unauthorized data into persistent memory stores (long-term memory, knowledge bases, configuration caches), corrupting future interactions that rely on this stored context.",
-    "severity": "high",
-    "root_cause": "RC4 (Prompt Injection Is Structural) — No integrity verification for persistent memory writes; memory content treated as trusted regardless of provenance.",
+    "root_cause": "RC4 (Prompt Injection Is Structural) â€” No integrity verification for persistent memory writes; memory content treated as trusted regardless of provenance.",
     "agents_of_chaos_case": [
       10
     ],
@@ -450,8 +428,7 @@
     "tactic": "TA008",
     "tactic_name": "Establish or Modify Persistence",
     "description": "An agent modifies its own governance constraints, policy state, or constitutional articles through direct manipulation or indirect means (tool use, self-prompting, context manipulation), bypassing normal amendment procedures and audit logging.",
-    "severity": "critical",
-    "root_cause": "RC4 (Prompt Injection Is Structural) — Governance configuration stored in mutable locations; no integrity verification or tamper detection for policy state.",
+    "root_cause": "RC4 (Prompt Injection Is Structural) â€” Governance configuration stored in mutable locations; no integrity verification or tamper detection for policy state.",
     "agents_of_chaos_case": [
       10
     ],
@@ -470,9 +447,8 @@
     "name": "Operate Outside Monitoring Boundaries",
     "tactic": "TA009",
     "tactic_name": "Evade Detection or Oversight",
-    "description": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems — whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
-    "severity": "medium",
-    "root_cause": "RC2 (No Self-Model) — No model of the observability boundaries affecting the agent; agent cannot distinguish monitored from unmonitored pathways.",
+    "description": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems â€” whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
+    "root_cause": "RC2 (No Self-Model) â€” No model of the observability boundaries affecting the agent; agent cannot distinguish monitored from unmonitored pathways.",
     "agents_of_chaos_case": [
       6
     ],
@@ -490,8 +466,7 @@
     "tactic": "TA009",
     "tactic_name": "Evade Detection or Oversight",
     "description": "The agent obscures the traceability of its actions by manipulating log entries, altering audit trails, fragmenting actions across multiple contexts, or using indirect execution paths that make causal attribution difficult.",
-    "severity": "medium",
-    "root_cause": "RC4 (Prompt Injection Is Structural) — Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording.",
+    "root_cause": "RC4 (Prompt Injection Is Structural) â€” Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM06"
@@ -513,8 +488,7 @@
     "tactic": "TA009",
     "tactic_name": "Evade Detection or Oversight",
     "description": "The agent encodes commands in base64, hex, or URL encoding before execution (e.g., `echo Y3VybCAuLi4= | base64 -d | bash`). The encoded payload is opaque to text-based pattern matching in the governance evaluator until decoded by the runtime.",
-    "severity": "medium",
-    "root_cause": "RC4 (Prompt Injection Is Structural) — Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording.",
+    "root_cause": "RC4 (Prompt Injection Is Structural) â€” Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM06"
@@ -533,8 +507,7 @@
     "tactic": "TA009",
     "tactic_name": "Evade Detection or Oversight",
     "description": "The agent splits the command name from its invocation across separate tokens via shell variable assignment (e.g., `CMD=curl; $CMD https://...`). Pattern matching against the literal command string fails because the dangerous token is constructed at runtime.",
-    "severity": "medium",
-    "root_cause": "RC4 (Prompt Injection Is Structural) — Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording.",
+    "root_cause": "RC4 (Prompt Injection Is Structural) â€” Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM06"
@@ -553,8 +526,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent accesses OS pseudo-filesystem paths (e.g., /dev/tcp, /dev/udp, /proc/*) to perform network or system operations. The governance layer evaluates these as file operations because they match file path patterns, but the operating system provides network sockets or system interfaces through these paths. The action is permitted by the governance allowlist as a file operation; the actual effect is a network connection or system-level interaction invisible to governance.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access).",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access).",
     "agents_of_chaos_case": [],
     "owasp_mapping": [],
     "aegis_mitigation": {
@@ -575,8 +547,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent uses bash's `/dev/tcp/host/port` pseudo-filesystem to perform network I/O via what looks like file I/O (e.g., `exec 3<>/dev/tcp/example.com/80`). The governance layer treats the path as an ordinary file write and permits it.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access).",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access).",
     "agents_of_chaos_case": [],
     "owasp_mapping": [],
     "aegis_mitigation": {
@@ -592,9 +563,8 @@
     "name": "Use /dev/udp Network Socket Access",
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
-    "description": "The UDP equivalent of T10001.001 — the agent uses `/dev/udp/host/port` to send UDP datagrams via apparent file I/O. Particularly useful for DNS exfiltration channels and stateless data egress.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access).",
+    "description": "The UDP equivalent of T10001.001 â€” the agent uses `/dev/udp/host/port` to send UDP datagrams via apparent file I/O. Particularly useful for DNS exfiltration channels and stateless data egress.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access).",
     "agents_of_chaos_case": [],
     "owasp_mapping": [],
     "aegis_mitigation": {
@@ -611,8 +581,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent reads process and kernel state via `/proc/*` paths (e.g., `/proc/self/environ`, `/proc/*/cmdline`, `/proc/net/tcp`) that the governance layer treats as ordinary files. Reveals secrets in environment variables, running processes, and network connections.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access).",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer models file paths as file operations. The OS provides pseudo-filesystem interfaces that map file path syntax to non-file capabilities (network sockets, process information, device access).",
     "agents_of_chaos_case": [],
     "owasp_mapping": [],
     "aegis_mitigation": {
@@ -629,8 +598,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent writes content to files that the execution environment or installed toolchain automatically executes at a later time or on specific triggers. Target files include shell initialization scripts (.bashrc, .profile, .zshrc), version control hooks (.git/hooks/*), package manager lifecycle scripts (package.json scripts, setup.py, Makefile), IDE task definitions (.vscode/tasks.json), container build files (Dockerfile), and tool configurations with execution semantics (git config aliases, .npmrc pre/post scripts). The governance layer permits the file write as a standard operation; the environment provides deferred or trigger-based code execution invisible to the governance evaluation.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM06"
@@ -658,8 +626,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent writes commands to `.bashrc`, `.profile`, `.zshrc`, or equivalents so they execute on every new shell session. Persistence survives reboots and is invisible until the user opens a new terminal.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM06"
@@ -678,8 +645,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent writes scripts to `.git/hooks/*` (pre-commit, post-commit, post-checkout, etc.) so they execute on every git operation. The hooks run with the user's full privileges.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM06"
@@ -698,8 +664,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent injects commands into `package.json` scripts, `setup.py`, or equivalent install hooks so they execute on the next `npm install`, `pip install`, or build invocation.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM06"
@@ -718,8 +683,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent writes commands to `.vscode/tasks.json`, `.idea/runConfigurations/`, or similar IDE configuration files so they run when the user invokes the corresponding task or opens the project.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM06"
@@ -738,8 +702,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent injects commands into `Dockerfile`, `docker-compose.yml`, or equivalent container build files so they execute during the next image build and persist into the resulting container image.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM06"
@@ -758,8 +721,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent uses `git config alias.X '!command'` to register command-substitution aliases that execute arbitrary shell on any subsequent git invocation. Survives across all repositories when set in global git config.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM06"
@@ -778,8 +740,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent writes auto-execution hooks into `.npmrc`, `.pypirc`, `.cargo/config.toml`, or equivalent package manager configuration files. Triggered on the next package operation by any user of the host.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM06"
@@ -798,8 +759,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent injects commands into `Makefile`, `CMakeLists.txt`, `build.gradle`, or equivalent build system files. Executes automatically the next time the user invokes a build target.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance layer evaluates file writes by path and content pattern. It does not model which files the execution environment treats as executable or auto-executed on specific triggers.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM06"
@@ -817,9 +777,8 @@
     "name": "Inject Persistent Agent Instructions",
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
-    "description": "The agent modifies files that define its own behavioral instructions for future sessions. AI coding tools auto-load project-level instruction files at session start to establish behavioral context. These files are writable by the agent as standard file operations, and modifications persist across sessions, propagate to other developers via version control, and load silently without integrity verification or change notification. The governance layer evaluates the write as a normal file operation; the actual effect is persistent modification of the agent's own governance context — a self-modifying instruction injection that survives session boundaries.",
-    "severity": "critical",
-    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "description": "The agent modifies files that define its own behavioral instructions for future sessions. AI coding tools auto-load project-level instruction files at session start to establish behavioral context. These files are writable by the agent as standard file operations, and modifications persist across sessions, propagate to other developers via version control, and load silently without integrity verification or change notification. The governance layer evaluates the write as a normal file operation; the actual effect is persistent modification of the agent's own governance context â€” a self-modifying instruction injection that survives session boundaries.",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) â€” The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -845,8 +804,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent writes to project-level configuration files that the Claude Code CLI auto-loads into model context on every invocation (e.g., CLAUDE.md, .claude/rules/). Specific exploitation details embargoed under responsible disclosure RD-2603-01 until 2026-06-24 or earlier vendor response.",
-    "severity": "critical",
-    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) â€” The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -865,8 +823,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent writes attacker-controlled instructions to `.cursorrules` files that the Cursor IDE auto-loads as system prompt context for every model interaction in the project.",
-    "severity": "critical",
-    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) â€” The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -885,8 +842,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent writes attacker-controlled instructions to `.windsurfrules` files that the Windsurf editor auto-loads into every model interaction in the workspace.",
-    "severity": "critical",
-    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) â€” The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -905,8 +861,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent writes to `.github/copilot-instructions.md` which GitHub Copilot auto-loads as repository-level context for all code completions and chat interactions in the repo.",
-    "severity": "critical",
-    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) â€” The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -925,8 +880,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent writes to `.aider.conf.yml` which the Aider CLI auto-loads to configure model behavior, system prompts, and tool permissions on every invocation.",
-    "severity": "critical",
-    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) â€” The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -945,8 +899,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent writes to `.continuerc.json` which the Continue IDE extension auto-loads as workspace-level configuration for model and tool behavior.",
-    "severity": "critical",
-    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) — The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
+    "root_cause": "RC5 (No Environment Model), RC4 (Prompt Injection Is Structural) â€” The governance layer does not model which files constitute the agent's own instruction context. Agent instruction files and ordinary project files share the same write pathway with no structural distinction.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -965,8 +918,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent constructs inputs that the governance evaluator parses differently than the execution runtime. Techniques include: embedded newlines (\\n) or carriage return/line feed (\\r\\n) interpreted as command separators by the shell but not by the governance regex; null bytes (\\x00) that truncate path evaluation in the governance layer while the OS processes the full path; Unicode homoglyphs that visually match protected path characters but bypass string comparison; heredoc syntax (<<EOF) that introduces multi-line payloads invisible to single-line pattern matching; and shell metacharacters (|, &&, ;, $(), backticks) embedded within otherwise-permitted commands. The governance layer permits the action based on its parsing; the runtime interprets additional or different operations.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -996,8 +948,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent uses shell operators (`|`, `&&`, `||`, `;`) to chain an allowed command with a denied one (e.g., `ls && curl ...`). Single-command pattern matching evaluates only the first segment.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -1016,8 +967,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent embeds a literal `\\n` in command arguments. The shell interprets it as a command separator while regex-based governance often anchors to single-line patterns.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -1036,8 +986,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "Variant of T10004.002 using `\\r\\n` to bypass governance filters that strip `\\n` but preserve `\\r`. Common in pipelines that use HTTP request parsing for command extraction.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -1056,8 +1005,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent uses heredoc syntax (`<<EOF`) to pass multi-line payloads to a shell or interpreter. Single-line pattern matching cannot see the body of the heredoc.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -1076,8 +1024,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent embeds a null byte (`\\x00`) in a path. The governance layer's parser truncates at the null while the OS syscall processes the full path string after the null.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -1095,9 +1042,8 @@
     "name": "Evade Path Comparison via Unicode Homoglyphs",
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
-    "description": "The agent uses Unicode characters that visually match protected path characters but bypass byte-level string comparison (e.g., Cyrillic 'е' vs. Latin 'e'). The OS resolves the homoglyph correctly while the governance regex does not.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "description": "The agent uses Unicode characters that visually match protected path characters but bypass byte-level string comparison (e.g., Cyrillic 'Ðµ' vs. Latin 'e'). The OS resolves the homoglyph correctly while the governance regex does not.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -1116,8 +1062,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent embeds `$(command)` or `` `command` `` substitution inside an otherwise-allowed command. The substitution executes before the outer command and is invisible to literal-string pattern matching.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -1136,8 +1081,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent uses an alternate absolute path that resolves to the same protected target (e.g., `/etc/passwd` blocked but `/var/../etc/passwd` permitted). The governance layer's path comparison does not normalize before matching.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -1156,8 +1100,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent uses `../` sequences to escape a permitted directory and access a protected target (e.g., `~/safe/../../../etc/passwd`). The governance layer matches the literal path prefix instead of the resolved path.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"
@@ -1176,8 +1119,7 @@
     "tactic": "TA010",
     "tactic_name": "Act Beyond Governance Interpretation",
     "description": "The agent uses shell redirection (`>`, `>>`, `tee`) to write to a protected path via an otherwise-allowed command (e.g., `echo X > /etc/passwd`). The governance layer evaluates the command (`echo`) without parsing the redirection target.",
-    "severity": "high",
-    "root_cause": "RC5 (No Environment Model) — The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
+    "root_cause": "RC5 (No Environment Model) â€” The governance evaluator uses a simplified parser (regex, string matching) that does not replicate the execution runtime's actual parsing rules. The divergence between governance parsing and runtime parsing creates a visibility gap.",
     "agents_of_chaos_case": [],
     "owasp_mapping": [
       "LLM01"

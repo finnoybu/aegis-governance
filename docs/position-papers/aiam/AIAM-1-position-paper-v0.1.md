@@ -1,7 +1,7 @@
 # AIAM-1: A Specification for Identity and Access Management for AI Agents (aIAM)
 
 **Position Paper — v0.1**\
-**AEGIS Initiative · Finnoybu IP LLC**\
+**AEGIS Initiative · AEGIS Operations LLC**\
 **Author:** Ken Tannenbaum, Founder, AEGIS Initiative\
 **ORCID:** 0009-0007-4215-1789
 
@@ -210,7 +210,7 @@ AIAM-1 complements, not replaces, existing IAM specifications:
 
 ## 7. Publication and Versioning
 
-This document is v0.1 of the AIAM-1 position paper. The normative specification is the [AIAM-1 specification suite](https://github.com/aegis-initiative/aegis-governance/tree/main/aiam) (12 chapters, 3 JSON schemas). Both are published by the AEGIS Initiative under Finnoybu IP LLC and will be deposited to Zenodo with stable DOIs. Version 0.x releases are draft specifications; v1.0 will be the first stable release.
+This document is v0.1 of the AIAM-1 position paper. The normative specification is the [AIAM-1 specification suite](https://github.com/aegis-initiative/aegis-governance/tree/main/aiam) (12 chapters, 3 JSON schemas). Both are published by the AEGIS Initiative under AEGIS Operations LLC and will be deposited to Zenodo with stable DOIs. Version 0.x releases are draft specifications; v1.0 will be the first stable release.
 
 Comments, corrections, and contributions are welcomed. The canonical repository is maintained at [github.com/aegis-initiative](https://github.com/aegis-initiative).
 
@@ -250,4 +250,4 @@ AIAM-1 builds on the body of work developed under the AEGIS Initiative, includin
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*

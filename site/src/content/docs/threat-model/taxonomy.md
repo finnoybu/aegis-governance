@@ -11,7 +11,7 @@ description: "ATX-1 technique taxonomy — 10 tactics, 29 techniques for agentic
 **Date:** 2026-04-01\
 **Status:** Active — v2.2 adds 29 sub-techniques under T9002 and T10001–T10004
 cataloging specific bypass methods discovered during RFC-0006 adversarial testing.\
-**Maintainer:** AEGIS Initiative — Finnoybu IP LLC\
+**Maintainer:** AEGIS Initiative — AEGIS Operations LLC\
 **License:** CC-BY-SA-4.0
 
 ---

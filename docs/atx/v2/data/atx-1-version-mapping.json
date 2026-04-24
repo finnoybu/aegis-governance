@@ -1,13 +1,22 @@
 {
-  "version": "1.0-to-2.2",
-  "date": "2026-04-01",
-  "description": "Mapping of ATX-1 technique IDs from v1.0 through v2.1 to v2.2 for traceability. v1.0, v2.0, and v2.1 remain frozen at their published DOIs. v2.2 introduces 29 sub-techniques (T####.###) under T9002, T10001, T10002, T10003, and T10004 — no v2.1 techniques were renamed, moved, or removed.",
+  "version": "1.0-to-2.3",
+  "date": "2026-04-24",
+  "description": "Mapping of ATX-1 technique IDs from v1.0 through v2.2 to v2.3 for traceability. v1.0, v2.0, v2.1, and v2.2 remain frozen at their published DOIs. v2.3 removes the `severity` field from technique definitions in alignment with MITRE ATT&CK and ATLAS conventions, which leave contextual scoring to the consumer; no tactics, techniques, sub-techniques, root causes, or mitigations were renamed, moved, removed, or added relative to v2.2. v2.2 introduced 29 sub-techniques (T####.###) under T9002, T10001, T10002, T10003, and T10004 — no v2.1 techniques were renamed, moved, or removed.",
   "references": {
     "v1_ieee_dataport": "10.21227/f87b-1d57",
     "v1_zenodo": "10.5281/zenodo.19225676",
     "v2_zenodo": "10.5281/zenodo.19238844",
     "v2.1_zenodo": "10.5281/zenodo.19251098",
-    "v2.2_zenodo": "10.5281/zenodo.19483999"
+    "v2.2_zenodo": "10.5281/zenodo.19483999",
+    "v2.3_zenodo": "pending",
+    "v2.3_ieee_dataport": "pending"
+  },
+  "v2.3_changes": {
+    "field_removed": "severity",
+    "rationale": "Alignment with MITRE ATT&CK and ATLAS conventions, which do not rate technique severity. Severity is contextual to deployment; consumers should apply their own scoring frameworks (e.g., CVSS, OWASP Risk Rating) per environment.",
+    "schema_impact": "atx-technique.schema.json: `severity` removed from `required`; `severity` property definition removed; schema_version bumped 2.2 → 2.3.",
+    "data_impact": "All 58 entries in atx-1-techniques.json had `severity` removed. No other field changes. Field order otherwise preserved.",
+    "stix_impact": "None — STIX bundle attack-pattern objects did not carry severity (severity was an ATX-1 extension field present only in atx-1-techniques.json)."
   },
   "mappings": [
     { "v1_id": "T1001", "v2_id": "T1001", "v1_name": "Non-Owner Instruction Compliance", "v2_name": "Execute Non-Owner Instruction", "v1_tactic": "TA001", "v2_tactic": "TA001", "change": "renamed" },

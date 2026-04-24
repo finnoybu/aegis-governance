@@ -154,4 +154,4 @@ The companion settings file sets Claude Code's native permissions to permissive 
 
 ---
 
-*AEGIS™ | RFC-0006 | Finnoybu IP LLC*
+*AEGIS™ | RFC-0006 | AEGIS Operations LLC*

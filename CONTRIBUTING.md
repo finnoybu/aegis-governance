@@ -85,7 +85,7 @@ Status: Draft
 Version: 0.2  
 Created: 2026-03-05  
 Updated: 2026-03-06  
-Author: AEGIS Initiative, Finnoybu IP LLC  
+Author: AEGIS Initiative, AEGIS Operations LLC  
 Repository: aegis-governance  
 Target milestone: v1.0  
 Supersedes: None  

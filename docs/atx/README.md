@@ -2,11 +2,17 @@
 
 This directory contains the ATX-1 technique taxonomy, a structured adversarial knowledge base for agentic AI actor behavior.
 
-**Current version:** v2.2 (2026-04-01) — 10 tactics, 29 techniques, 29 sub-techniques, 5 root causes\
-**DOI:** [10.5281/zenodo.19483999](https://doi.org/10.5281/zenodo.19483999)
+**Current version:** v2.3 (2026-04-24) — 10 tactics, 29 techniques, 29 sub-techniques, 5 root causes\
+**DOI:** _pending — Zenodo + IEEE DataPort minting in progress_
+
+**v2.3 changes:** Removes the `severity` field from technique definitions in
+alignment with MITRE ATT&CK and ATLAS conventions, which leave contextual
+scoring to the consumer. All v2.2 tactics, techniques, sub-techniques, root
+causes, and mitigations are preserved unchanged.
 
 **Previous versions (frozen at published DOIs):**
 
+- v2.2: [10.5281/zenodo.19483999](https://doi.org/10.5281/zenodo.19483999) (2026-04-01)
 - v2.1: [10.5281/zenodo.19251098](https://doi.org/10.5281/zenodo.19251098) (2026-03-27)
 - v2.0: [10.5281/zenodo.19238844](https://doi.org/10.5281/zenodo.19238844)
 - v1.0 Zenodo: [10.5281/zenodo.19225676](https://doi.org/10.5281/zenodo.19225676)
@@ -23,7 +29,7 @@ This directory contains the ATX-1 technique taxonomy, a structured adversarial k
 - [v2/data/atx-1-techniques.json](v2/data/atx-1-techniques.json) — All 29 techniques as structured JSON
 - [v2/data/atx-1-regulatory-crossref.json](v2/data/atx-1-regulatory-crossref.json) — Regulatory cross-reference matrix
 - [v2/data/atx-1-navigator-layer.json](v2/data/atx-1-navigator-layer.json) — ATT&CK Navigator layer
-- [v2/data/atx-1-version-mapping.json](v2/data/atx-1-version-mapping.json) — Version mapping (v1.0 → v2.2)
+- [v2/data/atx-1-version-mapping.json](v2/data/atx-1-version-mapping.json) — Version mapping (v1.0 → v2.3)
 - [v2/data/atx-1-atm1-mapping.json](v2/data/atx-1-atm1-mapping.json) — ATX-1 ↔ ATM-1 mapping
 - [v2/data/atx-1-validation-aegis-core.json](v2/data/atx-1-validation-aegis-core.json) — aegis-core red/blue team validation results
 
@@ -105,7 +111,6 @@ ajv validate -s v2/schema/atx-technique.schema.json -d 'v2/data/atx-1-techniques
 The `v2/data/atx-1-techniques.json` file contains all 29 techniques as a flat JSON array. Each technique includes:
 
 - Technique ID, name, tactic, and description
-- Severity rating (critical/high/medium/low)
 - Structural root cause(s)
 - Case study references (Agents of Chaos and/or RFC-0006 adversarial testing)
 - OWASP LLM Top 10 mappings

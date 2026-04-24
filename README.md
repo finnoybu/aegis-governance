@@ -213,4 +213,4 @@ This repository is dual-licensed:
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*

@@ -5,7 +5,7 @@
 **Version:** 0.0.1\
 **Created:** 2026-03-08\
 **Updated:** 2026-03-08\
-**Author:** AEGIS Initiative, Finnoybu IP LLC\
+**Author:** AEGIS Initiative, AEGIS Operations LLC\
 **Repository:** aegis-governance\
 **Target milestone:** TBD\
 **Supersedes:** None\
@@ -35,4 +35,4 @@ Topics anticipated for this RFC:
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*

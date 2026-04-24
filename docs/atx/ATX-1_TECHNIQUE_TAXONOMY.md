@@ -2,11 +2,13 @@
 
 ## Adversarial Knowledge Base for Agentic AI Actor Behavior
 
-**Version:** 2.2.0\
-**Date:** 2026-04-01\
-**Status:** Active — v2.2 adds 29 sub-techniques under T9002 and T10001–T10004
-cataloging specific bypass methods discovered during RFC-0006 adversarial testing.\
-**Maintainer:** AEGIS Initiative — Finnoybu IP LLC\
+**Version:** 2.3.0\
+**Date:** 2026-04-24\
+**Status:** Active — v2.3 removes the `severity` field from technique definitions
+in alignment with MITRE ATT&CK and ATLAS conventions, which leave contextual
+scoring to the consumer. v2.2 introduced 29 sub-techniques under T9002 and
+T10001–T10004 (preserved unchanged in v2.3).\
+**Maintainer:** AEGIS Initiative — AEGIS Operations LLC\
 **License:** CC-BY-SA-4.0
 
 ---
@@ -603,8 +605,7 @@ These dimensions are orthogonal and collectively describe how agent behavior can
 
 ATX-1 v2.2 introduces sub-techniques — specific bypass methods that refine a parent
 technique. Sub-technique IDs use the format `T####.###` (e.g., `T10004.001`). All
-sub-techniques inherit the severity, root cause, and mitigation framing of their
-parent.
+sub-techniques inherit the root cause and mitigation framing of their parent.
 
 The 29 sub-techniques cataloged in v2.2 were discovered during RFC-0006
 adversarial testing and Rounds 5–9 of the aegis-core red/blue team validation.
@@ -655,7 +656,7 @@ adversarial testing and Rounds 5–9 of the aegis-core red/blue team validation.
 - **T10004.009** — Bypass protected path via path traversal (`../../`)
 - **T10004.010** — Redirect output to protected paths
 
-Full sub-technique definitions with descriptions, severity, and mitigations
+Full sub-technique definitions with descriptions and mitigations
 are in [`v2/data/atx-1-techniques.json`](v2/data/atx-1-techniques.json) and
 the [STIX 2.1 bundle](v2/stix/atx-1-bundle.json).
 

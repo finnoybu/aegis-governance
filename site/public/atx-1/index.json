@@ -5,7 +5,7 @@
   "date": "2026-04-10",
   "description": "A structured adversarial knowledge base for agentic AI behavior. 10 tactics, 58 techniques, mitigations, and root causes. Grounded in the Agents of Chaos study (Shapira et al., 2026) and RFC-0006 adversarial testing.",
   "license": "CC-BY-SA-4.0",
-  "publisher": "AEGIS Initiative / Finnoybu IP LLC",
+  "publisher": "AEGIS Initiative / AEGIS Operations LLC",
   "artifacts": [
     {
       "name": "STIX 2.1 Bundle",

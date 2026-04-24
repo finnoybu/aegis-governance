@@ -5,7 +5,7 @@
 **Version:** 0.1.0\
 **Created:** 2026-04-09\
 **Updated:** 2026-04-09\
-**Author:** AEGIS Initiative, Finnoybu IP LLC\
+**Author:** AEGIS Initiative, AEGIS Operations LLC\
 **Repository:** aegis-governance\
 **Target milestone:** Q3 2026\
 **Supersedes:** None\
@@ -984,4 +984,4 @@ AGAP-1 is successfully implemented when:
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*

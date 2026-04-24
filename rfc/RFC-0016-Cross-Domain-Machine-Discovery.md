@@ -5,7 +5,7 @@
 **Version:** 0.1.0\
 **Created:** 2026-03-30\
 **Updated:** 2026-03-30\
-**Author:** Ken Tannenbaum, AEGIS Initiative / Finnoybu IP LLC\
+**Author:** Ken Tannenbaum, AEGIS Initiative / AEGIS Operations LLC\
 **Repository:** All AEGIS sites (aegis-initiative, aegis-constitution, aegis-governance, aegis-docs, aegis-federation, aegis-platform)\
 **Target milestone:** Q2 2026\
 **Supersedes:** None\

@@ -168,4 +168,4 @@ In distributed deployments, revocation state may propagate at different speeds t
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*

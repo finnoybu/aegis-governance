@@ -5,7 +5,7 @@
 **Version:** 0.1.0\
 **Created:** 2026-03-29\
 **Updated:** 2026-03-29\
-**Author:** Ken Tannenbaum, AEGIS Initiative / Finnoybu IP LLC\
+**Author:** Ken Tannenbaum, AEGIS Initiative / AEGIS Operations LLC\
 **Repository:** aegis-governance, aegis-core, aegis-platform\
 **Target milestone:** Q2 2026\
 **Supersedes:** None\
@@ -287,4 +287,4 @@ PRs 2 and 3 can be opened in parallel. PR 4 depends on PR 3 being merged (CI che
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*

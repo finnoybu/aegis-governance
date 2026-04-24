@@ -200,7 +200,7 @@ See [`../CONTRIBUTING.md`](../CONTRIBUTING.md) for full guidelines.
 
 - **Copyright**: © 2026 AEGIS Initiative. All rights reserved.
 - **License**: See [`../LICENSE`](../LICENSE)
-- **Trademark**: AEGIS™ is a trademark of Finnoybu IP LLC. See [`../TRADEMARKS.md`](../TRADEMARKS.md)
+- **Trademark**: AEGIS™ is a trademark of AEGIS Operations LLC. See [`../TRADEMARKS.md`](../TRADEMARKS.md)
 
 ---
 

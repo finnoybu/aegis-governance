@@ -6,7 +6,7 @@
 **Version:** 0.2\
 **Created:** 2026-03-05\
 **Updated:** 2026-03-06\
-**Author:** AEGIS Initiative, Finnoybu IP LLC\
+**Author:** AEGIS Initiative, AEGIS Operations LLC\
 **Repository:** aegis-governance\
 **Target milestone:** v1.0\
 **Supersedes:** None\
@@ -218,4 +218,4 @@ The `deny_unknown_capability` hard deny invariant (Section 7) must be the first 
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*

@@ -42,7 +42,7 @@ Position papers should use a consistent header format that balances internal doc
 **Submitted to**: [Organization Name / Framework / Docket]  
 **Status**: Draft | Submitted | Acknowledged | Published  
 **Docket Number**: [If applicable]  
-**Steward**: Finnoybu IP LLC | AEGIS Initiative  
+**Steward**: AEGIS Operations LLC | AEGIS Initiative  
 
 **Repository**: [github.com/aegis-initiative/aegis-governance](https://github.com/aegis-initiative/aegis-governance)  
 **Constitution**: [aegissystems.app](https://aegissystems.app)
@@ -89,4 +89,4 @@ When adding position papers:
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*

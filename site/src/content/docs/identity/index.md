@@ -184,4 +184,4 @@ This specification uses the terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY as
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*

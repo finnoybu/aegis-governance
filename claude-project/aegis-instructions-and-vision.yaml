@@ -10,7 +10,7 @@ description: >
 project:
   name: AEGIS Initiative
   full_name: Architectural Enforcement & Governance of Intelligent Systems
-  owner: Kenneth Tannenbaum (Finnoybu IP LLC)
+  owner: Kenneth Tannenbaum (AEGIS Operations LLC)
   github: https://github.com/aegis-initiative/aegis-governance
   license: Apache 2.0
   ieee_member: "102220161"

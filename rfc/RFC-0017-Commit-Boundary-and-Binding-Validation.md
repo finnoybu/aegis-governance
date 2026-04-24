@@ -5,7 +5,7 @@
 **Version:** 0.1.0\
 **Created:** 2026-04-04\
 **Updated:** 2026-04-04\
-**Author:** Ken Tannenbaum, AEGIS Initiative / Finnoybu IP LLC\
+**Author:** Ken Tannenbaum, AEGIS Initiative / AEGIS Operations LLC\
 **Repository:** aegis-governance, aegis-core\
 **Target milestone:** Q3 2026\
 **Supersedes:** None\
@@ -290,4 +290,4 @@ Make `BIND_REQUEST` optional — agents can choose to skip it for low-risk actio
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — Finnoybu IP LLC*
+*AEGIS Initiative — AEGIS Operations LLC*
