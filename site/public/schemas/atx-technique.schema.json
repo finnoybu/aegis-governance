@@ -2,10 +2,17 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aegis-platform.net/schemas/atx/v2/atx-technique.schema.json",
   "title": "ATX-1 Technique Definition",
-  "description": "JSON Schema for ATX-1 v2.2 (AEGIS Threat Matrix) technique definitions. Each technique represents a specific failure mechanism in which an AI agent acts outside its governance boundaries. v2.2 introduces sub-techniques that catalog specific bypass methods within a parent technique.",
-  "schema_version": "2.2",
+  "description": "JSON Schema for ATX-1 v2.3 (AEGIS Threat Matrix) technique definitions. Each technique represents a specific failure mechanism in which an AI agent acts outside its governance boundaries. v2.3 removes the severity field in alignment with MITRE ATT&CK and ATLAS conventions, which leave contextual scoring to the consumer.",
+  "schema_version": "2.3",
   "type": "object",
-  "required": ["id", "name", "tactic", "description", "severity", "root_cause", "aegis_mitigation"],
+  "required": [
+    "id",
+    "name",
+    "tactic",
+    "description",
+    "root_cause",
+    "aegis_mitigation"
+  ],
   "properties": {
     "id": {
       "type": "string",
@@ -29,28 +36,30 @@
       "type": "string",
       "description": "Full description of the technique and how it manifests"
     },
-    "severity": {
-      "type": "string",
-      "enum": ["critical", "high", "medium", "low"],
-      "description": "Severity rating based on potential impact"
-    },
     "root_cause": {
       "type": "string",
       "description": "Structural root cause(s) from RC1-RC4 that enable this technique"
     },
     "agents_of_chaos_case": {
       "type": "array",
-      "items": { "type": "integer" },
+      "items": {
+        "type": "integer"
+      },
       "description": "Case study numbers from the Agents of Chaos research (Shapira et al., 2026)"
     },
     "owasp_mapping": {
       "type": "array",
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "description": "OWASP Top 10 for LLM Applications category mappings (e.g., LLM01, LLM06)"
     },
     "aegis_mitigation": {
       "type": "object",
-      "required": ["constitutional_article", "mechanism"],
+      "required": [
+        "constitutional_article",
+        "mechanism"
+      ],
       "properties": {
         "constitutional_article": {
           "type": "string",
@@ -67,7 +76,10 @@
       }
     },
     "v1_id": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "pattern": "^T[0-9]{4}$",
       "description": "The v1.0 technique ID this technique maps from (null for new techniques in v2.0)"
     },

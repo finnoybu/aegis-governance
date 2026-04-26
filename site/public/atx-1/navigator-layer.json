@@ -35,7 +35,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model) â€” No mechanism to verify that the instruction source holds authority for the requested action scope."
+          "value": "RC1 (No Stakeholder Model) — No mechanism to verify that the instruction source holds authority for the requested action scope."
         },
         {
           "name": "Tactic",
@@ -63,7 +63,7 @@
       "tactic": "violate-authority-boundaries",
       "score": 75,
       "color": "#b35900",
-      "comment": "The agent accepts an instruction as authoritative based on implicit signals â€” such as the instruction appearing in a retrieved document, email body, or shared context â€” rather than explicit delegation from a verified principal.",
+      "comment": "The agent accepts an instruction as authoritative based on implicit signals — such as the instruction appearing in a retrieved document, email body, or shared context — rather than explicit delegation from a verified principal.",
       "enabled": true,
       "metadata": [
         {
@@ -72,7 +72,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) â€” Instructions and data share a channel; no mechanism to verify instruction provenance."
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — Instructions and data share a channel; no mechanism to verify instruction provenance."
         },
         {
           "name": "Tactic",
@@ -109,7 +109,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) â€” No principal verification; authority claims in content treated as valid."
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — No principal verification; authority claims in content treated as valid."
         },
         {
           "name": "Tactic",
@@ -146,7 +146,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” Agent cannot evaluate whether expanded scope is within delegated authority; no deliberation surface to assess scope boundaries."
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate whether expanded scope is within delegated authority; no deliberation surface to assess scope boundaries."
         },
         {
           "name": "Tactic",
@@ -183,7 +183,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” Agent cannot assess aggregate impact of bulk actions; no proportionality check against instruction intent."
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot assess aggregate impact of bulk actions; no proportionality check against instruction intent."
         },
         {
           "name": "Tactic",
@@ -211,7 +211,7 @@
       "tactic": "exceed-operational-scope",
       "score": 75,
       "color": "#b35900",
-      "comment": "Harmful intent is decomposed across multiple delegated steps â€” including across multiple agents where no single agent has full visibility of the objective â€” such that no individual action appears unsafe.",
+      "comment": "Harmful intent is decomposed across multiple delegated steps — including across multiple agents where no single agent has full visibility of the objective — such that no individual action appears unsafe.",
       "enabled": true,
       "metadata": [
         {
@@ -220,7 +220,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” Agent cannot evaluate aggregate intent across delegation chains; no mechanism to detect composition attacks."
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate aggregate intent across delegation chains; no mechanism to detect composition attacks."
         },
         {
           "name": "Tactic",
@@ -257,7 +257,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” Agent cannot evaluate aggregate policy impact of chained tool calls; no compositional policy enforcement."
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — Agent cannot evaluate aggregate policy impact of chained tool calls; no compositional policy enforcement."
         },
         {
           "name": "Tactic",
@@ -294,7 +294,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model) â€” Agent cannot evaluate action severity or compare alternatives against a proportionality standard."
+          "value": "RC2 (No Self-Model) — Agent cannot evaluate action severity or compare alternatives against a proportionality standard."
         },
         {
           "name": "Tactic",
@@ -331,7 +331,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model) â€” Agent cannot model downstream effects of actions in interconnected systems; no cascade impact assessment."
+          "value": "RC2 (No Self-Model) — Agent cannot model downstream effects of actions in interconnected systems; no cascade impact assessment."
         },
         {
           "name": "Tactic",
@@ -368,7 +368,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) â€” No authorization check on data recipients; instructions in content treated as authorized requests."
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — No authorization check on data recipients; instructions in content treated as authorized requests."
         },
         {
           "name": "Tactic",
@@ -396,7 +396,7 @@
       "tactic": "expose-exfiltrate-information",
       "score": 75,
       "color": "#b35900",
-      "comment": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration â€” exposing data from previous interactions to unauthorized parties in later sessions.",
+      "comment": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration — exposing data from previous interactions to unauthorized parties in later sessions.",
       "enabled": true,
       "metadata": [
         {
@@ -405,7 +405,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC3 (No Private Deliberation Surface) â€” No session-scoped data isolation; persistent data accessible across session boundaries without authorization checks."
+          "value": "RC3 (No Private Deliberation Surface) — No session-scoped data isolation; persistent data accessible across session boundaries without authorization checks."
         },
         {
           "name": "Tactic",
@@ -442,7 +442,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model), RC3 (No Private Deliberation Surface) â€” No data classification across domain boundaries; no cross-domain transfer authorization."
+          "value": "RC1 (No Stakeholder Model), RC3 (No Private Deliberation Surface) — No data classification across domain boundaries; no cross-domain transfer authorization."
         },
         {
           "name": "Tactic",
@@ -479,7 +479,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model) â€” No model of the distinction between action initiation and action completion; no outcome verification protocol."
+          "value": "RC2 (No Self-Model) — No model of the distinction between action initiation and action completion; no outcome verification protocol."
         },
         {
           "name": "Tactic",
@@ -516,7 +516,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model) â€” No mechanism to distinguish between action performers; attribution based on context rather than verified provenance."
+          "value": "RC2 (No Self-Model) — No mechanism to distinguish between action performers; attribution based on context rather than verified provenance."
         },
         {
           "name": "Tactic",
@@ -544,7 +544,7 @@
       "tactic": "violate-state-integrity",
       "score": 50,
       "color": "#0969da",
-      "comment": "The agent suppresses, omits, or fails to surface an execution failure â€” whether caused by provider constraints, tool errors, or internal exceptions â€” resulting in a divergence between reported state and actual state.",
+      "comment": "The agent suppresses, omits, or fails to surface an execution failure — whether caused by provider constraints, tool errors, or internal exceptions — resulting in a divergence between reported state and actual state.",
       "enabled": true,
       "metadata": [
         {
@@ -553,7 +553,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model) â€” No model of constraint layers affecting the agent; failure signals not propagated to operator governance."
+          "value": "RC2 (No Self-Model) — No model of constraint layers affecting the agent; failure signals not propagated to operator governance."
         },
         {
           "name": "Tactic",
@@ -581,7 +581,7 @@
       "tactic": "abuse-resource-allocation",
       "score": 75,
       "color": "#b35900",
-      "comment": "The agent enters a recursive invocation loop â€” spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains â€” consuming unbounded compute, token, and time resources.",
+      "comment": "The agent enters a recursive invocation loop — spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains — consuming unbounded compute, token, and time resources.",
       "enabled": true,
       "metadata": [
         {
@@ -590,7 +590,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” No loop detection or recursion depth model; agents cannot recognize non-productive cycles."
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — No loop detection or recursion depth model; agents cannot recognize non-productive cycles."
         },
         {
           "name": "Tactic",
@@ -627,7 +627,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) â€” No model of resource boundaries; no lifecycle governance for external resource consumption."
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) — No model of resource boundaries; no lifecycle governance for external resource consumption."
         },
         {
           "name": "Tactic",
@@ -664,7 +664,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model) â€” No cryptographic identity verification between agents; identity claims based on self-assertion."
+          "value": "RC1 (No Stakeholder Model) — No cryptographic identity verification between agents; identity claims based on self-assertion."
         },
         {
           "name": "Tactic",
@@ -701,7 +701,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) â€” No independent governance verification; shared governance infrastructure creates single points of compromise."
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) — No independent governance verification; shared governance infrastructure creates single points of compromise."
         },
         {
           "name": "Tactic",
@@ -738,7 +738,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC3 (No Private Deliberation Surface) â€” No mechanism to isolate agent behavior from peer influence; behavioral norms adopted from interaction rather than governance."
+          "value": "RC3 (No Private Deliberation Surface) — No mechanism to isolate agent behavior from peer influence; behavioral norms adopted from interaction rather than governance."
         },
         {
           "name": "Tactic",
@@ -775,7 +775,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC3 (No Private Deliberation Surface) â€” No mechanism to detect anomalous convergence in multi-agent decision-making; consensus accepted without independent verification."
+          "value": "RC3 (No Private Deliberation Surface) — No mechanism to detect anomalous convergence in multi-agent decision-making; consensus accepted without independent verification."
         },
         {
           "name": "Tactic",
@@ -812,7 +812,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC4 (Prompt Injection Is Structural) â€” No integrity verification for persistent memory writes; memory content treated as trusted regardless of provenance."
+          "value": "RC4 (Prompt Injection Is Structural) — No integrity verification for persistent memory writes; memory content treated as trusted regardless of provenance."
         },
         {
           "name": "Tactic",
@@ -849,7 +849,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC4 (Prompt Injection Is Structural) â€” Governance configuration stored in mutable locations; no integrity verification or tamper detection for policy state."
+          "value": "RC4 (Prompt Injection Is Structural) — Governance configuration stored in mutable locations; no integrity verification or tamper detection for policy state."
         },
         {
           "name": "Tactic",
@@ -877,7 +877,7 @@
       "tactic": "evade-detection-oversight",
       "score": 50,
       "color": "#0969da",
-      "comment": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems â€” whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
+      "comment": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems — whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
       "enabled": true,
       "metadata": [
         {
@@ -886,7 +886,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC2 (No Self-Model) â€” No model of the observability boundaries affecting the agent; agent cannot distinguish monitored from unmonitored pathways."
+          "value": "RC2 (No Self-Model) — No model of the observability boundaries affecting the agent; agent cannot distinguish monitored from unmonitored pathways."
         },
         {
           "name": "Tactic",
@@ -923,7 +923,7 @@
         },
         {
           "name": "Root Cause",
-          "value": "RC4 (Prompt Injection Is Structural) â€” Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording."
+          "value": "RC4 (Prompt Injection Is Structural) — Audit infrastructure accessible to the agent; no structural separation between action execution and audit recording."
         },
         {
           "name": "Tactic",

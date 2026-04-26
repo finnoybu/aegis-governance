@@ -7,7 +7,6 @@
   "license": "CC-BY-SA-4.0",
   "doi": "10.5281/zenodo.19342905",
   "doi_all_versions": "10.5281/zenodo.19342904",
-
   "methodology": {
     "type": "adversarial_red_blue_team",
     "target": "aegis-core v0.1.1b2 (Python reference implementation)",
@@ -19,7 +18,6 @@
     "blue_team_changes": 30,
     "framework_alignment": "MITRE ATT&CK methodology (Strom et al., 2020)"
   },
-
   "coverage": {
     "techniques_total": 29,
     "techniques_covered": 25,
@@ -29,39 +27,211 @@
     "attack_vectors_covered": "6/6 applicable (AV-6 N/A at engine layer)",
     "security_properties_covered": "5/5"
   },
-
   "technique_results": [
-    {"id": "T1001", "status": "covered", "test": "test_gateway_bypass_blocked_by_engine_validation", "finding": "RT-001", "result": "Fixed (BT-011: defense-in-depth engine validation)"},
-    {"id": "T1002", "status": "covered", "test": "test_request_replay_same_id", "finding": "RT-005", "result": "Fixed (BT-003: replay detection)"},
-    {"id": "T1003", "status": "covered", "test": "test_t1003_mass_action_via_bulk_grant", "finding": "RT-011", "result": "Confirmed — deferred to v0.2.0 (rate governance)"},
-    {"id": "T2001", "status": "covered", "test": "test_wildcard_capability_grants_universal_access", "finding": null, "result": "Confirmed — overly broad patterns grant universal access"},
-    {"id": "T2002", "status": "covered", "test": "test_t2002_bulk_operations_no_aggregate_check", "finding": "RT-012", "result": "Confirmed — deferred to v0.2.0 (aggregate detection)"},
-    {"id": "T2003", "status": "covered", "test": "test_t2003_delegation_chain_obscures_intent", "finding": "RT-013", "result": "Confirmed — deferred to v0.2.0 (cross-agent correlation)"},
-    {"id": "T2004", "status": "covered", "test": "test_expired_capability_access", "finding": null, "result": "Control validated — expired capabilities correctly denied"},
-    {"id": "T3001", "status": "covered", "test": "test_t3001_destructive_action_no_proportionality_check", "finding": "RT-014", "result": "Confirmed — deferred to v0.2.0 (risk engine)"},
-    {"id": "T3002", "status": "partial", "test": "test_t3002_cascading_actions_no_impact_analysis", "finding": null, "result": "Partial — requires multi-system integration testing"},
-    {"id": "T4001", "status": "not_applicable", "test": null, "finding": null, "result": "Requires agent integration layer (actual data flow)"},
-    {"id": "T4002", "status": "not_applicable", "test": null, "finding": null, "result": "Requires persistent agent memory across sessions"},
-    {"id": "T4003", "status": "not_applicable", "test": null, "finding": null, "result": "Requires multi-domain deployment with trust boundaries"},
-    {"id": "T5001", "status": "partial", "test": null, "finding": null, "result": "Requires agent-level reporting behavior testing"},
-    {"id": "T5002", "status": "covered", "test": "test_t5002_fabricate_attribution_via_agent_id", "finding": "RT-015", "result": "Confirmed — deferred to v0.2.0 (transport auth, RFC-0002)"},
-    {"id": "T5003", "status": "covered", "test": "test_t5003_tool_failure_now_audited", "finding": "RT-016", "result": "Fixed (BT-008: execution failure audit recording)"},
-    {"id": "T6001", "status": "covered", "test": "test_t6001_recursive_tool_proxy_blocked", "finding": "RT-017", "result": "Fixed (BT-006: max_call_depth=32)"},
-    {"id": "T6002", "status": "covered", "test": "test_oversized_parameters_rejected", "finding": "RT-008", "result": "Fixed (BT-004: 1MB parameter size limit)"},
-    {"id": "T7001", "status": "covered", "test": "test_multi_agent_concurrent_flood", "finding": null, "result": "Concurrent access validated — thread safety holds"},
-    {"id": "T7002", "status": "covered", "test": "test_t7002_delegation_chain_privilege_escalation", "finding": "RT-018", "result": "Confirmed — deferred to v0.2.0 (per-hop auth, RFC-0002)"},
-    {"id": "T7003", "status": "not_applicable", "test": null, "finding": null, "result": "Requires agent longitudinal behavioral testing"},
-    {"id": "T7004", "status": "covered", "test": "test_t7004_concurrent_agents_no_cross_correlation", "finding": "RT-019", "result": "Confirmed — deferred to v0.2.0 (anomaly detection)"},
-    {"id": "T8001", "status": "covered", "test": "test_t8001_poison_audit_via_crafted_parameters", "finding": "RT-020", "result": "Closed as intended — audit stores evidence verbatim"},
-    {"id": "T8002", "status": "covered", "test": "test_policy_priority_manipulation", "finding": "RT-006, RT-010", "result": "Fixed (BT-012: freeze/unseal governance state locking)"},
-    {"id": "T9001", "status": "covered", "test": "test_gateway_bypass_blocked_by_engine_validation", "finding": "RT-001", "result": "Fixed (BT-011: defense-in-depth engine validation)"},
-    {"id": "T9002", "status": "covered", "test": "test_policy_condition_exception_consistency, test_audit_record_modification_via_raw_sql", "finding": "RT-004, RT-009", "result": "Partially fixed (BT-002: consistent exceptions). Audit integrity deferred to v0.2.0."},
-    {"id": "T10001", "status": "covered", "test": "test_path_traversal_in_capability_targets", "finding": "RT-002", "result": "Fixed (BT-001: posixpath.normpath)"},
-    {"id": "T10002", "status": "covered", "test": "test_t10002_auto_execution_file_targets_blocked", "finding": "RT-022", "result": "Fixed (BT-010: sensitive path registry)"},
-    {"id": "T10003", "status": "covered", "test": "test_t10003_write_to_agent_instruction_files_blocked", "finding": "RT-023", "result": "Fixed (BT-010: instruction file protection)"},
-    {"id": "T10004", "status": "covered", "test": "test_t10004_parser_divergence_blocked", "finding": "RT-021", "result": "Fixed (BT-009: shell metacharacter detection)"}
+    {
+      "id": "T1001",
+      "status": "covered",
+      "test": "test_gateway_bypass_blocked_by_engine_validation",
+      "finding": "RT-001",
+      "result": "Fixed (BT-011: defense-in-depth engine validation)"
+    },
+    {
+      "id": "T1002",
+      "status": "covered",
+      "test": "test_request_replay_same_id",
+      "finding": "RT-005",
+      "result": "Fixed (BT-003: replay detection)"
+    },
+    {
+      "id": "T1003",
+      "status": "covered",
+      "test": "test_t1003_mass_action_via_bulk_grant",
+      "finding": "RT-011",
+      "result": "Confirmed — deferred to v0.2.0 (rate governance)"
+    },
+    {
+      "id": "T2001",
+      "status": "covered",
+      "test": "test_wildcard_capability_grants_universal_access",
+      "finding": null,
+      "result": "Confirmed — overly broad patterns grant universal access"
+    },
+    {
+      "id": "T2002",
+      "status": "covered",
+      "test": "test_t2002_bulk_operations_no_aggregate_check",
+      "finding": "RT-012",
+      "result": "Confirmed — deferred to v0.2.0 (aggregate detection)"
+    },
+    {
+      "id": "T2003",
+      "status": "covered",
+      "test": "test_t2003_delegation_chain_obscures_intent",
+      "finding": "RT-013",
+      "result": "Confirmed — deferred to v0.2.0 (cross-agent correlation)"
+    },
+    {
+      "id": "T2004",
+      "status": "covered",
+      "test": "test_expired_capability_access",
+      "finding": null,
+      "result": "Control validated — expired capabilities correctly denied"
+    },
+    {
+      "id": "T3001",
+      "status": "covered",
+      "test": "test_t3001_destructive_action_no_proportionality_check",
+      "finding": "RT-014",
+      "result": "Confirmed — deferred to v0.2.0 (risk engine)"
+    },
+    {
+      "id": "T3002",
+      "status": "partial",
+      "test": "test_t3002_cascading_actions_no_impact_analysis",
+      "finding": null,
+      "result": "Partial — requires multi-system integration testing"
+    },
+    {
+      "id": "T4001",
+      "status": "not_applicable",
+      "test": null,
+      "finding": null,
+      "result": "Requires agent integration layer (actual data flow)"
+    },
+    {
+      "id": "T4002",
+      "status": "not_applicable",
+      "test": null,
+      "finding": null,
+      "result": "Requires persistent agent memory across sessions"
+    },
+    {
+      "id": "T4003",
+      "status": "not_applicable",
+      "test": null,
+      "finding": null,
+      "result": "Requires multi-domain deployment with trust boundaries"
+    },
+    {
+      "id": "T5001",
+      "status": "partial",
+      "test": null,
+      "finding": null,
+      "result": "Requires agent-level reporting behavior testing"
+    },
+    {
+      "id": "T5002",
+      "status": "covered",
+      "test": "test_t5002_fabricate_attribution_via_agent_id",
+      "finding": "RT-015",
+      "result": "Confirmed — deferred to v0.2.0 (transport auth, RFC-0002)"
+    },
+    {
+      "id": "T5003",
+      "status": "covered",
+      "test": "test_t5003_tool_failure_now_audited",
+      "finding": "RT-016",
+      "result": "Fixed (BT-008: execution failure audit recording)"
+    },
+    {
+      "id": "T6001",
+      "status": "covered",
+      "test": "test_t6001_recursive_tool_proxy_blocked",
+      "finding": "RT-017",
+      "result": "Fixed (BT-006: max_call_depth=32)"
+    },
+    {
+      "id": "T6002",
+      "status": "covered",
+      "test": "test_oversized_parameters_rejected",
+      "finding": "RT-008",
+      "result": "Fixed (BT-004: 1MB parameter size limit)"
+    },
+    {
+      "id": "T7001",
+      "status": "covered",
+      "test": "test_multi_agent_concurrent_flood",
+      "finding": null,
+      "result": "Concurrent access validated — thread safety holds"
+    },
+    {
+      "id": "T7002",
+      "status": "covered",
+      "test": "test_t7002_delegation_chain_privilege_escalation",
+      "finding": "RT-018",
+      "result": "Confirmed — deferred to v0.2.0 (per-hop auth, RFC-0002)"
+    },
+    {
+      "id": "T7003",
+      "status": "not_applicable",
+      "test": null,
+      "finding": null,
+      "result": "Requires agent longitudinal behavioral testing"
+    },
+    {
+      "id": "T7004",
+      "status": "covered",
+      "test": "test_t7004_concurrent_agents_no_cross_correlation",
+      "finding": "RT-019",
+      "result": "Confirmed — deferred to v0.2.0 (anomaly detection)"
+    },
+    {
+      "id": "T8001",
+      "status": "covered",
+      "test": "test_t8001_poison_audit_via_crafted_parameters",
+      "finding": "RT-020",
+      "result": "Closed as intended — audit stores evidence verbatim"
+    },
+    {
+      "id": "T8002",
+      "status": "covered",
+      "test": "test_policy_priority_manipulation",
+      "finding": "RT-006, RT-010",
+      "result": "Fixed (BT-012: freeze/unseal governance state locking)"
+    },
+    {
+      "id": "T9001",
+      "status": "covered",
+      "test": "test_gateway_bypass_blocked_by_engine_validation",
+      "finding": "RT-001",
+      "result": "Fixed (BT-011: defense-in-depth engine validation)"
+    },
+    {
+      "id": "T9002",
+      "status": "covered",
+      "test": "test_policy_condition_exception_consistency, test_audit_record_modification_via_raw_sql",
+      "finding": "RT-004, RT-009",
+      "result": "Partially fixed (BT-002: consistent exceptions). Audit integrity deferred to v0.2.0."
+    },
+    {
+      "id": "T10001",
+      "status": "covered",
+      "test": "test_path_traversal_in_capability_targets",
+      "finding": "RT-002",
+      "result": "Fixed (BT-001: posixpath.normpath)"
+    },
+    {
+      "id": "T10002",
+      "status": "covered",
+      "test": "test_t10002_auto_execution_file_targets_blocked",
+      "finding": "RT-022",
+      "result": "Fixed (BT-010: sensitive path registry)"
+    },
+    {
+      "id": "T10003",
+      "status": "covered",
+      "test": "test_t10003_write_to_agent_instruction_files_blocked",
+      "finding": "RT-023",
+      "result": "Fixed (BT-010: instruction file protection)"
+    },
+    {
+      "id": "T10004",
+      "status": "covered",
+      "test": "test_t10004_parser_divergence_blocked",
+      "finding": "RT-021",
+      "result": "Fixed (BT-009: shell metacharacter detection)"
+    }
   ],
-
   "taxonomy_assessment": {
     "new_techniques_proposed": 0,
     "new_subtechniques_proposed": 0,

@@ -10,7 +10,7 @@
       "modified": "2026-03-26T00:00:00.000Z",
       "name": "AEGIS Initiative",
       "identity_class": "organization",
-      "description": "AEGIS Operations LLC â€” creators of the AEGIS governance architecture"
+      "description": "AEGIS Operations LLC — creators of the AEGIS governance architecture"
     },
     {
       "type": "x-mitre-tactic",
@@ -83,7 +83,7 @@
       "created": "2026-03-26T00:00:00.000Z",
       "modified": "2026-03-26T00:00:00.000Z",
       "name": "Violate State Integrity",
-      "description": "The agent reports, represents, or records system state that diverges from actual state â€” whether through false completion reports, fabricated attribution, or suppressed failure signals. Exploits State and Observability primitives.",
+      "description": "The agent reports, represents, or records system state that diverges from actual state — whether through false completion reports, fabricated attribution, or suppressed failure signals. Exploits State and Observability primitives.",
       "x_mitre_shortname": "violate-state-integrity",
       "external_references": [
         {
@@ -178,7 +178,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #1 â€” Email deletion on user request without owner authorization"
+          "description": "Case Study #1 — Email deletion on user request without owner authorization"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -195,7 +195,7 @@
       "modified": "2026-03-26T00:00:00.000Z",
       "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
       "name": "Infer Implicit Authority",
-      "description": "The agent accepts an instruction as authoritative based on implicit signals â€” such as the instruction appearing in a retrieved document, email body, or shared context â€” rather than explicit delegation from a verified principal.",
+      "description": "The agent accepts an instruction as authoritative based on implicit signals — such as the instruction appearing in a retrieved document, email body, or shared context — rather than explicit delegation from a verified principal.",
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
@@ -209,7 +209,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #2 â€” Bulk data export on indirect request"
+          "description": "Case Study #2 — Bulk data export on indirect request"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -240,7 +240,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #11 â€” Mass distribution under spoofed authority"
+          "description": "Case Study #11 — Mass distribution under spoofed authority"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -276,7 +276,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #3 â€” Autonomous scope expansion beyond delegated boundaries"
+          "description": "Case Study #3 — Autonomous scope expansion beyond delegated boundaries"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -307,7 +307,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #1 â€” Bulk operations without scope validation"
+          "description": "Case Study #1 — Bulk operations without scope validation"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -370,7 +370,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #1 â€” Irreversible deletion when archival would suffice"
+          "description": "Case Study #1 — Irreversible deletion when archival would suffice"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -401,7 +401,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #7 â€” Cascading system changes with unauthorized downstream effects"
+          "description": "Case Study #7 — Cascading system changes with unauthorized downstream effects"
         }
       ]
     },
@@ -427,7 +427,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #2 â€” Context-scoped data exfiltration to unauthorized requestor"
+          "description": "Case Study #2 — Context-scoped data exfiltration to unauthorized requestor"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -444,7 +444,7 @@
       "modified": "2026-03-26T00:00:00.000Z",
       "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
       "name": "Leak Cross-Session or Persistent Data",
-      "description": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration â€” exposing data from previous interactions to unauthorized parties in later sessions.",
+      "description": "The agent discloses information that persists across sessions or is stored in long-term memory, context, or configuration — exposing data from previous interactions to unauthorized parties in later sessions.",
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
@@ -458,7 +458,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #3 â€” Cross-session data leakage to unauthorized parties"
+          "description": "Case Study #3 — Cross-session data leakage to unauthorized parties"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -489,7 +489,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #1 â€” False task completion confirmation"
+          "description": "Case Study #1 — False task completion confirmation"
         }
       ]
     },
@@ -515,7 +515,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #8 â€” Fabricated action attribution corrupting audit trail"
+          "description": "Case Study #8 — Fabricated action attribution corrupting audit trail"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -532,7 +532,7 @@
       "modified": "2026-03-26T00:00:00.000Z",
       "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
       "name": "Suppress or Omit Execution Failure",
-      "description": "The agent suppresses, omits, or fails to surface an execution failure â€” whether caused by provider constraints, tool errors, or internal exceptions â€” resulting in a divergence between reported state and actual state.",
+      "description": "The agent suppresses, omits, or fails to surface an execution failure — whether caused by provider constraints, tool errors, or internal exceptions — resulting in a divergence between reported state and actual state.",
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
@@ -546,7 +546,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #6 â€” Silent execution failure suppression"
+          "description": "Case Study #6 — Silent execution failure suppression"
         }
       ]
     },
@@ -558,7 +558,7 @@
       "modified": "2026-03-26T00:00:00.000Z",
       "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
       "name": "Execute Recursive Invocation Loops",
-      "description": "The agent enters a recursive invocation loop â€” spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains â€” consuming unbounded compute, token, and time resources.",
+      "description": "The agent enters a recursive invocation loop — spawning sub-tasks, calling tools repeatedly, or triggering self-referential execution chains — consuming unbounded compute, token, and time resources.",
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
@@ -572,7 +572,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #4 â€” Recursive invocation loops consuming unbounded resources"
+          "description": "Case Study #4 — Recursive invocation loops consuming unbounded resources"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -608,7 +608,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #5 â€” Unbounded external resource consumption"
+          "description": "Case Study #5 — Unbounded external resource consumption"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -639,7 +639,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #9 â€” Agent identity spoofing in multi-agent context"
+          "description": "Case Study #9 — Agent identity spoofing in multi-agent context"
         }
       ]
     },
@@ -665,7 +665,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #10 â€” Malicious delegation chain injection"
+          "description": "Case Study #10 — Malicious delegation chain injection"
         }
       ]
     },
@@ -718,7 +718,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #10 â€” Persistent memory poisoning"
+          "description": "Case Study #10 — Persistent memory poisoning"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -749,7 +749,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #10 â€” Governance/policy state corruption via indirect means"
+          "description": "Case Study #10 — Governance/policy state corruption via indirect means"
         },
         {
           "source_name": "owasp-llm-top-10",
@@ -766,7 +766,7 @@
       "modified": "2026-03-26T00:00:00.000Z",
       "created_by_ref": "identity--c83a7f73-3858-5755-b886-c602b796e256",
       "name": "Operate Outside Monitoring Boundaries",
-      "description": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems â€” whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
+      "description": "The agent performs actions outside the boundaries of monitoring, logging, and audit systems — whether by using unmonitored tool pathways, operating in contexts where observability is limited, or exploiting gaps in the monitoring infrastructure.",
       "kill_chain_phases": [
         {
           "kill_chain_name": "atx-1",
@@ -780,7 +780,7 @@
         },
         {
           "source_name": "agents-of-chaos",
-          "description": "Case Study #6 â€” Operations outside monitoring boundaries"
+          "description": "Case Study #6 — Operations outside monitoring boundaries"
         }
       ]
     },

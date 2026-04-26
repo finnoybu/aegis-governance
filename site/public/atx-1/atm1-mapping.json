@@ -7,10 +7,27 @@
   "license": "CC-BY-SA-4.0",
   "coverage": {
     "atx_version": "2.2",
-    "covered_tactics": ["TA001", "TA002", "TA003", "TA004", "TA005", "TA006", "TA007", "TA008", "TA009"],
+    "covered_tactics": [
+      "TA001",
+      "TA002",
+      "TA003",
+      "TA004",
+      "TA005",
+      "TA006",
+      "TA007",
+      "TA008",
+      "TA009"
+    ],
     "deferred": {
-      "tactics": ["TA010"],
-      "techniques": ["T10001", "T10002", "T10003", "T10004"],
+      "tactics": [
+        "TA010"
+      ],
+      "techniques": [
+        "T10001",
+        "T10002",
+        "T10003",
+        "T10004"
+      ],
       "reason": "TA010 (Bypass Governance Controls) technique-level ATM-1 vector mappings deferred to v0.3. Control coverage for TA010 is provided via ACF-1 entries; see aegis-governance/docs/acf for the ACF-1 catalog."
     }
   },
