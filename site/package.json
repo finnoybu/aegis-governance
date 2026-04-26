@@ -6,12 +6,14 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "predev": "node scripts/sync-references.mjs",
+    "predev": "node scripts/sync-references.mjs && node scripts/sync-atx.mjs",
     "dev": "astro dev",
-    "prebuild": "node scripts/sync-references.mjs",
+    "prebuild": "node scripts/sync-references.mjs && node scripts/sync-atx.mjs",
     "build": "astro build",
     "preview": "astro preview",
-    "sync-references": "node scripts/sync-references.mjs"
+    "sync-references": "node scripts/sync-references.mjs",
+    "sync-atx": "node scripts/sync-atx.mjs",
+    "sync-atx:check": "node scripts/sync-atx.mjs --check"
   },
   "dependencies": {
     "@aegis-initiative/design-system": "^0.7.0",

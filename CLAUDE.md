@@ -139,6 +139,13 @@ Canonical files are authoritative. All other documents must **link**, not restat
 | AIAM-1 specification suite | `aiam/AEGIS_AIAM1_INDEX.md` |
 | AIAM-1 position paper | `docs/position-papers/aiam/AIAM-1-position-paper-v0.1.md` |
 | AIAM-1 JSON schemas | `aegis-core/schemas/aiam/` |
+| ATX-1 spec metadata + artifact list | `docs/atx/v2/atx-meta.json` |
+| ATX-1 technique data (v2.3) | `docs/atx/v2/data/atx-1-techniques.json` |
+| ATX-1 site/public deploy script | `site/scripts/sync-atx.mjs` (runs in `predev`/`prebuild`; `--check` for CI drift detection) |
+
+`site/public/atx-1/*` and `site/public/schemas/atx-technique.schema.json` are BUILD OUTPUTS — do not edit by hand. Bump `atx-meta.json#version` and re-run `npm run sync-atx` instead.
+
+A one-shot fixer (`scripts/fix-atx-source-encoding.mjs`) is on hand for the cp1252 mojibake pattern that crept in when ATX-1 source files were re-saved with a non-UTF-8-aware editor. `sync-atx.mjs` refuses to propagate mojibake — fix the source first.
 
 ---
 

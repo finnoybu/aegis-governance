@@ -1,4 +1,5 @@
 {
+  "$comment": "Single source of truth for ATX-1 spec metadata. Consumed by site/scripts/sync-atx.mjs to copy data files into site/public/atx-1/ and synthesize site/public/atx-1/index.json. When bumping versions or adding artifacts, edit THIS file — never edit site/public/atx-1/index.json directly.",
   "name": "ATX-1",
   "full_name": "AEGIS Threat Matrix — Agentic Exploitation and Governance Intelligence Schema",
   "version": "2.3.0",
@@ -6,68 +7,91 @@
   "description": "A structured adversarial knowledge base for agentic AI behavior. 10 tactics, 58 techniques, mitigations, and root causes. Grounded in the Agents of Chaos study (Shapira et al., 2026) and RFC-0006 adversarial testing.",
   "license": "CC-BY-SA-4.0",
   "publisher": "AEGIS Initiative / AEGIS Operations LLC",
-  "artifacts": [
-    {
-      "name": "STIX 2.1 Bundle",
-      "description": "Complete taxonomy in STIX 2.1 format — tactics, techniques, mitigations, and relationships",
-      "path": "/atx-1/stix-bundle.json",
-      "format": "application/json",
-      "spec": "STIX 2.1 (OASIS)"
-    },
-    {
-      "name": "Technique Database",
-      "description": "All 58 techniques with root cause, case studies, OWASP mapping, and AEGIS mitigations",
-      "path": "/atx-1/techniques.json",
-      "format": "application/json"
-    },
-    {
-      "name": "Regulatory Cross-Reference",
-      "description": "Techniques mapped to NIST AI RMF, EU AI Act, OWASP LLM Top 10, and ATM-1 scenarios",
-      "path": "/atx-1/regulatory-crossref.json",
-      "format": "application/json"
-    },
-    {
-      "name": "Technique JSON Schema",
-      "description": "JSON Schema (Draft 2020-12) for validating ATX-1 technique definitions",
-      "path": "/schemas/atx-technique.schema.json",
-      "format": "application/schema+json"
-    },
-    {
-      "name": "ATT&CK Navigator Layer",
-      "description": "Navigator-compatible layer file (v4.5) for visualization in ATT&CK Navigator",
-      "path": "/atx-1/navigator-layer.json",
-      "format": "application/json"
-    },
-    {
-      "name": "ATM-1 Mapping",
-      "description": "Bidirectional mapping between ATX-1 techniques and MITRE ATT&CK (ATM-1)",
-      "path": "/atx-1/atm1-mapping.json",
-      "format": "application/json"
-    },
-    {
-      "name": "ACF-1 Counterfactual Bundle",
-      "description": "AEGIS Counterfactual Framework bundle — what-if scenarios for technique interactions",
-      "path": "/atx-1/acf-1-bundle.json",
-      "format": "application/json"
-    },
-    {
-      "name": "Validation — aegis-core",
-      "description": "Validation test results for ATX-1 techniques against aegis-core runtime",
-      "path": "/atx-1/validation-aegis-core.json",
-      "format": "application/json"
-    },
-    {
-      "name": "Version Mapping",
-      "description": "Version history and technique lifecycle tracking across ATX-1 releases",
-      "path": "/atx-1/version-mapping.json",
-      "format": "application/json"
-    }
-  ],
-  "source": "https://github.com/aegis-initiative/aegis-governance/tree/main/docs/atx",
+  "source_repo": "https://github.com/aegis-initiative/aegis-governance/tree/main/docs/atx",
   "citation": {
     "ieee": "K. Tannenbaum, \"AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents,\" AEGIS Initiative, 2026, doi: 10.5281/zenodo.19223924.",
     "doi_preprint": "10.5281/zenodo.19223924",
     "doi_atx1_v2.1": "10.5281/zenodo.19251098",
     "doi_atx1_v2.2": "10.5281/zenodo.19483999"
-  }
+  },
+  "expected_counts": {
+    "tactics": 10,
+    "techniques": 58
+  },
+  "artifacts": [
+    {
+      "key": "stix-bundle",
+      "name": "STIX 2.1 Bundle",
+      "description": "Complete taxonomy in STIX 2.1 format — tactics, techniques, mitigations, and relationships",
+      "src": "stix/atx-1-bundle.json",
+      "dst": "atx-1/stix-bundle.json",
+      "format": "application/json",
+      "spec": "STIX 2.1 (OASIS)"
+    },
+    {
+      "key": "techniques",
+      "name": "Technique Database",
+      "description": "All 58 techniques with root cause, case studies, OWASP mapping, and AEGIS mitigations",
+      "src": "data/atx-1-techniques.json",
+      "dst": "atx-1/techniques.json",
+      "format": "application/json"
+    },
+    {
+      "key": "regulatory-crossref",
+      "name": "Regulatory Cross-Reference",
+      "description": "Techniques mapped to NIST AI RMF, EU AI Act, OWASP LLM Top 10, and ATM-1 scenarios",
+      "src": "data/atx-1-regulatory-crossref.json",
+      "dst": "atx-1/regulatory-crossref.json",
+      "format": "application/json"
+    },
+    {
+      "key": "schema",
+      "name": "Technique JSON Schema",
+      "description": "JSON Schema (Draft 2020-12) for validating ATX-1 technique definitions",
+      "src": "schema/atx-technique.schema.json",
+      "dst": "schemas/atx-technique.schema.json",
+      "public_path": "/schemas/atx-technique.schema.json",
+      "format": "application/schema+json"
+    },
+    {
+      "key": "navigator-layer",
+      "name": "ATT&CK Navigator Layer",
+      "description": "Navigator-compatible layer file (v4.5) for visualization in ATT&CK Navigator",
+      "src": "data/atx-1-navigator-layer.json",
+      "dst": "atx-1/navigator-layer.json",
+      "format": "application/json"
+    },
+    {
+      "key": "atm1-mapping",
+      "name": "ATM-1 Mapping",
+      "description": "Bidirectional mapping between ATX-1 techniques and MITRE ATT&CK (ATM-1)",
+      "src": "data/atx-1-atm1-mapping.json",
+      "dst": "atx-1/atm1-mapping.json",
+      "format": "application/json"
+    },
+    {
+      "key": "acf-1-bundle",
+      "name": "ACF-1 Counterfactual Bundle",
+      "description": "AEGIS Counterfactual Framework bundle — what-if scenarios for technique interactions",
+      "src": "acf/acf-1-bundle.json",
+      "dst": "atx-1/acf-1-bundle.json",
+      "format": "application/json"
+    },
+    {
+      "key": "validation-aegis-core",
+      "name": "Validation — aegis-core",
+      "description": "Validation test results for ATX-1 techniques against aegis-core runtime",
+      "src": "data/atx-1-validation-aegis-core.json",
+      "dst": "atx-1/validation-aegis-core.json",
+      "format": "application/json"
+    },
+    {
+      "key": "version-mapping",
+      "name": "Version Mapping",
+      "description": "Version history and technique lifecycle tracking across ATX-1 releases",
+      "src": "data/atx-1-version-mapping.json",
+      "dst": "atx-1/version-mapping.json",
+      "format": "application/json"
+    }
+  ]
 }
