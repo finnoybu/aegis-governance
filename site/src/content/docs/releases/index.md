@@ -11,6 +11,7 @@ Release notes start in April 2026 with the introduction of the auto-release pipe
 
 ### [April](/releases/26/4/)
 
+- [v26.4.26](/releases/26/4/#release--v26426) — Added technical terms to spell-check dictionary
 - [v26.4.25](/releases/26/4/#release--v26425) — Moved Area of Concern lab executive summary to aegis-labs repository
 - [v26.4.24](/releases/26/4/#release--v26424) — Updated attribution and references to Finnoybu in technical documentation
 - [v26.4.21](/releases/26/4/#release--v26421) — Archived AGT outreach thread and automated references sync
