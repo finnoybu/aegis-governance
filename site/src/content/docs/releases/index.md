@@ -9,6 +9,11 @@ Release notes start in April 2026 with the introduction of the auto-release pipe
 
 ## 2026
 
+
+### [May](/releases/26/4/)
+
+- [v26.4.30](/releases/26/4/#release--v26430) — Moved federation content to dedicated site with redirects
+
 ### [April](/releases/26/4/)
 
 - [v26.4.29](/releases/26/4/#release--v26429) — Added sitemap index to robots.txt for better search discoverability
