@@ -64,6 +64,25 @@ import AegisWordmark from '@aegis-initiative/design-system/components/AegisWordm
     }
   }
   </script>
+
+  <!-- Organization + ecosystem sameAs (cross-site SEO signal) -->
+  <script is:inline type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AEGIS Initiative",
+    "url": "https://aegis-initiative.com",
+    "sameAs": [
+      "https://aegis-initiative.com",
+      "https://aegis-constitution.com",
+      "https://aegis-governance.com",
+      "https://aegis-docs.com",
+      "https://aegis-federation.com",
+      "https://aegis-labs.dev",
+      "https://github.com/aegis-initiative"
+    ]
+  }
+  </script>
 </head>
 <body>
   <Header />

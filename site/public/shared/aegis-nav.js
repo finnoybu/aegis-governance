@@ -19,7 +19,7 @@
     { id: 'governance',   label: 'Governance',   domain: 'aegis-governance.com',   url: 'https://aegis-governance.com',   visible: true },
     { id: 'docs',         label: 'Docs',         domain: 'aegis-docs.com',         url: 'https://aegis-docs.com',         visible: true },
     { id: 'federation',   label: 'Federation',   domain: 'aegis-federation.com',   url: 'https://aegis-federation.com',   visible: true },
-    { id: 'labs',         label: 'Labs',         domain: 'aegis-labs.dev',         url: 'https://aegis-labs.dev',         visible: false },
+    { id: 'labs',         label: 'Labs',         domain: 'aegis-labs.dev',         url: 'https://aegis-labs.dev',         visible: true },
     { id: 'sdk',          label: 'SDK',          domain: 'aegis-sdk.dev',          url: 'https://aegis-sdk.dev',          visible: false },
     { id: 'platform',     label: 'Platform',     domain: 'aegis-platform.net',     url: 'https://aegis-platform.net',     visible: false },
   ];
